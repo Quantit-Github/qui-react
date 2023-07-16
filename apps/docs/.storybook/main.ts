@@ -1,12 +1,12 @@
-const path = require("path");
-const { mergeConfig } = require("vite");
+const path = require('path');
+const { mergeConfig } = require('vite');
 
 module.exports = {
-  stories: ["../stories/**/*.stories.mdx", "../stories/**/*.stories.tsx"],
-  addons: ["@storybook/addon-links", "@storybook/addon-essentials"],
-  framework: "@storybook/react",
+  stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.tsx'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  framework: '@storybook/react',
   core: {
-    builder: "@storybook/builder-vite",
+    builder: '@storybook/builder-vite',
   },
   async viteFinal(config, { configType }) {
     // customize the Vite config here
@@ -14,11 +14,8 @@ module.exports = {
       resolve: {
         alias: [
           {
-            find: "@qui/react",
-            replacement: path.resolve(
-              __dirname,
-              "../../../packages/qui-react/"
-            ),
+            find: '@quantit/react',
+            replacement: path.resolve(__dirname, '../../../packages/qui-core/'),
           },
         ],
       },
