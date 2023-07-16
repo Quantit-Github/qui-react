@@ -22,9 +22,9 @@ importers:
 
   apps/docs:
     dependencies:
-      '@qui/react':
+      '@quantit/react':
         specifier: workspace:*
-        version: link:../../packages/qui-react
+        version: link:../../packages/qui-core
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -32,7 +32,7 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
-      '@qui/tsconfig':
+      '@quantit/tsconfig':
         specifier: workspace:0.0.0
         version: link:../../packages/tsconfig
       '@storybook/addon-actions':
@@ -84,9 +84,9 @@ importers:
         specifier: 7.29.4
         version: 7.29.4(eslint@8.29.0)
 
-  packages/qui-react:
+  packages/qui-core:
     devDependencies:
-      '@qui/tsconfig':
+      '@quantit/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':
@@ -115,7 +115,7 @@ importers:
 
   packages/utils:
     devDependencies:
-      '@qui/tsconfig':
+      '@quantit/tsconfig':
         specifier: workspace:*
         version: link:../tsconfig
       '@types/react':

@@ -5,6 +5,7 @@
   "fixed": [],
   "linked": [],
   "access": "public",
+  "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@qui/docs", "@qui/tsconfig", "@qui/utils", "eslint-config-qui"]
+  "ignore": ["@qui/docs"]
 }
