@@ -22,7 +22,7 @@ importers:
 
   apps/docs:
     dependencies:
-      '@quantit/react':
+      '@quantit/qui-react':
         specifier: workspace:*
         version: link:../../packages/qui-core
       react:
