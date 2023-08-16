@@ -1,12 +1,7 @@
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { themes as $themes, ThemeMode, ThemesType, isDarkMode } from '.';
 import { useLayoutEffect, useState } from 'react';
-import { ThemeProvider } from 'styled-components';
-import {
-  GlobalStyle,
-  ThemeMode,
-  ThemesType,
-  themes as $themes,
-  isDarkMode,
-} from '.';
+import reset from 'styled-reset';
 
 interface QuiThemeProviderProps {
   children: React.ReactNode;
@@ -26,21 +21,25 @@ interface QuiThemeProviderProps {
   themes?: ThemesType;
 }
 
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+`;
+
 export function QuiThemeProvider({
   children,
   mode,
   themes = $themes,
 }: QuiThemeProviderProps) {
-  const [systemThemeMode, setSystemThemeMode] = useState<ThemeMode>('light'); // props mode가 없다면 시스템 테마 사용.
+  const [systemMode, setSystemMode] = useState<ThemeMode>('light');
 
   useLayoutEffect(() => {
     if (isDarkMode()) {
-      setSystemThemeMode('dark');
+      setSystemMode('dark');
     }
   }, []);
 
   return (
-    <ThemeProvider theme={themes[mode || systemThemeMode]}>
+    <ThemeProvider theme={themes[mode || systemMode]}>
       <GlobalStyle />
       {children}
     </ThemeProvider>
