@@ -1,4 +1,4 @@
-import { Button } from '@quantit/react/src';
+import { Button } from '@quantit/qui-react/src';
 import { ArgTypes, Meta, Story } from '@storybook/react';
 import * as React from 'react';
 import { ComponentProps } from 'react';

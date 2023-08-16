@@ -1,5 +1,5 @@
 {
-  "name": "@qui/docs",
+  "name": "@quantit/qui-docs",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules"
   },
   "dependencies": {
-    "@quantit/react": "workspace:*",
+    "@quantit/qui-react": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

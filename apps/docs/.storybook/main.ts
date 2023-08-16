@@ -14,7 +14,7 @@ module.exports = {
       resolve: {
         alias: [
           {
-            find: '@quantit/react',
+            find: '@quantit/qui-react',
             replacement: path.resolve(__dirname, '../../../packages/qui-core/'),
           },
         ],
