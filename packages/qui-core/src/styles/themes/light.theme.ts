@@ -2,7 +2,8 @@ import { commonTheme } from './common.theme';
 
 export const lightTheme = {
   colors: {
-    primary: '#ff0000',
+    primary: '#2976FF',
+    onPrimary: '#ffffff',
   },
   ...commonTheme,
 };
