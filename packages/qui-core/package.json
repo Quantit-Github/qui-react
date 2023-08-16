@@ -22,6 +22,8 @@
     "eslint": "^8.15.0",
     "eslint-config-qui": "workspace:*",
     "react": "^18.1.0",
+    "styled-components": "^6.0.7",
+    "styled-reset": "^4.5.1",
     "tsup": "^5.10.1",
     "typescript": "^4.5.3"
   },
