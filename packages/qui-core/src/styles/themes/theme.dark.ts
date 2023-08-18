@@ -1,5 +1,5 @@
-import { commonTheme } from './common.theme';
-import { defaultThemeType } from './light.theme';
+import { commonTheme } from './theme.common';
+import { defaultThemeType } from './theme.light';
 
 export const darkTheme: defaultThemeType = {
   colors: {

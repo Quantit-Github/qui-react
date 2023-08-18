@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import { Button, QuiThemeProvider } from '@quantit/qui-react';
+import { Button, QuiThemeProvider, Typography } from '@quantit/qui-react';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,7 +18,10 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Button>ddf</Button>
+        <Button>버튼</Button>
+        <Typography as="p" bold size="sm" variant="title">
+          타이포그래피
+        </Typography>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
