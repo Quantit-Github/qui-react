@@ -1,4 +1,5 @@
 import React from 'react';
+import { QuiThemeProvider } from '@quantit/qui-react';
 
 const preview = {
   parameters: {
@@ -12,6 +13,12 @@ const preview = {
   },
 };
 
-export const decorators = [(Story) => <Story />];
+export const decorators = [
+  (Story) => (
+    <QuiThemeProvider>
+      <Story />
+    </QuiThemeProvider>
+  ),
+];
 
 export default preview;

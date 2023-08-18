@@ -1,4 +1,5 @@
-import { commonTheme } from './common.theme';
+import { commonTheme } from './theme.common';
+import { typographyTheme } from './theme.typography';
 
 export const lightTheme = {
   colors: {
