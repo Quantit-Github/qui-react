@@ -1,24 +1,35 @@
-const path = require('path');
-const { mergeConfig } = require('vite');
+import { join, dirname } from 'path';
+import { StorybookConfig } from '@storybook/react-vite';
 
-module.exports = {
-  stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.tsx'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-vite',
-  },
-  async viteFinal(config, { configType }) {
-    // customize the Vite config here
-    return mergeConfig(config, {
-      resolve: {
-        alias: [
-          {
-            find: '@quantit/qui-react',
-            replacement: path.resolve(__dirname, '../../../packages/qui-core/'),
-          },
-        ],
+/**
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ */
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
+
+const config: StorybookConfig = {
+  stories: [
+    '../stories/**/*.mdx',
+    '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)',
+  ],
+  addons: [
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-onboarding'),
+    getAbsolutePath('@storybook/addon-interactions'),
+  ],
+  framework: '@storybook/react-vite',
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      compilerOptions: {
+        allowSyntheticDefaultImports: false,
+        esModuleInterop: false,
       },
-    });
+      propFilter: () => true,
+    },
   },
 };
+export default config;
