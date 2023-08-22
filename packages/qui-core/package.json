@@ -1,6 +1,14 @@
 {
   "name": "@quantit/qui-react",
   "version": "0.0.4",
+  "author": "Quantit FE Team",
+  "keywords": [
+    "react",
+    "react-component",
+    "react-ui",
+    "quantit",
+    "qui"
+  ],
   "files": [
     "dist/**"
   ],
@@ -10,8 +18,8 @@
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
-    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "eslint \"src/**/*.ts*\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },

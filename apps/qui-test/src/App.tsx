@@ -1,7 +1,9 @@
+import { Button } from '@quantit/qui-react/dist/components/Button';
+import { Typography } from '@quantit/qui-react/dist/components/Typography';
+import { QuiThemeProvider } from '@quantit/qui-react/dist/styles';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
-import { Button, QuiThemeProvider, Typography } from '@quantit/qui-react';
 
 function App() {
   const [count, setCount] = useState(0);

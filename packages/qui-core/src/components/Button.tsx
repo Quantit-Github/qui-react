@@ -19,6 +19,7 @@ const ButtonStyle = styled.button`
   border: none;
   border-radius: 4px;
   color: ${({ theme }) => theme.colors.onPrimary};
+  cursor: pointer;
   padding: 8px 16px;
   line-height: 1;
 `;
