@@ -4,13 +4,20 @@
 name: Publish
 
 on:
-  release:
-    types: [created]
+  # release:
+  #   types: [created]
+  push:
+    branches:
+      - publish-test
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   publish-npm:
+    permissions:
+      contents: write # to create release
+      issues: write # to post issue comments
+      pull-requests: write # to create pull request
     runs-on: ubuntu-latest
     steps:
       - name: Check out Code
