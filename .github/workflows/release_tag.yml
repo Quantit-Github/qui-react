@@ -1,31 +1,31 @@
 name: Release Tag
 on:
   push:
-    branches: ['main']
+    branches: ['tag-test']
 
 jobs:
-  check-commit:
+  check-version:
     runs-on: ubuntu-latest
     outputs:
-      result: ${{ steps.check.outputs.result }}
       version: ${{ steps.get-version.outputs.version }}
     steps:
       - uses: actions/checkout@v3
-      - name: Check commit message
-        id: check
-        run: echo "result=$(echo '${{ github.event.head_commit.message }}' | grep -oP 'v[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')" >> $GITHUB_OUTPUT
-        shell: bash
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Get version
         id: get-version
-        run: echo "version=$(echo '${{ github.event.head_commit.message }}' | grep -oP 'v[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}')" >> $GITHUB_OUTPUT
+        run: |
+          VERSION=$(cd packages/qui-core && node -p "require('./package.json').version")
+          echo "version=v$VERSION" >> $GITHUB_OUTPUT
         shell: bash
 
   create-tag:
     permissions:
       contents: write # to create tag
     runs-on: ubuntu-latest
-    needs: ['check-commit']
-    if: ${{ needs.check-commit.outputs.result != '' }}
+    needs: ['check-version']
+    if: ${{ needs.check-version.outputs.version != '' }}
     outputs:
       tag-exists: ${{ steps.create-tag.outputs.tag_exists }}
       release-body: ${{ steps.generate-body.outputs.body }}
@@ -48,21 +48,21 @@ jobs:
       - uses: rickstaa/action-create-tag@v1
         id: create-tag
         with:
-          tag: ${{ needs.check-commit.outputs.version }}
+          tag: ${{ needs.check-version.outputs.version }}
           tag_exists_error: true
-          message: ${{ needs.check-commit.outputs.version }}
+          message: ${{ needs.check-version.outputs.version }}
 
   create-release:
     permissions:
       contents: write # to create release
     runs-on: ubuntu-latest
-    needs: ['check-commit', 'create-tag']
+    needs: ['check-version', 'create-tag']
     if: ${{ needs.create-tag.outputs.tag-exists == 'false' }}
     steps:
       - uses: actions/checkout@v3
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ needs.check-commit.outputs.version }}
-          name: ${{ needs.check-commit.outputs.version }}
+          tag: ${{ needs.check-version.outputs.version }}
+          name: ${{ needs.check-version.outputs.version }}
           body: ${{ needs.create-tag.outputs.release-body }}
