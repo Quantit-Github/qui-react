@@ -4,8 +4,11 @@
 name: Publish
 
 on:
-  release:
-    types: [created]
+  # release:
+  #   types: [created]
+  push:
+    branches:
+      - publish-test
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -57,5 +60,6 @@ jobs:
         with:
           publish: pnpm release
           version: pnpm version-packages
+          title: '📦 Release'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
