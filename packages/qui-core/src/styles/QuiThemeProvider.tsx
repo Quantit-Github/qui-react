@@ -1,24 +1,35 @@
+import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { themes as $themes, ThemeMode, ThemesType, isDarkMode } from '.';
-import { useLayoutEffect, useState } from 'react';
 import reset from 'styled-reset';
+import { PaletteMode } from './palette/palette';
+import { Theme } from './themes';
+import { isDarkMode } from './utils';
 
 interface QuiThemeProviderProps {
   children: React.ReactNode;
   /**
    * 테마 모드  (light | dark)
    *
-   * 테마 모드를 강제로 설정하고 싶을 때 사용.
+   * 테마 모드를 강제하고 싶을 때 사용.
+   * @type {PaletteMode}
    */
-  mode?: ThemeMode;
+  mode?: PaletteMode;
   /**
-   * 테마 객체
+   * 테마 인스턴스
    *
    * 기존 테마를 덮어쓰고 싶을 때 사용.
-   * @description light와 dark 모드가 모두 정의되어야 함.
-   * @type {ThemesType}
+   * @type {Theme}
+   * @description 테마 인스턴스를 생성하여 넘긴다.
+   * @example
+   * const theme = new Theme().setPalette('dark', {
+   *  primary: {
+   *   100: '#FF0000',
+   *  },
+   * });
+   *
+   * <QuiThemeProvider themes={theme}>
    */
-  themes?: ThemesType;
+  theme?: Theme;
 }
 
 const GlobalStyle = createGlobalStyle`
@@ -28,9 +39,14 @@ const GlobalStyle = createGlobalStyle`
 export function QuiThemeProvider({
   children,
   mode,
-  themes = $themes,
+  theme,
 }: QuiThemeProviderProps) {
-  const [systemMode, setSystemMode] = useState<ThemeMode>('light');
+  const [systemMode, setSystemMode] = useState<PaletteMode>('light');
+  const themeInstance = useRef(theme || new Theme());
+  const _theme = useMemo(
+    () => themeInstance.current.setPaletteMode(systemMode).getTheme(),
+    [systemMode]
+  );
 
   useLayoutEffect(() => {
     if (isDarkMode()) {
@@ -38,8 +54,14 @@ export function QuiThemeProvider({
     }
   }, []);
 
+  useLayoutEffect(() => {
+    if (mode) {
+      setSystemMode(mode);
+    }
+  }, [mode]);
+
   return (
-    <ThemeProvider theme={themes[mode || systemMode]}>
+    <ThemeProvider theme={_theme}>
       <GlobalStyle />
       {children}
     </ThemeProvider>

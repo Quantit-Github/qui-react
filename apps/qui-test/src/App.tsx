@@ -1,15 +1,23 @@
 import { Button } from '@quantit/qui-react/dist/components/Button';
 import { Typography } from '@quantit/qui-react/dist/components/Typography';
-import { QuiThemeProvider } from '@quantit/qui-react/dist/styles';
+import { QuiThemeProvider, Theme } from '@quantit/qui-react/dist/styles';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
+
+const theme = new Theme().setPalette('dark', {
+  primary: {
+    100: '#FF0000',
+  },
+});
+
+console.log('theme: ', theme);
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <QuiThemeProvider>
+    <QuiThemeProvider mode="dark" themes={theme}>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

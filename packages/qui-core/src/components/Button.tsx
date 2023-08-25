@@ -15,10 +15,10 @@ export interface ButtonProps {
 }
 
 const ButtonStyle = styled.button`
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colorPalette.primary[100]};
   border: none;
   border-radius: 4px;
-  color: ${({ theme }) => theme.colors.onPrimary};
+  color: ${({ theme }) => theme.colorPalette.white[100]};
   cursor: pointer;
   padding: 8px 16px;
   line-height: 1;

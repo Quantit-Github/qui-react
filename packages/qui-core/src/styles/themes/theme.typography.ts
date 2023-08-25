@@ -1,4 +1,6 @@
-export const typographyTheme = {
+import { TypographyTheme } from './theme';
+
+export const typographyTheme: TypographyTheme = {
   display: {
     lg: {
       fontSize: '56px',
