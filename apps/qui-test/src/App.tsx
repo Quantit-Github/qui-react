@@ -11,8 +11,6 @@ const theme = new Theme().setPalette('dark', {
   },
 });
 
-console.log('theme: ', theme);
-
 function App() {
   const [count, setCount] = useState(0);
 
@@ -28,7 +26,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Button>버튼</Button>
+        <Button onClick={() => console.log('클릭')}>버튼</Button>
         <Typography as="p" bold size="sm" variant="title">
           타이포그래피
         </Typography>
