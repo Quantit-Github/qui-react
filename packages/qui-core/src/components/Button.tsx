@@ -1,11 +1,8 @@
-import React from 'react';
+import { useRef } from 'react';
+import { AriaButtonProps, useButton } from 'react-aria';
 import { styled } from 'styled-components';
 
-export interface ButtonProps {
-  /**
-   * 자식 컴포넌트.
-   */
-  children: React.ReactNode;
+export interface ButtonProps extends AriaButtonProps {
   /**
    * 버튼 클릭 이벤트 핸들러.
    *
@@ -20,10 +17,12 @@ const ButtonStyle = styled.button`
   border-radius: 4px;
   color: ${({ theme }) => theme.colorPalette.white[100]};
   cursor: pointer;
-  padding: 8px 16px;
   line-height: 1;
+  padding: 8px 16px;
 `;
 
 export function Button(props: ButtonProps) {
-  return <ButtonStyle {...props}>{props.children}</ButtonStyle>;
+  const ref = useRef(null);
+  const { buttonProps } = useButton({ ...props, onPress: props.onClick }, ref);
+  return <ButtonStyle {...buttonProps}>{props.children}</ButtonStyle>;
 }

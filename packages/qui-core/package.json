@@ -1,6 +1,6 @@
 {
   "name": "@quantit/qui-react",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Quantit FE Team",
   "keywords": [
     "react",
@@ -30,6 +30,7 @@
     "eslint": "^8.15.0",
     "eslint-config-qui": "workspace:*",
     "react": "^18.1.0",
+    "react-aria": "^3.27.0",
     "styled-components": "^6.0.7",
     "styled-reset": "^4.5.1",
     "tsup": "^5.10.1",
