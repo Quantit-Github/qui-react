@@ -17,6 +17,5 @@
     "eslint-config-qui": "workspace:*",
     "prettier": "^2.8.0",
     "turbo": "latest"
-  },
-  "packageManager": "pnpm@7.15.0"
+  }
 }
