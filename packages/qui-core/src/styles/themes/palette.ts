@@ -1,18 +1,17 @@
-import { BasePaletteType, PaletteMode, PaletteOptions } from './palette';
-import { darkBasePalette, lightBasePalette } from './palette.base';
+import { DARK_BASE_PALETTE, LIGHT_BASE_PALETTE } from './palette.const';
+import { BasePaletteType, PaletteMode, PaletteOptions } from './palette.type';
 import { getPaletteFromOptions } from './palette.utils';
 
 export class Palette {
   private mode: PaletteMode = 'light';
-  private darkPalette: BasePaletteType = darkBasePalette;
-  private lightPalette: BasePaletteType = lightBasePalette;
+  private darkPalette: BasePaletteType = DARK_BASE_PALETTE;
+  private lightPalette: BasePaletteType = LIGHT_BASE_PALETTE;
   private currentPalette: BasePaletteType = this.lightPalette;
 
   constructor(mode: PaletteMode) {
     this.mode = mode;
     this.currentPalette =
       this.mode === 'light' ? this.lightPalette : this.darkPalette;
-    return this;
   }
 
   public getPalette(): BasePaletteType {
@@ -23,7 +22,7 @@ export class Palette {
     return this.mode;
   }
 
-  public setPalette(mode: PaletteMode, options: PaletteOptions) {
+  public setPalette(mode: PaletteMode, options: PaletteOptions): this {
     if (mode === 'dark') {
       this.darkPalette = {
         ...this.darkPalette,
@@ -38,7 +37,7 @@ export class Palette {
     return this;
   }
 
-  public setPaletteMode(mode: PaletteMode) {
+  public setPaletteMode(mode: PaletteMode): this {
     this.mode = mode;
     this.currentPalette =
       this.mode === 'light' ? this.lightPalette : this.darkPalette;

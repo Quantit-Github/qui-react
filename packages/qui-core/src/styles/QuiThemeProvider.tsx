@@ -1,8 +1,8 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import { PaletteMode } from './palette/palette';
-import { Theme } from './themes';
+import { PaletteMode } from './themes/palette.type';
+import { Theme } from './themes/theme';
 import { isDarkMode } from './utils';
 
 interface QuiThemeProviderProps {

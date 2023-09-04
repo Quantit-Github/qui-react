@@ -1,6 +1,7 @@
 import { ElementType, createElement } from 'react';
 import { css, styled } from 'styled-components';
-import { SizeType, TypographyVariantType } from '../styles/base/base.type';
+import { SizeType } from '../styles/themes/theme.type';
+import { TypographyVariantType } from '../styles/themes/typography.type';
 
 export interface TypographyProps {
   /**
