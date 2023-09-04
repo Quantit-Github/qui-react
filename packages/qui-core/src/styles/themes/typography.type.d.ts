@@ -1,6 +1,4 @@
-import { BasePaletteType } from '../palette/palette';
-
-export type SizeType = 'lg' | 'md' | 'sm';
+import { SizeType } from './theme.type';
 
 export type TypographyVariantType =
   | 'title'
@@ -17,8 +15,3 @@ export interface TypographySize {
 export type TypographyVariant = Record<SizeType, TypographySize>;
 
 export type TypographyTheme = Record<TypographyVariantType, TypographyVariant>;
-
-export interface defaultThemeType {
-  colorPalette: BasePaletteType;
-  typography: TypographyTheme;
-}

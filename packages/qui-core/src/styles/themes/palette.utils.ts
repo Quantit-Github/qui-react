@@ -1,10 +1,10 @@
+import { DARK_BASE_PALETTE, LIGHT_BASE_PALETTE } from './palette.const';
 import {
   BasePaletteEnum,
   BasePaletteType,
   PaletteMode,
   PaletteOptions,
-} from './palette';
-import { darkBasePalette, lightBasePalette } from './palette.base';
+} from './palette.type';
 
 /**
  * 컬러 옵션을 넘겨서 새로운 팔레트를 만들어 반환.
@@ -26,7 +26,7 @@ export function getPaletteFromOptions(
   options: PaletteOptions
 ): BasePaletteType {
   const palette: BasePaletteType = Object.create(
-    mode === 'dark' ? darkBasePalette : lightBasePalette
+    mode === 'dark' ? DARK_BASE_PALETTE : LIGHT_BASE_PALETTE
   );
 
   Object.keys(options).forEach((optionKey) => {
