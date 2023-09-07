@@ -3,7 +3,7 @@ import { TypographyTheme } from './typography.type';
 
 export type SizeType = 'lg' | 'md' | 'sm';
 
-export interface defaultThemeType {
+export interface QuiTheme {
   color: {
     mode: PaletteMode;
     palette: BasePaletteType;

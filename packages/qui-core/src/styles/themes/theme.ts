@@ -1,6 +1,6 @@
 import { Palette } from './palette';
 import { PaletteMode, PaletteOptions } from './palette.type';
-import { defaultThemeType } from './theme.type';
+import { QuiTheme } from './theme.type';
 import { BASE_TYPOGRAPHY } from './typography.const';
 import { TypographyTheme } from './typography.type';
 
@@ -13,7 +13,7 @@ export class Theme {
     this.palette.setPaletteMode(mode);
   }
 
-  public getTheme(): defaultThemeType {
+  public getTheme(): QuiTheme {
     return {
       color: {
         mode: this.palette.getPaletteMode(),
