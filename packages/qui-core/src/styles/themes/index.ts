@@ -15,4 +15,4 @@ export type {
   TypographyVariant,
   TypographyVariantType,
 } from './typography.type';
-export type { SizeType, defaultThemeType } from './theme.type';
+export type { SizeType, QuiTheme } from './theme.type';
