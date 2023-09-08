@@ -1,12 +1,12 @@
 import { BasePaletteType, PaletteMode } from './palette.type';
 import { TypographyTheme } from './typography.type';
 
-export type SizeType = 'lg' | 'md' | 'sm';
-
 export interface QuiTheme {
+  /** 컬러 */
   color: {
     mode: PaletteMode;
     palette: BasePaletteType;
   };
+  /** 타이포그래피 */
   typography: TypographyTheme;
 }

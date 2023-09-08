@@ -1,6 +1,6 @@
 {
   "name": "@quantit/qui-react",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "Quantit FE Team",
   "keywords": [
     "react",
@@ -21,18 +21,22 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint \"src/**/*.ts*\"",
-    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "test": "jest --coverage"
   },
   "devDependencies": {
     "@quantit/tsconfig": "workspace:*",
+    "@types/jest": "^29.5.4",
     "@types/react": "^18.0.9",
     "@types/react-dom": "^18.0.4",
     "eslint": "^8.15.0",
     "eslint-config-qui": "workspace:*",
+    "jest": "^29.6.4",
     "react": "^18.1.0",
     "react-aria": "^3.27.0",
     "styled-components": "^6.0.7",
     "styled-reset": "^4.5.1",
+    "ts-jest": "^29.1.1",
     "tsup": "^5.10.1",
     "typescript": "^4.5.3"
   },
