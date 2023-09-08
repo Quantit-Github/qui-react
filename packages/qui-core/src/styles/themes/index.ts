@@ -1,5 +1,3 @@
-export * from './theme';
-export * from './typography.const';
 export * from './palette';
 export type {
   BasePaletteEnum,
@@ -9,10 +7,12 @@ export type {
   PaletteMode,
   PaletteOptions,
 } from './palette.type';
+export * from './theme';
+export type { QuiTheme } from './theme.type';
+export * from './typography.const';
 export type {
-  TypographySize,
   TypographyTheme,
+  TypographyValue,
   TypographyVariant,
   TypographyVariantType,
 } from './typography.type';
-export type { SizeType, QuiTheme } from './theme.type';

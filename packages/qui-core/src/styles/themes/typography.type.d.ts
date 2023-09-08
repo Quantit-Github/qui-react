@@ -1,4 +1,4 @@
-import { SizeType } from './theme.type';
+export type TypographySizeType = 'lg' | 'md' | 'sm';
 
 export type TypographyVariantType =
   | 'title'
@@ -7,11 +7,27 @@ export type TypographyVariantType =
   | 'display'
   | 'headline';
 
-export interface TypographySize {
+export interface TypographyValue {
+  /**
+   * fontSize, lineHeight로 이뤄진 CSS string.
+   * @example
+   * theme.typography.body.lg.cssString // 'font-size:16px;line-height:24px'
+   */
+  cssString: string;
+  /**
+   * fontSize
+   * @example
+   * theme.typography.body.lg.fontSize // '16px'
+   */
   fontSize: string;
+  /**
+   * lineHeight
+   * @example
+   * theme.typography.body.lg.lineHeight // '24px'
+   */
   lineHeight: string;
 }
 
-export type TypographyVariant = Record<SizeType, TypographySize>;
+export type TypographyVariant = Record<TypographySizeType, TypographyValue>;
 
 export type TypographyTheme = Record<TypographyVariantType, TypographyVariant>;

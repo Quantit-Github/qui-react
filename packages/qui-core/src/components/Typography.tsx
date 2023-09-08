@@ -1,7 +1,9 @@
 import { ElementType, createElement } from 'react';
 import { css, styled } from 'styled-components';
-import { SizeType } from '../styles/themes/theme.type';
-import { TypographyVariantType } from '../styles/themes/typography.type';
+import {
+  TypographySizeType,
+  TypographyVariantType,
+} from '../styles/themes/typography.type';
 
 export interface TypographyProps {
   /**
@@ -30,7 +32,7 @@ export interface TypographyProps {
    * @example
    * <Typography size="sm">Hello World</Typography>
    */
-  size: SizeType;
+  size: TypographySizeType;
   /**
    * 타이포그래피 타입
    *
@@ -50,13 +52,9 @@ const boldCss = css<TypographyProps>`
 `;
 
 const variantCss = css<TypographyProps>`
-  ${({ size, theme, variant }) => {
-    const { fontSize, lineHeight } = theme.typography[variant][size];
-    return css`
-      font-size: ${fontSize};
-      line-height: ${lineHeight};
-    `;
-  }}
+  ${({ size, theme, variant }) => css`
+    ${theme.typography[variant][size].cssString}
+  `}
 `;
 
 const Component = (props: TypographyProps) =>

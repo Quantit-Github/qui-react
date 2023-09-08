@@ -1,74 +1,30 @@
 import { TypographyTheme } from './typography.type';
+import { createTypography } from './typography.utils';
 
 export const BASE_TYPOGRAPHY: TypographyTheme = {
   display: {
-    lg: {
-      fontSize: '56px',
-      lineHeight: '64px',
-    },
-    md: {
-      fontSize: '44px',
-      lineHeight: '52px',
-    },
-    sm: {
-      fontSize: '24px',
-      lineHeight: '32px',
-    },
+    lg: createTypography('56px', '64px'),
+    md: createTypography('44px', '52px'),
+    sm: createTypography('24px', '32px'),
   },
   headline: {
-    lg: {
-      fontSize: '32px',
-      lineHeight: '40px',
-    },
-    md: {
-      fontSize: '28px',
-      lineHeight: '36px',
-    },
-    sm: {
-      fontSize: '24px',
-      lineHeight: '32px',
-    },
+    lg: createTypography('32px', '40px'),
+    md: createTypography('28px', '36px'),
+    sm: createTypography('24px', '32px'),
   },
   title: {
-    lg: {
-      fontSize: '22px',
-      lineHeight: '28px',
-    },
-    md: {
-      fontSize: '16px',
-      lineHeight: '24px',
-    },
-    sm: {
-      fontSize: '14px',
-      lineHeight: '20px',
-    },
+    lg: createTypography('22px', '28px'),
+    md: createTypography('16px', '24px'),
+    sm: createTypography('14px', '20px'),
   },
   body: {
-    lg: {
-      fontSize: '16px',
-      lineHeight: '24px',
-    },
-    md: {
-      fontSize: '14px',
-      lineHeight: '20px',
-    },
-    sm: {
-      fontSize: '12px',
-      lineHeight: '16px',
-    },
+    lg: createTypography('16px', '24px'),
+    md: createTypography('14px', '20px'),
+    sm: createTypography('12px', '16px'),
   },
   label: {
-    lg: {
-      fontSize: '14px',
-      lineHeight: '20px',
-    },
-    md: {
-      fontSize: '10px',
-      lineHeight: '14px',
-    },
-    sm: {
-      fontSize: '10px',
-      lineHeight: '14px',
-    },
+    lg: createTypography('14px', '20px'),
+    md: createTypography('10px', '14px'),
+    sm: createTypography('10px', '14px'),
   },
 };
