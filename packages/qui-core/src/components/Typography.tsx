@@ -68,3 +68,12 @@ const TypographyStyle = styled(Component)`
 export function Typography(props: TypographyProps) {
   return <TypographyStyle {...props} />;
 }
+
+/**
+ * HTML Element가 설정된 Typography 컴포넌트를 반환
+ *
+ * @param {ElementType} as HTML Element 태그
+ * @returns {Typography} Typography 컴포넌트
+ */
+Typography.as = (as: ElementType) => (props: TypographyProps) =>
+  <TypographyStyle as={as} {...props} />;

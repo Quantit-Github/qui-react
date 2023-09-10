@@ -4,7 +4,7 @@ import { Typography } from '../components';
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Example/Typography',
-  component: Typography,
+  component: Typography.as('p'),
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -18,39 +18,7 @@ export default {
 type Story = StoryObj<typeof Typography>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Display: Story = {
-  args: {
-    children: 'Display',
-    size: 'md',
-    variant: 'display',
-  },
-};
-
-export const Headline: Story = {
-  args: {
-    children: 'Headline',
-    size: 'md',
-    variant: 'headline',
-  },
-};
-
-export const Title: Story = {
-  args: {
-    children: 'Title',
-    size: 'md',
-    variant: 'title',
-  },
-};
-
-export const Body: Story = {
-  args: {
-    children: 'Body',
-    size: 'md',
-    variant: 'body',
-  },
-};
-
-export const Label: Story = {
+export const LabelAsP: Story = {
   args: {
     children: 'Label',
     size: 'md',
