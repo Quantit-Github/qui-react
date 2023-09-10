@@ -3,10 +3,12 @@ import { TypographyTheme } from './typography.type';
 
 export interface QuiTheme {
   /** 컬러 */
-  color: {
-    mode: PaletteMode;
-    palette: BasePaletteType;
-  };
+  color: BasePaletteType;
   /** 타이포그래피 */
   typography: TypographyTheme;
+  palette: {
+    dark: BasePaletteType;
+    light: BasePaletteType;
+    mode: PaletteMode;
+  };
 }

@@ -1,23 +1,10 @@
 import { Button } from '@quantit/qui-react/src/components/Button';
 import { Typography } from '@quantit/qui-react/src/components/Typography';
-import { QuiThemeProvider, Theme } from '@quantit/qui-react/src/styles';
+import { ThemeProvider } from '@quantit/qui-react/src/styles';
 import { useState } from 'react';
 import { styled } from 'styled-components';
-import MoonIcon from './assets/moon.png';
 import SunIcon from './assets/light.png';
-
-const customTheme = new Theme();
-// .setPalette('dark', {
-//   primary: {
-//     50: 'green',
-//     60: 'pink',
-//   },
-// })
-// .setPalette('light', {
-//   primary: {
-//     50: 'purple',
-//   },
-// });
+import MoonIcon from './assets/moon.png';
 
 const Container = styled.div`
   display: flex;
@@ -52,7 +39,7 @@ function App() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
 
   return (
-    <QuiThemeProvider mode={mode} theme={customTheme}>
+    <ThemeProvider>
       <div
         style={{
           backgroundColor: mode === 'dark' ? '#333' : '#fff',
@@ -71,23 +58,20 @@ function App() {
           <Section>
             <h3>Button</h3>
             <Section>
-              <Button buttonType="primary" onClick={() => console.log('클릭')}>
+              <Button variant="primary" onClick={() => console.log('클릭')}>
                 Primary
               </Button>
-              <Button
-                buttonType="secondary"
-                onClick={() => console.log('클릭')}
-              >
+              <Button variant="secondary" onClick={() => console.log('클릭')}>
                 Secondary
               </Button>
-              <Button buttonType="ghost" onClick={() => console.log('클릭')}>
+              <Button variant="ghost" onClick={() => console.log('클릭')}>
                 Ghost
               </Button>
-              <Button buttonType="outline" onClick={() => console.log('클릭')}>
+              <Button variant="outline" onClick={() => console.log('클릭')}>
                 Outline
               </Button>
               <Button
-                buttonType="primary"
+                variant="primary"
                 disabled
                 onClick={() => console.log('클릭')}
               >
@@ -147,7 +131,7 @@ function App() {
           </Section>
         </Container>
       </div>
-    </QuiThemeProvider>
+    </ThemeProvider>
   );
 }
 

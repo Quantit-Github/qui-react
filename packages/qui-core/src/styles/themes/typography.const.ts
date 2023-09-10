@@ -1,5 +1,5 @@
 import { TypographyTheme } from './typography.type';
-import { createTypography } from './typography.utils';
+import { createTypography } from './typography.util';
 
 export const BASE_TYPOGRAPHY: TypographyTheme = {
   display: {
