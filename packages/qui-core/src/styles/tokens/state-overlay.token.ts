@@ -1,40 +1,39 @@
 import { css } from 'styled-components';
 
+// TODO: 다크 테마 논의 후 코드 수정
 const stateOverlayLightToken = css`
   &:active {
     &::after {
-      background-color: ${({ theme }) =>
-        theme.color.palette.black[20]} !important;
+      background-color: ${({ theme }) => theme.color.black[20]} !important;
     }
   }
 
   &:hover {
     &::after {
-      background-color: ${({ theme }) => theme.color.palette.black[10]};
+      background-color: ${({ theme }) => theme.color.black[10]};
     }
   }
 
   &:focus {
-    outline-color: ${({ theme }) => theme.color.palette.primary[30]};
+    outline-color: ${({ theme }) => theme.color.primary[30]};
   }
 `;
 
 const stateOverlayDarkToken = css`
   &:active {
     &::after {
-      background-color: ${({ theme }) =>
-        theme.color.palette.white[20]} !important;
+      background-color: ${({ theme }) => theme.color.white[20]} !important;
     }
   }
 
   &:hover {
     &::after {
-      background-color: ${({ theme }) => theme.color.palette.white[10]};
+      background-color: ${({ theme }) => theme.color.white[10]};
     }
   }
 
   &:focus {
-    outline-color: ${({ theme }) => theme.color.palette.primary[30]};
+    outline-color: ${({ theme }) => theme.color.primary[30]};
   }
 `;
 
@@ -66,7 +65,7 @@ export function getStateOverlayToken(borderRadius: number) {
     ${getStateOverlayContent(borderRadius)};
 
     ${({ theme }) => {
-      if (theme.color.mode === 'dark') {
+      if (theme.palette.mode === 'dark') {
         return stateOverlayDarkToken;
       }
       return stateOverlayLightToken;

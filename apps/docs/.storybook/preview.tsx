@@ -1,4 +1,4 @@
-import { QuiThemeProvider } from '@quantit/qui-react';
+import { ThemeProvider } from '@quantit/qui-react';
 import {
   Controls,
   Description,
@@ -36,9 +36,9 @@ const preview: Preview = {
 
 export const decorators = [
   (Story) => (
-    <QuiThemeProvider>
+    <ThemeProvider>
       <Story />
-    </QuiThemeProvider>
+    </ThemeProvider>
   ),
 ];
 

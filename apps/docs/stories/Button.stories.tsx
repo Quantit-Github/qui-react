@@ -19,14 +19,36 @@ export default {
 type Story = StoryObj<typeof Button>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Default: Story = {
+export const Primary: Story = {
   args: {
     children: 'Button',
+    variant: 'primary',
     onClick: () => console.log('클릭'),
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const button = await canvas.getByRole('button');
     await userEvent.click(button);
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    children: 'Button',
+    variant: 'outline',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    children: 'Button',
+    variant: 'ghost',
   },
 };
