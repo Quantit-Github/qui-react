@@ -167,3 +167,36 @@ function App() {
   );
 }
 ```
+
+## FAQ
+
+### Server, Client ClassName does not match while developing on Next.js.
+
+```
+Warning: Prop `className` did not match. Server: "sc-ftLKQv imujsh" Client: "sc-dkjKgF cWetnU"
+```
+
+1. Install `babel-plugin-styled-components`.
+
+```
+pnpm add -D babel-plugin-styled-components
+```
+
+2. Create `.babelrc` file on the root directory.
+
+```javascript
+// .babelrc
+{
+  "presets": ["next/babel"],
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "ssr": true,
+        "displayName": true,
+        "pure": true
+      }
+    ]
+  ]
+}
+```
