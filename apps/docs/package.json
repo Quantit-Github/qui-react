@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "storybook build",
-    "storybook": "storybook dev -p 6006",
+    "dev": "storybook dev -p 6006",
     "storybook:serve": "npx http-server storybook-static -p 6006 --silent",
     "test-runner": "test-storybook",
     "test": "npx concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm storybook:serve\" \"npx wait-on tcp:6006 && pnpm test-runner\""
