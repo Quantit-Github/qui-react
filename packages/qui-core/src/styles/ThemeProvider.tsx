@@ -55,13 +55,15 @@ export function ThemeProvider({ children, theme: _theme }: ThemeProviderProps) {
   }, [_theme, themeMode]);
 
   return (
-    <ThemeContext.Provider
-      value={{
-        themeMode,
-        toggleThemeMode,
-      }}
-    >
-      <StyledThemeProvider theme={theme}>{children}</StyledThemeProvider>
-    </ThemeContext.Provider>
+    <StyledThemeProvider theme={theme}>
+      <ThemeContext.Provider
+        value={{
+          themeMode,
+          toggleThemeMode,
+        }}
+      >
+        {children}
+      </ThemeContext.Provider>
+    </StyledThemeProvider>
   );
 }
