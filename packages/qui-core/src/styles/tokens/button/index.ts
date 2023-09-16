@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
 import { getButtonActiveToken } from './button-active.token';
+import { buttonDisabledToken } from './button-common.token';
 import { ButtonActiveType } from './button.token';
-import { buttonDisabledToken } from './button-disabled.token';
 
 export function getButtonToken(
   buttonType: ButtonActiveType,

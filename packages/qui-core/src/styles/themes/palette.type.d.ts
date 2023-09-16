@@ -14,18 +14,28 @@ export interface ColorRange {
   100: string;
 }
 
+export interface SemanticColorRange {
+  brightest: string;
+  border_high: string;
+  border_medium: string;
+  border_low: string;
+  state_overlay_focused: string;
+  primary_lighten: string;
+}
+
 export type ColorRangePartial = Partial<ColorRange>;
 
 export type BasePaletteEnum =
-  | 'black'
-  | 'error'
-  | 'grayscale'
-  | 'minus'
   | 'primary'
-  | 'up'
-  | 'white';
+  | 'grayscale'
+  | 'black_alpha'
+  | 'white_alpha'
+  | 'error'
+  | 'revenue_up'
+  | 'revenue_down';
 
-export type BasePaletteType = Record<BasePaletteEnum, ColorRange>;
+export type BasePaletteType = Record<BasePaletteEnum, ColorRange> &
+  Record<'semantic', SemanticColorRange>;
 
 export type PaletteMode = 'dark' | 'light';
 
