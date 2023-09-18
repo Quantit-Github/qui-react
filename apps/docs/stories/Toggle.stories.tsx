@@ -26,6 +26,15 @@ export const Default: Story = {
   },
 };
 
+export const DefaultTrue: Story = {
+  args: {
+    flag: true,
+    onChange(flag) {
+      console.log(flag);
+    },
+  },
+};
+
 export const Disabled: Story = {
   args: {
     disabled: true,

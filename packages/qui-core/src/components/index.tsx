@@ -1,3 +1,3 @@
-export { Button, type ButtonProps } from './Button';
-export { Toggle, type ToggleProps } from './Toggle';
-export { Typography, type TypographyProps } from './Typography';
+export * from './Button';
+export * from './Toggle';
+export * from './Typography';
