@@ -1,10 +1,13 @@
-import { ChangeEventHandler, InputHTMLAttributes, useState } from 'react';
-import { VisuallyHidden } from 'react-aria';
-import { styled } from 'styled-components';
+import { ChangeEventHandler, useState } from 'react';
+import { css, styled } from 'styled-components';
 import { getStateOverlayToken } from '../styles/tokens';
+import { swtichDisabledToken } from '../styles/tokens/switch/common.token';
+import {
+  toggleOffToken,
+  toggleOnToken,
+} from '../styles/tokens/switch/toggle.token';
 
-export interface ToggleProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
+export interface ToggleProps {
   /**
    * 자식 컴포넌트
    */
@@ -31,22 +34,73 @@ export interface ToggleProps
   onChange: (flag: boolean) => void;
 }
 
-const ToggleStyle2 = styled.label<Pick<ToggleProps, 'disabled'>>`
-  display: inline-flex;
-  align-items: center;
+interface SliderStyleProps extends Pick<ToggleProps, 'disabled'> {
+  isSelected: boolean;
+}
 
-  & rect {
-  }
-  & rect:nth-of-type(2) {
-    stroke: blue;
-    fill: none;
-  }
-  & circle {
-    transition: all 0.3s;
-    fill: white;
+const ToggleStyle = styled.label<Pick<ToggleProps, 'disabled'>>`
+  position: relative;
+  display: inline-block;
+  width: 56px;
+  height: 32px;
+
+  & > input {
+    opacity: 0;
+    width: 0;
+    height: 0;
   }
 
-  ${getStateOverlayToken(16)}
+  ${({ disabled }) => !disabled && getStateOverlayToken(32)}
+`;
+
+const SliderStyle = styled.span<SliderStyleProps>`
+  background-color: #ccc;
+  border-radius: 32px;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+
+  // handle
+  &::before {
+    position: absolute;
+    content: '';
+    height: 24px;
+    width: 24px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+    border-radius: 50%;
+  }
+
+  ${({ disabled, isSelected }) => {
+    if (isSelected)
+      return css`
+        &:before {
+          // handle
+          -webkit-transform: translateX(24px);
+          -ms-transform: translateX(24px);
+          transform: translateX(24px);
+        }
+
+        ${toggleOnToken}
+      `;
+    if (disabled) {
+      return css`
+        ${swtichDisabledToken}
+      `;
+    }
+    return toggleOffToken;
+  }}
 `;
 
 export function Toggle({
@@ -64,33 +118,16 @@ export function Toggle({
   };
 
   return (
-    <ToggleStyle2
-      style={{
-        opacity: disabled ? 0.4 : 1,
-      }}
-    >
-      <VisuallyHidden>
-        <input
-          disabled={disabled}
-          type="checkbox"
-          role="switch"
-          onChange={handleChange}
-          {...props}
-        />
-      </VisuallyHidden>
-      <svg width={56} height={32} aria-hidden="true">
-        <rect
-          width={56}
-          height={32}
-          rx={16}
-          fill={isSelected ? 'black' : 'gray'}
-        />
-        <circle cx={isSelected ? 40 : 16} cy={16} r={12} />
-        {/* {isFocusVisible && (
-          <rect x={1} y={1} width={54} height={30} rx={16} strokeWidth={2} />
-        )} */}
-      </svg>
-      {children}
-    </ToggleStyle2>
+    <ToggleStyle disabled={disabled}>
+      <input
+        role="switch"
+        type="checkbox"
+        checked={isSelected}
+        disabled={disabled}
+        {...props}
+        onChange={handleChange}
+      />
+      <SliderStyle disabled={disabled} isSelected={isSelected} />
+    </ToggleStyle>
   );
 }

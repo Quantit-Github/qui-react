@@ -52,3 +52,11 @@ export const Ghost: Story = {
     variant: 'ghost',
   },
 };
+
+export const Disabled: Story = {
+  args: {
+    children: 'Button',
+    disabled: true,
+    variant: 'ghost',
+  },
+};

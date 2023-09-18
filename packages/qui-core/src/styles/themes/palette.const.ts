@@ -62,12 +62,12 @@ export const LIGHT_BASE_PALETTE: BasePaletteType = {
     0: 'rgb(249, 250, 253, 0)',
   },
   semantic: {
-    brightest: 'FDFDFD',
+    brightest: '#FDFDFD',
     border_high: 'rgb(16, 16, 20, .8)',
     border_medium: 'rgb(16, 16, 20, .15)',
     border_low: 'rgb(16, 16, 20, .06)',
-    state_overlay_focused: 'BAD4FF',
-    primary_lighten: '2B31EC',
+    state_overlay_focused: '#BAD4FF',
+    primary_lighten: '#2B31EC',
   },
   error: {
     100: '#4A0E19',
@@ -178,12 +178,12 @@ export const DARK_BASE_PALETTE: BasePaletteType = {
     0: 'rgb(16, 16, 20, 0)',
   },
   semantic: {
-    brightest: 'FDFDFD',
+    brightest: '#FDFDFD',
     border_high: 'rgb(249, 250, 253, .8)',
     border_medium: 'rgb(249, 250, 253, .15)',
     border_low: 'rgb(249, 250, 253, .06)',
-    state_overlay_focused: 'BAD4FF',
-    primary_lighten: '8AB5FF',
+    state_overlay_focused: '#BAD4FF',
+    primary_lighten: '#8AB5FF',
   },
   error: {
     100: '#FFF3F5',
