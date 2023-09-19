@@ -1,23 +1,5 @@
 import { css } from 'styled-components';
-
-const stateOverlayToken = css`
-  &:active {
-    &::after {
-      background-color: ${({ theme }) =>
-        theme.color.black_alpha[20]} !important;
-    }
-  }
-
-  &:hover {
-    &::after {
-      background-color: ${({ theme }) => theme.color.black_alpha[10]};
-    }
-  }
-
-  &:focus {
-    outline-color: ${({ theme }) => theme.color.primary[20]};
-  }
-`;
+import { stateOverlayToken } from './state-overlay.token';
 
 function getStateOverlayContent(borderRadius: number) {
   return css`
@@ -45,6 +27,26 @@ function getStateOverlayContent(borderRadius: number) {
 export function getStateOverlayToken(borderRadius: number) {
   return css`
     ${getStateOverlayContent(borderRadius)};
-    ${stateOverlayToken}
+
+    ${({ theme }) => {
+      const { focused, hover, pressed } = stateOverlayToken(theme);
+      return css`
+        &:active {
+          &::after {
+            background-color: ${pressed} !important;
+          }
+        }
+
+        &:hover {
+          &::after {
+            background-color: ${hover};
+          }
+        }
+
+        &:focus {
+          outline-color: ${focused};
+        }
+      `;
+    }}
   `;
 }

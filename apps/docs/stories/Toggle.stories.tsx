@@ -20,6 +20,7 @@ type Story = StoryObj<typeof Toggle>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   args: {
+    flag: false,
     onChange(flag) {
       console.log(flag);
     },
@@ -38,6 +39,7 @@ export const DefaultTrue: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
+    flag: false,
     onChange(flag) {
       console.log(flag);
     },

@@ -1,11 +1,6 @@
 import { ChangeEventHandler, useState } from 'react';
-import { css, styled } from 'styled-components';
-import { getStateOverlayToken } from '../styles/tokens';
-import { swtichDisabledToken } from '../styles/tokens/switch/common.token';
-import {
-  toggleOffToken,
-  toggleOnToken,
-} from '../styles/tokens/switch/toggle.token';
+import { styled } from 'styled-components';
+import { getStateOverlayToken, getToggleToken } from '../styles/tokens';
 
 export interface ToggleProps {
   /**
@@ -21,11 +16,9 @@ export interface ToggleProps {
   /**
    * 토글 상태
    *
-   * TODO: Controlled Component로 강제 여부 검토
-   *
    * @default false
    */
-  flag?: boolean;
+  flag: boolean;
   /**
    *
    * @param {boolean} flag 토글 상태
@@ -35,7 +28,7 @@ export interface ToggleProps {
 }
 
 interface SliderStyleProps extends Pick<ToggleProps, 'disabled'> {
-  isSelected: boolean;
+  selected: boolean;
 }
 
 const ToggleStyle = styled.label<Pick<ToggleProps, 'disabled'>>`
@@ -82,25 +75,7 @@ const SliderStyle = styled.span<SliderStyleProps>`
     border-radius: 50%;
   }
 
-  ${({ disabled, isSelected }) => {
-    if (isSelected)
-      return css`
-        &:before {
-          // handle
-          -webkit-transform: translateX(24px);
-          -ms-transform: translateX(24px);
-          transform: translateX(24px);
-        }
-
-        ${toggleOnToken}
-      `;
-    if (disabled) {
-      return css`
-        ${swtichDisabledToken}
-      `;
-    }
-    return toggleOffToken;
-  }}
+  ${({ disabled = false, selected }) => getToggleToken(disabled, selected)}
 `;
 
 export function Toggle({
@@ -110,7 +85,7 @@ export function Toggle({
   onChange,
   ...props
 }: ToggleProps) {
-  const [isSelected, setSelected] = useState(flag);
+  const [selected, setSelected] = useState(flag);
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const _isSelected = e.target.checked;
     setSelected(_isSelected);
@@ -122,12 +97,12 @@ export function Toggle({
       <input
         role="switch"
         type="checkbox"
-        checked={isSelected}
+        checked={selected}
         disabled={disabled}
         {...props}
         onChange={handleChange}
       />
-      <SliderStyle disabled={disabled} isSelected={isSelected} />
+      <SliderStyle disabled={disabled} selected={selected} />
     </ToggleStyle>
   );
 }

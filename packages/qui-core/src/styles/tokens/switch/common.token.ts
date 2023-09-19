@@ -1,8 +1,8 @@
-import { css } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
-export const swtichDisabledToken = css`
-  // container
-  background-color: ${({ theme }) => theme.color.black_alpha[20]};
-  // label
-  color: ${({ theme }) => theme.color.black_alpha[50]};
-`;
+export const switchCommonToken = (theme: DefaultTheme) => ({
+  disabled: {
+    container: theme.color.black_alpha[20],
+    label: theme.color.black_alpha[50],
+  },
+});
