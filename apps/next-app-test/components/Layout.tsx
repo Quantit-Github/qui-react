@@ -29,7 +29,7 @@ const customTheme: ExtendedTheme = {
 };
 
 const Div = styled.div<{ state: boolean }>`
-  color: ${({ theme }) => theme.color.up[30]};
+  color: ${({ theme }) => theme.color.revenue_up[30]};
   font-size: ${({ theme }) => theme.typography.body.sm.fontSize};
 `;
 

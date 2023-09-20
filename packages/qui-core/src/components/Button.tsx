@@ -1,8 +1,7 @@
 import { useRef } from 'react';
 import { useButton } from 'react-aria';
 import { styled } from 'styled-components';
-import { getStateOverlayToken } from '../styles/tokens';
-import { getButtonToken } from '../styles/tokens/button';
+import { getButtonToken, getStateOverlayToken } from '../styles/tokens';
 
 export interface ButtonProps {
   /**

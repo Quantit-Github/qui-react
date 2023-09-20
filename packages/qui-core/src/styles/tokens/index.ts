@@ -1,2 +1,3 @@
 export * from './button';
-export * from './state-overlay.token';
+export * from './state-overlay';
+export * from './switch';
