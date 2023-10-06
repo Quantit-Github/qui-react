@@ -1,8 +1,8 @@
-import { DARK_BASE_PALETTE, LIGHT_BASE_PALETTE } from './palette.const';
+import { QUI_DARK_PALETTE, QUI_LIGHT_PALETTE } from './const';
 import {
-  BasePaletteEnum,
-  BasePaletteType,
-  PaletteMode,
+  PaletteRecord,
+  QuiColorPalette,
+  ThemeMode,
   PaletteOptions,
 } from './palette.type';
 
@@ -22,15 +22,15 @@ import {
  * });
  */
 export function getPaletteFromOptions(
-  mode: PaletteMode,
+  mode: ThemeMode,
   options: PaletteOptions
-): BasePaletteType {
-  const palette: BasePaletteType = Object.create(
-    mode === 'dark' ? DARK_BASE_PALETTE : LIGHT_BASE_PALETTE
+): QuiColorPalette {
+  const palette: QuiColorPalette = Object.create(
+    mode === 'dark' ? QUI_DARK_PALETTE : QUI_LIGHT_PALETTE
   );
 
   Object.keys(options).forEach((optionKey) => {
-    const _key = optionKey as BasePaletteEnum;
+    const _key = optionKey as PaletteRecord;
     const scale = options[_key];
     if (scale) {
       palette[_key] = {

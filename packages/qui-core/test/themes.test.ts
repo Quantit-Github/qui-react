@@ -1,4 +1,4 @@
-import { createTypography } from '../src/styles/themes/typography.util';
+import { createTypography } from '../src/styles/theme/typography.util';
 
 describe('Typography 유틸함수 테스트', () => {
   test('createTypography 함수에 전달한 파라미터가 올바른 객체를 리턴하는지 테스트', () => {

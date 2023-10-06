@@ -1,8 +1,8 @@
 import { Button } from '@quantit/qui-react/src/components/Button';
 import { Typography } from '@quantit/qui-react/src/components/Typography';
-import { ThemeProvider } from '@quantit/qui-react/src/styles';
 import { useState } from 'react';
 import { styled } from 'styled-components';
+import { QuiThemeProvider } from '@quantit/qui-react/src';
 import SunIcon from './assets/light.png';
 import MoonIcon from './assets/moon.png';
 
@@ -39,7 +39,7 @@ function App() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
 
   return (
-    <ThemeProvider>
+    <QuiThemeProvider>
       <div
         style={{
           backgroundColor: mode === 'dark' ? '#333' : '#fff',
@@ -82,56 +82,56 @@ function App() {
           <Section>
             <h3>Typography</h3>
             <Section>
-              <Typography as="p" bold size="lg" variant="display">
-                Display
+              <Typography as="p" bold variant="displayLarge">
+                DisplayLarge
               </Typography>
-              <Typography as="p" bold size="md" variant="display">
-                Display
+              <Typography as="p" bold variant="displayMedium">
+                DisplayMedium
               </Typography>
-              <Typography as="p" bold size="sm" variant="display">
-                Display
+              <Typography as="p" bold variant="displaySmall">
+                DisplaySmall
               </Typography>
-              <Typography as="p" bold size="lg" variant="headline">
-                Headline
+              <Typography as="p" bold variant="headlineLarge">
+                HeadlineLarge
               </Typography>
-              <Typography as="p" bold size="md" variant="headline">
-                Headline
+              <Typography as="p" bold variant="headlineMedium">
+                HeadlineMedium
               </Typography>
-              <Typography as="p" bold size="sm" variant="headline">
-                Headline
+              <Typography as="p" bold variant="headlineSmall">
+                HeadlineSmall
               </Typography>
-              <Typography as="p" bold size="lg" variant="title">
-                Title
+              <Typography as="p" bold variant="titleLarge">
+                TitleLarge
               </Typography>
-              <Typography as="p" bold size="md" variant="title">
-                Title
+              <Typography as="p" bold variant="titleMedium">
+                TitleMedium
               </Typography>
-              <Typography as="p" bold size="sm" variant="title">
-                Title
+              <Typography as="p" bold variant="titleSmall">
+                TitleSmall
               </Typography>
-              <Typography as="p" bold size="lg" variant="body">
-                Body
+              <Typography as="p" bold variant="bodyLarge">
+                BodyLarge
               </Typography>
-              <Typography as="p" bold size="md" variant="body">
-                Body
+              <Typography as="p" bold variant="bodyMedium">
+                BodyMedium
               </Typography>
-              <Typography as="p" bold size="sm" variant="body">
-                Body
+              <Typography as="p" bold variant="bodySmall">
+                BodySmall
               </Typography>
-              <Typography as="p" bold size="lg" variant="label">
-                Label
+              <Typography as="p" bold variant="labelLarge">
+                LabelLarge
               </Typography>
-              <Typography as="p" bold size="md" variant="label">
-                Label
+              <Typography as="p" bold variant="labelMedium">
+                LabelMedium
               </Typography>
-              <Typography as="p" bold size="sm" variant="label">
-                Label
+              <Typography as="p" bold variant="labelSmall">
+                LabelSmall
               </Typography>
             </Section>
           </Section>
         </Container>
       </div>
-    </ThemeProvider>
+    </QuiThemeProvider>
   );
 }
 
