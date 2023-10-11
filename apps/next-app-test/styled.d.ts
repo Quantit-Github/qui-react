@@ -6,5 +6,5 @@ export interface ExtendedTheme extends QuiTheme {
 }
 
 declare module 'styled-components' {
-  export interface DefaultTheme extends ExtendedTheme {}
+  export interface DefaultTheme extends ExtendedTheme { }
 }

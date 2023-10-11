@@ -10,18 +10,18 @@ export const buttonToken = (theme: DefaultTheme) => ({
   secondary: {
     active: {
       container: theme.color.primary[10],
-      elements: theme.color.black_alpha[100],
+      elements: theme.color.black_alpha[0],
     },
   },
   ghost: {
     active: {
-      elements: theme.color.black_alpha[100],
-      elements_var: theme.color.black_alpha[30],
+      elements: theme.color.black_alpha[0],
+      elements_var: theme.color.black_alpha[70],
     },
   },
   outline: {
     active: {
-      elements: theme.color.black_alpha[100],
+      elements: theme.color.black_alpha[0],
       outline: theme.color.semantic.border_medium,
     },
   },

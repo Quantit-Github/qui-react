@@ -1,9 +1,6 @@
 import { ElementType, createElement } from 'react';
 import { css, styled } from 'styled-components';
-import {
-  TypographySizeType,
-  TypographyVariantType,
-} from '../styles/themes/typography.type';
+import { TypographyVariantType } from '../styles/theme/typography.type';
 
 export interface TypographyProps {
   /**
@@ -23,46 +20,44 @@ export interface TypographyProps {
    */
   bold?: boolean;
   /**
+   * Bold 유무
+   *
+   * @default false
+   * @example
+   * <Typography bold>Hello World</Typography>
+   */
+  underline?: boolean;
+  /**
    * 자식 컴포넌트
    */
   children?: React.ReactNode;
   /**
-   * 타이포그래피 사이즈
-   *
-   * @example
-   * <Typography size="sm">Hello World</Typography>
-   */
-  size: TypographySizeType;
-  /**
    * 타이포그래피 타입
    *
    * @example
-   * <Typography variant="title">Hello World</Typography>
+   * <Typography variant="titleLarge">Hello World</Typography>
    */
   variant: TypographyVariantType;
 }
 
-const boldCss = css<TypographyProps>`
-  ${({ bold }) => {
-    if (!bold) return;
-    return css`
-      font-weight: bold;
-    `;
+const typographyCss = css<TypographyProps>`
+  ${({ theme, variant, bold, underline }) => {
+    if (bold) {
+      if (underline) {
+        return theme.typography[variant].boldUnderlined;
+      } else {
+        return theme.typography[variant].bold;
+      }
+    }
+    return theme.typography[variant].css;
   }}
-`;
-
-const variantCss = css<TypographyProps>`
-  ${({ size, theme, variant }) => css`
-    ${theme.typography[variant][size].cssString}
-  `}
 `;
 
 const Component = (props: TypographyProps) =>
   createElement(props.as || 'span', props);
 
 const TypographyStyle = styled(Component)`
-  ${boldCss}
-  ${variantCss}
+  ${typographyCss}
 `;
 
 export function Typography(props: TypographyProps) {
@@ -75,5 +70,16 @@ export function Typography(props: TypographyProps) {
  * @param {ElementType} as HTML Element 태그
  * @returns {Typography} Typography 컴포넌트
  */
-Typography.as = (as: ElementType) => (props: TypographyProps) =>
-  <TypographyStyle as={as} {...props} />;
+
+Typography.as = (as: ElementType) => {
+  const Component = (props: TypographyProps) =>
+    createElement(as || 'span', props);
+
+  const TypographyStyle = styled(Component)`
+    ${typographyCss}
+  `;
+
+  return TypographyStyle;
+};
+
+Typography.displayName = 'Typography';

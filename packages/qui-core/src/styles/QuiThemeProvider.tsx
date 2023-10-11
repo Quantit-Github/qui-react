@@ -1,6 +1,8 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { BASE_THEME, PaletteMode, QuiTheme } from './themes';
+import { ThemeMode } from './theme/palette.type';
+import { QuiTheme } from './theme/theme.type';
+import { QUI_BASE_THEME } from './theme/const';
 
 interface ThemeProviderProps {
   children: React.ReactNode;
@@ -19,7 +21,7 @@ interface ThemeProviderProps {
 }
 
 interface ThemeContextProps {
-  themeMode: PaletteMode;
+  themeMode: ThemeMode;
   toggleThemeMode: () => void;
 }
 
@@ -30,21 +32,25 @@ export const ThemeContext = createContext<ThemeContextProps>({
 
 export function useTheme() {
   const { toggleThemeMode, themeMode } = useContext(ThemeContext);
+
   return {
     toggleThemeMode,
     themeMode,
   };
 }
 
-export function ThemeProvider({ children, theme: _theme }: ThemeProviderProps) {
-  const [themeMode, setThemeMode] = useState<PaletteMode>('light');
+export function QuiThemeProvider({
+  children,
+  theme: _theme,
+}: ThemeProviderProps) {
+  const [themeMode, setThemeMode] = useState<ThemeMode>('light');
 
   const toggleThemeMode = () => {
     setThemeMode(themeMode === 'light' ? 'dark' : 'light');
   };
 
   const theme = useMemo(() => {
-    let currentTheme = _theme || BASE_THEME;
+    let currentTheme = _theme || QUI_BASE_THEME;
     currentTheme = {
       ...currentTheme,
       color: { ...currentTheme.palette[themeMode] },
