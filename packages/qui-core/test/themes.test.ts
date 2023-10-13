@@ -1,13 +1,10 @@
-import { createTypography } from '../src/styles/theme/typography.util';
+import { TypographyValue } from '../src/styles/theme/typography.util';
 
-describe('Typography 유틸함수 테스트', () => {
-  test('createTypography 함수에 전달한 파라미터가 올바른 객체를 리턴하는지 테스트', () => {
+describe('TypographyValue 유틸 클래스 테스트', () => {
+  test('TypographyValue 함수에 전달한 파라미터가 올바른 객체를 리턴하는지 테스트', () => {
     const fontSize = '16px';
     const lineHeight = '24px';
-    expect(createTypography(fontSize, lineHeight)).toMatchObject({
-      cssString: `font-size:${fontSize};line-height:${lineHeight}`,
-      fontSize,
-      lineHeight,
-    });
+    const typo = new TypographyValue(fontSize, lineHeight);
+    expect(typo.css).toBe(`font-size:${fontSize};line-height:${lineHeight};`);
   });
 });

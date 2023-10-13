@@ -20,8 +20,7 @@ type Story = StoryObj<typeof Typography>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const LabelAsP: Story = {
   args: {
-    children: 'Label',
-    size: 'md',
-    variant: 'label',
+    children: 'LabelMedium',
+    variant: 'labelMedium',
   },
 };

@@ -3,20 +3,20 @@ import { DefaultTheme } from 'styled-components';
 export const buttonToken = (theme: DefaultTheme) => ({
   primary: {
     active: {
-      container: theme.color.primary[50],
+      container: theme.color.primary[70],
       elements: theme.color.semantic.brightest,
     },
   },
   secondary: {
     active: {
-      container: theme.color.primary[10],
-      elements: theme.color.black_alpha[0],
+      container: theme.color.primary[99],
+      elements: theme.color.primary[10],
     },
   },
   ghost: {
     active: {
       elements: theme.color.black_alpha[0],
-      elements_var: theme.color.black_alpha[70],
+      container: theme.color.black_alpha[100],
     },
   },
   outline: {

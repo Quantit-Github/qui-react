@@ -20,40 +20,35 @@ type Story = StoryObj<typeof Typography>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Display: Story = {
   args: {
-    children: 'Display',
-    size: 'md',
-    variant: 'display',
+    children: 'DisplayMedium',
+    variant: 'displayMedium',
   },
 };
 
 export const Headline: Story = {
   args: {
-    children: 'Headline',
-    size: 'md',
-    variant: 'headline',
+    children: 'HeadlineMedium',
+    variant: 'headlineMedium',
   },
 };
 
 export const Title: Story = {
   args: {
-    children: 'Title',
-    size: 'md',
-    variant: 'title',
+    children: 'TitleMedium',
+    variant: 'titleMedium',
   },
 };
 
 export const Body: Story = {
   args: {
-    children: 'Body',
-    size: 'md',
-    variant: 'body',
+    children: 'BodyMedium',
+    variant: 'bodyMedium',
   },
 };
 
 export const Label: Story = {
   args: {
-    children: 'Label',
-    size: 'md',
-    variant: 'label',
+    children: 'LabelMedium',
+    variant: 'labelMedium',
   },
 };
