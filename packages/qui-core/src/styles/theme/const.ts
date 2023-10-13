@@ -273,19 +273,19 @@ export const QUI_DARK_PALETTE: QuiColorPalette = {
 export const QUI_TYPOGRAPHY: QuiTypography = {
   displayLarge: new TypographyValue('56px', '64px'),
   displayMedium: new TypographyValue('44px', '52px'),
-  displaySmall: new TypographyValue('24px', '32px'),
+  displaySmall: new TypographyValue('36px', '44px'),
   headlineLarge: new TypographyValue('32px', '40px'),
   headlineMedium: new TypographyValue('28px', '36px'),
   headlineSmall: new TypographyValue('24px', '32px'),
   titleLarge: new TypographyValue('22px', '28px'),
-  titleMedium: new TypographyValue('16px', '24px'),
-  titleSmall: new TypographyValue('14px', '20px'),
+  titleMedium: new TypographyValue('20px', '26px'),
+  titleSmall: new TypographyValue('18px', '24px'),
   bodyLarge: new TypographyValue('16px', '24px'),
   bodyMedium: new TypographyValue('14px', '20px'),
   bodySmall: new TypographyValue('12px', '16px'),
-  labelLarge: new TypographyValue('14px', '20px'),
-  labelMedium: new TypographyValue('10px', '14px'),
-  labelSmall: new TypographyValue('10px', '14px'),
+  labelLarge: new TypographyValue('11px', '14px'),
+  labelMedium: new TypographyValue('10px', '12px'),
+  labelSmall: new TypographyValue('8px', '10px'),
 };
 
 export const QUI_BASE_THEME: QuiTheme = {
