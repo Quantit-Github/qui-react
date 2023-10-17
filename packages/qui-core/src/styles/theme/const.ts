@@ -1,5 +1,7 @@
 import { ColorRange, SemanticColorRange } from './color.type';
 import { QuiColorPalette } from './palette.type';
+import { QuiSize } from './size.type';
+import { DeviceSize } from './size.util';
 import { QuiTheme } from './theme.type';
 import { QuiTypography } from './typography.type';
 import { TypographyValue } from './typography.util';
@@ -288,6 +290,14 @@ export const QUI_TYPOGRAPHY: QuiTypography = {
   labelSmall: new TypographyValue('8px', '10px'),
 };
 
+export const QUI_SIZE: QuiSize = {
+  extraLarge: new DeviceSize(1128, undefined, 1440),
+  large: new DeviceSize(880, 1439, 1240),
+  medium: new DeviceSize(857, 1239, 905),
+  small: new DeviceSize(536, 904, 600),
+  extraSmall: new DeviceSize(328, 599, undefined),
+};
+
 export const QUI_BASE_THEME: QuiTheme = {
   color: { ...QUI_LIGHT_PALETTE },
   palette: {
@@ -296,4 +306,5 @@ export const QUI_BASE_THEME: QuiTheme = {
     dark: { ...QUI_DARK_PALETTE },
   },
   typography: { ...QUI_TYPOGRAPHY },
+  size: { ...QUI_SIZE },
 };
