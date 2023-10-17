@@ -5,7 +5,6 @@ import {
   getCheckboxFrameToken,
   getCheckboxToken,
 } from '../../styles/tokens';
-import { VisuallyHidden } from 'react-aria';
 import CheckIcon from './CheckIcon';
 import IndeterminateIcon from './IndeterminateIcon';
 import { Typography } from '../Typography';
@@ -17,9 +16,26 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
   display: flex;
   align-items: center;
   gap: 8px;
+
   ${({ disabled }) => !disabled && getStateOverlayToken(8)}
   ${({ disabled = false, checked, $indeterminate }) =>
     getCheckboxToken(disabled, checked, $indeterminate)};
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    outline: 0;
+    outline-offset: 0;
+  }
 `;
 
 const CheckboxFrameStyle = styled.div<CheckboxStyleProps>`
@@ -63,16 +79,14 @@ export function Checkbox({
       $indeterminate={indeterminateState}
       checked={checkedState}
     >
-      <VisuallyHidden>
-        <input
-          role="switch"
-          type="checkbox"
-          checked={checkedState}
-          disabled={disabled}
-          {...props}
-          onChange={handleChange}
-        />
-      </VisuallyHidden>
+      <input
+        role="switch"
+        type="checkbox"
+        checked={checkedState}
+        disabled={disabled}
+        {...props}
+        onChange={handleChange}
+      />
       <CheckboxFrameStyle
         disabled={disabled}
         $indeterminate={indeterminateState}
