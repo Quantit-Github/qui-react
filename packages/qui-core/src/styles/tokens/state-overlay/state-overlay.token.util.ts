@@ -44,7 +44,7 @@ export function getStateOverlayToken(borderRadius: number) {
         }
 
         &:focus {
-          outline-color: ${focused};
+          outline: 2px solid ${focused};
         }
       `;
     }}
