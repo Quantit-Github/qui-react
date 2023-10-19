@@ -38,11 +38,3 @@ export const MediumSize: Story = {
     size: 'md',
   },
 };
-
-export const Disabled: Story = {
-  args: {
-    list: TestList,
-    size: 'md',
-    disabled: true,
-  },
-};

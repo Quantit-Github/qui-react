@@ -34,30 +34,13 @@ export const getTabItemDefaultStyle = () => {
     }
 
     ${({ theme }) => {
-      const { non_selected } = tabToken(theme);
+      const { off } = tabToken(theme);
       return css`
-        color: ${non_selected.label};
-        border-color: ${non_selected.outline};
+        color: ${off.label};
+        border-color: ${off.outline};
       `;
     }}
   `;
-};
-
-export const getTabItemDisabled = ({ disabled }: TabItemProps) => {
-  if (disabled) {
-    return css`
-      ${({ theme }) => {
-        const { disabled } = tabToken(theme);
-        return css`
-          cursor: not-allowed;
-          color: ${disabled.label};
-          border-color: ${disabled.outline};
-        `;
-      }}
-    `;
-  } else {
-    return getStateOverlayToken(0);
-  }
 };
 
 export const getTabItemHeight = ({ $size }: TabItemProps) => {
@@ -69,11 +52,11 @@ export const getTabItemHeight = ({ $size }: TabItemProps) => {
 export const getTabItemChecked = ({ checked }: TabItemProps) => {
   return css`
     ${({ theme }) => {
-      const { selected } = tabToken(theme);
+      const { on } = tabToken(theme);
       if (checked) {
         return css`
-          color: ${selected.label};
-          border-color: ${selected.outline};
+          color: ${on.label};
+          border-color: ${on.outline};
           border-right: 1px solid;
         `;
       }

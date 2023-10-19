@@ -3,7 +3,6 @@ import {
   getTabDefaultStyle,
   getTabItemChecked,
   getTabItemDefaultStyle,
-  getTabItemDisabled,
   getTabItemHeight,
 } from '../../styles/tokens/tab/tab.token.util';
 import { Typography } from '../Typography';
@@ -18,13 +17,11 @@ const TabItem = styled.li<TabItemStyleProps>`
   ${getTabItemChecked};
   ${getTabItemHeight};
   ${getTabItemChecked};
-  ${getTabItemDisabled};
 `;
 
 export function TabItemList<T extends string>({
   list,
   selected,
-  disabled = false,
   size = 'sm',
   onClickItem,
 }: TabProps<T>) {
@@ -36,7 +33,6 @@ export function TabItemList<T extends string>({
           $size={size}
           onClick={onClickItem(item.value)}
           checked={selected === item.value}
-          disabled={disabled}
           className={selected === item.value ? 'active' : ''}
         >
           <Typography

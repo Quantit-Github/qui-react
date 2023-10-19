@@ -8,10 +8,6 @@ export interface TabItemProps {
    */
   checked?: boolean;
   /**
-   * disabled 상태
-   */
-  disabled?: boolean;
-  /**
    * Size
    */
   $size?: TabSize;
@@ -31,7 +27,6 @@ export interface TabItemDataProps<T> extends TabItemProps {
 export interface TabProps<T> {
   size: TabSize;
   selected: T;
-  disabled?: boolean;
   list: TabItemDataProps<T>[];
   onClickItem: (value: T) => () => void;
 }
