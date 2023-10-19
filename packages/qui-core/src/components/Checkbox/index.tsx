@@ -5,8 +5,8 @@ import {
   getCheckboxFrameToken,
   getCheckboxToken,
 } from '../../styles/tokens';
-import CheckIcon from './CheckIcon';
-import IndeterminateIcon from './IndeterminateIcon';
+import CheckIcon from '../../assets/icons/CheckIcon';
+import IndeterminateIcon from '../../assets/icons/IndeterminateIcon';
 import { Typography } from '../Typography';
 import { CheckboxProps, CheckboxStyleProps } from './type';
 
