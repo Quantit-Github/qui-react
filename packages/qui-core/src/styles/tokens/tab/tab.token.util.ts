@@ -1,6 +1,5 @@
 import { css } from 'styled-components';
 import { TabItemProps } from '../../../components/Tab/type';
-import { getStateOverlayToken } from '../state-overlay';
 import { tabToken } from './tab.token';
 
 export const getTabDefaultStyle = () => {

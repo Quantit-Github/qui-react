@@ -23,6 +23,7 @@ export const buttonToken = (theme: DefaultTheme) => ({
     active: {
       elements: theme.color.black_alpha[0],
       outline: theme.color.semantic.border_medium,
+      container: theme.color.black_alpha[100],
     },
   },
 });

@@ -43,7 +43,10 @@ export class DeviceSize implements DeviceSizeProps {
    */
   get mediaQueryString(): string {
     if (this.maxPx.length > 0) {
-      return `${this.maxPx} and ${this.minPx}`;
+      if (this.minPx.length > 0) {
+        return `${this.maxPx} and ${this.minPx}`;
+      }
+      return this.maxPx;
     }
     return this.minPx;
   }
