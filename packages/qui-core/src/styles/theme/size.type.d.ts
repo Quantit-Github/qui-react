@@ -1,3 +1,5 @@
+import { DeviceSize } from './size.util';
+
 type SizeType = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 
 export interface DeviceSizeProps {
@@ -18,4 +20,4 @@ export interface DeviceSizeProps {
   min?: number;
 }
 
-export type QuiSize = Record<SizeType, DeviceSizeProps>;
+export type QuiSize = Record<SizeType, DeviceSize>;
