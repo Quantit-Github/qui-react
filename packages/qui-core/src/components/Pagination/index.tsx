@@ -65,16 +65,19 @@ const PaginationVariant = ({
     return pages;
   };
 
+  const _goPage = (page: number) => {
+    setCurrentPage(page);
+    onPageChange(page);
+  };
+
   const _goPrev = () => {
     let newPage = Math.floor(currentPage / $pageSize) * $pageSize - 1;
-    setCurrentPage(newPage);
-    onPageChange(newPage);
+    _goPage(newPage);
   };
 
   const _goNext = () => {
     let newPage = Math.floor(currentPage / $pageSize) * $pageSize + $pageSize;
-    setCurrentPage(newPage);
-    onPageChange(newPage);
+    _goPage(newPage);
   };
 
   return (
@@ -89,10 +92,7 @@ const PaginationVariant = ({
         <PaginationAtomStyle
           key={page}
           $on={currentPage === page}
-          onClick={() => {
-            setCurrentPage(page);
-            onPageChange(page);
-          }}
+          onClick={() => _goPage(page)}
         >
           {page + 1}
         </PaginationAtomStyle>
