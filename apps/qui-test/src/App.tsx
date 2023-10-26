@@ -1,8 +1,7 @@
-import { Button } from '@quantit/qui-react/src/components/Button';
+import { Button, QuiThemeProvider } from '@quantit/qui-react/src';
 import { Typography } from '@quantit/qui-react/src/components/Typography';
 import { useState } from 'react';
 import { styled } from 'styled-components';
-import { QuiThemeProvider } from '@quantit/qui-react/src';
 import SunIcon from './assets/light.png';
 import MoonIcon from './assets/moon.png';
 
@@ -58,7 +57,16 @@ function App() {
           <Section>
             <h3>Button</h3>
             <Section>
-              <Button variant="primary" onClick={() => console.log('클릭')}>
+              <Button.Icon size="xl" type="smile" variant="primary" />
+              <Button.Icon size="lg" type="smile" variant="primary" />
+              <Button.Icon size="md" type="smile" variant="primary" />
+              <Button.Icon size="sm" type="smile" variant="primary" />
+              <Button.Icon size="xs" type="smile" variant="primary" />
+              <Button
+                size="xl"
+                variant="primary"
+                onClick={() => console.log('클릭')}
+              >
                 Primary
               </Button>
               <Button variant="secondary" onClick={() => console.log('클릭')}>
