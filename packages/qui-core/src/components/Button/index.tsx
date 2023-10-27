@@ -5,13 +5,15 @@ import {
   getStateOverlayToken,
 } from '../../styles/tokens';
 import { Icon, IconButton } from './IconButton';
-import { ButtonProps, IconSizeType } from './type';
+import { ButtonFormatType, ButtonProps, ButtonSizeType } from './type';
 
-const ButtonStyle = styled.button<
-  Pick<ButtonProps, 'variant' | 'disabled' | 'type'>
->`
+interface ButtonStyleProps extends Pick<ButtonProps, 'variant' | 'disabled'> {
+  format: ButtonFormatType;
+  size: ButtonSizeType;
+}
+
+const ButtonStyle = styled.button<ButtonStyleProps>`
   border: none;
-  border-radius: 12px;
   cursor: pointer;
   line-height: 24px;
   display: flex;
@@ -19,13 +21,14 @@ const ButtonStyle = styled.button<
   justify-content: center;
   width: 100%;
 
-  ${({ variant, type = 'xl-hug', disabled }) =>
+  ${({ variant, disabled, format, size }) =>
     css`
-      ${getButtonToken(variant, type, disabled || false)}
-      ${getIconSize(type.split('-')[0] as IconSizeType)}
+      ${getButtonToken(variant, format, size, disabled || false)}
+      ${getIconSize(size)}
     `}
 
-  ${({ disabled }) => !disabled && getStateOverlayToken(4)};
+  ${({ disabled, size }) =>
+    !disabled && getStateOverlayToken(size === 'xl' || size === 'lg' ? 12 : 8)};
 `;
 
 export function Button({
@@ -34,8 +37,11 @@ export function Button({
   trailingIcon,
   customLeadingIcon,
   customTrailingIcon,
+  type = 'xl-hug',
   ...props
 }: ButtonProps) {
+  const [size, format] = type.split('-') as [ButtonSizeType, ButtonFormatType];
+
   const getLeadingIcon = () => {
     if (!leadingIcon) return null;
     if (customLeadingIcon) {
@@ -53,7 +59,7 @@ export function Button({
   };
 
   return (
-    <ButtonStyle disabled={disabled} {...props}>
+    <ButtonStyle disabled={disabled} format={format} size={size} {...props}>
       {getLeadingIcon()}
       {props.children}
       {getTrailingIcon()}

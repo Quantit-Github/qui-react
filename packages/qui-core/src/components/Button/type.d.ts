@@ -1,3 +1,7 @@
+export type ButtonFormatType = 'hug' | 'fillCenter';
+
+export type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+
 export type IconType =
   | 'check'
   | 'chevron_down'
@@ -6,9 +10,8 @@ export type IconType =
   | 'intermediate'
   | 'smile';
 
-export type IconSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-
-interface ButtonCommonProps {
+interface ButtonCommonProps
+  extends Pick<React.HTMLAttributes<HTMLButtonElement>, 'onClick'> {
   /**
    * 자식 컴포넌트
    */
@@ -57,12 +60,6 @@ export interface ButtonProps extends ButtonCommonProps {
    * 뒷단 아이콘 대체할 컴포넌트
    */
   customTrailingIcon?: React.ReactNode;
-  /**
-   * 버튼 클릭 이벤트 핸들러.
-   *
-   * @returns {void}
-   */
-  onClick?: () => void;
 }
 
 export interface IconProps {
