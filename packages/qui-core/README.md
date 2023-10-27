@@ -11,13 +11,13 @@ Quantit standart UI system for React
 **npm:**
 
 ```
-npm add @quantit/qui-react styled-components react-aria
+npm add @quantit/qui-react styled-components
 ```
 
 **yarn:**
 
 ```
-yarn add @quantit/qui-react styled-components react-aria
+yarn add @quantit/qui-react styled-components
 ```
 
 **pnpm:**
