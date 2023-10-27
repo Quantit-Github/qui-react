@@ -11,7 +11,7 @@ const ButtonStyle = styled.button<
   Pick<ButtonProps, 'variant' | 'disabled' | 'type'>
 >`
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   cursor: pointer;
   line-height: 24px;
   display: flex;
