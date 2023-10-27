@@ -1,8 +1,7 @@
-import { Button } from '@quantit/qui-react/src/components/Button';
+import { Button, QuiThemeProvider } from '@quantit/qui-react/src';
 import { Typography } from '@quantit/qui-react/src/components/Typography';
 import { useState } from 'react';
 import { styled } from 'styled-components';
-import { QuiThemeProvider } from '@quantit/qui-react/src';
 import SunIcon from './assets/light.png';
 import MoonIcon from './assets/moon.png';
 
@@ -13,8 +12,6 @@ const Container = styled.div`
 `;
 
 const Section = styled.section`
-  display: flex;
-  flex-direction: column;
   gap: 16px;
   padding: 16px;
   border-radius: 8px;
@@ -58,18 +55,109 @@ function App() {
           <Section>
             <h3>Button</h3>
             <Section>
-              <Button variant="primary" onClick={() => console.log('클릭')}>
+              <Typography as="p" variant="bodyLarge">
+                Icon Buttons
+              </Typography>
+              <Button.Icon size="xl" type="smile" variant="primary" />
+              <Button.Icon size="lg" type="smile" variant="primary" />
+              <Button.Icon size="md" type="smile" variant="primary" />
+              <Button.Icon size="sm" type="smile" variant="primary" />
+              <Button.Icon size="xs" type="smile" variant="primary" />
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Primary X-Large Left Fill Center
+              </Typography>
+              <Button
+                type="xl-fillCenter"
+                variant="primary"
+                leadingIcon="check"
+                onClick={() => console.log('클릭')}
+              >
                 Primary
               </Button>
-              <Button variant="secondary" onClick={() => console.log('클릭')}>
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Primary X-Large Hug
+              </Typography>
+              <Button
+                type="xl-hug"
+                variant="primary"
+                leadingIcon="check"
+                onClick={() => console.log('클릭')}
+              >
+                Primary
+              </Button>
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Primary Large Right Fill Center
+              </Typography>
+              <Button
+                type="lg-fillCenter"
+                variant="secondary"
+                trailingIcon="check"
+                onClick={() => console.log('클릭')}
+              >
                 Secondary
               </Button>
-              <Button variant="ghost" onClick={() => console.log('클릭')}>
-                Ghost
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Secondary Medium Hug
+              </Typography>
+              <Button
+                type="md-hug"
+                variant="secondary"
+                onClick={() => console.log('클릭')}
+              >
+                Secondary
               </Button>
-              <Button variant="outline" onClick={() => console.log('클릭')}>
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Outline Medium Hug
+              </Typography>
+              <Button
+                type="md-hug"
+                variant="outline"
+                trailingIcon="intermediate"
+                onClick={() => console.log('클릭')}
+              >
                 Outline
               </Button>
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Ghost Medium Hug
+              </Typography>
+              <Button
+                type="md-hug"
+                variant="ghost"
+                trailingIcon="chevron_right"
+                onClick={() => console.log('클릭')}
+              >
+                Ghost
+              </Button>
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Outline Small Hug
+              </Typography>
+              <Button
+                type="sm-hug"
+                variant="outline"
+                leadingIcon="smile"
+                onClick={() => console.log('클릭')}
+              >
+                Outline
+              </Button>
+              <hr />
+
+              <Typography as="p" variant="bodyLarge">
+                Primary Disabled
+              </Typography>
               <Button
                 variant="primary"
                 disabled
