@@ -4,8 +4,6 @@ import {
   ButtonActiveType,
   ButtonFormatType,
   ButtonSizeType,
-  ButtonType,
-  IconSizeType,
   PixelType,
 } from './button.token.type';
 import { buttonCommonToken } from './common.token';
@@ -57,7 +55,7 @@ function getButtonActiveToken(variant: ButtonActiveType) {
   `;
 }
 
-export function getIconSize(size: IconSizeType) {
+export function getIconSize(size: ButtonSizeType) {
   let width: PixelType = '24px';
   let height: PixelType = '24px';
 
@@ -87,7 +85,7 @@ export function getIconSize(size: IconSizeType) {
   `;
 }
 
-function getIconButtonSize(size: IconSizeType) {
+function getIconButtonSize(size: ButtonSizeType) {
   let padding: PixelType = '16px';
 
   switch (size) {
@@ -116,11 +114,12 @@ function getIconButtonSize(size: IconSizeType) {
 }
 
 function getButtonSize(size: ButtonSizeType) {
-  let padding: PixelType = '16px';
+  let borderRadius: PixelType = '12px';
   let fontSize: PixelType = '16px';
-  let lineHeight: PixelType = '24px';
-  let gap: PixelType = '8px';
   let fontWeight = 700;
+  let gap: PixelType = '8px';
+  let lineHeight: PixelType = '24px';
+  let padding: PixelType = '16px';
 
   switch (size) {
     case 'lg': {
@@ -128,27 +127,30 @@ function getButtonSize(size: ButtonSizeType) {
       break;
     }
     case 'md': {
+      borderRadius = '8px';
       fontWeight = 500;
-      padding = '9px';
       gap = '4px';
+      padding = '9px';
       break;
     }
     case 'sm': {
-      fontWeight = 500;
+      borderRadius = '8px';
       fontSize = '14px';
+      fontWeight = 500;
+      gap = '4px';
       lineHeight = '20px';
       padding = '6px 8px';
-      gap = '4px';
       break;
     }
   }
 
   return css`
-    font-size: ${fontSize};
+    border-radius: ${borderRadius};
     font-weight: ${fontWeight};
+    font-size: ${fontSize};
+    gap: ${gap};
     line-height: ${lineHeight};
     padding: ${padding};
-    gap: ${gap};
   `;
 }
 
@@ -164,8 +166,7 @@ function getFormatStyle(format: ButtonFormatType, size: ButtonSizeType) {
   `;
 }
 
-function getButtonType(type: ButtonType) {
-  const [size, format] = type.split('-') as [ButtonSizeType, ButtonFormatType];
+function getButtonType(format: ButtonFormatType, size: ButtonSizeType) {
   return css`
     ${getButtonSize(size)}
     ${getFormatStyle(format, size)}
@@ -198,18 +199,19 @@ export function getButtonCommonToken(
 
 export function getButtonToken(
   variant: ButtonActiveType,
-  type: ButtonType,
+  format: ButtonFormatType,
+  size: ButtonSizeType,
   disabled: boolean
 ) {
   return css`
-    ${getButtonType(type)}
+    ${getButtonType(format, size)}
     ${getButtonCommonToken(variant, disabled)}
   `;
 }
 
 export function getIconButtonToken(
   variant: ButtonActiveType,
-  size: IconSizeType,
+  size: ButtonSizeType,
   disabled: boolean
 ) {
   return css`

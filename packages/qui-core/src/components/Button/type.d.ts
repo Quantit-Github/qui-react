@@ -1,3 +1,7 @@
+export type ButtonFormatType = 'hug' | 'fillCenter';
+
+export type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+
 export type IconType =
   | 'check'
   | 'chevron_down'
@@ -5,8 +9,6 @@ export type IconType =
   | 'chevron_up'
   | 'intermediate'
   | 'smile';
-
-export type IconSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 
 interface ButtonCommonProps
   extends Pick<React.HTMLAttributes<HTMLButtonElement>, 'onClick'> {
