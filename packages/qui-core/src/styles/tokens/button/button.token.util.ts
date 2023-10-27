@@ -1,8 +1,11 @@
 import { css } from 'styled-components';
+import { PixelType } from '../../../components/Button/type';
 import { buttonToken } from './button.token';
 import {
   ButtonActiveType,
+  ButtonFormatType,
   ButtonSizeType,
+  ButtonType,
   IconSizeType,
 } from './button.token.type';
 import { buttonCommonToken } from './common.token';
@@ -54,55 +57,122 @@ function getButtonActiveToken(variant: ButtonActiveType) {
   `;
 }
 
-function getDefaultButtonSize(size: ButtonSizeType) {
-  if (size === 'xl') {
-    return css`
-      padding: 16px;
-    `;
-  } else if (size === 'lg') {
-    return css`
-      padding: 14px 16px;
-    `;
+export function getIconSize(size: IconSizeType) {
+  let width: PixelType = '24px';
+  let height: PixelType = '24px';
+
+  switch (size) {
+    case 'md': {
+      width = '20px';
+      height = '20px';
+      break;
+    }
+    case 'sm': {
+      width = '16px';
+      height = '16px';
+      break;
+    }
+    case 'xs': {
+      width = '14px';
+      height = '14px';
+      break;
+    }
   }
+
+  return css`
+    svg {
+      width: ${width};
+      height: ${height};
+    }
+  `;
 }
 
 function getIconButtonSize(size: IconSizeType) {
-  if (size === 'xl' || size === 'lg') {
-    return css`
-      svg {
-        width: 24px;
-        height: 24px;
-      }
-      padding: ${size === 'xl' ? 16 : 12}px;
-    `;
-  } else if (size === 'md') {
-    return css`
-      svg {
-        width: 20px;
-        height: 20px;
-      }
-      padding: 10px;
-    `;
-  } else if (size === 'sm') {
-    return css`
-      svg {
-        width: 16px;
-        height: 16px;
-      }
-      padding: 8px;
-    `;
-  } else {
-    return css`
-      svg {
-        width: 14px;
-        height: 14px;
-      }
-      padding: 3px;
-    `;
+  let padding: PixelType = '16px';
+
+  switch (size) {
+    case 'lg': {
+      padding = '12px';
+      break;
+    }
+    case 'md': {
+      padding = '10px';
+      break;
+    }
+    case 'sm': {
+      padding = '8px';
+      break;
+    }
+    case 'xs': {
+      padding = '3px';
+      break;
+    }
   }
+
+  return css`
+    ${getIconSize(size)}
+    padding: ${padding};
+  `;
 }
 
-export function getCommonButtonToken(
+function getButtonSize(size: ButtonSizeType) {
+  let padding: PixelType = '16px';
+  let fontSize: PixelType = '16px';
+  let lineHeight: PixelType = '24px';
+  let gap: PixelType = '8px';
+  let fontWeight = 700;
+
+  switch (size) {
+    case 'lg': {
+      padding = '12px 16px';
+      break;
+    }
+    case 'md': {
+      fontWeight = 500;
+      padding = '9px';
+      gap = '4px';
+      break;
+    }
+    case 'sm': {
+      fontWeight = 500;
+      fontSize = '14px';
+      lineHeight = '20px';
+      padding = '6px 8px';
+      gap = '4px';
+      break;
+    }
+  }
+
+  return css`
+    font-size: ${fontSize};
+    font-weight: ${fontWeight};
+    line-height: ${lineHeight};
+    padding: ${padding};
+    gap: ${gap};
+  `;
+}
+
+function getFormatStyle(format: ButtonFormatType, size: ButtonSizeType) {
+  if (format === 'hug') {
+    return css`
+      justify-content: center;
+      ${(size === 'md' || size === 'sm') && 'width: fit-content;'}
+    `;
+  }
+  return css`
+    justify-content: space-between;
+  `;
+}
+
+function getButtonType(type: ButtonType) {
+  const [size, format] = type.split('-') as [ButtonSizeType, ButtonFormatType];
+  return css`
+    ${getButtonSize(size)}
+    ${getFormatStyle(format, size)}
+  `;
+}
+
+export function getButtonCommonToken(
   variant: ButtonActiveType,
   disabled: boolean
 ) {
@@ -128,12 +198,12 @@ export function getCommonButtonToken(
 
 export function getButtonToken(
   variant: ButtonActiveType,
-  size: ButtonSizeType,
+  type: ButtonType,
   disabled: boolean
 ) {
   return css`
-    ${getDefaultButtonSize(size)}
-    ${getCommonButtonToken(variant, disabled)}
+    ${getButtonType(type)}
+    ${getButtonCommonToken(variant, disabled)}
   `;
 }
 
@@ -144,6 +214,6 @@ export function getIconButtonToken(
 ) {
   return css`
     ${getIconButtonSize(size)}
-    ${getCommonButtonToken(variant, disabled)}
+    ${getButtonCommonToken(variant, disabled)}
   `;
 }

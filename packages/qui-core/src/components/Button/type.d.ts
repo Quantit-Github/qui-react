@@ -1,4 +1,20 @@
+export type PixelType =
+  | `${number}px`
+  | `${number}px ${number}px`
+  | `${number}px ${number}px ${number}px`
+  | `${number}px ${number}px ${number}px ${number}px`;
+
 export type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm';
+
+export type ButtonFormatType = 'hug' | 'fillCenter';
+
+export type ButtonType =
+  | 'xl-hug'
+  | 'lg-hug'
+  | 'md-hug'
+  | 'sm-hug'
+  | 'xl-fillCenter'
+  | 'lg-fillCenter';
 
 export type IconSizeType = ButtonSizeType | 'xs';
 
@@ -10,7 +26,7 @@ export type IconType =
   | 'intermediate'
   | 'smile';
 
-export interface ButtonProps {
+interface ButtonCommonProps {
   /**
    * 자식 컴포넌트
    */
@@ -22,13 +38,22 @@ export interface ButtonProps {
    */
   disabled?: boolean;
   /**
-   * 버튼 사이즈
-   */
-  size?: ButtonSizeType;
-  /**
    * 버튼 타입
    */
   variant: 'primary' | 'secondary' | 'ghost' | 'outline';
+}
+
+export interface ButtonProps extends ButtonCommonProps {
+  /**
+   * 버튼 타입
+   *
+   * @default 'xl-hug'
+   */
+  type?: ButtonType;
+  leadingIcon?: IconType;
+  trailingIcon?: IconType;
+  customLeadingIcon?: React.ReactNode;
+  customTrailingIcon?: React.ReactNode;
   /**
    * 버튼 클릭 이벤트 핸들러.
    *
@@ -44,7 +69,7 @@ export interface IconProps {
   type: IconType;
 }
 
-export interface IconButtonProps extends ButtonProps, IconProps {
+export interface IconButtonProps extends ButtonCommonProps, IconProps {
   children?: React.ReactNode;
   size: IconSizeType;
 }
