@@ -95,3 +95,41 @@ export const Disabled: Story = {
     variant: 'ghost',
   },
 };
+
+/**
+ * 이벤트 버블링 방지 예제
+ */
+export const Prevents_Event_Bubbling: Story = {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    leadingIcon: 'check',
+    type: 'xl-fillCenter',
+    onClick: (e) => {
+      e.stopPropagation();
+      console.log('클릭');
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          backgroundColor: 'skyblue',
+          color: 'white',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          gap: '20px',
+          opacity: 0.8,
+          width: '500px',
+          height: '500px',
+        }}
+        onClick={() => console.log('부모 컴포넌트 클릭')}
+      >
+        부모 컴포넌트
+        <Story />
+      </div>
+    ),
+  ],
+};
