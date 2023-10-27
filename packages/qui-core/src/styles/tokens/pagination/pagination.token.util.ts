@@ -1,7 +1,7 @@
 import { css } from 'styled-components';
-import { getStateOverlayToken } from '../state-overlay';
-import { tabToken } from '../tab';
 import { buttonCommonToken, buttonToken } from '../button';
+import { getStateOverlayToken } from '../state-overlay';
+import { tabToken } from '../switch';
 
 export const getPaginationAtomToken = (isOn: boolean) => {
   return css`
