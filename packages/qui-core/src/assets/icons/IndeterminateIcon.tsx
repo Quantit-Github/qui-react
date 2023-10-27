@@ -1,4 +1,4 @@
-const IndeterminateIcon: React.FC = () => {
+export const IndeterminateIcon: React.FC = () => {
   return (
     <svg
       width="14"
@@ -16,5 +16,3 @@ const IndeterminateIcon: React.FC = () => {
     </svg>
   );
 };
-
-export default IndeterminateIcon;

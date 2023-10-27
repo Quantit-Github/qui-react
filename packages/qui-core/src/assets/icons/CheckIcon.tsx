@@ -1,4 +1,4 @@
-const CheckIcon: React.FC = () => {
+export const CheckIcon: React.FC = () => {
   return (
     <svg
       width="24"
@@ -16,5 +16,3 @@ const CheckIcon: React.FC = () => {
     </svg>
   );
 };
-
-export default CheckIcon;

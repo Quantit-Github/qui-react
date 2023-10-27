@@ -5,8 +5,7 @@ import {
   PaginationVariantProps,
 } from './type';
 import { useState } from 'react';
-import ChevronRightIcon from '../../assets/icons/ChevronRightIcon';
-import ChevronLeftIcon from '../../assets/icons/ChevronLeftIcon';
+import { ChevronLeftIcon, ChevronRightIcon } from '../../assets/icons';
 import {
   getPaginationArrowButtonToken,
   getPaginationAtomToken,

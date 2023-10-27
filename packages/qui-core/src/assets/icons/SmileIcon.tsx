@@ -1,4 +1,4 @@
-const SmileIcon = () => {
+export const SmileIcon = () => {
   return (
     <svg
       width="24"
@@ -16,5 +16,3 @@ const SmileIcon = () => {
     </svg>
   );
 };
-
-export default SmileIcon;
