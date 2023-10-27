@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
+import React from 'react';
 import { Button } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -14,6 +15,13 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
+  decorators: [
+    (Story) => (
+      <div style={{ width: '500px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Button>;
 
 type Story = StoryObj<typeof Button>;
@@ -32,10 +40,29 @@ export const Primary: Story = {
   },
 };
 
+export const Primary_FillCenter_With_LeadingIcon: Story = {
+  args: {
+    children: 'Button',
+    variant: 'primary',
+    leadingIcon: 'check',
+    type: 'xl-fillCenter',
+  },
+};
+
 export const Secondary: Story = {
   args: {
     children: 'Button',
     variant: 'secondary',
+  },
+};
+
+export const Secondary_FillCenter_With_Leading_TrailingIcon: Story = {
+  args: {
+    children: 'Button',
+    variant: 'secondary',
+    leadingIcon: 'check',
+    trailingIcon: 'chevron_right',
+    type: 'xl-fillCenter',
   },
 };
 
@@ -50,6 +77,14 @@ export const Ghost: Story = {
   args: {
     children: 'Button',
     variant: 'ghost',
+  },
+};
+
+export const Ghost_Big: Story = {
+  args: {
+    children: 'Button',
+    variant: 'ghost',
+    type: 'xl-hug',
   },
 };
 

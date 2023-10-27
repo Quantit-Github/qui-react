@@ -1,5 +1,4 @@
 import { css } from 'styled-components';
-import { PixelType } from '../../../components/Button/type';
 import { buttonToken } from './button.token';
 import {
   ButtonActiveType,
@@ -7,6 +6,7 @@ import {
   ButtonSizeType,
   ButtonType,
   IconSizeType,
+  PixelType,
 } from './button.token.type';
 import { buttonCommonToken } from './common.token';
 
