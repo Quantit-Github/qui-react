@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import { switchCommonToken } from './common.token';
 import { checkboxToken } from './checkbox.token';
+import { getStateOverlayToken } from '../state-overlay';
 
 export function getCheckboxFrameToken(
   disabled: boolean,
@@ -65,7 +66,19 @@ export function getCheckboxToken(
         color: ${color};
         background-color: ${backgroundColor};
         cursor: ${!disabled && 'pointer'};
+        ${!disabled && getStateOverlayToken(4)}
       `;
     }}
+  `;
+}
+
+export function getCheckboxLabelToken($bold?: boolean) {
+  if ($bold) {
+    return css`
+      ${({ theme }) => theme.typography.bodyLarge.bold};
+    `;
+  }
+  return css`
+    ${({ theme }) => theme.typography.bodyLarge.css};
   `;
 }
