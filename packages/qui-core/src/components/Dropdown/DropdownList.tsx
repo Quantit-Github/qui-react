@@ -1,11 +1,13 @@
 import styled from 'styled-components';
-import { getDropdownItemToken } from '../../styles/tokens/dropdown';
 import { DropdownItemStyleProps, DropdownListProps } from './type';
-import { getStateOverlayToken } from '../../styles/tokens';
+import {
+  getDropdownItemToken,
+  getStateOverlayToken,
+  getScrollbarToken,
+  itemListToken,
+} from '../../styles/tokens';
 import { Typography } from '../Typography';
 import { ChevronRightIcon } from '../../assets/icons';
-import { getScrollbarToken } from '../../styles/tokens/scrollbar';
-import { itemListToken } from '../../styles/tokens/item-list';
 
 const DropdownListStyle = styled.ul`
   position: absolute;

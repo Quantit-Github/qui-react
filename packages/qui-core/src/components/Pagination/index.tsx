@@ -10,8 +10,8 @@ import {
   getPaginationArrowButtonToken,
   getPaginationAtomToken,
   getPaginationToken,
-} from '../../styles/tokens/pagination';
-import { getStateOverlayToken } from '../../styles/tokens';
+  getStateOverlayToken,
+} from '../../styles/tokens';
 
 const PaginationArrowButtonStyle = styled.button`
   width: 32px;
