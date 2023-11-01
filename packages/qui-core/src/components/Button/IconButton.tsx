@@ -17,7 +17,6 @@ const IconButtonStyle = styled.button<
 >`
   border: none;
   border-radius: 50%;
-  cursor: pointer;
   line-height: 0;
   width: fit-content;
   height: fit-content;

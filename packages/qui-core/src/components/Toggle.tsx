@@ -36,6 +36,7 @@ const ToggleStyle = styled.label<Pick<ToggleProps, 'disabled'>>`
   display: inline-block;
   width: 56px;
   height: 32px;
+  cursor: ${({ disabled }) => !disabled && 'pointer'};
 
   & > input {
     opacity: 0;
@@ -50,7 +51,6 @@ const SliderStyle = styled.span<SliderStyleProps>`
   background-color: #ccc;
   border-radius: 32px;
   box-sizing: border-box;
-  cursor: pointer;
 
   position: absolute;
   top: 0;

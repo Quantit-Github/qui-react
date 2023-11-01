@@ -10,6 +10,7 @@ import { buttonCommonToken } from './common.token';
 
 function getButtonActiveToken(variant: ButtonActiveType) {
   return css`
+    cursor: pointer;
     ${({ theme }) => {
       const { primary, secondary, ghost, outline } = buttonToken(theme);
       switch (variant) {

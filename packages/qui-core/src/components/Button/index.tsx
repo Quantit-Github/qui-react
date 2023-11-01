@@ -14,7 +14,6 @@ interface ButtonStyleProps extends Pick<ButtonProps, 'variant' | 'disabled'> {
 
 const ButtonStyle = styled.button<ButtonStyleProps>`
   border: none;
-  cursor: pointer;
   line-height: 24px;
   display: flex;
   align-items: center;
