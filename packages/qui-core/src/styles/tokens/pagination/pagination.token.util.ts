@@ -10,9 +10,22 @@ export const getPaginationAtomToken = (isOn: boolean) => {
       const variant = isOn ? on : off;
 
       return css`
+        ${getStateOverlayToken(4)}
         background-color: ${variant.container};
         color: ${variant.label};
         border: 1px solid ${variant.outline};
+      `;
+    }}
+  `;
+};
+
+export const getPaginationIconToken = (isDisabled: boolean) => {
+  return css`
+    ${({ theme }) => {
+      const { disabled } = buttonCommonToken(theme);
+      const { ghost } = buttonToken(theme);
+      return css`
+        fill: ${isDisabled ? disabled.elements : ghost.active.elements};
       `;
     }}
   `;
@@ -22,25 +35,14 @@ export const getPaginationArrowButtonToken = (isDisabled: boolean) => {
   return css`
     ${({ theme }) => {
       const { disabled } = buttonCommonToken(theme);
-      const { outline, ghost } = buttonToken(theme);
+      const { outline } = buttonToken(theme);
 
-      if (isDisabled) {
-        return css`
-          background-color: ${outline.active.container};
-          border: 1px solid ${disabled.outline};
-          svg {
-            fill: ${disabled.elements};
-          }
-        `;
-      }
       return css`
-        ${getStateOverlayToken(4)}
-        cursor: pointer;
+        ${!isDisabled && getStateOverlayToken(4)}
+        cursor: ${!isDisabled && 'pointer'};
         background-color: ${outline.active.container};
-        border: 1px solid ${outline.active.outline};
-        svg {
-          fill: ${ghost.active.elements};
-        }
+        border: 1px solid
+          ${isDisabled ? disabled.outline : outline.active.outline};
       `;
     }}
   `;
