@@ -1,7 +1,8 @@
 import { css } from 'styled-components';
 import { dropdownToken } from './dropdown.token';
-import { stateOverlayToken } from '../state-overlay';
+import { getStateOverlayToken, stateOverlayToken } from '../state-overlay';
 import { itemListToken } from '../item-list';
+import { getIconSize } from '../button';
 
 export function getDropdownToken(
   isDisabled: boolean,
@@ -11,28 +12,18 @@ export function getDropdownToken(
     ${({ theme }) => {
       const { disabled, selected, non_selected } = dropdownToken(theme);
 
-      if (isDisabled) {
-        return css`
-          color: ${disabled.elements};
-          background-color: ${disabled.container};
-          border-color: ${disabled.outline};
+      const variant = isDisabled
+        ? disabled
+        : hasSelectedItem
+        ? selected
+        : non_selected;
 
-          svg {
-            fill: ${disabled.elements};
-          }
-        `;
-      }
-
-      const variant = hasSelectedItem ? selected : non_selected;
       return css`
+        ${!isDisabled && getStateOverlayToken(8)}
+        cursor: ${!isDisabled && 'pointer'};
         color: ${variant.elements};
         background-color: ${variant.container};
         border-color: ${variant.outline};
-        cursor: pointer;
-
-        svg {
-          fill: ${variant.elements_var};
-        }
       `;
     }}
   `;
@@ -41,28 +32,50 @@ export function getDropdownToken(
 export function getDropdownItemToken(isDisabled: boolean, isSelected: boolean) {
   return css`
     ${({ theme }) => {
-      const itemList = itemListToken(theme);
+      const { disabled, active } = itemListToken(theme);
       const stateOverlay = stateOverlayToken(theme);
 
-      if (isDisabled) {
-        return css`
-          background-color: ${itemList.disabled.container};
+      return css`
+        ${!isDisabled && getStateOverlayToken(0)}
+        cursor: ${!isDisabled && 'pointer'};
+        background-color: ${isDisabled
+          ? disabled.container
+          : isSelected
+          ? stateOverlay.selected
+          : active.container};
+      `;
+    }}
+  `;
+}
 
-          svg {
-            fill: ${itemList.disabled.elements};
-          }
-        `;
-      }
+export function getDropdownIconToken(
+  isDisabled: boolean,
+  hasSelectedItem: boolean
+) {
+  return css`
+    ${({ theme }) => {
+      const { disabled, selected, non_selected } = dropdownToken(theme);
 
       return css`
-        cursor: pointer;
-        background-color: ${isSelected
-          ? stateOverlay.selected
-          : itemList.active.container};
+        ${getIconSize('md')}
+        fill: ${isDisabled
+          ? disabled.elements
+          : hasSelectedItem
+          ? selected.elements_var
+          : non_selected.elements_var};
+      `;
+    }}
+  `;
+}
 
-        svg {
-          fill: ${itemList.active.elements};
-        }
+export function getDropdownItemIconToken(isDisabled: boolean) {
+  return css`
+    ${({ theme }) => {
+      const { disabled, active } = itemListToken(theme);
+
+      return css`
+        ${getIconSize('md')}
+        fill: ${isDisabled ? disabled.elements : active.elements};
       `;
     }}
   `;

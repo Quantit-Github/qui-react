@@ -80,10 +80,12 @@ export interface DropdownStyleProps {
 
 export interface DropdownButtonStyleProps {
   $width: number;
-  size?: DropdownSize;
+  size: DropdownSize;
   $hasSelectedItem: boolean;
+  disabled: boolean;
 }
 
 export interface DropdownItemStyleProps {
   selected: boolean;
+  disabled: boolean;
 }
