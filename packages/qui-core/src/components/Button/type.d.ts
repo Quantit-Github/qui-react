@@ -9,7 +9,7 @@ export type IconType =
   | 'chevron_right'
   | 'chevron_up'
   | 'external_link'
-  | 'intermediate'
+  | 'indeterminate'
   | 'smile';
 
 interface ButtonCommonProps

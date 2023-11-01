@@ -122,7 +122,7 @@ function App() {
               <Button
                 type="md-hug"
                 variant="outline"
-                trailingIcon="intermediate"
+                trailingIcon="indeterminate"
                 onClick={() => console.log('클릭')}
               >
                 Outline

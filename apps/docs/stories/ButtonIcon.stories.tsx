@@ -12,7 +12,7 @@ const iconTypes: IconType[] = [
   'chevron_right',
   'chevron_up',
   'external_link',
-  'intermediate',
+  'indeterminate',
   'smile',
 ];
 
