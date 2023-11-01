@@ -1,9 +1,13 @@
 import { ChangeEventHandler, useState } from 'react';
 import { styled } from 'styled-components';
-import { getCheckboxFrameToken, getCheckboxToken } from '../../styles/tokens';
-import { CheckIcon, IndeterminateIcon } from '../../assets/icons';
+import {
+  getCheckboxFrameToken,
+  getCheckboxIconToken,
+  getCheckboxToken,
+} from '../../styles/tokens';
 import { CheckboxProps, CheckboxStyleProps } from './type';
 import { Typography } from '../Typography';
+import { Icon } from '../Button';
 
 const CheckboxStyle = styled.label<CheckboxStyleProps>`
   border-radius: 4px;
@@ -41,17 +45,16 @@ const CheckboxFrameStyle = styled.div<CheckboxStyleProps>`
   justify-content: center;
   box-sizing: border-box;
 
-  svg {
-    width: 20px;
-    height: 20px;
-  }
-
   ${({ disabled = false, checked = false, $indeterminate = false }) =>
     getCheckboxFrameToken(disabled, checked, $indeterminate)}
 `;
 
 const CheckboxLabelStyle = styled(Typography)`
   margin: 0 4px;
+`;
+
+const CheckboxIconStyle = styled(Icon)<Pick<CheckboxStyleProps, 'disabled'>>`
+  ${({ disabled = false }) => getCheckboxIconToken(disabled)}
 `;
 
 export function Checkbox({
@@ -95,11 +98,9 @@ export function Checkbox({
         $indeterminate={indeterminateState}
         checked={checkedState}
       >
-        {checkedState ? (
-          <CheckIcon />
-        ) : indeterminateState ? (
-          <IndeterminateIcon />
-        ) : null}
+        {(checkedState || indeterminateState) && (
+          <CheckboxIconStyle type={checkedState ? 'check' : 'indeterminate'} />
+        )}
       </CheckboxFrameStyle>
       <CheckboxLabelStyle variant="bodyLarge" bold={$bold}>
         {children}
