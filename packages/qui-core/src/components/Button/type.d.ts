@@ -9,7 +9,7 @@ export type IconType =
   | 'chevron_right'
   | 'chevron_up'
   | 'external_link'
-  | 'intermediate'
+  | 'indeterminate'
   | 'smile';
 
 interface ButtonCommonProps
@@ -76,5 +76,5 @@ export interface IconButtonProps extends ButtonCommonProps, IconProps {
   /**
    * 아이콘 사이즈
    */
-  size: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+  size: ButtonSizeType;
 }

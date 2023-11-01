@@ -34,7 +34,7 @@ export function Icon({ type }: IconProps) {
   if (type === 'chevron_right') return <ChevronRightIcon />;
   if (type === 'chevron_up') return <ChevronUpIcon />;
   if (type === 'external_link') return <ExternalLinkIcon />;
-  if (type === 'intermediate') return <IndeterminateIcon />;
+  if (type === 'indeterminate') return <IndeterminateIcon />;
   if (type === 'smile') return <SmileIcon />;
   return null;
 }
