@@ -70,3 +70,4 @@ export function Button({
 Button.Icon = IconButton;
 
 export * from './IconButton';
+export type { ButtonSizeType, IconType } from './type';

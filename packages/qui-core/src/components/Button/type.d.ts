@@ -76,5 +76,5 @@ export interface IconButtonProps extends ButtonCommonProps, IconProps {
   /**
    * 아이콘 사이즈
    */
-  size: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+  size: ButtonSizeType;
 }
