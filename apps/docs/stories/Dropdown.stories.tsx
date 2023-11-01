@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from '../components';
-import ChevronRightIcon from '@quantit/qui-react/src/assets/icons/ChevronRightIcon';
+import { SmileIcon } from '@quantit/qui-react/src/assets/icons';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -15,6 +15,13 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
+  decorators: [
+    (Story) => (
+      <div style={{ height: '250px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Dropdown>;
 
 type Story = StoryObj<typeof Dropdown>;
@@ -105,32 +112,32 @@ export const WithPrefix: Story = {
       {
         label: '백재현',
         value: 'wogus',
-        prefix: <ChevronRightIcon />,
+        prefix: <SmileIcon />,
       },
       {
         label: '박하나',
         value: 'hana',
-        prefix: <ChevronRightIcon />,
+        prefix: <SmileIcon />,
       },
       {
         label: '도하영',
         value: 'hyd',
-        prefix: <ChevronRightIcon />,
+        prefix: <SmileIcon />,
       },
       {
         label: '조원영',
         value: 'circle',
-        prefix: <ChevronRightIcon />,
+        prefix: <SmileIcon />,
       },
       {
         label: '우주미남도원',
         value: 'supersexy',
-        prefix: <ChevronRightIcon />,
+        prefix: <SmileIcon />,
       },
       {
         label: '송낙훈',
         value: 'nakhun',
-        prefix: <ChevronRightIcon />,
+        prefix: <SmileIcon />,
       },
     ],
     onChangeSelected: (value) => console.log(value),

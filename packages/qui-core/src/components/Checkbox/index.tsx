@@ -1,24 +1,17 @@
 import { ChangeEventHandler, useState } from 'react';
 import { styled } from 'styled-components';
-import {
-  getStateOverlayToken,
-  getCheckboxFrameToken,
-  getCheckboxToken,
-} from '../../styles/tokens';
-import CheckIcon from '../../assets/icons/CheckIcon';
-import IndeterminateIcon from '../../assets/icons/IndeterminateIcon';
-import { Typography } from '../Typography';
+import { getCheckboxFrameToken, getCheckboxToken } from '../../styles/tokens';
+import { CheckIcon, IndeterminateIcon } from '../../assets/icons';
 import { CheckboxProps, CheckboxStyleProps } from './type';
+import { Typography } from '../Typography';
 
 const CheckboxStyle = styled.label<CheckboxStyleProps>`
-  padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 
-  ${({ disabled }) => !disabled && getStateOverlayToken(8)}
-  ${({ disabled = false, checked, $indeterminate }) =>
+  ${({ disabled = false, checked = false, $indeterminate = false }) =>
     getCheckboxToken(disabled, checked, $indeterminate)};
 
   input {
@@ -39,6 +32,7 @@ const CheckboxStyle = styled.label<CheckboxStyleProps>`
 `;
 
 const CheckboxFrameStyle = styled.div<CheckboxStyleProps>`
+  min-width: 24px;
   width: 24px;
   height: 24px;
   border-radius: 4px;
@@ -46,8 +40,18 @@ const CheckboxFrameStyle = styled.div<CheckboxStyleProps>`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  ${({ disabled = false, checked, $indeterminate }) =>
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  ${({ disabled = false, checked = false, $indeterminate = false }) =>
     getCheckboxFrameToken(disabled, checked, $indeterminate)}
+`;
+
+const CheckboxLabelStyle = styled(Typography)`
+  margin: 0 4px;
 `;
 
 export function Checkbox({
@@ -56,7 +60,7 @@ export function Checkbox({
   $indeterminate = false,
   checked = false,
   onChange,
-  ...props
+  $bold,
 }: CheckboxProps) {
   const [checkedState, setCheckedState] = useState(checked);
   const [indeterminateState, setIndeterminateState] = useState($indeterminate);
@@ -84,7 +88,6 @@ export function Checkbox({
         type="checkbox"
         checked={checkedState}
         disabled={disabled}
-        {...props}
         onChange={handleChange}
       />
       <CheckboxFrameStyle
@@ -98,7 +101,9 @@ export function Checkbox({
           <IndeterminateIcon />
         ) : null}
       </CheckboxFrameStyle>
-      <Typography variant="bodyLarge">{children}</Typography>
+      <CheckboxLabelStyle variant="bodyLarge" bold={$bold}>
+        {children}
+      </CheckboxLabelStyle>
     </CheckboxStyle>
   );
 }

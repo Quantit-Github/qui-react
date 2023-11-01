@@ -4,7 +4,7 @@ import {
   getTabItemChecked,
   getTabItemDefaultStyle,
   getTabItemHeight,
-} from '../../styles/tokens/switch/tab.token.util';
+} from '../../styles/tokens';
 import { Typography } from '../Typography';
 import { TabItemStyleProps, TabProps } from './type';
 

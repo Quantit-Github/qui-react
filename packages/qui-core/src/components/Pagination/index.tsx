@@ -5,14 +5,13 @@ import {
   PaginationVariantProps,
 } from './type';
 import { useState } from 'react';
-import ChevronRightIcon from '../../assets/icons/ChevronRightIcon';
-import ChevronLeftIcon from '../../assets/icons/ChevronLeftIcon';
+import { ChevronLeftIcon, ChevronRightIcon } from '../../assets/icons';
 import {
   getPaginationArrowButtonToken,
   getPaginationAtomToken,
   getPaginationToken,
-} from '../../styles/tokens/pagination';
-import { getStateOverlayToken } from '../../styles/tokens';
+  getStateOverlayToken,
+} from '../../styles/tokens';
 
 const PaginationArrowButtonStyle = styled.button`
   width: 32px;

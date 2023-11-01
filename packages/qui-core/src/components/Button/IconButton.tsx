@@ -1,10 +1,14 @@
 import styled from 'styled-components';
-import CheckIcon from '../../assets/icons/CheckIcon';
-import ChevronDownIcon from '../../assets/icons/ChevronDownIcon';
-import ChevronRightIcon from '../../assets/icons/ChevronRightIcon';
-import ChevronUpIcon from '../../assets/icons/ChevronUpIcon';
-import IndeterminateIcon from '../../assets/icons/IndeterminateIcon';
-import SmileIcon from '../../assets/icons/SmileIcon';
+import {
+  CheckIcon,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ChevronUpIcon,
+  ExternalLinkIcon,
+  IndeterminateIcon,
+  SmileIcon,
+} from '../../assets/icons';
 import { getIconButtonToken, getStateOverlayToken } from '../../styles/tokens';
 import { IconButtonProps, IconProps } from './type';
 
@@ -26,8 +30,10 @@ const IconButtonStyle = styled.button<
 export function Icon({ type }: IconProps) {
   if (type === 'check') return <CheckIcon />;
   if (type === 'chevron_down') return <ChevronDownIcon />;
+  if (type === 'chevron_left') return <ChevronLeftIcon />;
   if (type === 'chevron_right') return <ChevronRightIcon />;
   if (type === 'chevron_up') return <ChevronUpIcon />;
+  if (type === 'external_link') return <ExternalLinkIcon />;
   if (type === 'intermediate') return <IndeterminateIcon />;
   if (type === 'smile') return <SmileIcon />;
   return null;

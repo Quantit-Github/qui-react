@@ -19,12 +19,18 @@ export default {
 type Story = StoryObj<typeof Checkbox>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Enabled: Story = {
+export const Default: Story = {
   args: {
-    children: 'Checkbox Enabled',
-    onChange(values) {
-      console.log(values);
-    },
+    children: 'Checkbox Default',
+    onChange: (values) => console.log(values),
+  },
+};
+
+export const Bold: Story = {
+  args: {
+    children: 'Checkbox Bold',
+    $bold: true,
+    onChange: (values) => console.log(values),
   },
 };
 
@@ -32,9 +38,7 @@ export const EnabledTrue: Story = {
   args: {
     checked: true,
     children: 'Checkbox Enabled True',
-    onChange(values) {
-      console.log(values);
-    },
+    onChange: (values) => console.log(values),
   },
 };
 
@@ -42,9 +46,7 @@ export const EnabledIndeterminate: Story = {
   args: {
     $indeterminate: true,
     children: 'Checkbox Enabled Indeterminate',
-    onChange(values) {
-      console.log(values);
-    },
+    onChange: (values) => console.log(values),
   },
 };
 
@@ -52,9 +54,7 @@ export const Disabled: Story = {
   args: {
     disabled: true,
     children: 'Checkbox Disabled',
-    onChange(values) {
-      console.log(values);
-    },
+    onChange: (values) => console.log(values),
   },
 };
 
@@ -63,9 +63,7 @@ export const DisabledIndeterminate: Story = {
     $indeterminate: true,
     disabled: true,
     children: 'Checkbox Disabled Indeterminate',
-    onChange(values) {
-      console.log(values);
-    },
+    onChange: (values) => console.log(values),
   },
 };
 
@@ -74,17 +72,17 @@ export const DisabledTrue: Story = {
     checked: true,
     disabled: true,
     children: 'Checkbox Disabled True',
-    onChange(values) {
-      console.log(values);
-    },
+    onChange: (values) => console.log(values),
   },
 };
 
 export const CustomChild: Story = {
   args: {
-    children: <span style={{ color: 'red' }}>This text is red.</span>,
-    onChange(values) {
-      console.log(values);
-    },
+    children: (
+      <span style={{ color: 'red', fontSize: '32px', lineHeight: '40px' }}>
+        This text is big and red.
+      </span>
+    ),
+    onChange: (values) => console.log(values),
   },
 };

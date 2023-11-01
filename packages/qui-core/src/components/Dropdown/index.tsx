@@ -7,10 +7,8 @@ import {
   DropdownStyleProps,
 } from './type';
 import { DropdownList } from './DropdownList';
-import { getStateOverlayToken } from '../../styles/tokens';
-import { getDropdownToken } from '../../styles/tokens/dropdown';
-import ChevronUpIcon from '../../assets/icons/ChevronUpIcon';
-import ChevronDownIcon from '../../assets/icons/ChevronDownIcon';
+import { getDropdownToken, getStateOverlayToken } from '../../styles/tokens';
+import { ChevronDownIcon, ChevronUpIcon } from '../../assets/icons';
 
 const DropdownStyle = styled.div<DropdownStyleProps>`
   ${({ open }) =>

@@ -1,4 +1,4 @@
-const ChevronLeftIcon: React.FC = () => {
+export const ChevronLeftIcon: React.FC = () => {
   return (
     <svg
       width="24"
@@ -23,5 +23,3 @@ const ChevronLeftIcon: React.FC = () => {
     </svg>
   );
 };
-
-export default ChevronLeftIcon;

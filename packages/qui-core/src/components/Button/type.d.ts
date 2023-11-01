@@ -5,8 +5,10 @@ export type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type IconType =
   | 'check'
   | 'chevron_down'
+  | 'chevron_left'
   | 'chevron_right'
   | 'chevron_up'
+  | 'external_link'
   | 'intermediate'
   | 'smile';
 
@@ -66,13 +68,7 @@ export interface IconProps {
   /**
    * 아이콘 타입
    */
-  type:
-    | 'check'
-    | 'chevron_down'
-    | 'chevron_right'
-    | 'chevron_up'
-    | 'intermediate'
-    | 'smile';
+  type: IconType;
 }
 
 export interface IconButtonProps extends ButtonCommonProps, IconProps {

@@ -4,13 +4,13 @@ export interface CheckboxStateProps {
    *
    * @default false
    */
-  $indeterminate: boolean;
+  $indeterminate?: boolean;
   /**
    * 체크 상태
    *
    * @default false
    */
-  checked: boolean;
+  checked?: boolean;
 }
 
 export interface CheckboxStyleProps extends CheckboxStateProps {
@@ -34,4 +34,5 @@ export interface CheckboxProps extends CheckboxStyleProps {
    * @returns {void}
    */
   onChange: (props: CheckboxStateProps) => void;
+  $bold?: boolean;
 }
