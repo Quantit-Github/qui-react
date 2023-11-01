@@ -1,12 +1,9 @@
 import { ChangeEventHandler, useState } from 'react';
 import { styled } from 'styled-components';
-import {
-  getCheckboxFrameToken,
-  getCheckboxLabelToken,
-  getCheckboxToken,
-} from '../../styles/tokens';
+import { getCheckboxFrameToken, getCheckboxToken } from '../../styles/tokens';
 import { CheckIcon, IndeterminateIcon } from '../../assets/icons';
 import { CheckboxProps, CheckboxStyleProps } from './type';
+import { Typography } from '../Typography';
 
 const CheckboxStyle = styled.label<CheckboxStyleProps>`
   border-radius: 4px;
@@ -43,13 +40,18 @@ const CheckboxFrameStyle = styled.div<CheckboxStyleProps>`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
   ${({ disabled = false, checked = false, $indeterminate = false }) =>
     getCheckboxFrameToken(disabled, checked, $indeterminate)}
 `;
 
-const CheckboxLabelStyle = styled.span<Pick<CheckboxProps, '$bold'>>`
+const CheckboxLabelStyle = styled(Typography)`
   margin: 0 4px;
-  ${({ $bold }) => getCheckboxLabelToken($bold)};
 `;
 
 export function Checkbox({
@@ -99,7 +101,9 @@ export function Checkbox({
           <IndeterminateIcon />
         ) : null}
       </CheckboxFrameStyle>
-      <CheckboxLabelStyle $bold={$bold}>{children}</CheckboxLabelStyle>
+      <CheckboxLabelStyle variant="bodyLarge" bold={$bold}>
+        {children}
+      </CheckboxLabelStyle>
     </CheckboxStyle>
   );
 }

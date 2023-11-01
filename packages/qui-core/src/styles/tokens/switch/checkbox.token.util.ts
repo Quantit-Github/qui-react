@@ -13,28 +13,17 @@ export function getCheckboxFrameToken(
       const { unchecked, checked } = checkboxToken(theme);
       const { disabled: disabledToken } = switchCommonToken(theme);
 
-      const backgroundColor = disabled ? disabledToken.frame : checked.frame;
-      const iconColor = disabled ? disabledToken.icon : checked.icon;
-      const borderColor = disabled ? disabledToken.outline : unchecked.frame;
-
-      if (selected) {
+      if (selected || indeterminate) {
+        const variant = disabled ? disabledToken : checked;
         return css`
-          background-color: ${backgroundColor};
+          background-color: ${variant.frame};
           svg {
-            fill: ${iconColor};
-          }
-        `;
-      }
-      if (indeterminate) {
-        return css`
-          background-color: ${backgroundColor};
-          svg {
-            stroke: ${iconColor};
+            fill: ${variant.icon};
           }
         `;
       }
       return css`
-        border: 2px solid ${borderColor};
+        border: 2px solid ${disabled ? disabledToken.outline : unchecked.frame};
       `;
     }}
   `;
@@ -50,35 +39,18 @@ export function getCheckboxToken(
       const { unchecked, checked } = checkboxToken(theme);
       const { disabled: disabledToken } = switchCommonToken(theme);
 
-      const color = disabled
-        ? disabledToken.label
+      const variant = disabled
+        ? disabledToken
         : selected || indeterminate
-        ? checked.label
-        : unchecked.label;
-
-      const backgroundColor = disabled
-        ? disabledToken.container
-        : selected || indeterminate
-        ? checked.container
-        : unchecked.container;
+        ? checked
+        : unchecked;
 
       return css`
-        color: ${color};
-        background-color: ${backgroundColor};
+        color: ${variant.label};
+        background-color: ${variant.container};
         cursor: ${!disabled && 'pointer'};
         ${!disabled && getStateOverlayToken(4)}
       `;
     }}
-  `;
-}
-
-export function getCheckboxLabelToken($bold?: boolean) {
-  if ($bold) {
-    return css`
-      ${({ theme }) => theme.typography.bodyLarge.bold};
-    `;
-  }
-  return css`
-    ${({ theme }) => theme.typography.bodyLarge.css};
   `;
 }
