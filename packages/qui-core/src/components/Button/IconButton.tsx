@@ -27,15 +27,15 @@ const IconButtonStyle = styled.button<
   ${({ disabled }) => !disabled && getStateOverlayToken('rounded')}
 `;
 
-export function Icon({ type }: IconProps) {
-  if (type === 'check') return <CheckIcon />;
-  if (type === 'chevron_down') return <ChevronDownIcon />;
-  if (type === 'chevron_left') return <ChevronLeftIcon />;
-  if (type === 'chevron_right') return <ChevronRightIcon />;
-  if (type === 'chevron_up') return <ChevronUpIcon />;
-  if (type === 'external_link') return <ExternalLinkIcon />;
-  if (type === 'indeterminate') return <IndeterminateIcon />;
-  if (type === 'smile') return <SmileIcon />;
+export function Icon({ type, ...props }: IconProps) {
+  if (type === 'check') return <CheckIcon {...props} />;
+  if (type === 'chevron_down') return <ChevronDownIcon {...props} />;
+  if (type === 'chevron_left') return <ChevronLeftIcon {...props} />;
+  if (type === 'chevron_right') return <ChevronRightIcon {...props} />;
+  if (type === 'chevron_up') return <ChevronUpIcon {...props} />;
+  if (type === 'external_link') return <ExternalLinkIcon {...props} />;
+  if (type === 'indeterminate') return <IndeterminateIcon {...props} />;
+  if (type === 'smile') return <SmileIcon {...props} />;
   return null;
 }
 
