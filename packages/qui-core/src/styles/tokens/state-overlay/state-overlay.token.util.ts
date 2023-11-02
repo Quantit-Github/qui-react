@@ -2,7 +2,10 @@ import { css } from 'styled-components';
 import { stateOverlayToken } from './state-overlay.token';
 import { BorderRadiusType } from './state-overlay.token.type';
 
-function getStateOverlayContent(borderRadius: BorderRadiusType) {
+function getStateOverlayContent(
+  borderRadius: BorderRadiusType,
+  borderWidth?: number
+) {
   return css`
     /* overlay content */
     &::after {
@@ -11,7 +14,7 @@ function getStateOverlayContent(borderRadius: BorderRadiusType) {
       border: none;
       border-radius: ${borderRadius === 'rounded'
         ? '50%'
-        : `${borderRadius}px`};
+        : `${borderRadius - (borderWidth ?? 0)}px`};
       /* content */
       content: '';
       /* size */
@@ -28,9 +31,12 @@ function getStateOverlayContent(borderRadius: BorderRadiusType) {
   `;
 }
 
-export function getStateOverlayToken(borderRadius: BorderRadiusType) {
+export function getStateOverlayToken(
+  borderRadius: BorderRadiusType,
+  borderWidth?: number
+) {
   return css`
-    ${getStateOverlayContent(borderRadius)};
+    ${getStateOverlayContent(borderRadius, borderWidth)};
 
     ${({ theme }) => {
       const { focused, hover, pressed } = stateOverlayToken(theme);

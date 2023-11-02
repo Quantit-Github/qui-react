@@ -19,11 +19,11 @@ export function getDropdownToken(
         : non_selected;
 
       return css`
-        ${!isDisabled && getStateOverlayToken(8)}
+        ${!isDisabled && getStateOverlayToken(8, 1)}
         cursor: ${!isDisabled && 'pointer'};
         color: ${variant.elements};
         background-color: ${variant.container};
-        border-color: ${variant.outline};
+        border: 1px solid ${variant.outline};
       `;
     }}
   `;

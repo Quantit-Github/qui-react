@@ -10,7 +10,7 @@ export const getPaginationAtomToken = (isOn: boolean) => {
       const variant = isOn ? on : off;
 
       return css`
-        ${getStateOverlayToken(4)}
+        ${getStateOverlayToken(4, 1)}
         background-color: ${variant.container};
         color: ${variant.label};
         border: 1px solid ${variant.outline};
@@ -38,7 +38,7 @@ export const getPaginationArrowButtonToken = (isDisabled: boolean) => {
       const { outline } = buttonToken(theme);
 
       return css`
-        ${!isDisabled && getStateOverlayToken(4)}
+        ${!isDisabled && getStateOverlayToken(4, 1)}
         cursor: ${!isDisabled && 'pointer'};
         background-color: ${outline.active.container};
         border: 1px solid

@@ -26,8 +26,6 @@ const DropdownStyle = styled.div<DropdownStyleProps>`
 
 const DropdownButtonStyle = styled.button<DropdownButtonStyleProps>`
   box-sizing: border-box;
-  border-width: 1px;
-  border-style: solid;
   display: flex;
   padding: 8px;
   gap: 8px;

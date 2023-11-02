@@ -28,8 +28,15 @@ const ButtonStyle = styled.button<ButtonStyleProps>`
       }
     `}
 
-  ${({ disabled, size }) =>
-    !disabled && getStateOverlayToken(size === 'xl' || size === 'lg' ? 12 : 8)};
+  ${({ disabled, size, variant }) => {
+    return (
+      !disabled &&
+      getStateOverlayToken(
+        size === 'xl' || size === 'lg' ? 12 : 8,
+        variant === 'outline' ? 1 : 0
+      )
+    );
+  }};
 `;
 
 export function Button({
