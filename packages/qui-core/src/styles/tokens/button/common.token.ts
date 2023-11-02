@@ -1,4 +1,4 @@
-import { DefaultTheme, css } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 export const buttonCommonToken = (theme: DefaultTheme) => ({
   disabled: {

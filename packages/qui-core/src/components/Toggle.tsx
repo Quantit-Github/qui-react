@@ -37,18 +37,28 @@ const ToggleStyle = styled.label<Pick<ToggleProps, 'disabled'>>`
   width: 56px;
   height: 32px;
   cursor: ${({ disabled }) => !disabled && 'pointer'};
+  border-radius: 32px;
 
-  & > input {
-    opacity: 0;
-    width: 0;
-    height: 0;
+  > input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    outline: 0;
+    outline-offset: 0;
   }
 
   ${({ disabled }) => !disabled && getStateOverlayToken(32)}
 `;
 
 const SliderStyle = styled.span<SliderStyleProps>`
-  background-color: #ccc;
   border-radius: 32px;
   box-sizing: border-box;
 
@@ -69,7 +79,6 @@ const SliderStyle = styled.span<SliderStyleProps>`
     width: 24px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
     -webkit-transition: 0.2s;
     transition: 0.2s;
     border-radius: 50%;
