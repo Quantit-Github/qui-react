@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { Dropdown } from '../components';
-import { SmileIcon } from '@quantit/qui-react/src/assets/icons';
+import { styled } from 'styled-components';
+import { Dropdown, Icon } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -25,6 +25,12 @@ export default {
 } as Meta<typeof Dropdown>;
 
 type Story = StoryObj<typeof Dropdown>;
+
+const PrefixIcon = styled(Icon)`
+  width: 20px;
+  height: 20px;
+  fill: rgba(16, 16, 20, 1);
+`;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Medium: Story = {
@@ -112,32 +118,32 @@ export const WithPrefix: Story = {
       {
         label: '백재현',
         value: 'wogus',
-        prefix: <SmileIcon />,
+        prefix: <PrefixIcon type="smile" />,
       },
       {
         label: '박하나',
         value: 'hana',
-        prefix: <SmileIcon />,
+        prefix: <PrefixIcon type="smile" />,
       },
       {
         label: '도하영',
         value: 'hyd',
-        prefix: <SmileIcon />,
+        prefix: <PrefixIcon type="smile" />,
       },
       {
         label: '조원영',
         value: 'circle',
-        prefix: <SmileIcon />,
+        prefix: <PrefixIcon type="smile" />,
       },
       {
         label: '우주미남도원',
         value: 'supersexy',
-        prefix: <SmileIcon />,
+        prefix: <PrefixIcon type="smile" />,
       },
       {
         label: '송낙훈',
         value: 'nakhun',
-        prefix: <SmileIcon />,
+        prefix: <PrefixIcon type="smile" />,
       },
     ],
     onChangeSelected: (value) => console.log(value),
