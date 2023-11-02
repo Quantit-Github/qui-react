@@ -1,4 +1,4 @@
-export const IndeterminateIcon: React.FC = () => {
+export const IndeterminateIcon: React.FC = (props) => {
   return (
     <svg
       width="24"
@@ -6,6 +6,7 @@ export const IndeterminateIcon: React.FC = () => {
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <g clipPath="url(#clip0_2252_101097)">
         <path

@@ -1,4 +1,5 @@
 import { Dispatch, SetStateAction } from 'react';
+import { IconType } from '../Button';
 
 export interface PaginationAtomProps {
   /**
@@ -32,4 +33,19 @@ export interface PaginationProps {
    * 페이지 변경시 실행할 작업
    */
   onPageChange: (page: number) => void;
+}
+
+export interface PaginationArrowButtonProps {
+  /**
+   * 버튼 클릭시 실행할 작업
+   */
+  onClick: () => void;
+  /**
+   * 버튼 disabled 여부
+   */
+  disabled: boolean;
+  /**
+   * 아이콘 타입
+   */
+  iconType: IconType;
 }

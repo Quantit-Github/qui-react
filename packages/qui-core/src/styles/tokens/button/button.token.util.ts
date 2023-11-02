@@ -78,10 +78,8 @@ export function getIconSize(size: ButtonSizeType) {
   }
 
   return css`
-    svg {
-      width: ${width};
-      height: ${height};
-    }
+    width: ${width};
+    height: ${height};
   `;
 }
 
@@ -108,8 +106,10 @@ function getIconButtonSize(size: ButtonSizeType) {
   }
 
   return css`
-    ${getIconSize(size)}
     padding: ${padding};
+    svg {
+      ${getIconSize(size)}
+    }
   `;
 }
 

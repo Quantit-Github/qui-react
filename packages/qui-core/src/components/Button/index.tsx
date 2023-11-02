@@ -24,7 +24,9 @@ const ButtonStyle = styled.button<ButtonStyleProps>`
   ${({ variant, disabled, format, size }) =>
     css`
       ${getButtonToken(variant, format, size, disabled || false)}
-      ${getIconSize(size)}
+      svg {
+        ${getIconSize(size)}
+      }
     `}
 
   ${({ disabled, size }) =>

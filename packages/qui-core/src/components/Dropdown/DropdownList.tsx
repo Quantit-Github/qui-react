@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { DropdownItemStyleProps, DropdownListProps } from './type';
 import {
+  getDropdownItemIconToken,
   getDropdownItemToken,
-  getStateOverlayToken,
   getScrollbarToken,
   itemListToken,
 } from '../../styles/tokens';
 import { Typography } from '../Typography';
-import { ChevronRightIcon } from '../../assets/icons';
+import { Icon } from '../Button';
 
 const DropdownListStyle = styled.ul`
   position: absolute;
@@ -35,14 +35,18 @@ const DropdownItemStyle = styled.button<DropdownItemStyleProps>`
   border: none;
   border-radius: 0px;
 
-  ${({ disabled }) => !disabled && getStateOverlayToken(0)}
-  ${({ disabled = false, selected }) =>
-    getDropdownItemToken(disabled, selected)}
+  ${({ disabled, selected }) => getDropdownItemToken(disabled, selected)}
+`;
 
-  span {
-    flex-grow: 2;
-    text-align: left;
-  }
+const DropdownItemLabelStyle = styled(Typography)`
+  flex-grow: 2;
+  text-align: left;
+`;
+
+const DropdownItemSuffixStyle = styled(Icon)<
+  Pick<DropdownItemStyleProps, 'disabled'>
+>`
+  ${({ disabled }) => getDropdownItemIconToken(disabled)}
 `;
 
 export const DropdownList = <T extends unknown>({
@@ -52,19 +56,28 @@ export const DropdownList = <T extends unknown>({
 }: DropdownListProps<T>) => {
   return (
     <DropdownListStyle>
-      {list.map(({ label, value, disabled, prefix, hasSuffix }, index) => (
-        <li key={index}>
-          <DropdownItemStyle
-            onClick={() => onItemClick(value, index)}
-            disabled={disabled}
-            selected={selectedIndex === index}
-          >
-            {prefix}
-            <Typography variant="bodyMedium">{label}</Typography>
-            {hasSuffix && <ChevronRightIcon />}
-          </DropdownItemStyle>
-        </li>
-      ))}
+      {list.map(
+        ({ label, value, disabled = false, prefix, hasSuffix }, index) => (
+          <li key={index}>
+            <DropdownItemStyle
+              onClick={() => onItemClick(value, index)}
+              disabled={disabled}
+              selected={selectedIndex === index}
+            >
+              {prefix}
+              <DropdownItemLabelStyle variant="bodyMedium">
+                {label}
+              </DropdownItemLabelStyle>
+              {hasSuffix && (
+                <DropdownItemSuffixStyle
+                  type="chevron_right"
+                  disabled={disabled}
+                />
+              )}
+            </DropdownItemStyle>
+          </li>
+        )
+      )}
     </DropdownListStyle>
   );
 };

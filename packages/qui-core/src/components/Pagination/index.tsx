@@ -1,17 +1,18 @@
 import styled from 'styled-components';
 import {
+  PaginationArrowButtonProps,
   PaginationAtomProps,
   PaginationProps,
   PaginationVariantProps,
 } from './type';
 import { useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '../../assets/icons';
 import {
   getPaginationArrowButtonToken,
   getPaginationAtomToken,
+  getPaginationIconToken,
   getPaginationToken,
-  getStateOverlayToken,
 } from '../../styles/tokens';
+import { Icon } from '../Button';
 
 const PaginationArrowButtonStyle = styled.button`
   width: 32px;
@@ -24,6 +25,12 @@ const PaginationArrowButtonStyle = styled.button`
   ${({ disabled = false }) => getPaginationArrowButtonToken(disabled)}
 `;
 
+const PaginationIconStyle = styled(Icon)<
+  Pick<PaginationArrowButtonProps, 'disabled'>
+>`
+  ${({ disabled }) => getPaginationIconToken(disabled)}
+`;
+
 const PaginationAtomStyle = styled.button<PaginationAtomProps>`
   width: 32px;
   height: 32px;
@@ -33,7 +40,6 @@ const PaginationAtomStyle = styled.button<PaginationAtomProps>`
   justify-content: center;
   cursor: pointer;
 
-  ${getStateOverlayToken(4)}
   ${({ $on }) => getPaginationAtomToken($on)}
 `;
 
@@ -47,6 +53,18 @@ const PaginationVariantStyle = styled.div<
 
   ${({ $pageSize }) => getPaginationToken($pageSize)}
 `;
+
+const PaginationArrowButton = ({
+  onClick,
+  disabled,
+  iconType,
+}: PaginationArrowButtonProps) => {
+  return (
+    <PaginationArrowButtonStyle onClick={onClick} disabled={disabled}>
+      <PaginationIconStyle type={iconType} disabled={disabled} />
+    </PaginationArrowButtonStyle>
+  );
+};
 
 const PaginationVariant = ({
   totalPage,
@@ -81,12 +99,11 @@ const PaginationVariant = ({
 
   return (
     <PaginationVariantStyle $pageSize={$pageSize}>
-      <PaginationArrowButtonStyle
+      <PaginationArrowButton
         onClick={_goPrev}
         disabled={currentPage < $pageSize}
-      >
-        <ChevronLeftIcon />
-      </PaginationArrowButtonStyle>
+        iconType="chevron_left"
+      />
       {_pages(totalPage, currentPage, $pageSize).map((page) => (
         <PaginationAtomStyle
           key={page}
@@ -96,12 +113,11 @@ const PaginationVariant = ({
           {page + 1}
         </PaginationAtomStyle>
       ))}
-      <PaginationArrowButtonStyle
+      <PaginationArrowButton
         onClick={_goNext}
         disabled={currentPage >= totalPage - $pageSize}
-      >
-        <ChevronRightIcon />
-      </PaginationArrowButtonStyle>
+        iconType="chevron_right"
+      />
     </PaginationVariantStyle>
   );
 };

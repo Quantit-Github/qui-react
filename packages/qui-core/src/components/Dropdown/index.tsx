@@ -7,8 +7,8 @@ import {
   DropdownStyleProps,
 } from './type';
 import { DropdownList } from './DropdownList';
-import { getDropdownToken, getStateOverlayToken } from '../../styles/tokens';
-import { ChevronDownIcon, ChevronUpIcon } from '../../assets/icons';
+import { getDropdownIconToken, getDropdownToken } from '../../styles/tokens';
+import { Icon } from '../Button';
 
 const DropdownStyle = styled.div<DropdownStyleProps>`
   ${({ open }) =>
@@ -39,8 +39,7 @@ const DropdownButtonStyle = styled.button<DropdownButtonStyleProps>`
   height: ${({ size }) => (size === 'md' ? '40px' : '56px')};
   width: ${({ $width }) => $width}px;
 
-  ${({ disabled }) => !disabled && getStateOverlayToken(8)}
-  ${({ disabled = false, $hasSelectedItem }) =>
+  ${({ disabled, $hasSelectedItem }) =>
     getDropdownToken(disabled, $hasSelectedItem)}
 
   span {
@@ -50,6 +49,13 @@ const DropdownButtonStyle = styled.button<DropdownButtonStyleProps>`
     text-overflow: ellipsis;
     text-align: left;
   }
+`;
+
+const DropdownIconStyle = styled(Icon)<
+  Pick<DropdownButtonStyleProps, 'disabled' | '$hasSelectedItem'>
+>`
+  ${({ disabled, $hasSelectedItem }) =>
+    getDropdownIconToken(disabled, $hasSelectedItem)}
 `;
 
 export const Dropdown = <T extends unknown>({
@@ -85,7 +91,11 @@ export const Dropdown = <T extends unknown>({
             ? placeholder
             : list[selectedIndex].label}
         </Typography>
-        {open ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        <DropdownIconStyle
+          type={open ? 'chevron_up' : 'chevron_down'}
+          disabled={disabled}
+          $hasSelectedItem={selectedIndex !== undefined}
+        />
       </DropdownButtonStyle>
       <DropdownList
         list={list}
