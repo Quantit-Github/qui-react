@@ -43,6 +43,11 @@ export function getDropdownItemToken(isDisabled: boolean, isSelected: boolean) {
           : isSelected
           ? stateOverlay.selected
           : active.container};
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0 2px ${stateOverlay.focused} inset;
+        }
       `;
     }}
   `;
