@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { DividerHorizontal } from '../components';
+import { Divider } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Example/Divider',
-  component: DividerHorizontal,
+  component: Divider,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -21,27 +21,27 @@ export default {
       </div>
     ),
   ],
-} as Meta<typeof DividerHorizontal>;
+} as Meta<typeof Divider>;
 
-type Story = StoryObj<typeof DividerHorizontal>;
+type Story = StoryObj<typeof Divider>;
 
 export const DividerHorizontalLow: Story = {
   args: {
-    hierarachy: 'low',
+    hierarchy: 'low',
     direction: 'horizontal',
   },
 };
 
 export const DividerHorizontalHigh: Story = {
   args: {
-    hierarachy: 'high',
+    hierarchy: 'high',
     direction: 'horizontal',
   },
 };
 
 export const DividerVerticalHigh: Story = {
   args: {
-    hierarachy: 'high',
+    hierarchy: 'high',
     direction: 'vertical',
   },
 };

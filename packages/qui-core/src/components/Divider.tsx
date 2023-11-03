@@ -10,7 +10,7 @@ export interface DividerProps {
    * 구분선 두께
    * @default low
    */
-  hierarachy: Hierarchy;
+  hierarchy: Hierarchy;
 
   /**
    * 구분선 방향
@@ -20,7 +20,7 @@ export interface DividerProps {
 }
 
 function getDividerStyle(
-  hierarachy: Hierarchy,
+  hierarchy: Hierarchy,
   direction: Direction,
   theme: DefaultTheme
 ) {
@@ -28,25 +28,28 @@ function getDividerStyle(
     width: ${direction === 'horizontal' ? '100%' : '1px'};
     height: ${direction === 'vertical'
       ? '100%'
-      : hierarachy === 'low'
+      : hierarchy === 'low'
       ? '1px'
       : '8px'};
     background-color: ${direction === 'horizontal'
-      ? hierarachy === 'high'
+      ? hierarchy === 'high'
         ? dividerToken(theme).darken
         : dividerToken(theme).lighten
       : dividerToken(theme).lighten};
   `;
 }
 
-export function DividerHorizontal({
-  hierarachy = 'low',
-  direction = 'horizontal',
-}: DividerProps) {
-  return <DividerStyle hierarachy={hierarachy} direction={direction} />;
-}
-
 const DividerStyle = styled.div<DividerProps>`
-  ${({ hierarachy, direction, theme }) =>
-    getDividerStyle(hierarachy, direction, theme)}
+  ${({ hierarchy, direction, theme }) =>
+    getDividerStyle(hierarchy, direction, theme)}
 `;
+
+export function Divider({
+  hierarchy = 'low',
+  direction = 'horizontal',
+  ...props
+}: DividerProps) {
+  return (
+    <DividerStyle hierarchy={hierarchy} direction={direction} {...props} />
+  );
+}
