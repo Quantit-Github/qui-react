@@ -14,8 +14,10 @@ export interface AccordionProps {
   disabled?: boolean;
   /**
    * 아코디언 제목
+   *
+   * TOOD: DI를 위한 임시 수정
    */
-  title: string;
+  title: React.ReactNode;
   /**
    * 아코디언 부가 정보
    * @prop {string} info 부가 정보
