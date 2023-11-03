@@ -64,6 +64,7 @@ export function Checkbox({
   checked = false,
   onChange,
   $bold,
+  ...props
 }: CheckboxProps) {
   const [checkedState, setCheckedState] = useState(checked);
   const [indeterminateState, setIndeterminateState] = useState($indeterminate);
@@ -85,6 +86,7 @@ export function Checkbox({
       disabled={disabled}
       $indeterminate={indeterminateState}
       checked={checkedState}
+      {...props}
     >
       <input
         role="switch"
