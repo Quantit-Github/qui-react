@@ -32,6 +32,17 @@ export function getAccordionSubInfoRowToken(disabled: boolean, open: boolean) {
     ${({ theme }) => {
       const variant = getAccordionTokenVariant(disabled, open, theme);
 
+      if (disabled) {
+        return css`
+          span {
+            color: ${variant.elements};
+          }
+          div {
+            background-color: ${variant.elements_lighten};
+          }
+        `;
+      }
+
       return css`
         span {
           color: ${variant.elements_lighten};
@@ -50,6 +61,7 @@ export function getAccordionDividerToken(disabled: boolean, open: boolean) {
       const variant = getAccordionTokenVariant(disabled, open, theme);
 
       return css`
+        margin: 16px 0;
         background-color: ${variant.elements_brightest};
       `;
     }}

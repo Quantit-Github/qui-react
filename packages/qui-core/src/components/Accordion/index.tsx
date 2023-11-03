@@ -8,6 +8,7 @@ import { useState } from 'react';
 import AccordionSecondaryButton from './AccordionSecondaryButton';
 import AccordionTitle from './AccordionTitle';
 import AccordionSubInfoRow from './AccordionSubInfoRow';
+import { Divider } from '../Divider';
 
 const AccordionStyle = styled.div<Pick<AccordionProps, 'disabled' | 'open'>>`
   padding: 16px;
@@ -23,11 +24,9 @@ const AccordionContentStyle = styled.div`
   white-space: pre-wrap;
 `;
 
-const AccordionDivider = styled.div<Pick<AccordionProps, 'disabled' | 'open'>>`
-  margin: 16px 0;
-  height: 1px;
-  width: 100%;
-
+const AccordionDivider = styled(Divider)<
+  Pick<AccordionProps, 'disabled' | 'open'>
+>`
   ${({ disabled = false, open = false }) =>
     getAccordionDividerToken(disabled, open)}
 `;
@@ -71,7 +70,12 @@ export const Accordion: React.FC<AccordionProps> = ({
       )}
       {openState && (
         <AccordionContentStyle>
-          <AccordionDivider open={openState} disabled={disabled} />
+          <AccordionDivider
+            open={openState}
+            disabled={disabled}
+            hierarchy="low"
+            direction="horizontal"
+          />
           {children}
           {secondaryButton && <AccordionSecondaryButton {...secondaryButton} />}
         </AccordionContentStyle>

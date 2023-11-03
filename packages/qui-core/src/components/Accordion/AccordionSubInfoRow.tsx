@@ -5,6 +5,7 @@ import {
   getAccordionSubInfoToken,
 } from '../../styles/tokens';
 import { Fragment } from 'react';
+import { Divider } from '../Divider';
 
 const AccordionSubInfoRowStyle = styled.div<
   Pick<AccordionProps, 'disabled' | 'open'>
@@ -13,6 +14,9 @@ const AccordionSubInfoRowStyle = styled.div<
   align-items: center;
   gap: 8px;
   margin-top: 8px;
+  height: 16px;
+  padding: 2px 0;
+  box-sizing: border-box;
 
   ${({ disabled = false, open = false }) =>
     getAccordionSubInfoRowToken(disabled, open)}
@@ -26,12 +30,6 @@ const AccordionSubInfoStyle = styled.span<
   ${({ $ellipsis }) => getAccordionSubInfoToken($ellipsis)}
 `;
 
-const AccordionSubInfoDivider = styled.div`
-  height: 12px;
-  margin: 2px 0;
-  width: 1px;
-`;
-
 const AccordionSubInfoRow: React.FC<
   Pick<AccordionProps, 'open' | 'disabled' | 'subInfo'>
 > = ({ open, disabled, subInfo }) => {
@@ -40,7 +38,7 @@ const AccordionSubInfoRow: React.FC<
       {subInfo!.map(({ info, $ellipsis }, index) => {
         return (
           <Fragment key={index}>
-            {index > 0 && <AccordionSubInfoDivider />}
+            {index > 0 && <Divider hierarchy="low" direction="vertical" />}
             <AccordionSubInfoStyle $ellipsis={$ellipsis}>
               {info}
             </AccordionSubInfoStyle>
