@@ -74,7 +74,7 @@ export const HasSecondaryButton: Story = {
     secondaryButton: {
       children: '전문 보기',
       onClick: () => window.open('https://www.naver.com'),
-      icon: 'external_link',
+      trailingIcon: 'external_link',
     },
   },
 };
@@ -155,6 +155,20 @@ export const DisabledWithCheckbox: Story = {
   args: {
     disabled: true,
     title: '윤동주',
+    subInfo: subInfo,
+    children: content,
+    checkboxProps: {
+      onChange: (props) => console.log(props),
+    },
+  },
+};
+
+const Function = () => <div>DI</div>;
+
+export const ForDI: Story = {
+  args: {
+    disabled: false,
+    title: <Function />,
     subInfo: subInfo,
     children: content,
     checkboxProps: {
