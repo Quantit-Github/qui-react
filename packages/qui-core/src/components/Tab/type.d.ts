@@ -7,10 +7,6 @@ export interface TabItemProps {
    * @default false
    */
   checked?: boolean;
-  /**
-   * Size
-   */
-  $size?: TabSize;
 }
 
 export interface TabItemDataProps<T> extends TabItemProps {
@@ -26,9 +22,18 @@ export interface TabItemDataProps<T> extends TabItemProps {
 
 export interface TabProps<T> {
   size: TabSize;
-  selected: T;
+  selected: number;
   list: TabItemDataProps<T>[];
   onClickItem: (value: T) => () => void;
 }
 
 export interface TabItemStyleProps extends TabItemProps {}
+
+export interface TabListStyleProps {
+  $size?: TabSize;
+}
+
+export interface TabDividerStyleProps {
+  $index: number;
+  selected: number;
+}

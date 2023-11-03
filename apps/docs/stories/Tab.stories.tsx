@@ -29,6 +29,8 @@ export const SmallSize: Story = {
   args: {
     list: TestList,
     size: 'sm',
+    selected: 0,
+    onClickItem: (value: string) => () => console.log(value),
   },
 };
 
@@ -36,5 +38,7 @@ export const MediumSize: Story = {
   args: {
     list: TestList,
     size: 'md',
+    selected: 0,
+    onClickItem: (value: string) => () => console.log(value),
   },
 };
