@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { Accordion } from '../components';
+import { Accordion, Checkbox } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -163,14 +163,34 @@ export const DisabledWithCheckbox: Story = {
   },
 };
 
-const Function = () => <div>DI</div>;
-
-export const ForDI: Story = {
+const TitleComponent = () => <div>TitleComponent</div>;
+const Contents = () => {
+  return (
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+      }}
+    >
+      <div>
+        <button
+          onClick={(e) => {
+            console.log('button clicked');
+            e.stopPropagation();
+          }}
+        >
+          Btn
+        </button>
+      </div>
+      <Checkbox onChange={() => {}}>Checkbox</Checkbox>
+    </div>
+  );
+};
+export const ChildrenHasEvent: Story = {
   args: {
     disabled: false,
-    title: <Function />,
+    title: <TitleComponent />,
     subInfo: subInfo,
-    children: content,
+    children: <Contents />,
     checkboxProps: {
       onChange: (props) => console.log(props),
     },
