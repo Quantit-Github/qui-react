@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { ButtonNew } from '../../components';
 
@@ -21,6 +20,6 @@ type Story = StoryObj<typeof ButtonNew>;
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Default: Story = {
   args: {
-    children: 'ButtonNew',
+    content: 'ButtonNew',
   },
 };

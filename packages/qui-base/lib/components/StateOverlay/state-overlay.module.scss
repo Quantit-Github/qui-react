@@ -1,0 +1,17 @@
+@import '../../styles/all.scss';
+
+.state_overlay {
+  border-radius: inherit;
+  color: var(--primary-color);
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &:hover {
+    background-color: black;
+    opacity: 0.03;
+  }
+}

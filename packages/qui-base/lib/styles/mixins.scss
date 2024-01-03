@@ -1,0 +1,9 @@
+@mixin container_init {
+  position: relative;
+}
+
+@mixin button_init {
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
