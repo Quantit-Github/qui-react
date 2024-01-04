@@ -1,5 +1,53 @@
-$primary-color: green;
+@use './tokens/all.scss' as token;
 
 :root {
-  --primary-color: #{$primary-color};
+  --primary-0-color: #{token.$primary-0-color};
+  --primary-10-color: #{token.$primary-10-color};
+  --primary-20-color: #{token.$primary-20-color};
+  --primary-30-color: #{token.$primary-30-color};
+  --primary-40-color: #{token.$primary-40-color};
+  --primary-50-color: #{token.$primary-50-color};
+  --primary-60-color: #{token.$primary-60-color};
+  --primary-70-color: #{token.$primary-70-color};
+  --primary-80-color: #{token.$primary-80-color};
+  --primary-90-color: #{token.$primary-90-color};
+  --primary-95-color: #{token.$primary-95-color};
+  --primary-99-color: #{token.$primary-99-color};
+  --primary-100-color: #{token.$primary-100-color};
+
+  --grayscale-0-color: #{token.$grayscale-0-color};
+  --grayscale-10-color: #{token.$grayscale-10-color};
+  --grayscale-20-color: #{token.$grayscale-20-color};
+  --grayscale-30-color: #{token.$grayscale-30-color};
+  --grayscale-40-color: #{token.$grayscale-40-color};
+  --grayscale-50-color: #{token.$grayscale-50-color};
+  --grayscale-60-color: #{token.$grayscale-60-color};
+  --grayscale-70-color: #{token.$grayscale-70-color};
+  --grayscale-80-color: #{token.$grayscale-80-color};
+  --grayscale-90-color: #{token.$grayscale-90-color};
+  --grayscale-95-color: #{token.$grayscale-95-color};
+  --grayscale-99-color: #{token.$grayscale-99-color};
+  --grayscale-100-color: #{token.$grayscale-100-color};
+
+  --black-alpha-0-color: #{token.$black-alpha-0-color};
+  --black-alpha-10-color: #{token.$black-alpha-10-color};
+  --black-alpha-20-color: #{token.$black-alpha-20-color};
+  --black-alpha-30-color: #{token.$black-alpha-30-color};
+  --black-alpha-40-color: #{token.$black-alpha-40-color};
+  --black-alpha-50-color: #{token.$black-alpha-50-color};
+  --black-alpha-60-color: #{token.$black-alpha-60-color};
+  --black-alpha-70-color: #{token.$black-alpha-70-color};
+  --black-alpha-80-color: #{token.$black-alpha-80-color};
+  --black-alpha-90-color: #{token.$black-alpha-90-color};
+  --black-alpha-95-color: #{token.$black-alpha-95-color};
+  --black-alpha-99-color: #{token.$black-alpha-99-color};
+  --black-alpha-100-color: #{token.$black-alpha-100-color};
+
+  --semantic-grayscale-100-color: #{token.$semantic-grayscale-100-color};
+  --semantic-border-20-color: #{token.$semantic-border-20-color};
+  --semantic-border-80-color: #{token.$semantic-border-80-color};
+  --semantic-border-95-color: #{token.$semantic-border-95-color};
+  --semantic-focused-color: #{token.$semantic-focused-color};
+  --semantic-primary-60-color: #{token.$semantic-primary-60-color};
+  --semantic-switch-on-color: #{token.$semantic-switch-on-color};
 }

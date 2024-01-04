@@ -1,12 +1,15 @@
+import { combineClassNames } from '../../utils';
 import { StateOverlay } from '../StateOverlay';
 import classnames from './button.module.scss';
 
-export type ButtonFormatType = 'hug' | 'fill';
+export type ButtonVariantType = 'primary' | 'secondary' | 'ghost' | 'outline';
+
+export type ButtonLayoutType = 'hug' | 'fill';
 
 export type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm';
 
 export type ButtonType = Exclude<
-  `${ButtonSizeType}-${ButtonFormatType}`,
+  `${ButtonSizeType}-${ButtonLayoutType}`,
   'md-fill' | 'sm-fill'
 >;
 
@@ -17,6 +20,9 @@ export interface ButtonContainerProps {
    * @type React.ReactNode | undefined
    */
   children?: React.ReactNode;
+  disabled?: boolean;
+  size?: ButtonSizeType;
+  variant?: ButtonVariantType;
   /**
    * @description The click event handler.
    * @default undefined
@@ -25,70 +31,100 @@ export interface ButtonContainerProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface ButtonContentsProps {
+export interface ButtonContentsLayoutProps {
   /**
    * @description The main content of the button.
    * @default undefined
    * @type React.ReactNode | undefined
    */
-  content?: React.ReactNode;
+  children?: React.ReactNode;
   leadingContent?: React.ReactNode;
   trailingContent?: React.ReactNode;
-  type?: ButtonType;
+  layout?: ButtonLayoutType;
 }
 
 export interface ButtonProps
   extends ButtonContainerProps,
-    ButtonContentsProps {}
-
-function combineClassNames(...classNames: string[]) {
-  return classNames.join(' ');
+    ButtonContentsLayoutProps {
+  type?: ButtonType;
+  style?: React.CSSProperties;
 }
 
-function ButtonContainer({ children, ...props }: ButtonContainerProps) {
+function ButtonContainer({
+  children,
+  disabled,
+  size = 'xl',
+  variant = 'primary',
+  ...props
+}: ButtonContainerProps) {
   return (
-    <button className={classnames.button_container} {...props}>
+    <button
+      className={combineClassNames(
+        classnames.button_container,
+        classnames[size],
+        !disabled ? classnames[variant] : classnames.disabled
+      )}
+      disabled={disabled}
+      {...props}
+    >
       {children}
     </button>
   );
 }
 
-function ButtonContents({
-  content,
+function ButtonContentsLayout({
+  children,
   leadingContent,
   trailingContent,
-  type = 'xl-hug',
+  layout = 'hug',
   ...props
-}: ButtonContentsProps) {
-  const [sizeClassName, formatClassName] = type.split('-') as [
-    ButtonSizeType,
-    ButtonFormatType
-  ];
-
+}: ButtonContentsLayoutProps) {
   return (
-    <button
+    <div
       className={combineClassNames(
         classnames.button_contents,
-        classnames[sizeClassName],
-        classnames[formatClassName]
+        classnames[layout]
       )}
       {...props}
     >
       {leadingContent}
-      {content}
+      {children}
       {trailingContent}
-    </button>
+    </div>
   );
 }
 
-export function Button({ onClick, ...props }: ButtonProps) {
+export function Button({
+  children,
+  disabled = false,
+  leadingContent,
+  trailingContent,
+  variant = 'primary',
+  type = 'xl-hug',
+  onClick,
+  ...props
+}: ButtonProps) {
+  const [size, layout] = type.split('-') as [ButtonSizeType, ButtonLayoutType];
+
   return (
-    <ButtonContainer onClick={onClick} {...props}>
-      <ButtonContents {...props} />
-      <StateOverlay />
+    <ButtonContainer
+      disabled={disabled}
+      size={size}
+      variant={variant}
+      onClick={onClick}
+      {...props}
+    >
+      <ButtonContentsLayout
+        leadingContent={leadingContent}
+        trailingContent={trailingContent}
+        layout={layout}
+      >
+        {children}
+      </ButtonContentsLayout>
+      {!disabled && <StateOverlay />}
     </ButtonContainer>
   );
 }
 
 Button.Container = ButtonContainer;
-Button.Contents = ButtonContents;
+Button.Contents = ButtonContentsLayout;

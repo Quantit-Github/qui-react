@@ -5,20 +5,28 @@
   @include container_init;
 
   border-radius: 12px;
-  width: 100%;
-}
-
-.button_contents {
-  @include button_init;
-
-  border-radius: inherit;
-  color: var(--primary-color);
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 8px;
   font-size: 16px;
+  width: 100%;
   padding: 0 16px;
+
+  // Variant 스타일
+  &.primary {
+    background-color: var(--primary-60-color);
+    color: white;
+  }
+  &.secondary {
+    background-color: var(--primary-99-color);
+    color: var(--primary-20-color);
+  }
+  &.ghost {
+    background-color: var(--black-100-alpha);
+    color: var(--black-0-alpha);
+  }
+  &.outline {
+    background-color: var(--black-alpha-100);
+    border: 1px solid var(--semantic-border-80-color);
+    color: var(--black-alpha-0-color);
+  }
 
   // Size 스타일
   &.xl {
@@ -37,7 +45,15 @@
     min-height: 32px;
   }
 
-  // Format 스타일
+  @include disabled;
+}
+
+.button_contents {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  // Layout 스타일
   &.hug {
     justify-content: center;
   }

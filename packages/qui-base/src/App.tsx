@@ -9,35 +9,67 @@ function App() {
             console.log('e: ', e);
           }}
           type="xl-hug"
-          content="버튼"
-          leadingContent={<span>👋</span>}
           trailingContent={<span>👋</span>}
-        />
+        >
+          Primary
+        </Button>
         <Button
           onClick={(e) => {
             console.log('e: ', e);
           }}
+          variant="secondary"
           type="xl-fill"
-          content="버튼"
           leadingContent={<span>👋</span>}
           trailingContent={<span>👋</span>}
-        />
+          style={{
+            color: 'red',
+            borderRadius: '30px',
+            border: '1px solid red',
+          }}
+        >
+          Customed Secondary
+        </Button>
         <Button
           onClick={(e) => {
             console.log('e: ', e);
           }}
+          variant="secondary"
           type="xl-fill"
-          content="버튼"
           leadingContent={<span>👋</span>}
-        />
+        >
+          Secondary
+        </Button>
         <Button
           onClick={(e) => {
             console.log('e: ', e);
           }}
-          content="버튼"
+          variant="ghost"
           type="xl-fill"
           trailingContent={<span>👋</span>}
-        />
+        >
+          Ghost
+        </Button>
+        <Button
+          onClick={(e) => {
+            console.log('e: ', e);
+          }}
+          variant="outline"
+          type="xl-fill"
+          trailingContent={<span>👋</span>}
+        >
+          Outline
+        </Button>
+        <Button
+          onClick={(e) => {
+            console.log('e: ', e);
+          }}
+          disabled
+          variant="outline"
+          type="xl-fill"
+          trailingContent={<span>👋</span>}
+        >
+          Disabled
+        </Button>
       </section>
     </>
   );

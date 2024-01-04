@@ -1,3 +1,4 @@
+import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import { ButtonNew } from '../../components';
 
@@ -13,13 +14,41 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
+  decorators: [
+    (Story) => (
+      <div style={{ width: '500px', height: '100%' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof ButtonNew>;
 
 type Story = StoryObj<typeof ButtonNew>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const Default: Story = {
+export const Primary: Story = {
   args: {
-    content: 'ButtonNew',
+    children: 'Primary',
+    onClick: (e) => {
+      console.log('e: ', e);
+    },
+  },
+};
+
+export const Secondary: Story = {
+  args: {
+    children: 'Secondary',
+    variant: 'secondary',
+    onClick: (e) => {
+      console.log('e: ', e);
+    },
+  },
+};
+
+export const Disabled: Story = {
+  args: {
+    children: 'Disabled',
+    variant: 'secondary',
+    disabled: true,
   },
 };

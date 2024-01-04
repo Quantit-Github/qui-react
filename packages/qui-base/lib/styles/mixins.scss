@@ -3,7 +3,15 @@
 }
 
 @mixin button_init {
+  background-color: white;
   border: none;
   cursor: pointer;
   padding: 0;
+}
+
+@mixin disabled {
+  &.disabled {
+    background-color: var(--black-alpha-95-color);
+    color: var(--black-alpha-70-color);
+  }
 }
