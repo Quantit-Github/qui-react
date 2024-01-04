@@ -5,5 +5,5 @@ interface StateOverlayProps {
 }
 
 export function StateOverlay({ style }: StateOverlayProps) {
-  return <div className={classnames.state_overlay} style={style} />;
+  return <button className={classnames.state_overlay} style={style} />;
 }

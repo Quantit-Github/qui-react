@@ -1,17 +1,24 @@
 @import '../../styles/all.scss';
 
 .state_overlay {
+  @include button_init;
+
+  background-color: transparent;
   border-radius: inherit;
-  color: var(--primary-color);
   position: absolute;
-  z-index: 100;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
+  z-index: auto;
 
   &:hover {
-    background-color: black;
-    opacity: 0.03;
+    background-color: var(--black-alpha-99-color);
+  }
+  &:active {
+    background-color: var(--black-alpha-95-color);
+  }
+  &:focus {
+    outline: 1px solid var(--semantic-focused-color);
   }
 }
