@@ -1,15 +1,15 @@
-@mixin container_init {
+@mixin container_mixin {
   position: relative;
 }
 
-@mixin button_init {
+@mixin button_mixin {
   background-color: white;
   border: none;
   cursor: pointer;
   padding: 0;
 }
 
-@mixin disabled {
+@mixin disabled_mixin {
   &.disabled {
     background-color: var(--black-alpha-95-color);
     color: var(--black-alpha-70-color);

@@ -1,7 +1,7 @@
 @import '../../styles/all.scss';
 
 .state_overlay {
-  @include button_init;
+  @include button_mixin;
 
   background-color: transparent;
   border-radius: inherit;

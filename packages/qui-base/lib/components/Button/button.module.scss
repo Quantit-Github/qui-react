@@ -1,8 +1,8 @@
 @import '../../styles/all.scss';
 
 .button_container {
-  @include button_init;
-  @include container_init;
+  @include button_mixin;
+  @include container_mixin;
 
   border-radius: 12px;
   font-size: 16px;
@@ -45,7 +45,7 @@
     min-height: 32px;
   }
 
-  @include disabled;
+  @include disabled_mixin;
 }
 
 .button_contents {
