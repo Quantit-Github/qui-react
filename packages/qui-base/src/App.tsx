@@ -1,8 +1,13 @@
+import { Icon } from '../lib/components/Icon/Icon';
 import { Button } from '../lib/main';
 
 function App() {
   return (
     <>
+      <section>
+        <Icon type="check" />
+        <Icon.Smile />
+      </section>
       <section style={{ maxWidth: '500px' }}>
         <Button
           onClick={(e) => {
