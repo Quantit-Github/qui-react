@@ -1,5 +1,21 @@
 @import '../../styles/all.scss';
 
 .svg {
-  fill: var(--black-alpha-0-color);
+  @include variant_mixin;
+
+  width: 24px;
+  height: 24px;
+
+  &.xs {
+    width: 14px;
+    height: 14px;
+  }
+  &.sm {
+    width: 16px;
+    height: 16px;
+  }
+  &.md {
+    width: 20px;
+    height: 20px;
+  }
 }

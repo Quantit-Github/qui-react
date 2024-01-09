@@ -15,3 +15,39 @@
     color: var(--black-alpha-70-color);
   }
 }
+
+@mixin variant_mixin {
+  &.primary {
+    background-color: var(--primary-60-color);
+    color: var(--semantic-grayscale-100-color);
+
+    &__icon {
+      fill: var(--semantic-grayscale-100-color);
+    }
+  }
+  &.secondary {
+    background-color: var(--primary-99-color);
+    color: var(--primary-20-color);
+
+    &__icon {
+      fill: var(--primary-20-color);
+    }
+  }
+  &.ghost {
+    background-color: var(--black-alpha-100-color);
+    color: var(--black-alpha-0-color);
+
+    &__icon {
+      fill: var(--black-alpha-0-color);
+    }
+  }
+  &.outline {
+    background-color: var(--black-alpha-100);
+    border: 1px solid var(--semantic-border-80-color);
+    color: var(--black-alpha-0-color);
+
+    &__icon {
+      fill: var(--black-alpha-0-color);
+    }
+  }
+}

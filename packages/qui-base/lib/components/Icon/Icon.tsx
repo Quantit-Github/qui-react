@@ -3,24 +3,40 @@ import { combineClassNames } from '../../utils';
 import classnames from './icon.module.scss';
 import { IconType } from './type';
 
+type IconSizeType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+type IconVariantType = 'primary' | 'secondary' | 'ghost' | 'outline';
+
 interface IconProps {
   className?: string;
   style?: React.CSSProperties;
+  size?: IconSizeType;
   type: IconType;
+  variant?: IconVariantType;
 }
 
 type PresetIconProps = Omit<IconProps, 'type'>;
 
-export function Icon({ className, type, ...props }: IconProps) {
-  const { width, height, path } = iconJson[type];
+export function Icon({
+  className,
+  size = 'xl',
+  type,
+  variant = 'ghost',
+  ...props
+}: IconProps) {
+  const { path, viewBox } = iconJson[type];
   return (
     <svg
-      className={combineClassNames(classnames.svg, className)}
-      width={width}
-      height={height}
+      className={combineClassNames(
+        classnames.svg,
+        classnames[size],
+        classnames[`${variant}__icon`],
+        className
+      )}
       fillRule="evenodd"
       clipRule="evenodd"
       xmlns="http://www.w3.org/2000/svg"
+      viewBox={viewBox}
       {...props}
     >
       <path d={path} />
