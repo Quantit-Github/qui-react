@@ -1,10 +1,20 @@
+import { useState } from 'react';
 import { IconButton } from '../lib/components/Button/Button';
 import { Icon } from '../lib/components/Icon/Icon';
 import { Button } from '../lib/main';
 
 function App() {
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const changeMode = () => {
+    const toggle = mode === 'dark' ? 'light' : 'dark';
+    document.documentElement.style.setProperty('color-scheme', toggle);
+    document.documentElement.setAttribute('data-theme', toggle);
+    setMode(toggle);
+  };
+
   return (
     <>
+      <Button onClick={changeMode}>모드 변경</Button>
       <section>
         <Icon type="check" />
         <Icon.Smile />

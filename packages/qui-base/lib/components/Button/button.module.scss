@@ -1,4 +1,4 @@
-@import '../../styles/all.scss';
+@import '../../styles/mixins.scss';
 
 @mixin button_height_mixin($height) {
   // Icon 등에서 Height를 고정할 때 사용
@@ -10,8 +10,8 @@
 }
 
 .button_container {
-  @include button_mixin;
-  @include container_mixin;
+  @include button-init;
+  @include container-init;
 
   border-radius: 12px;
   font-size: 16px;
@@ -20,12 +20,12 @@
 
   /** Variant */
   &.primary {
-    background-color: var(--primary-60-color);
+    background-color: var(--primary-60);
     color: white;
   }
   &.secondary {
-    background-color: var(--primary-99-color);
-    color: var(--primary-20-color);
+    background-color: var(--primary-99);
+    color: var(--primary-20);
   }
   &.ghost {
     background-color: var(--black-100-alpha);
@@ -33,8 +33,8 @@
   }
   &.outline {
     background-color: var(--black-alpha-100);
-    border: 1px solid var(--semantic-border-80-color);
-    color: var(--black-alpha-0-color);
+    border: 1px solid var(--semantic-border-80);
+    color: var(--black-alpha-0);
   }
 
   /** Size */
@@ -63,7 +63,7 @@
     width: fit-content;
   }
 
-  @include disabled_mixin;
+  @include disabled-init;
 }
 
 .button_contents {

@@ -1,7 +1,7 @@
-@import '../../styles/all.scss';
+@import '../../styles/mixins.scss';
 
 .svg {
-  @include variant_mixin;
+  @include variant-init;
 
   width: 24px;
   height: 24px;

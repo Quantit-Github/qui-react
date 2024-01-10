@@ -1,7 +1,7 @@
-@import '../../styles/all.scss';
+@import '../../styles/mixins.scss';
 
 .state_overlay {
-  @include button_mixin;
+  @include button-init;
 
   background-color: transparent;
   border-radius: inherit;
@@ -13,12 +13,12 @@
   z-index: auto;
 
   &:hover {
-    background-color: var(--black-alpha-99-color);
+    background-color: var(--black-alpha-99);
   }
   &:active {
-    background-color: var(--black-alpha-95-color);
+    background-color: var(--black-alpha-95);
   }
   &:focus {
-    outline: 1px solid var(--semantic-focused-color);
+    outline: 1px solid var(--semantic-focused);
   }
 }
