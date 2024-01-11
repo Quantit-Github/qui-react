@@ -3,18 +3,13 @@ import { Icon } from '../Icon';
 import { StateOverlay } from '../StateOverlay';
 import classnames from './button.module.scss';
 
-export type ButtonVariantType = 'primary' | 'secondary' | 'ghost' | 'outline';
+type ButtonVariantType = 'primary' | 'secondary' | 'ghost' | 'outline';
 
-export type ButtonLayoutType = 'hug' | 'fill';
+type ButtonLayoutType = 'hug' | 'fill';
 
-export type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 
-export type ButtonType = Exclude<
-  `${ButtonSizeType}-${ButtonLayoutType}`,
-  'md-fill' | 'sm-fill'
->;
-
-export interface ButtonContainerProps {
+interface ButtonContainerProps {
   /**
    * @description The children of the button.
    * @default undefined
@@ -40,16 +35,14 @@ export interface ButtonContainerProps {
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export interface ButtonContentsLayoutProps {
+interface ButtonContentsLayoutProps {
   leadingContent?: React.ReactNode;
   mainContent?: React.ReactNode;
   trailingContent?: React.ReactNode;
   layout?: ButtonLayoutType;
 }
 
-export interface ButtonProps
-  extends ButtonContainerProps,
-    ButtonContentsLayoutProps {}
+interface ButtonProps extends ButtonContainerProps, ButtonContentsLayoutProps {}
 
 function ButtonContainer({
   children,

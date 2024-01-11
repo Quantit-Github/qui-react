@@ -1,5 +1,6 @@
 {
   "name": "@quantit/qui-react",
+  "private": true,
   "version": "0.1.21",
   "author": "Quantit FE Team",
   "keywords": [
@@ -18,7 +19,7 @@
   "sideEffects": false,
   "license": "MIT",
   "scripts": {
-    "build": "tsup",
+    "build-lock": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint \"src/**/*.ts*\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
