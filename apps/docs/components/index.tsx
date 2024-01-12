@@ -1,1 +1,1 @@
-export * from 'qui-base/lib/main';
+export * from '@quantit/qui-react/lib/main';

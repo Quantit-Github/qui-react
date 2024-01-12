@@ -14,11 +14,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@quantit/qui-react": "workspace:*",
     "@storybook/addon-essentials": "^7.3.1",
     "@storybook/addon-interactions": "^7.3.1",
     "@storybook/addon-links": "^7.3.1",
     "@storybook/addon-onboarding": "^1.0.8",
     "@storybook/blocks": "^7.3.1",
+    "@storybook/jest": "^0.2.3",
     "@storybook/react": "^7.3.1",
     "@storybook/react-vite": "^7.3.1",
     "@storybook/test-runner": "^0.13.0",

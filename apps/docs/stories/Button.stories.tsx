@@ -1,10 +1,12 @@
-import React from 'react';
+import { expect, jest } from '@storybook/jest';
 import { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
+import React from 'react';
 import { Button } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Renew/Button',
+  title: 'Base/Button',
   component: Button,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
@@ -29,9 +31,18 @@ type Story = StoryObj<typeof Button>;
 export const Primary: Story = {
   args: {
     children: 'Primary',
-    onClick: (e) => {
-      console.log('e: ', e);
-    },
+    onClick: jest.fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const btn = canvas.getByTestId('button');
+
+    // act
+    await userEvent.click(btn);
+
+    // assert
+    await expect(args.onClick).toHaveBeenCalled();
   },
 };
 
@@ -39,9 +50,6 @@ export const Secondary: Story = {
   args: {
     children: 'Secondary',
     variant: 'secondary',
-    onClick: (e) => {
-      console.log('e: ', e);
-    },
   },
 };
 

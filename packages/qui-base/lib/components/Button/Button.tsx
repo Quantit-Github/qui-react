@@ -110,6 +110,7 @@ export function Button({
   // const [size, layout] = type.split('-') as [ButtonSizeType, ButtonLayoutType];
   return (
     <ButtonContainer
+      data-testid="button"
       disabled={disabled}
       fitContentWidth={fitContentWidth}
       fixedSize={fixedSize}
