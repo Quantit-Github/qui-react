@@ -31,5 +31,8 @@ const config: StorybookConfig = {
       propFilter: () => true,
     },
   },
+  docs: {
+    autodocs: true,
+  },
 };
 export default config;

@@ -1,13 +1,11 @@
-import { expect, jest } from '@storybook/jest';
-import { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
 import React from 'react';
-import { Button } from '../components';
+import { Meta, StoryObj } from '@storybook/react';
+import { Icon } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Base/Button',
-  component: Button,
+  title: 'Base/Icon',
+  component: Icon,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -18,45 +16,49 @@ export default {
   argTypes: {},
   decorators: [
     (Story) => (
-      <div style={{ width: '500px', height: '100%' }}>
+      <div
+        style={{
+          width: '100px',
+          height: '100px',
+          backgroundColor: '#e2e2e2',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-} as Meta<typeof Button>;
+} as Meta<typeof Icon>;
 
-type Story = StoryObj<typeof Button>;
+type Story = StoryObj<typeof Icon>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    children: 'Primary',
-    onClick: jest.fn(),
-  },
-  play: async ({ args, canvasElement }) => {
-    // arrange
-    const canvas = within(canvasElement);
-    const btn = canvas.getByTestId('button');
-
-    // act
-    await userEvent.click(btn);
-
-    // assert
-    await expect(args.onClick).toHaveBeenCalled();
+    type: 'smile',
+    variant: 'primary',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary',
+    type: 'smile',
     variant: 'secondary',
   },
 };
 
-export const Disabled: Story = {
+export const Ghost: Story = {
   args: {
-    children: 'Disabled',
-    variant: 'secondary',
-    disabled: true,
+    type: 'smile',
+    variant: 'ghost',
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    type: 'smile',
+    variant: 'outline',
   },
 };

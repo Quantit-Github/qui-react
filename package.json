@@ -9,13 +9,15 @@
     "test": "turbo run test",
     "changeset": "changeset",
     "version-packages": "changeset version",
-    "release": "turbo run build --filter=docs^... && changeset publish"
+    "release": "turbo run build --filter=docs^... && changeset publish",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@changesets/cli": "^2.25.2",
     "eslint": "^8.29.0",
     "eslint-config-qui": "workspace:*",
     "prettier": "^2.8.0",
-    "turbo": "latest"
+    "turbo": "latest",
+    "husky": "^8.0.0"
   }
 }

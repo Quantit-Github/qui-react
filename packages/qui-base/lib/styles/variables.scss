@@ -1,0 +1,133 @@
+@use './tokens/all.scss' as token;
+
+:root {
+  --primary-0: #{token.$primary-0};
+  --primary-10: #{token.$primary-10};
+  --primary-20: #{token.$primary-20};
+  --primary-30: #{token.$primary-30};
+  --primary-40: #{token.$primary-40};
+  --primary-50: #{token.$primary-50};
+  --primary-60: #{token.$primary-60};
+  --primary-70: #{token.$primary-70};
+  --primary-80: #{token.$primary-80};
+  --primary-90: #{token.$primary-90};
+  --primary-95: #{token.$primary-95};
+  --primary-99: #{token.$primary-99};
+  --primary-100: #{token.$primary-100};
+
+  --grayscale-0: #{token.$grayscale-0};
+  --grayscale-10: #{token.$grayscale-10};
+  --grayscale-20: #{token.$grayscale-20};
+  --grayscale-30: #{token.$grayscale-30};
+  --grayscale-40: #{token.$grayscale-40};
+  --grayscale-50: #{token.$grayscale-50};
+  --grayscale-60: #{token.$grayscale-60};
+  --grayscale-70: #{token.$grayscale-70};
+  --grayscale-80: #{token.$grayscale-80};
+  --grayscale-90: #{token.$grayscale-90};
+  --grayscale-95: #{token.$grayscale-95};
+  --grayscale-99: #{token.$grayscale-99};
+  --grayscale-100: #{token.$grayscale-100};
+
+  --black-alpha-0: #{token.$black-alpha-0};
+  --black-alpha-10: #{token.$black-alpha-10};
+  --black-alpha-20: #{token.$black-alpha-20};
+  --black-alpha-30: #{token.$black-alpha-30};
+  --black-alpha-40: #{token.$black-alpha-40};
+  --black-alpha-50: #{token.$black-alpha-50};
+  --black-alpha-60: #{token.$black-alpha-60};
+  --black-alpha-70: #{token.$black-alpha-70};
+  --black-alpha-80: #{token.$black-alpha-80};
+  --black-alpha-90: #{token.$black-alpha-90};
+  --black-alpha-95: #{token.$black-alpha-95};
+  --black-alpha-99: #{token.$black-alpha-99};
+  --black-alpha-100: #{token.$black-alpha-100};
+
+  --white-alpha-0: #{token.$white-alpha-0};
+  --white-alpha-10: #{token.$white-alpha-10};
+  --white-alpha-20: #{token.$white-alpha-20};
+  --white-alpha-30: #{token.$white-alpha-30};
+  --white-alpha-40: #{token.$white-alpha-40};
+  --white-alpha-50: #{token.$white-alpha-50};
+  --white-alpha-60: #{token.$white-alpha-60};
+  --white-alpha-70: #{token.$white-alpha-70};
+  --white-alpha-80: #{token.$white-alpha-80};
+  --white-alpha-90: #{token.$white-alpha-90};
+  --white-alpha-95: #{token.$white-alpha-95};
+  --white-alpha-99: #{token.$white-alpha-99};
+  --white-alpha-100: #{token.$white-alpha-100};
+
+  --semantic-grayscale-100: #{token.$semantic-grayscale-100};
+  --semantic-border-20: #{token.$semantic-border-20};
+  --semantic-border-80: #{token.$semantic-border-80};
+  --semantic-border-95: #{token.$semantic-border-95};
+  --semantic-focused: #{token.$semantic-focused};
+  --semantic-primary-60: #{token.$semantic-primary-60};
+  --semantic-switch-on: #{token.$semantic-switch-on};
+}
+
+:root[data-theme='dark'] {
+  --primary-0: #{token.$primary-100};
+  --primary-10: #{token.$primary-99};
+  --primary-20: #{token.$primary-95};
+  --primary-30: #{token.$primary-90};
+  --primary-40: #{token.$primary-80};
+  --primary-50: #{token.$primary-70};
+  --primary-60: #{token.$primary-60};
+  --primary-70: #{token.$primary-50};
+  --primary-80: #{token.$primary-40};
+  --primary-90: #{token.$primary-30};
+  --primary-95: #{token.$primary-20};
+  --primary-99: #{token.$primary-10};
+  --primary-100: #{token.$primary-0};
+
+  --grayscale-0: #{token.$grayscale-100};
+  --grayscale-10: #{token.$grayscale-99};
+  --grayscale-20: #{token.$grayscale-95};
+  --grayscale-30: #{token.$grayscale-90};
+  --grayscale-40: #{token.$grayscale-80};
+  --grayscale-50: #{token.$grayscale-70};
+  --grayscale-60: #{token.$grayscale-60};
+  --grayscale-70: #{token.$grayscale-50};
+  --grayscale-80: #{token.$grayscale-40};
+  --grayscale-90: #{token.$grayscale-30};
+  --grayscale-95: #{token.$grayscale-20};
+  --grayscale-99: #{token.$grayscale-10};
+  --grayscale-100: #{token.$grayscale-0};
+
+  --black-alpha-0: #{token.$white-alpha-0};
+  --black-alpha-10: #{token.$white-alpha-10};
+  --black-alpha-20: #{token.$white-alpha-20};
+  --black-alpha-30: #{token.$white-alpha-30};
+  --black-alpha-40: #{token.$white-alpha-40};
+  --black-alpha-50: #{token.$white-alpha-50};
+  --black-alpha-60: #{token.$white-alpha-60};
+  --black-alpha-70: #{token.$white-alpha-70};
+  --black-alpha-80: #{token.$white-alpha-80};
+  --black-alpha-90: #{token.$white-alpha-90};
+  --black-alpha-95: #{token.$white-alpha-95};
+  --black-alpha-99: #{token.$white-alpha-99};
+  --black-alpha-100: #{token.$white-alpha-100};
+
+  --white-alpha-0: #{token.$black-alpha-0};
+  --white-alpha-10: #{token.$black-alpha-10};
+  --white-alpha-20: #{token.$black-alpha-20};
+  --white-alpha-30: #{token.$black-alpha-30};
+  --white-alpha-40: #{token.$black-alpha-40};
+  --white-alpha-50: #{token.$black-alpha-50};
+  --white-alpha-60: #{token.$black-alpha-60};
+  --white-alpha-70: #{token.$black-alpha-70};
+  --white-alpha-80: #{token.$black-alpha-80};
+  --white-alpha-90: #{token.$black-alpha-90};
+  --white-alpha-95: #{token.$black-alpha-95};
+  --white-alpha-99: #{token.$black-alpha-99};
+  --white-alpha-100: #{token.$black-alpha-100};
+
+  --semantic-grayscale-100: #{token.$semantic-grayscale-100};
+  --semantic-border-20: #{token.$semantic-border-20-dark};
+  --semantic-border-80: #{token.$semantic-border-80-dark};
+  --semantic-border-95: #{token.$semantic-border-95-dark};
+  --semantic-focused: #{token.$semantic-focused};
+  --semantic-primary-60: #{token.$semantic-primary-60-dark};
+  --semantic-switch-on: #{token.$semantic-switch-on-dark};
+}

@@ -1,0 +1,55 @@
+{
+  "name": "@quantit/qui-react",
+  "private": false,
+  "version": "0.2.0",
+  "author": "Quantit FE",
+  "keywords": [
+    "react",
+    "ui",
+    "component",
+    "quantit",
+    "qui"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist/**"
+  ],
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "build:lib": "tsc --p ./tsconfig.build.json && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@quantit/tsconfig": "workspace:*",
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "glob": "^10.3.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.6.4",
+    "vite-plugin-lib-inject-css": "^1.3.0"
+  },
+  "peerDependencies": {
+    "react": "^18.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,4 +1,3 @@
-import { QuiThemeProvider } from '@quantit/qui-react';
 import {
   Controls,
   Description,
@@ -34,12 +33,9 @@ const preview: Preview = {
   },
 };
 
-export const decorators = [
-  (Story) => (
-    <QuiThemeProvider>
-      <Story />
-    </QuiThemeProvider>
-  ),
-];
+/**
+ * Decorators 활용하여 스토리 전체에 적용할 컴포넌트를 설정할 수 있습니다.
+ */
+export const decorators = [(Story) => <Story />];
 
 export default preview;

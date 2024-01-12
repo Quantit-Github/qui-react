@@ -1,1 +1,1 @@
-export * from '@quantit/qui-react/src/components';
+export * from '@quantit/qui-react/lib/main';

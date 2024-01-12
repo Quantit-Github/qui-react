@@ -1,0 +1,63 @@
+import iconJson from '../../assets/icons.json';
+import { combineClassNames } from '../../utils';
+import classnames from './icon.module.scss';
+import { IconSizeType, IconType, IconVariantType } from './type';
+
+interface IconProps {
+  /**
+   * HTML classname
+   */
+  className?: string;
+  /**
+   * CSS style
+   */
+  style?: React.CSSProperties;
+  /**
+   * 아이콘 크기
+   */
+  size?: IconSizeType;
+  /**
+   * 아이콘 타입
+   */
+  type: IconType;
+  /**
+   * 아이콘 스타일
+   */
+  variant?: IconVariantType;
+}
+
+type PresetIconProps = Omit<IconProps, 'type'>;
+
+export function Icon({
+  className,
+  size = 'xl',
+  type,
+  variant = 'ghost',
+  ...props
+}: IconProps) {
+  const { path, viewBox } = iconJson[type];
+  return (
+    <svg
+      className={combineClassNames(
+        classnames.svg,
+        classnames[size],
+        classnames[`${variant}__icon`],
+        className
+      )}
+      fillRule="evenodd"
+      clipRule="evenodd"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={viewBox}
+      {...props}
+    >
+      <path d={path} />
+    </svg>
+  );
+}
+
+Icon.Check = function IconCheck({ ...props }: PresetIconProps) {
+  return <Icon type="check" {...props} />;
+};
+Icon.Smile = function IconSmile({ ...props }: PresetIconProps) {
+  return <Icon type="smile" {...props} />;
+};
