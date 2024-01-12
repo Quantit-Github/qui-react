@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@quantit/docs", "@quantit/qui-test", "next-app-test"]
+  "ignore": ["@quantit/docs"]
 }

@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { IconButtonNew } from '../../components';
+import { IconButton } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Renew/IconButton',
-  component: IconButtonNew,
+  component: IconButton,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -13,9 +13,9 @@ export default {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
-} as Meta<typeof IconButtonNew>;
+} as Meta<typeof IconButton>;
 
-type Story = StoryObj<typeof IconButtonNew>;
+type Story = StoryObj<typeof IconButton>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {

@@ -14,7 +14,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@quantit/qui-react": "workspace:*",
     "@storybook/addon-essentials": "^7.3.1",
     "@storybook/addon-interactions": "^7.3.1",
     "@storybook/addon-links": "^7.3.1",

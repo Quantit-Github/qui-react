@@ -1,11 +1,11 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { ButtonNew } from '../../components';
+import { Icon } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Renew/Button',
-  component: ButtonNew,
+  title: 'Renew/Icon',
+  component: Icon,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -16,39 +16,49 @@ export default {
   argTypes: {},
   decorators: [
     (Story) => (
-      <div style={{ width: '500px', height: '100%' }}>
+      <div
+        style={{
+          width: '100px',
+          height: '100px',
+          backgroundColor: '#e2e2e2',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Story />
       </div>
     ),
   ],
-} as Meta<typeof ButtonNew>;
+} as Meta<typeof Icon>;
 
-type Story = StoryObj<typeof ButtonNew>;
+type Story = StoryObj<typeof Icon>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
   args: {
-    children: 'Primary',
-    onClick: (e) => {
-      console.log('e: ', e);
-    },
+    type: 'smile',
+    variant: 'primary',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    children: 'Secondary',
+    type: 'smile',
     variant: 'secondary',
-    onClick: (e) => {
-      console.log('e: ', e);
-    },
   },
 };
 
-export const Disabled: Story = {
+export const Ghost: Story = {
   args: {
-    children: 'Disabled',
-    variant: 'secondary',
-    disabled: true,
+    type: 'smile',
+    variant: 'ghost',
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    type: 'smile',
+    variant: 'outline',
   },
 };

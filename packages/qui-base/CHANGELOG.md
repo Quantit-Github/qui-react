@@ -1,7 +1,7 @@
-# @quantit/qui-react-2
+# @quantit/qui-react
 
-## 0.1.0
+## 0.2.0
 
 ### Minor Changes
 
-- Init Publish
+- Replace styled-components to sass
