@@ -1,6 +1,9 @@
 import classnames from './state-overlay.module.scss';
 
 interface StateOverlayProps {
+  /**
+   * CSS style
+   */
   style?: React.CSSProperties;
 }
 

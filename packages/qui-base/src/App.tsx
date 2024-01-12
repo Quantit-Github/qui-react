@@ -33,8 +33,10 @@ function App() {
           onClick={(e) => {
             console.log('e: ', e);
           }}
-          // type="xl-hug"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            layoutStyle: 'hug',
+            trailing: <span>👋</span>,
+          }}
         >
           Primary
         </Button>
@@ -42,12 +44,13 @@ function App() {
           onClick={(e) => {
             console.log('e: ', e);
           }}
-          // type="xl-hug"
           fitContentWidth
           size="md"
-          layout="hug"
           variant="outline"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            leading: <span>👋</span>,
+            trailing: <span>👋</span>,
+          }}
         >
           Outline Md
         </Button>
@@ -55,12 +58,13 @@ function App() {
           onClick={(e) => {
             console.log('e: ', e);
           }}
-          // type="xl-hug"
           fitContentWidth
           size="sm"
-          layout="hug"
           variant="outline"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            layoutStyle: 'hug',
+            trailing: <span>👋</span>,
+          }}
         >
           Outline Small
         </Button>
@@ -69,11 +73,12 @@ function App() {
             console.log('e: ', e);
           }}
           variant="secondary"
-          // type="xl-fill"
-          layout="hug"
-          leadingContent={<span>👋</span>}
-          mainContent="Hi"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            layoutStyle: 'fill',
+            leading: <span>👋</span>,
+            main: 'Secondary Fill',
+            trailing: <span>👋</span>,
+          }}
           style={{
             color: 'purple',
             borderRadius: '30px',
@@ -87,18 +92,21 @@ function App() {
             console.log('e: ', e);
           }}
           variant="secondary"
-          // type="xl-fill"
-          leadingContent={<span>👋</span>}
+          layoutContent={{
+            leading: <span>👋</span>,
+            main: 'Secondary Hug',
+          }}
         >
-          Secondary
+          {/* Secondary */}
         </Button>
         <Button
           onClick={(e) => {
             console.log('e: ', e);
           }}
           variant="ghost"
-          // type="xl-fill"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            trailing: <span>👋</span>,
+          }}
         >
           Ghost
         </Button>
@@ -107,8 +115,10 @@ function App() {
             console.log('e: ', e);
           }}
           variant="outline"
-          // type="xl-fill"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            layoutStyle: 'fill',
+            trailing: <span>👋</span>,
+          }}
         >
           Outline
         </Button>
@@ -118,8 +128,10 @@ function App() {
           }}
           disabled
           variant="outline"
-          // type="xl-fill"
-          trailingContent={<span>👋</span>}
+          layoutContent={{
+            layoutStyle: 'fill',
+            trailing: <span>👋</span>,
+          }}
         >
           Disabled
         </Button>

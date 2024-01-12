@@ -2,54 +2,86 @@ import { combineClassNames } from '../../utils';
 import { Icon } from '../Icon';
 import { StateOverlay } from '../StateOverlay';
 import classnames from './button.module.scss';
-
-type ButtonVariantType = 'primary' | 'secondary' | 'ghost' | 'outline';
-
-type ButtonLayoutType = 'hug' | 'fill';
-
-type ButtonSizeType = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+import { ButtonLayoutType, ButtonSizeType, ButtonVariantType } from './type';
 
 interface ButtonContainerProps {
   /**
-   * @description The children of the button.
-   * @default undefined
-   * @type React.ReactNode | undefined
+   * React Children.
+   *
+   * 해당 값이 prop으로 전달될 경우, layoutContent prop은 무시됨.
+   *
    */
   children?: React.ReactNode;
+  /**
+   * HTML classname
+   */
   className?: string;
+  /**
+   * 버튼 비활성화 여부
+   */
   disabled?: boolean;
+  /**
+   * 버튼 너비값을 콘텐츠 크기에 맞출지 여부.
+   *
+   * 비활성화할 경우 버튼의 너비값은 100%로 설정됨.
+   */
   fitContentWidth?: boolean;
   /**
-   * @description Whether the button's height should overflow.
-   * @default false
+   * 버튼 높이값 고정 여부.
+   *
+   * 활성화할 경우 콘텐츠에 의해 버튼의 높이가 변경되지 않음.
    */
-  fixedSize?: boolean;
+  fixedHeight?: boolean;
+  /**
+   * 버튼 크기
+   */
   size?: ButtonSizeType;
+  /**
+   * CSS style
+   */
   style?: React.CSSProperties;
+  /**
+   * 버튼 스타일
+   */
   variant?: ButtonVariantType;
   /**
-   * @description The click event handler.
-   * @default undefined
-   * @type React.MouseEventHandler<HTMLButtonElement> | undefined
+   * 버튼 클릭 이벤트핸들러
    */
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 interface ButtonContentsLayoutProps {
-  leadingContent?: React.ReactNode;
-  mainContent?: React.ReactNode;
-  trailingContent?: React.ReactNode;
-  layout?: ButtonLayoutType;
+  /**
+   * The layout of the button.
+   */
+  layoutStyle?: ButtonLayoutType;
+  /**
+   * The leading component of the button.
+   */
+  leading?: React.ReactNode;
+  /**
+   * The main component of the button.
+   */
+  main?: React.ReactNode;
+  /**
+   * The trailing component of the button.
+   */
+  trailing?: React.ReactNode;
 }
 
-interface ButtonProps extends ButtonContainerProps, ButtonContentsLayoutProps {}
+interface ButtonProps extends ButtonContainerProps {
+  /**
+   * The layout of the button.
+   */
+  layoutContent?: ButtonContentsLayoutProps;
+}
 
 function ButtonContainer({
   children,
   className,
   disabled,
   fitContentWidth = false,
-  fixedSize = false,
+  fixedHeight = false,
   size = 'xl',
   variant = 'primary',
   ...props
@@ -58,7 +90,7 @@ function ButtonContainer({
     <button
       className={combineClassNames(
         classnames.button_container,
-        classnames[`${size}${fixedSize ? '__fixed' : ''}`],
+        classnames[`${size}${fixedHeight ? '__fixed' : ''}`],
         !disabled ? classnames[variant] : classnames.disabled,
         fitContentWidth ? classnames.fit_content : '',
         className
@@ -72,23 +104,23 @@ function ButtonContainer({
 }
 
 function ButtonContentsLayout({
-  leadingContent,
-  mainContent,
-  trailingContent,
-  layout = 'hug',
+  layoutStyle = 'hug',
+  leading,
+  main,
+  trailing,
   ...props
 }: ButtonContentsLayoutProps) {
   return (
     <div
       className={combineClassNames(
         classnames.button_contents,
-        classnames[layout]
+        classnames[layoutStyle]
       )}
       {...props}
     >
-      {leadingContent}
-      {mainContent}
-      {trailingContent}
+      {leading}
+      {main}
+      {trailing}
     </div>
   );
 }
@@ -96,37 +128,26 @@ function ButtonContentsLayout({
 export function Button({
   children,
   disabled = false,
-  leadingContent,
-  mainContent,
-  trailingContent,
   fitContentWidth = false,
-  fixedSize = false,
-  layout = 'hug',
+  fixedHeight = false,
   size = 'xl',
   variant = 'primary',
+  layoutContent,
   onClick,
   ...props
 }: ButtonProps) {
-  // const [size, layout] = type.split('-') as [ButtonSizeType, ButtonLayoutType];
   return (
     <ButtonContainer
       data-testid="button"
       disabled={disabled}
       fitContentWidth={fitContentWidth}
-      fixedSize={fixedSize}
+      fixedHeight={fixedHeight}
       size={size}
       variant={variant}
       onClick={onClick}
       {...props}
     >
-      {children || (
-        <ButtonContentsLayout
-          leadingContent={leadingContent}
-          mainContent={mainContent}
-          trailingContent={trailingContent}
-          layout={layout}
-        />
-      )}
+      {children || <ButtonContentsLayout {...layoutContent} />}
       {!disabled && <StateOverlay />}
     </ButtonContainer>
   );
@@ -152,7 +173,7 @@ export function IconButton({
   return (
     <Button
       className={combineClassNames(classnames.button_icon)}
-      fixedSize
+      fixedHeight
       size={size}
       variant={variant}
       {...props}
