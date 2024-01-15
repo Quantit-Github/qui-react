@@ -1,0 +1,5 @@
+@use '../tokens/size-token.scss' as token;
+
+:root {
+  --border-radius-sm: #{token.$border-radius-sm};
+}
