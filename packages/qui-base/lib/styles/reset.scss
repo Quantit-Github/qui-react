@@ -14,3 +14,11 @@ button:hover {
   background-color: auto;
   border: none;
 }
+
+input {
+  padding: 0;
+  margin: 0;
+}
+input:focus {
+  outline: none;
+}

@@ -2,4 +2,15 @@
 
 :root {
   --border-radius-sm: #{token.$border-radius-sm};
+  --border-radius-md: #{token.$border-radius-md};
+  --border-radius-lg: #{token.$border-radius-lg};
+  --border-radius-xl: #{token.$border-radius-xl};
+
+  --space-xxs: #{token.$space-xxs};
+  --space-xs: #{token.$space-xs};
+  --space-sm: #{token.$space-sm};
+  --space-md: #{token.$space-md};
+  --space-lg: #{token.$space-lg};
+  --space-xl: #{token.$space-xl};
+  --space-xxl: #{token.$space-xxl};
 }

@@ -1,22 +1,16 @@
 @import '../../styles/mixins.scss';
 
-@mixin button_height_mixin($height) {
-  // Icon 등에서 Height를 고정할 때 사용
-  &__fixed {
-    width: $height;
-    height: $height;
-    padding: 0;
-  }
-}
-
 .button_container {
   @include button-init;
   @include container-init;
 
-  border-radius: 12px;
-  font-size: 16px;
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-lg);
   width: 100%;
-  padding: 16px;
+
+  // TODO: 타이포그래피 관련 스타일링 Variables로 추후 대체
+  font-size: 16px;
+  line-height: 24px;
 
   /** Variant */
   &.primary {
@@ -38,25 +32,17 @@
   }
 
   /** Size */
-  &.xl {
-    @include button_height_mixin(56px);
-  }
-  &.lg {
-    @include button_height_mixin(48px);
-  }
-  &.md {
-    @include button_height_mixin(40px);
-    padding: 8px;
+  &.md,
+  &.sm {
+    padding: var(--space-sm);
   }
   &.sm {
-    @include button_height_mixin(32px);
     font-size: 14px;
-    padding: 8px;
   }
   &.xs {
-    @include button_height_mixin(24px);
     font-size: 12px;
-    padding: 5px;
+    padding-top: 6px;
+    padding-bottom: 6px;
   }
 
   &.fit_content {
@@ -80,9 +66,36 @@
   }
 }
 
-.button_icon {
+@mixin icon_button_size-mixin($height) {
+  // Icon 등에서 Height를 고정할 때 사용
+  &__icon {
+    width: $height;
+    height: $height;
+    aspect-ratio: 1;
+    padding: 0;
+  }
+}
+
+.icon_button {
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  /** Size */
+  &.xl {
+    @include icon_button_size-mixin(56px);
+  }
+  &.lg {
+    @include icon_button_size-mixin(48px);
+  }
+  &.md {
+    @include icon_button_size-mixin(40px);
+  }
+  &.sm {
+    @include icon_button_size-mixin(32px);
+  }
+  &.xs {
+    @include icon_button_size-mixin(24px);
+  }
 }

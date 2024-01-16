@@ -1,0 +1,40 @@
+@import '../../styles//mixins.scss';
+
+.container {
+  @include container_init;
+
+  border: 1px solid var(--semantic-border-80);
+  border-radius: var(--border-radius-xl);
+  padding: var(--space-lg);
+  width: 100%;
+}
+
+.input {
+  border: none;
+  flex: 1;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0;
+}
+
+.custom_layout {
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.custom_layout_item {
+  display: flex;
+  align-items: center;
+
+  &__full {
+    flex: 1;
+  }
+}
+
+.close_button {
+  margin-left: var(--space-sm);
+  z-index: 1; // 쌓임 맥락 생성 on.
+}

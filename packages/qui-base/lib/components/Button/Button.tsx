@@ -1,5 +1,6 @@
 import { combineClassNames } from '../../utils';
 import { Icon } from '../Icon';
+import { IconType } from '../Icon/type';
 import { StateOverlay } from '../StateOverlay';
 import classnames from './button.module.scss';
 import { ButtonLayoutType, ButtonSizeType, ButtonVariantType } from './type';
@@ -26,12 +27,6 @@ interface ButtonContainerProps {
    * 비활성화할 경우 버튼의 너비값은 100%로 설정됨.
    */
   fitContentWidth?: boolean;
-  /**
-   * 버튼 높이값 고정 여부.
-   *
-   * 활성화할 경우 콘텐츠에 의해 버튼의 높이가 변경되지 않음.
-   */
-  fixedHeight?: boolean;
   /**
    * 버튼 크기
    */
@@ -81,7 +76,6 @@ function ButtonContainer({
   className,
   disabled,
   fitContentWidth = false,
-  fixedHeight = false,
   size = 'xl',
   variant = 'primary',
   ...props
@@ -90,7 +84,7 @@ function ButtonContainer({
     <button
       className={combineClassNames(
         classnames.button_container,
-        classnames[`${size}${fixedHeight ? '__fixed' : ''}`],
+        classnames[size],
         !disabled ? classnames[variant] : classnames.disabled,
         fitContentWidth ? classnames.fit_content : '',
         className
@@ -129,7 +123,6 @@ export function Button({
   children,
   disabled = false,
   fitContentWidth = false,
-  fixedHeight = false,
   size = 'xl',
   variant = 'primary',
   layoutContent,
@@ -141,7 +134,6 @@ export function Button({
       data-testid="button"
       disabled={disabled}
       fitContentWidth={fitContentWidth}
-      fixedHeight={fixedHeight}
       size={size}
       variant={variant}
       onClick={onClick}
@@ -163,22 +155,29 @@ interface IconButtonProps
     | 'style'
     | 'variant'
     | 'onClick'
-  > {}
+  > {
+  type?: IconType;
+}
 
 export function IconButton({
+  className,
   size,
   variant = 'primary',
+  type = 'check',
   ...props
 }: IconButtonProps) {
   return (
     <Button
-      className={combineClassNames(classnames.button_icon)}
-      fixedHeight
+      className={combineClassNames(
+        classnames.icon_button,
+        classnames[`${size}__icon`],
+        className
+      )}
       size={size}
       variant={variant}
       {...props}
     >
-      <Icon type="smile" size={size} variant={variant} />
+      <Icon type={type} size={size} variant={variant} />
     </Button>
   );
 }

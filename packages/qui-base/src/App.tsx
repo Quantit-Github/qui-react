@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IconButton } from '../lib/components/Button/Button';
 import { Icon } from '../lib/components/Icon/Icon';
-import { Button } from '../lib/main';
+import { Button, TextField } from '../lib/main';
 
 function App() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -13,18 +13,47 @@ function App() {
   };
 
   return (
-    <>
+    <main style={{ padding: '8px' }}>
       <Button onClick={changeMode}>모드 변경</Button>
       <section>
         <Icon type="check" />
         <Icon.Smile />
       </section>
+      <section>
+        <TextField />
+        <br />
+        <TextField
+          customLayout={{
+            leading: <Icon type="smile" size="md" />,
+          }}
+          placeholder="Placeholder"
+        />
+        <TextField
+          customLayout={{
+            leading: <Icon type="smile" size="md" />,
+            trailing: (
+              <>
+                {/* <Icon type="smile" size="md" /> */}
+                {/* <div style={{ display: 'flex', alignItems: 'center' }}>
+                  단위
+                </div> */}
+                <span>단위</span>
+              </>
+            ),
+          }}
+          placeholder="Placeholder"
+        />
+        <br />
+      </section>
       <section style={{ margin: '8px 0' }}>
         <IconButton size="xl" />
+        <IconButton size="xl" type="close" />
         <IconButton size="lg" />
+        <IconButton size="lg" type="close" />
         <IconButton size="md" />
         <IconButton size="sm" />
         <IconButton size="xs" />
+        <IconButton size="xs" type="close" />
         <IconButton size="xs" disabled />
         <Button.Icon size="xs" disabled />
       </section>
@@ -40,6 +69,9 @@ function App() {
         >
           Primary
         </Button>
+        <br />
+        <Button size="md">Primary</Button>
+        <br />
         <Button
           onClick={(e) => {
             console.log('e: ', e);
@@ -49,10 +81,11 @@ function App() {
           variant="outline"
           layoutContent={{
             leading: <span>👋</span>,
+            main: 'dfdf',
             trailing: <span>👋</span>,
           }}
         >
-          Outline Md
+          {/* Outline Md */}
         </Button>
         <Button
           onClick={(e) => {
@@ -136,7 +169,7 @@ function App() {
           Disabled
         </Button>
       </section>
-    </>
+    </main>
   );
 }
 
