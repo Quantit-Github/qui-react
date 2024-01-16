@@ -47,7 +47,18 @@ export const 초기값_입력된_상태: Story = {
 
 export const 에러_발생: Story = {
   args: {
-    type: 'number',
+    isError: true,
+    placeholder: '텍스트를 입력하세요.',
+    onChange(e) {
+      console.log(e.currentTarget.value);
+    },
+  },
+};
+
+export const 비활성화_상태: Story = {
+  args: {
+    disabled: true,
+    value: '비활성화',
     placeholder: '텍스트를 입력하세요.',
     onChange(e) {
       console.log(e.currentTarget.value);

@@ -31,15 +31,6 @@ function App() {
         <TextField
           customLayout={{
             leading: <Icon type="smile" size="md" />,
-            trailing: (
-              <>
-                {/* <Icon type="smile" size="md" /> */}
-                {/* <div style={{ display: 'flex', alignItems: 'center' }}>
-                  단위
-                </div> */}
-                <span>단위</span>
-              </>
-            ),
           }}
           placeholder="Placeholder"
         />
