@@ -1,4 +1,4 @@
-import classnames from './state-overlay.module.scss';
+import classnames from './StateOverlay.module.scss';
 
 interface StateOverlayProps {
   /**
@@ -7,6 +7,8 @@ interface StateOverlayProps {
   style?: React.CSSProperties;
 }
 
-export function StateOverlay({ style }: StateOverlayProps) {
-  return <button className={classnames.state_overlay} style={style} />;
+export function StateOverlay({ style, ...props }: StateOverlayProps) {
+  return (
+    <button className={classnames.state_overlay} style={style} {...props} />
+  );
 }

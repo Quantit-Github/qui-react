@@ -10,7 +10,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  z-index: auto;
+  z-index: var(--z-index-off);
 
   &:hover {
     background-color: var(--black-alpha-99);
@@ -18,7 +18,8 @@
   &:active {
     background-color: var(--black-alpha-95);
   }
-  &:focus {
+  &:focus:not(:active) {
+    // only focus without active status
     outline: 1px solid var(--semantic-focused);
   }
 }

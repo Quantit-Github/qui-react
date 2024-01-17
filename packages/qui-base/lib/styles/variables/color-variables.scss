@@ -1,4 +1,4 @@
-@use './tokens/all.scss' as token;
+@use '../tokens/color-token.scss' as token;
 
 :root {
   --primary-0: #{token.$primary-0};

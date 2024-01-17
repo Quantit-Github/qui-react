@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { IconButton } from '../lib/components/Button/Button';
 import { Icon } from '../lib/components/Icon/Icon';
-import { Button } from '../lib/main';
+import { Button, TextField } from '../lib/main';
 
 function App() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -13,18 +13,38 @@ function App() {
   };
 
   return (
-    <>
+    <main style={{ padding: '8px' }}>
       <Button onClick={changeMode}>모드 변경</Button>
       <section>
         <Icon type="check" />
         <Icon.Smile />
       </section>
+      <section>
+        <TextField type="password" placeholder="패스워드" />
+        <br />
+        <TextField
+          layout={{
+            leading: <Icon type="smile" size="md" />,
+          }}
+          placeholder="Placeholder"
+        />
+        <TextField
+          layout={{
+            leading: <Icon type="smile" size="md" />,
+          }}
+          placeholder="Placeholder"
+        />
+        <br />
+      </section>
       <section style={{ margin: '8px 0' }}>
         <IconButton size="xl" />
+        <IconButton size="xl" type="close" />
         <IconButton size="lg" />
+        <IconButton size="lg" type="close" />
         <IconButton size="md" />
         <IconButton size="sm" />
         <IconButton size="xs" />
+        <IconButton size="xs" type="close" />
         <IconButton size="xs" disabled />
         <Button.Icon size="xs" disabled />
       </section>
@@ -33,13 +53,16 @@ function App() {
           onClick={(e) => {
             console.log('e: ', e);
           }}
-          layoutContent={{
-            layoutStyle: 'hug',
+          layout={{
+            type: 'hug',
             trailing: <span>👋</span>,
           }}
         >
           Primary
         </Button>
+        <br />
+        <Button size="md">Primary</Button>
+        <br />
         <Button
           onClick={(e) => {
             console.log('e: ', e);
@@ -47,12 +70,13 @@ function App() {
           fitContentWidth
           size="md"
           variant="outline"
-          layoutContent={{
+          layout={{
             leading: <span>👋</span>,
+            main: 'dfdf',
             trailing: <span>👋</span>,
           }}
         >
-          Outline Md
+          {/* Outline Md */}
         </Button>
         <Button
           onClick={(e) => {
@@ -61,8 +85,8 @@ function App() {
           fitContentWidth
           size="sm"
           variant="outline"
-          layoutContent={{
-            layoutStyle: 'hug',
+          layout={{
+            type: 'hug',
             trailing: <span>👋</span>,
           }}
         >
@@ -73,8 +97,8 @@ function App() {
             console.log('e: ', e);
           }}
           variant="secondary"
-          layoutContent={{
-            layoutStyle: 'fill',
+          layout={{
+            type: 'fill',
             leading: <span>👋</span>,
             main: 'Secondary Fill',
             trailing: <span>👋</span>,
@@ -92,7 +116,7 @@ function App() {
             console.log('e: ', e);
           }}
           variant="secondary"
-          layoutContent={{
+          layout={{
             leading: <span>👋</span>,
             main: 'Secondary Hug',
           }}
@@ -104,7 +128,7 @@ function App() {
             console.log('e: ', e);
           }}
           variant="ghost"
-          layoutContent={{
+          layout={{
             trailing: <span>👋</span>,
           }}
         >
@@ -115,8 +139,8 @@ function App() {
             console.log('e: ', e);
           }}
           variant="outline"
-          layoutContent={{
-            layoutStyle: 'fill',
+          layout={{
+            type: 'fill',
             trailing: <span>👋</span>,
           }}
         >
@@ -128,15 +152,15 @@ function App() {
           }}
           disabled
           variant="outline"
-          layoutContent={{
-            layoutStyle: 'fill',
+          layout={{
+            type: 'fill',
             trailing: <span>👋</span>,
           }}
         >
           Disabled
         </Button>
       </section>
-    </>
+    </main>
   );
 }
 

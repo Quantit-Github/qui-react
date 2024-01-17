@@ -1,0 +1,95 @@
+@import '../../styles//mixins.scss';
+
+@mixin typo-mixin {
+  line-height: 20px;
+  font-size: 14px;
+
+  &.xl {
+    line-height: 24px;
+    font-size: 16px;
+  }
+}
+
+@mixin height-mixin() {
+  padding: 0 var(--space-md);
+
+  &.xl {
+    height: var(--height-xl);
+    padding: var(--space-lg);
+  }
+  &.lg {
+    height: var(--height-lg);
+  }
+  &.md {
+    height: var(--height-md);
+  }
+  &.sm {
+    height: var(--height-sm);
+  }
+}
+
+.container {
+  @include container_init;
+  @include height-mixin;
+
+  border: 1px solid var(--semantic-border-80);
+  border-radius: var(--border-radius-xl);
+  display: flex;
+
+  width: 100%;
+
+  &.active {
+    border-color: black;
+  }
+
+  &.disabled {
+    background-color: var(--black-alpha-99);
+    border-color: var(--semantic-border-95);
+  }
+
+  &.error {
+    border-color: red;
+  }
+}
+
+.input {
+  @include typo-mixin;
+
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  padding: 0;
+  z-index: var(--z-index-on);
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--black-alpha-80);
+
+    &::placeholder {
+      color: var(--semantic-border-80);
+    }
+  }
+}
+
+.custom_layout {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex: 1;
+
+  gap: 8px;
+}
+
+.custom_layout_item {
+  display: flex;
+  align-items: center;
+
+  &__full {
+    flex: 1;
+  }
+}
+
+.close_button {
+  margin-left: var(--space-sm);
+  z-index: var(--z-index-on);
+}
