@@ -1,56 +1,13 @@
-import {
-  ChangeEvent,
-  HTMLInputTypeAttribute,
-  ReactElement,
-  ReactNode,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import { IconButton, StateOverlay } from '..';
 import { combineClassNames } from '../../utils';
 import classnames from './TextField.module.scss';
-
-interface TextFieldContainerProps {
-  className?: string;
-  children?: ReactNode;
-  disabled?: boolean;
-  isActive?: boolean;
-  isError?: boolean;
-  onClick?: () => void;
-}
-
-interface TextFieldCustomLayoutProps {
-  leading?: ReactNode;
-  children: ReactElement;
-  trailing?: ReactNode;
-}
-
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  onValueChange?: (value: string | number) => void;
-}
-
-interface TextFieldProps {
-  className?: string;
-  customLayout?: Omit<TextFieldCustomLayoutProps, 'children'>;
-  disabled?: boolean;
-  /**
-   * 에러 여부.
-   *
-   * @default false
-   */
-  isError?: boolean;
-  placeholder?: string;
-  /**
-   * input에 입력시킬 값.
-   *
-   * 초기값 지정 혹은 값을 컴포넌트 외부에서 관리할 목적으로 활용.
-   */
-  value?: string | number;
-  type?: HTMLInputTypeAttribute;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+import {
+  InputProps,
+  TextFieldContainerProps,
+  TextFieldLayoutProps,
+  TextFieldProps,
+} from './type';
 
 function TextFieldContainer({
   className,
@@ -58,6 +15,7 @@ function TextFieldContainer({
   disabled,
   isActive,
   isError,
+  size = 'xl',
   onClick,
   ...props
 }: TextFieldContainerProps) {
@@ -66,6 +24,7 @@ function TextFieldContainer({
       role="textbox"
       className={combineClassNames(
         classnames.container,
+        classnames[size],
         disabled ? classnames.disabled : '',
         isActive ? classnames.active : '',
         isError ? classnames.error : '',
@@ -79,11 +38,11 @@ function TextFieldContainer({
   );
 }
 
-function TextFieldCustomLayout({
+function TextFieldLayout({
   leading,
   children,
   trailing,
-}: TextFieldCustomLayoutProps) {
+}: TextFieldLayoutProps) {
   return (
     <div className={classnames.custom_layout}>
       {leading && (
@@ -105,7 +64,7 @@ function TextFieldCustomLayout({
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { value = '', disabled, onChange, onValueChange, ...props },
+  { disabled, value = '', size, onChange, onValueChange, ...props },
   ref
 ) {
   const [_value, setValue] = useState(value);
@@ -137,7 +96,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     <>
       <input
         ref={ref}
-        className={classnames.input}
+        className={combineClassNames(
+          classnames.input,
+          classnames.masking,
+          size ? classnames[size] : ''
+        )}
         value={_value}
         onChange={handleChange}
         {...props}
@@ -157,9 +120,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
 export function TextField({
   className,
-  customLayout,
   disabled,
   isError = false,
+  layout,
+  size = 'xl',
   value,
   onChange,
   ...props
@@ -184,22 +148,24 @@ export function TextField({
       isActive={isActive}
       disabled={disabled}
       isError={isError}
+      size={size}
       onClick={handleContainerClick}
     >
-      <TextFieldCustomLayout {...customLayout}>
+      <TextFieldLayout {...layout}>
         <Input
           ref={inputRef}
           disabled={disabled}
           value={value}
+          size={size}
           onValueChange={handleInputChange}
           {...props}
         />
-      </TextFieldCustomLayout>
+      </TextFieldLayout>
       {!disabled && <StateOverlay />}
     </TextFieldContainer>
   );
 }
 
 TextField.Container = TextFieldContainer;
-TextField.CustomLayout = TextFieldCustomLayout;
+TextField.Layout = TextFieldLayout;
 TextField.Input = Input;

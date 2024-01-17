@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
-import { TextField } from '../components';
+import { Icon, TextField } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -69,6 +69,55 @@ export const 비활성화_상태: Story = {
 export const 마스킹_적용: Story = {
   args: {
     type: 'password',
+    placeholder: '텍스트를 입력하세요.',
+    onChange(e) {
+      console.log(e.currentTarget.value);
+    },
+  },
+};
+
+export const 앞_영역_활용: Story = {
+  args: {
+    layout: {
+      leading: <Icon type="smile" />,
+    },
+    type: 'password',
+    placeholder: '텍스트를 입력하세요.',
+    onChange(e) {
+      console.log(e.currentTarget.value);
+    },
+  },
+};
+
+export const 앞_뒤_영역_활용: Story = {
+  args: {
+    layout: {
+      leading: <Icon type="smile" />,
+      trailing: <p>단위</p>,
+    },
+    type: 'password',
+    placeholder: '텍스트를 입력하세요.',
+    onChange(e) {
+      console.log(e.currentTarget.value);
+    },
+  },
+};
+
+export const MD_사이즈: Story = {
+  args: {
+    type: 'password',
+    size: 'md',
+    placeholder: '텍스트를 입력하세요.',
+    onChange(e) {
+      console.log(e.currentTarget.value);
+    },
+  },
+};
+
+export const SM_사이즈: Story = {
+  args: {
+    type: 'password',
+    size: 'sm',
     placeholder: '텍스트를 입력하세요.',
     onChange(e) {
       console.log(e.currentTarget.value);

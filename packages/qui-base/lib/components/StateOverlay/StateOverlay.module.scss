@@ -10,7 +10,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  z-index: auto; // 쌓임 맥락 생성 x. (값을 지정하지 않는 경우와 동일)
+  z-index: var(--z-index-off);
 
   &:hover {
     background-color: var(--black-alpha-99);

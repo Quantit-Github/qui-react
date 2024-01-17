@@ -1,0 +1,32 @@
+@font-face {
+  font-family: 'fontello';
+  src: url('./font/fontello.eot?2023');
+  src: url('./font/fontello.eot?2023#iefix') format('embedded-opentype'),
+    url('./font/fontello.woff2?2023') format('woff2'),
+    url('./font/fontello.woff?2023') format('woff'),
+    url('./font/fontello.ttf?2023') format('truetype'),
+    url('./font/fontello.svg?2023#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+input[type='password']:not(:placeholder-shown) {
+  font-family: 'fontello';
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+  /* add spacing to better separate each image */
+  letter-spacing: 8px;
+  font-size: 16px;
+}

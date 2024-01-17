@@ -13,4 +13,11 @@
   --space-lg: #{token.$space-lg};
   --space-xl: #{token.$space-xl};
   --space-xxl: #{token.$space-xxl};
+
+  --height-sm: #{token.$height-sm};
+  --height-md: #{token.$height-md};
+  --height-lg: #{token.$height-lg};
+  --height-xl: #{token.$height-xl};
+
+  --z-index-on: #{token.$z-index-on};
 }

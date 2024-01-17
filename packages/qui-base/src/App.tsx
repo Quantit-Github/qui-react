@@ -20,16 +20,16 @@ function App() {
         <Icon.Smile />
       </section>
       <section>
-        <TextField />
+        <TextField type="password" placeholder="패스워드" />
         <br />
         <TextField
-          customLayout={{
+          layout={{
             leading: <Icon type="smile" size="md" />,
           }}
           placeholder="Placeholder"
         />
         <TextField
-          customLayout={{
+          layout={{
             leading: <Icon type="smile" size="md" />,
           }}
           placeholder="Placeholder"
@@ -53,8 +53,8 @@ function App() {
           onClick={(e) => {
             console.log('e: ', e);
           }}
-          layoutContent={{
-            layoutStyle: 'hug',
+          layout={{
+            type: 'hug',
             trailing: <span>👋</span>,
           }}
         >
@@ -70,7 +70,7 @@ function App() {
           fitContentWidth
           size="md"
           variant="outline"
-          layoutContent={{
+          layout={{
             leading: <span>👋</span>,
             main: 'dfdf',
             trailing: <span>👋</span>,
@@ -85,8 +85,8 @@ function App() {
           fitContentWidth
           size="sm"
           variant="outline"
-          layoutContent={{
-            layoutStyle: 'hug',
+          layout={{
+            type: 'hug',
             trailing: <span>👋</span>,
           }}
         >
@@ -97,8 +97,8 @@ function App() {
             console.log('e: ', e);
           }}
           variant="secondary"
-          layoutContent={{
-            layoutStyle: 'fill',
+          layout={{
+            type: 'fill',
             leading: <span>👋</span>,
             main: 'Secondary Fill',
             trailing: <span>👋</span>,
@@ -116,7 +116,7 @@ function App() {
             console.log('e: ', e);
           }}
           variant="secondary"
-          layoutContent={{
+          layout={{
             leading: <span>👋</span>,
             main: 'Secondary Hug',
           }}
@@ -128,7 +128,7 @@ function App() {
             console.log('e: ', e);
           }}
           variant="ghost"
-          layoutContent={{
+          layout={{
             trailing: <span>👋</span>,
           }}
         >
@@ -139,8 +139,8 @@ function App() {
             console.log('e: ', e);
           }}
           variant="outline"
-          layoutContent={{
-            layoutStyle: 'fill',
+          layout={{
+            type: 'fill',
             trailing: <span>👋</span>,
           }}
         >
@@ -152,8 +152,8 @@ function App() {
           }}
           disabled
           variant="outline"
-          layoutContent={{
-            layoutStyle: 'fill',
+          layout={{
+            type: 'fill',
             trailing: <span>👋</span>,
           }}
         >

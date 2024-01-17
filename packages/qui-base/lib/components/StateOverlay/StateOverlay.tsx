@@ -1,4 +1,4 @@
-import classnames from './state-overlay.module.scss';
+import classnames from './StateOverlay.module.scss';
 
 interface StateOverlayProps {
   /**

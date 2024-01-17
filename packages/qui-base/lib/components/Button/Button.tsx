@@ -1,75 +1,13 @@
 import { combineClassNames } from '../../utils';
 import { Icon } from '../Icon';
-import { IconType } from '../Icon/type';
 import { StateOverlay } from '../StateOverlay';
-import classnames from './button.module.scss';
-import { ButtonLayoutType, ButtonSizeType, ButtonVariantType } from './type';
-
-interface ButtonContainerProps {
-  /**
-   * React Children.
-   *
-   * 해당 값이 prop으로 전달될 경우, layoutContent prop은 무시됨.
-   *
-   */
-  children?: React.ReactNode;
-  /**
-   * HTML classname
-   */
-  className?: string;
-  /**
-   * 버튼 비활성화 여부
-   */
-  disabled?: boolean;
-  /**
-   * 버튼 너비값을 콘텐츠 크기에 맞출지 여부.
-   *
-   * 비활성화할 경우 버튼의 너비값은 100%로 설정됨.
-   */
-  fitContentWidth?: boolean;
-  /**
-   * 버튼 크기
-   */
-  size?: ButtonSizeType;
-  /**
-   * CSS style
-   */
-  style?: React.CSSProperties;
-  /**
-   * 버튼 스타일
-   */
-  variant?: ButtonVariantType;
-  /**
-   * 버튼 클릭 이벤트핸들러
-   */
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-interface ButtonContentsLayoutProps {
-  /**
-   * The layout of the button.
-   */
-  layoutStyle?: ButtonLayoutType;
-  /**
-   * The leading component of the button.
-   */
-  leading?: React.ReactNode;
-  /**
-   * The main component of the button.
-   */
-  main?: React.ReactNode;
-  /**
-   * The trailing component of the button.
-   */
-  trailing?: React.ReactNode;
-}
-
-interface ButtonProps extends ButtonContainerProps {
-  /**
-   * The layout of the button.
-   */
-  layoutContent?: ButtonContentsLayoutProps;
-}
+import classnames from './Button.module.scss';
+import {
+  ButtonContainerProps,
+  ButtonLayoutProps,
+  ButtonProps,
+  IconButtonProps,
+} from './type';
 
 function ButtonContainer({
   children,
@@ -97,18 +35,18 @@ function ButtonContainer({
   );
 }
 
-function ButtonContentsLayout({
-  layoutStyle = 'hug',
+function ButtonLayout({
+  type = 'hug',
   leading,
   main,
   trailing,
   ...props
-}: ButtonContentsLayoutProps) {
+}: ButtonLayoutProps) {
   return (
     <div
       className={combineClassNames(
         classnames.button_contents,
-        classnames[layoutStyle]
+        classnames[type]
       )}
       {...props}
     >
@@ -125,7 +63,7 @@ export function Button({
   fitContentWidth = false,
   size = 'xl',
   variant = 'primary',
-  layoutContent,
+  layout,
   onClick,
   ...props
 }: ButtonProps) {
@@ -139,24 +77,10 @@ export function Button({
       onClick={onClick}
       {...props}
     >
-      {children || <ButtonContentsLayout {...layoutContent} />}
+      {children || <ButtonLayout {...layout} />}
       {!disabled && <StateOverlay />}
     </ButtonContainer>
   );
-}
-
-interface IconButtonProps
-  extends Pick<
-    ButtonProps,
-    | 'children'
-    | 'className'
-    | 'disabled'
-    | 'size'
-    | 'style'
-    | 'variant'
-    | 'onClick'
-  > {
-  type?: IconType;
 }
 
 export function IconButton({
@@ -183,5 +107,5 @@ export function IconButton({
 }
 
 Button.Container = ButtonContainer;
-Button.Contents = ButtonContentsLayout;
+Button.Layout = ButtonLayout;
 Button.Icon = IconButton;
