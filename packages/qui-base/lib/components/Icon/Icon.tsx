@@ -1,6 +1,6 @@
 import iconJson from '../../assets/icons.json';
 import { combineClassNames } from '../../utils';
-import classnames from './Icon.module.scss';
+import classnames from './icon.module.scss';
 import { IconProps, PresetIconProps } from './type';
 
 export function Icon({

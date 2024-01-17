@@ -1,7 +1,7 @@
 import { combineClassNames } from '../../utils';
 import { Icon } from '../Icon';
 import { StateOverlay } from '../StateOverlay';
-import classnames from './Button.module.scss';
+import classnames from './button.module.scss';
 import {
   ButtonContainerProps,
   ButtonLayoutProps,
