@@ -1,0 +1,50 @@
+@mixin variant-mixin {
+  &.primary {
+    background-color: var(--primary-60);
+    color: var(--semantic-grayscale-100);
+
+    &__icon {
+      fill: var(--semantic-grayscale-100);
+    }
+  }
+  &.secondary {
+    background-color: var(--primary-99);
+    color: var(--primary-20);
+
+    &__icon {
+      fill: var(--primary-20);
+    }
+  }
+  &.ghost {
+    background-color: var(--black-alpha-100);
+    color: var(--black-alpha-0);
+
+    &__icon {
+      fill: var(--black-alpha-0);
+    }
+  }
+  &.outline {
+    background-color: var(--black-alpha-100);
+    border: 1px solid var(--semantic-border-80);
+    color: var(--black-alpha-0);
+
+    &__icon {
+      fill: var(--black-alpha-0);
+    }
+  }
+}
+
+@mixin icon-variant-mixin {
+  &.primary {
+    fill: var(--semantic-grayscale-100);
+  }
+  &.secondary {
+    fill: var(--primary-20);
+  }
+  &.ghost {
+    fill: var(--black-alpha-0);
+  }
+  &.outline {
+    fill: var(--black-alpha-0);
+  }
+}

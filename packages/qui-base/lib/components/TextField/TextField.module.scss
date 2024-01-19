@@ -1,4 +1,4 @@
-@import '../../styles//mixins.scss';
+@import '../../styles/mixins/init-mixin.scss';
 
 @mixin typo-mixin {
   line-height: 20px;
@@ -10,7 +10,7 @@
   }
 }
 
-@mixin height-mixin() {
+@mixin height-mixin {
   padding: 0 var(--space-md);
 
   &.xl {
@@ -29,7 +29,7 @@
 }
 
 .container {
-  @include container_init;
+  @include container-init-mixin;
   @include height-mixin;
 
   border: 1px solid var(--semantic-border-80);
@@ -68,6 +68,27 @@
     &::placeholder {
       color: var(--semantic-border-80);
     }
+  }
+
+  &[type='password']:not(:placeholder-shown) {
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    // speak: none;
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* Font smoothing. That was taken from TWBS */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+
+    /* add spacing to better separate each image */
+    letter-spacing: 8px;
+    font-size: 16px;
   }
 }
 

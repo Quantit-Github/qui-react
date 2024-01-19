@@ -1,0 +1,6 @@
+@mixin disabled-state-mixin {
+  &.disabled {
+    background-color: var(--black-alpha-95);
+    color: var(--black-alpha-70);
+  }
+}
