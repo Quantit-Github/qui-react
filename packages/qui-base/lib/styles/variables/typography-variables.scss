@@ -1,0 +1,39 @@
+@use '../tokens/typography-token.scss' as token;
+
+:root {
+  --display-large-line-height: #{token.$display-large-line-height};
+  --display-medium-line-height: #{token.$display-medium-line-height};
+  --display-small-line-height: #{token.$display-small-line-height};
+  --headline-large-line-height: #{token.$headline-large-line-height};
+  --headline-medium-line-height: #{token.$headline-medium-line-height};
+  --headline-small-line-height: #{token.$headline-small-line-height};
+  --title-large-line-height: #{token.$title-large-line-height};
+  --title-medium-line-height: #{token.$title-medium-line-height};
+  --title-small-line-height: #{token.$title-small-line-height};
+  --body-large-line-height: #{token.$body-large-line-height};
+  --body-medium-line-height: #{token.$body-medium-line-height};
+  --body-small-line-height: #{token.$body-small-line-height};
+  --label-large-line-height: #{token.$label-large-line-height};
+  --label-medium-line-height: #{token.$label-medium-line-height};
+  --label-small-line-height: #{token.$label-small-line-height};
+
+  --display-large-font-size: #{token.$display-large-font-size};
+  --display-medium-font-size: #{token.$display-medium-font-size};
+  --display-small-font-size: #{token.$display-small-font-size};
+  --headline-large-font-size: #{token.$headline-large-font-size};
+  --headline-medium-font-size: #{token.$headline-medium-font-size};
+  --headline-small-font-size: #{token.$headline-small-font-size};
+  --title-large-font-size: #{token.$title-large-font-size};
+  --title-medium-font-size: #{token.$title-medium-font-size};
+  --title-small-font-size: #{token.$title-small-font-size};
+  --body-large-font-size: #{token.$body-large-font-size};
+  --body-medium-font-size: #{token.$body-medium-font-size};
+  --body-small-font-size: #{token.$body-small-font-size};
+  --label-large-font-size: #{token.$label-large-font-size};
+  --label-medium-font-size: #{token.$label-medium-font-size};
+  --label-small-font-size: #{token.$label-small-font-size};
+
+  --font-weight-regular: #{token.$font-weight-regular};
+  --font-weight-semibold: #{token.$font-weight-semibold};
+  --font-weight-bold: #{token.$font-weight-bold};
+}

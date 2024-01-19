@@ -1,0 +1,104 @@
+@mixin font-weight-mixin {
+  font-weight: var(--font-weight-regular);
+
+  &.bold {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.medium {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+@mixin common-typography-mixin {
+  @include font-weight-mixin;
+
+  &.underline {
+    text-decoration: underline;
+  }
+}
+
+@mixin display-typography-mixin {
+  @include common-typography-mixin;
+
+  &.large {
+    line-height: var(--display-large-line-height);
+    font-size: var(--display-large-font-size);
+  }
+  &.medium {
+    line-height: var(--display-medium-line-height);
+    font-size: var(--display-medium-font-size);
+  }
+  &.small {
+    line-height: var(--display-small-line-height);
+    font-size: var(--display-small-font-size);
+  }
+}
+
+@mixin headline-typography-mixin {
+  @include common-typography-mixin;
+
+  &.large {
+    line-height: var(--headline-large-line-height);
+    font-size: var(--headline-large-font-size);
+  }
+  &.medium {
+    line-height: var(--headline-medium-line-height);
+    font-size: var(--headline-medium-font-size);
+  }
+  &.small {
+    line-height: var(--headline-small-line-height);
+    font-size: var(--headline-small-font-size);
+  }
+}
+
+@mixin title-typography-mixin {
+  @include common-typography-mixin;
+
+  &.large {
+    line-height: var(--title-large-line-height);
+    font-size: var(--title-large-font-size);
+  }
+  &.medium {
+    line-height: var(--title-medium-line-height);
+    font-size: var(--title-medium-font-size);
+  }
+  &.small {
+    line-height: var(--title-small-line-height);
+    font-size: var(--title-small-font-size);
+  }
+}
+
+@mixin body-typography-mixin {
+  @include common-typography-mixin;
+
+  &.large {
+    line-height: var(--body-large-line-height);
+    font-size: var(--body-large-font-size);
+  }
+  &.medium {
+    line-height: var(--body-medium-line-height);
+    font-size: var(--body-medium-font-size);
+  }
+  &.small {
+    line-height: var(--body-small-line-height);
+    font-size: var(--body-small-font-size);
+  }
+}
+
+@mixin label-typography-mixin {
+  @include common-typography-mixin;
+
+  &.large {
+    line-height: var(--label-large-line-height);
+    font-size: var(--label-large-font-size);
+  }
+  &.medium {
+    line-height: var(--label-medium-line-height);
+    font-size: var(--label-medium-font-size);
+  }
+  &.small {
+    line-height: var(--label-small-line-height);
+    font-size: var(--label-small-font-size);
+  }
+}
