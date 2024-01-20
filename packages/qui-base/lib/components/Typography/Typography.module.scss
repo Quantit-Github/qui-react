@@ -1,0 +1,19 @@
+@import '../../styles/mixins/typography-mixin.scss';
+
+.typography {
+  &.display {
+    @include display-typography-mixin;
+  }
+  &.headline {
+    @include headline-typography-mixin;
+  }
+  &.title {
+    @include title-typography-mixin;
+  }
+  &.body {
+    @include body-typography-mixin;
+  }
+  &.label {
+    @include label-typography-mixin;
+  }
+}

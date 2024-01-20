@@ -1,3 +1,15 @@
+@use 'sass:meta';
+
+@mixin text-decoration-mixin($args...) {
+  @debug meta.keywords($args);
+
+  @each $selector, $decoration in meta.keywords($args) {
+    #{$selector} {
+      text-decoration: $decoration;
+    }
+  }
+}
+
 @mixin font-weight-mixin {
   font-weight: var(--font-weight-regular);
 
@@ -13,9 +25,16 @@
 @mixin common-typography-mixin {
   @include font-weight-mixin;
 
-  &.underline {
-    text-decoration: underline;
-  }
+  @include text-decoration-mixin(
+    $dashed: dashed,
+    $dotted: dotted,
+    $double: line-through,
+    $none: none,
+    $overline: overline,
+    $solid: solid,
+    $underline: underline,
+    $wavy: wavy
+  );
 }
 
 @mixin display-typography-mixin {
