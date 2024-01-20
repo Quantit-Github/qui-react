@@ -1,5 +1,17 @@
 import { CSSProperties, ElementType } from 'react';
-import { FONT_WEIGHTS, TEXT_DECORATIONS } from './const';
+
+export const FONT_WEIGHTS = ['bold', 'semibold', 'regular'] as const;
+export const TEXT_DECORATIONS = [
+  'dashed',
+  'dotted',
+  'double',
+  'line-through',
+  'none',
+  'overline',
+  'solid',
+  'underline',
+  'wavy',
+] as const;
 
 export type TypographyVarint =
   | 'display'
