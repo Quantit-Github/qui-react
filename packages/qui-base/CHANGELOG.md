@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.2
+
+### Patch Changes
+
+- Implement Typography Component
+
 ## 0.2.1
 
 ### Patch Changes

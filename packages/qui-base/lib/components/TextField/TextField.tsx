@@ -88,7 +88,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
   if (disabled) {
     return (
-      <input className={classnames.input} disabled value={_value} {...props} />
+      <input
+        ref={ref}
+        data-testid="input"
+        className={classnames.input}
+        disabled
+        value={_value}
+        {...props}
+      />
     );
   }
 
@@ -96,6 +103,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     <>
       <input
         ref={ref}
+        data-testid="input"
         className={combineClassNames(
           classnames.input,
           classnames.masking,
@@ -125,7 +133,6 @@ export function TextField({
   layout,
   size = 'xl',
   value,
-  onChange,
   ...props
 }: TextFieldProps) {
   const inputRef = useRef<HTMLInputElement>(null);

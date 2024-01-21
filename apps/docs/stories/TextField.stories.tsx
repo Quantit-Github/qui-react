@@ -1,5 +1,7 @@
-import React from 'react';
+import { expect, jest } from '@storybook/jest';
 import { Meta, StoryObj } from '@storybook/react';
+import { userEvent, within } from '@storybook/testing-library';
+import React from 'react';
 import { Icon, TextField } from '../components';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -26,101 +28,95 @@ export default {
 type Story = StoryObj<typeof TextField>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const 텍스트필드: Story = {
+export const Default: Story = {
   args: {
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    placeholder: 'typed text',
+    onChange: jest.fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('input');
+
+    // act
+    await userEvent.type(input, 'hello world');
+
+    // assert
+    await expect(args.onChange).toHaveBeenCalled();
+    await expect(input).toHaveValue('hello world');
   },
 };
 
-export const 초기값_입력된_상태: Story = {
+export const Init_Value: Story = {
   args: {
-    placeholder: '텍스트를 입력하세요.',
-    value: '초깃값',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    placeholder: 'typed text',
+    value: 'Init Value',
+  },
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('input');
+    const cleatButton = canvas.getByTestId('button');
+
+    // assert
+    await expect(input).toHaveValue('Init Value');
+    await expect(cleatButton).toBeInTheDocument();
   },
 };
 
-export const 에러_발생: Story = {
+export const Error: Story = {
   args: {
     isError: true,
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    placeholder: 'typed text',
   },
 };
 
-export const 비활성화_상태: Story = {
+export const Disabled: Story = {
   args: {
     disabled: true,
-    value: '비활성화',
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    value: 'Diabled',
+    placeholder: 'typed text',
+    onChange: jest.fn(),
+  },
+  play: async ({ args, canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const input = canvas.getByTestId('input');
+
+    // act
+    await userEvent.type(input, 'hello world');
+
+    // assert
+    await expect(args.onChange).not.toHaveBeenCalled();
+    await expect(input).toBeDisabled();
+    await expect(input).toHaveValue('Diabled');
   },
 };
 
-export const 마스킹_적용: Story = {
+export const Masking: Story = {
   args: {
     type: 'password',
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    placeholder: 'typed text',
   },
 };
 
-export const 앞_영역_활용: Story = {
+export const Leading_Layout: Story = {
   args: {
     layout: {
       leading: <Icon type="smile" />,
     },
     type: 'password',
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    placeholder: 'typed text',
   },
 };
 
-export const 앞_뒤_영역_활용: Story = {
+export const Leading_And_Trailing_Layout: Story = {
   args: {
     layout: {
       leading: <Icon type="smile" />,
       trailing: <p>단위</p>,
     },
     type: 'password',
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
-  },
-};
-
-export const MD_사이즈: Story = {
-  args: {
-    type: 'password',
-    size: 'md',
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
-  },
-};
-
-export const SM_사이즈: Story = {
-  args: {
-    type: 'password',
-    size: 'sm',
-    placeholder: '텍스트를 입력하세요.',
-    onChange(e) {
-      console.log(e.currentTarget.value);
-    },
+    placeholder: 'typed text',
   },
 };

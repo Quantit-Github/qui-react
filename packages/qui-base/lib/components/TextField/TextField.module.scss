@@ -1,12 +1,13 @@
-@import '../../styles/mixins/init-mixin.scss';
+// @import '../../styles/mixins/init-mixin.scss';
+@use '../../styles/mixins/init-mixin.scss' as _i;
+@use '../../styles/mixins/typography-mixin.scss' as _t;
 
 @mixin typo-mixin {
-  line-height: 20px;
-  font-size: 14px;
+  @include _t.typography-mixin(body, large);
 
-  &.xl {
-    line-height: 24px;
-    font-size: 16px;
+  &.md,
+  &.sm {
+    @include _t.typography-mixin(body, medium);
   }
 }
 
@@ -29,7 +30,7 @@
 }
 
 .container {
-  @include container-init-mixin;
+  @include _i.container-init-mixin;
   @include height-mixin;
 
   border: 1px solid var(--semantic-border-80);

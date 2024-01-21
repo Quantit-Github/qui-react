@@ -8,5 +8,7 @@ $decorations: dashed, dotted, double, line-through, none, overline, solid,
 
   @if $bold {
     font-weight: var(--font-weight-#{$bold});
+  } @else {
+    font-weight: var(--font-weight-regular);
   }
 }
