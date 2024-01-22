@@ -1,0 +1,10 @@
+@mixin button-init-mixin {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@mixin container-init-mixin {
+  position: relative;
+}

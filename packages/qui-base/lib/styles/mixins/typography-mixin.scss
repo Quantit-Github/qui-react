@@ -1,0 +1,14 @@
+$variants: display, headline, title, body, label;
+$decorations: dashed, dotted, double, line-through, none, overline, solid,
+  underline, wavy;
+
+@mixin typography-mixin($variant: display, $size: large, $bold: false) {
+  font-size: var(--#{$variant}-#{$size}-font-size);
+  line-height: var(--#{$variant}-#{$size}-line-height);
+
+  @if $bold {
+    font-weight: var(--font-weight-#{$bold});
+  } @else {
+    font-weight: var(--font-weight-regular);
+  }
+}

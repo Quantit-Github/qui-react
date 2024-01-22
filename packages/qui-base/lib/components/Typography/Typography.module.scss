@@ -1,0 +1,43 @@
+@use '../../styles/mixins/typography-mixin.scss' as _t;
+
+@mixin typography-variants-mixin {
+  @each $variant in _t.$variants {
+    &.#{$variant} {
+      &.large {
+        @include _t.typography-mixin($variant, large);
+      }
+      &.medium {
+        @include _t.typography-mixin($variant, medium);
+      }
+      &.small {
+        @include _t.typography-mixin($variant, small);
+      }
+    }
+  }
+}
+
+@mixin typography-decorations-mixin {
+  @each $decoration in _t.$decorations {
+    @if $decoration != none {
+      &.#{$decoration} {
+        text-decoration: $decoration;
+      }
+    }
+  }
+}
+
+@mixin typography-font-weight-mixin {
+  font-weight: var(--font-weight-regular);
+  &.bold {
+    font-weight: var(--font-weight-bold);
+  }
+  &.semibold {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+.typography {
+  @include typography-variants-mixin;
+  @include typography-decorations-mixin;
+  @include typography-font-weight-mixin;
+}

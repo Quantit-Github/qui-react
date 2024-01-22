@@ -16,7 +16,7 @@ export function Icon({
       className={combineClassNames(
         classnames.svg,
         classnames[size],
-        classnames[`${variant}__icon`],
+        classnames[variant],
         className
       )}
       fillRule="evenodd"

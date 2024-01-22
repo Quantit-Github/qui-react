@@ -1,43 +1,26 @@
-@import '../../styles/mixins.scss';
+@use '../../styles/mixins/typography-mixin.scss' as _t;
+@import '../../styles/mixins/all.scss';
 
 .button_container {
-  @include button-init;
-  @include container-init;
+  @include button-init-mixin;
+  @include container-init-mixin;
+  @include variant-mixin;
+  @include _t.typography-mixin(body, large, bold);
 
   border-radius: var(--border-radius-xl);
   padding: var(--space-lg);
   width: 100%;
-
-  // TODO: 타이포그래피 관련 스타일링 Variables로 추후 대체
-  font-size: 16px;
-  line-height: 24px;
-
-  /** Variant */
-  &.primary {
-    background-color: var(--primary-60);
-    color: white;
-  }
-  &.secondary {
-    background-color: var(--primary-99);
-    color: var(--primary-20);
-  }
-  &.ghost {
-    background-color: var(--black-100-alpha);
-    color: var(--black-0-alpha);
-  }
-  &.outline {
-    background-color: var(--black-alpha-100);
-    border: 1px solid var(--semantic-border-80);
-    color: var(--black-alpha-0);
-  }
 
   /** Size */
   &.md,
   &.sm {
     padding: var(--space-sm);
   }
+  &.md {
+    @include _t.typography-mixin(body, large, semibold);
+  }
   &.sm {
-    font-size: 14px;
+    @include _t.typography-mixin(body, medium, regular);
   }
   &.xs {
     font-size: 12px;
@@ -49,7 +32,7 @@
     width: fit-content;
   }
 
-  @include disabled-init;
+  @include disabled-state-mixin;
 }
 
 .button_contents {
