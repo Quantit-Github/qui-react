@@ -36,3 +36,6 @@ Icon.Check = function IconCheck({ ...props }: PresetIconProps) {
 Icon.Smile = function IconSmile({ ...props }: PresetIconProps) {
   return <Icon type="smile" {...props} />;
 };
+Icon.Indeterminate = function IconIndeterminate({ ...props }: PresetIconProps) {
+  return <Icon type="indeterminate" {...props} />;
+};

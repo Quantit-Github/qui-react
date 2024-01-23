@@ -4,3 +4,20 @@
     color: var(--black-alpha-70);
   }
 }
+
+@mixin switch-disabled-state-mixin(
+  $color: false,
+  $background: false,
+  $border: false
+) {
+  @if $color {
+    color: var(--black-alpha-70);
+    fill: var(--black-alpha-70) !important;
+  }
+  @if $background {
+    background-color: var(--black-alpha-90);
+  }
+  @if $border {
+    border-color: var(--semantic-border-95);
+  }
+}

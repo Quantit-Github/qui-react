@@ -1,6 +1,6 @@
 import { SizeType, VariantType } from '../../types';
 
-const ICON_TYPES = ['check', 'close', 'smile'] as const;
+const ICON_TYPES = ['check', 'close', 'smile', 'indeterminate'] as const;
 
 export type IconType = typeof ICON_TYPES[number];
 

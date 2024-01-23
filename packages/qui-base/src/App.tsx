@@ -18,6 +18,7 @@ function App() {
       <section>
         <Icon type="check" />
         <Icon.Smile />
+        <Icon.Indeterminate />
       </section>
       <section>
         <TextField type="password" placeholder="패스워드" />
@@ -75,9 +76,7 @@ function App() {
             main: 'dfdf',
             trailing: <span>👋</span>,
           }}
-        >
-          {/* Outline Md */}
-        </Button>
+        ></Button>
         <Button
           onClick={(e) => {
             console.log('e: ', e);
