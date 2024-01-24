@@ -1,5 +1,5 @@
-@import './init-mixin.scss';
-@import './state-mixin.scss';
-@import './typography-mixin.scss';
-@import './variable-mixin.scss';
-@import './variant-mixin.scss';
+@forward './init-mixin.scss';
+@forward './state-mixin.scss';
+@forward './typography-mixin.scss';
+@forward './variable-mixin.scss';
+@forward './variant-mixin.scss';

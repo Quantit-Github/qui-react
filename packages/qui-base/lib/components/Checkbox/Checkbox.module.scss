@@ -1,0 +1,51 @@
+@use '../../styles/mixins/all.scss' as mixin;
+
+.checkbox_container {
+  @include mixin.container-init-mixin;
+
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--border-radius-sm);
+}
+
+.over {
+  z-index: var(--z-index-on);
+}
+
+.checkbox_input {
+  border-radius: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xxs);
+
+  &__inner {
+    appearance: none;
+  }
+}
+
+.checkbox_icon {
+  border: 2px solid var(--semantic-border-80);
+  border-radius: inherit;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+
+  background-color: var(--black-alpha-0);
+  fill: var(--grayscale-100) !important;
+
+  &__unchecked {
+    @extend .checkbox_icon;
+    background-color: var(--black-alpha-100);
+  }
+
+  &.disabled {
+    @include mixin.switch-disabled-state-mixin(true, true, false);
+    border: none;
+  }
+}
+
+.checkbox_label {
+  &.disabled {
+    @include mixin.switch-disabled-state-mixin(true, false, false);
+  }
+}

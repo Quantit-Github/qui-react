@@ -1,7 +1,7 @@
 {
   "name": "@quantit/qui-react",
   "private": false,
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Quantit FE",
   "keywords": [
     "react",
@@ -40,6 +40,7 @@
     "glob": "^10.3.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.21.3",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "vite": "^5.0.8",

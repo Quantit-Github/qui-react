@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import classnames from './StateOverlay.module.scss';
 
 interface StateOverlayProps {
@@ -5,10 +6,11 @@ interface StateOverlayProps {
    * CSS style
    */
   style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
-export function StateOverlay({ style, ...props }: StateOverlayProps) {
-  return (
-    <button className={classnames.state_overlay} style={style} {...props} />
-  );
-}
+export const StateOverlay = forwardRef<HTMLButtonElement, StateOverlayProps>(
+  function StateOverlay({ ...props }, ref) {
+    return <button ref={ref} className={classnames.state_overlay} {...props} />;
+  }
+);

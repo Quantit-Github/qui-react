@@ -1,10 +1,11 @@
+import { InputHTMLAttributes, ReactElement, ReactNode } from 'react';
 import { SizeType } from '../../types';
 
 export type TextFieldSizeType = Exclude<SizeType, 'xs'>;
 
 interface TextFieldCommonProps
   extends Pick<
-    React.InputHTMLAttributes<HTMLInputElement>,
+    InputHTMLAttributes<HTMLInputElement>,
     'className' | 'disabled'
   > {
   /**
@@ -53,7 +54,7 @@ export interface TextFieldLayoutProps {
 }
 
 export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /**
    * 텍스트필드 크기.
    *
@@ -66,8 +67,8 @@ export interface InputProps
 export interface TextFieldProps
   extends TextFieldCommonProps,
     Pick<
-      React.InputHTMLAttributes<HTMLInputElement>,
-      'value' | 'type' | 'placeholder'
+      InputHTMLAttributes<HTMLInputElement>,
+      'value' | 'type' | 'placeholder' | 'onChange'
     > {
   /**
    * 텍스트필드 InputElement의 앞뒤 영역 컨트롤러.
@@ -75,5 +76,4 @@ export interface TextFieldProps
    * leading, trailing 각각의 영역에는 ReactNode가 들어갈 수 있음.
    */
   layout?: Omit<TextFieldLayoutProps, 'children'>;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
 }
