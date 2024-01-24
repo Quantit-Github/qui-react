@@ -16,5 +16,19 @@ $height-md: 40px;
 $height-lg: 48px;
 $height-xl: 56px;
 
+$device-xl: 1440px;
+$device-xl-width: 1128px;
+$device-lg: 1240px;
+$device-lg-width: 880px;
+$device-md: 905px;
+$device-md-width: 857px;
+$device-sm: 600px;
+$device-sm-width: 536px;
+$device-xs-width: 328px;
+
 $z-index-off: auto; // 값을 지정하지 않는 경우와 동일한 의미를 가지는 값.
 $z-index-on: 1; // 쌓임 맥락 생성의 의미를 가지는 값.
+$z-index-2: 10;
+$z-index-3: 100;
+$z-index-4: 1000;
+$z-index-5: 10000;

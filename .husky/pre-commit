@@ -2,5 +2,5 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 # pnpm test
-pnpm version-packages
-git add .
+# pnpm version-packages
+# git add .

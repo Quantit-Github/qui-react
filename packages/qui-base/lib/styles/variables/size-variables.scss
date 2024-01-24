@@ -19,5 +19,16 @@
   --height-lg: #{token.$height-lg};
   --height-xl: #{token.$height-xl};
 
+  --device-xl-width: #{token.$device-xl-width};
+  --device-lg-width: #{token.$device-lg-width};
+  --device-md-width: #{token.$device-md-width};
+  --device-sm-width: #{token.$device-sm-width};
+  --device-xs-width: #{token.$device-xs-width};
+
+  --z-index-off: #{token.$z-index-off};
   --z-index-on: #{token.$z-index-on};
+  --z-index-2: #{token.$z-index-2};
+  --z-index-3: #{token.$z-index-3};
+  --z-index-4: #{token.$z-index-4};
+  --z-index-5: #{token.$z-index-5};
 }
