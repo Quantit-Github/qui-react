@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Checkbox } from '../components';
+import { userEvent, within } from '@storybook/testing-library';
+import { expect } from '@storybook/jest';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -18,7 +20,20 @@ export default {
 type Story = StoryObj<typeof Checkbox>;
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
-export const OnlyCheckbox: Story = {};
+export const OnlyCheckbox: Story = {
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const checkbox = canvas.getByTestId('checkbox-container');
+
+    // action
+    await userEvent.click(checkbox);
+
+    // assert
+    const checkedIcon = await canvas.queryByTestId('checked-icon');
+    await expect(checkedIcon).toBeInTheDocument();
+  },
+};
 
 export const WithLabel: Story = {
   args: {
@@ -38,12 +53,28 @@ export const Checked: Story = {
     label: 'Label',
     checked: true,
   },
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const checkedIcon = canvas.getByTestId('checked-icon');
+
+    // assert
+    await expect(checkedIcon).toBeInTheDocument();
+  },
 };
 
 export const Indetermediate: Story = {
   args: {
     label: 'Label',
     indeterminate: true,
+  },
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const indeterminateIcon = canvas.getByTestId('indeterminate-icon');
+
+    // assert
+    await expect(indeterminateIcon).toBeInTheDocument();
   },
 };
 
@@ -52,6 +83,20 @@ export const Disabled: Story = {
     disabled: true,
     label: 'Label',
   },
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const checkboxContainer = canvas.getByTestId('checkbox-container');
+    const checkbox = canvas.getByTestId('checkbox');
+    const uncheckedIcon = canvas.getByTestId('unchecked-icon');
+
+    // actions
+    await userEvent.click(checkboxContainer);
+
+    // assert
+    await expect(uncheckedIcon).toBeInTheDocument();
+    await expect(checkbox).toBeDisabled();
+  },
 };
 
 export const DisabledWithChecked: Story = {
@@ -59,6 +104,20 @@ export const DisabledWithChecked: Story = {
     disabled: true,
     label: 'Label',
     checked: true,
+  },
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const checkboxContainer = canvas.getByTestId('checkbox-container');
+    const checkbox = canvas.getByTestId('checkbox');
+    const checkedIcon = canvas.getByTestId('checked-icon');
+
+    // actions
+    await userEvent.click(checkboxContainer);
+
+    // assert
+    await expect(checkedIcon).toBeInTheDocument();
+    await expect(checkbox).toBeDisabled();
   },
 };
 
@@ -69,6 +128,18 @@ export const DisabledWithIndeterminate: Story = {
     checked: true,
     indeterminate: true,
   },
-};
+  play: async ({ canvasElement }) => {
+    // arrange
+    const canvas = within(canvasElement);
+    const checkboxContainer = canvas.getByTestId('checkbox-container');
+    const checkbox = canvas.getByTestId('checkbox');
+    const indeterminateIcon = canvas.getByTestId('indeterminate-icon');
 
-export const MultipleLayer: Story = {};
+    // actions
+    await userEvent.click(checkboxContainer);
+
+    // assert
+    await expect(indeterminateIcon).toBeInTheDocument();
+    await expect(checkbox).toBeDisabled();
+  },
+};

@@ -21,7 +21,11 @@ function classNameWithDisabled(className: string, disabled?: boolean) {
 
 function CheckboxContainer({ children, ...props }: CheckboxContainerProps) {
   return (
-    <div className={classnames.checkbox_container} {...props}>
+    <div
+      data-testid="checkbox-container"
+      className={classnames.checkbox_container}
+      {...props}
+    >
       {children}
     </div>
   );
@@ -41,7 +45,7 @@ function CheckboxIcon({ checked, disabled, indeterminate }: CheckboxIconProps) {
     );
   }
   if (checked) {
-    return <Icon.Check data-testid="check-icon" className={iconClassName} />;
+    return <Icon.Check data-testid="checked-icon" className={iconClassName} />;
   }
   return (
     <div
@@ -62,6 +66,8 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
       disabled = false,
       indeterminate = false,
       label,
+      onChange,
+      ...props
     },
     labelRef
   ) {
@@ -71,6 +77,7 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
       setChecked(e.target.checked);
+      onChange?.(e);
       setIndeterminate(false);
     };
 
@@ -95,11 +102,13 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
         <input
           role="checkbox"
           type="checkbox"
+          data-testid="checkbox"
           ref={inputRef}
           className={classnames.checkbox_input__inner}
           checked={_checked}
           disabled={disabled}
           onChange={handleInputChange}
+          {...props}
         />
         {children || (
           <span
@@ -132,3 +141,7 @@ export function Checkbox({ disabled, ...props }: CheckboxProps) {
     </CheckboxContainer>
   );
 }
+
+Checkbox.Container = CheckboxContainer;
+Checkbox.Input = CheckboxInput;
+Checkbox.Icon = CheckboxIcon;

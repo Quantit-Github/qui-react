@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.3
+
+### Patch Changes
+
+- Implement Checkbox Component
+
 ## 0.2.2
 
 ### Patch Changes
