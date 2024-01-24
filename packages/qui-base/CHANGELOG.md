@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.4
+
+### Patch Changes
+
+- Define Breakpoints and Implement LayoutContainer Component
+
 ## 0.2.3
 
 ### Patch Changes

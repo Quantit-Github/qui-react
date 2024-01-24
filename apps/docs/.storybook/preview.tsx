@@ -8,6 +8,7 @@ import {
 } from '@storybook/blocks';
 import { Preview } from '@storybook/react';
 import React from 'react';
+import './storybook.css';
 
 const preview: Preview = {
   parameters: {

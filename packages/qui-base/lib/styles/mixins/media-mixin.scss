@@ -1,0 +1,42 @@
+@use '../tokens/size-token.scss' as _sizeToken;
+
+$breakpoints: xl, lg, md, sm, xs;
+
+@mixin media-breakpoint-mixin($breakpoint) {
+  @if $breakpoint == xs {
+    @media (max-width: #{_sizeToken.$device-sm - 1}) {
+      max-width: var(--device-xs-width);
+      @content;
+    }
+  } @else if $breakpoint == sm {
+    @media (min-width: #{_sizeToken.$device-sm}) and (max-width: #{_sizeToken.$device-md - 1}) {
+      max-width: var(--device-sm-width);
+      @content;
+    }
+  } @else if $breakpoint == md {
+    @media (min-width: #{_sizeToken.$device-md}) and (max-width: #{_sizeToken.$device-lg - 1}) {
+      max-width: var(--device-md-width);
+      @content;
+    }
+  } @else if $breakpoint == lg {
+    @media (min-width: #{_sizeToken.$device-lg}) and (max-width: #{_sizeToken.$device-xl - 1}) {
+      max-width: var(--device-lg-width);
+      @content;
+    }
+  } @else if $breakpoint == xl {
+    @media (min-width: #{_sizeToken.$device-xl}) {
+      max-width: var(--device-xl-width);
+      @content;
+    }
+  } @else {
+    @error "Invalid breakpoint: #{$breakpoint}.";
+  }
+}
+
+@mixin media-all-mixin {
+  @each $breakpoint in $breakpoints {
+    @include media-breakpoint-mixin($breakpoint) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@use '../../styles/mixins/all.scss' as _all;
+
+.container {
+  @include _all.container-init-mixin;
+  @include _all.media-all-mixin {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+  }
+}

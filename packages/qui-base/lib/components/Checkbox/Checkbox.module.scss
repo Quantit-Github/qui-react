@@ -1,7 +1,7 @@
-@use '../../styles/mixins/all.scss' as mixin;
+@use '../../styles/mixins/all.scss' as _all;
 
 .checkbox_container {
-  @include mixin.container-init-mixin;
+  @include _all.container-init-mixin;
 
   display: inline-flex;
   align-items: center;
@@ -39,13 +39,13 @@
   }
 
   &.disabled {
-    @include mixin.switch-disabled-state-mixin(true, true, false);
+    @include _all.switch-disabled-state-mixin(true, true, false);
     border: none;
   }
 }
 
 .checkbox_label {
   &.disabled {
-    @include mixin.switch-disabled-state-mixin(true, false, false);
+    @include _all.switch-disabled-state-mixin(true, false, false);
   }
 }
