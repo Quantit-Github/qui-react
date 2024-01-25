@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.5
+
+### Patch Changes
+
+- fix: change type file extension of button to be able to use type reference of `<Button />` props
+
 ## 0.2.4
 
 ### Patch Changes
