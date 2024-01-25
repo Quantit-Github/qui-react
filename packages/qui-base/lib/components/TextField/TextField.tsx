@@ -1,3 +1,5 @@
+'use client';
+
 import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import { IconButton, StateOverlay } from '..';
 import { combineClassNames } from '../../utils';
