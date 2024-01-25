@@ -64,7 +64,6 @@ export function Button({
   size = 'xl',
   variant = 'primary',
   layout,
-  onClick,
   ...props
 }: ButtonProps) {
   return (
@@ -74,7 +73,6 @@ export function Button({
       fitContentWidth={fitContentWidth}
       size={size}
       variant={variant}
-      onClick={onClick}
       {...props}
     >
       {children || <ButtonLayout {...layout} />}

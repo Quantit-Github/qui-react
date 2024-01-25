@@ -74,7 +74,9 @@ export default function ETCPage() {
             main: 'dfdf',
             trailing: <span>👋</span>,
           }}
-        ></Button>
+        >
+          children
+        </Button>
         <Button
           onClick={(e) => {
             console.log('e: ', e);

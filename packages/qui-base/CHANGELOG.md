@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.6
+
+### Patch Changes
+
+- fix: react directive issue
+
 ## 0.2.5
 
 ### Patch Changes

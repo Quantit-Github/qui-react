@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import { libInjectCss } from 'vite-plugin-lib-inject-css';
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,6 +24,13 @@ export default defineConfig({
     },
     copyPublicDir: false,
     rollupOptions: {
+      // onwarn: (warning, warn) => {
+      //   if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+      //     return;
+      //   }
+      //   warn(warning);
+      // },
+      plugins: [preserveDirectives()],
       external: ['react', 'react/jsx-runtime'],
       input: Object.fromEntries(
         glob.sync('lib/**/*.{ts,tsx}').map((file) => [
@@ -43,6 +51,7 @@ export default defineConfig({
         globals: {
           react: 'React',
         },
+        preserveModules: true,
       },
     },
   },
