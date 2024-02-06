@@ -1,9 +1,7 @@
-'use client';
-
+import classNames from 'classnames';
 import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import { IconButton, StateOverlay } from '..';
-import { combineClassNames } from '../../utils';
-import classnames from './TextField.module.scss';
+import styles from './TextField.module.scss';
 import {
   InputProps,
   TextFieldContainerProps,
@@ -24,12 +22,12 @@ function TextFieldContainer({
   return (
     <div
       role="textbox"
-      className={combineClassNames(
-        classnames.container,
-        classnames[size],
-        disabled ? classnames.disabled : '',
-        isActive ? classnames.active : '',
-        isError ? classnames.error : '',
+      className={classNames(
+        styles.container,
+        styles[size],
+        disabled ? styles.disabled : '',
+        isActive ? styles.active : '',
+        isError ? styles.error : '',
         className
       )}
       onClick={onClick}
@@ -46,21 +44,17 @@ function TextFieldLayout({
   trailing,
 }: TextFieldLayoutProps) {
   return (
-    <div className={classnames.custom_layout}>
-      {leading && (
-        <div className={classnames.custom_layout_item}>{leading}</div>
-      )}
+    <div className={styles.custom_layout}>
+      {leading && <div className={styles.custom_layout_item}>{leading}</div>}
       <div
-        className={combineClassNames(
-          classnames.custom_layout_item,
-          classnames.custom_layout_item__full
+        className={classNames(
+          styles.custom_layout_item,
+          styles.custom_layout_item__full
         )}
       >
         {children}
       </div>
-      {trailing && (
-        <div className={classnames.custom_layout_item}>{trailing}</div>
-      )}
+      {trailing && <div className={styles.custom_layout_item}>{trailing}</div>}
     </div>
   );
 }
@@ -93,7 +87,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       <input
         ref={ref}
         data-testid="input"
-        className={classnames.input}
+        className={styles.input}
         disabled
         value={_value}
         {...props}
@@ -106,10 +100,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       <input
         ref={ref}
         data-testid="input"
-        className={combineClassNames(
-          classnames.input,
-          classnames.masking,
-          size ? classnames[size] : ''
+        className={classNames(
+          styles.input,
+          styles.masking,
+          size ? styles[size] : ''
         )}
         value={_value}
         onChange={handleChange}
@@ -117,7 +111,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       />
       {_value && (
         <IconButton
-          className={classnames.close_button}
+          className={styles.close_button}
           type="close"
           size="xs"
           variant="outline"

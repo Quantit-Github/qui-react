@@ -1,7 +1,7 @@
-import { combineClassNames } from '../../utils';
+import classNames from 'classnames';
 import { Icon } from '../Icon';
 import { StateOverlay } from '../StateOverlay';
-import classnames from './button.module.scss';
+import styles from './button.module.scss';
 import {
   ButtonContainerProps,
   ButtonLayoutProps,
@@ -20,11 +20,11 @@ function ButtonContainer({
 }: ButtonContainerProps) {
   return (
     <button
-      className={combineClassNames(
-        classnames.button_container,
-        classnames[size],
-        !disabled ? classnames[variant] : classnames.disabled,
-        fitContentWidth ? classnames.fit_content : '',
+      className={classNames(
+        styles.button_container,
+        styles[size],
+        !disabled ? styles[variant] : styles.disabled,
+        fitContentWidth ? styles.fit_content : '',
         className
       )}
       disabled={disabled}
@@ -44,10 +44,7 @@ function ButtonLayout({
 }: ButtonLayoutProps) {
   return (
     <div
-      className={combineClassNames(
-        classnames.button_contents,
-        classnames[type]
-      )}
+      className={classNames(styles.button_contents, styles[type])}
       {...props}
     >
       {leading}
@@ -90,9 +87,9 @@ export function IconButton({
 }: IconButtonProps) {
   return (
     <Button
-      className={combineClassNames(
-        classnames.icon_button,
-        classnames[`${size}__icon`],
+      className={classNames(
+        styles.icon_button,
+        styles[`${size}__icon`],
         className
       )}
       size={size}

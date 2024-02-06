@@ -109,6 +109,9 @@ importers:
       '@vitejs/plugin-react-swc':
         specifier: ^3.5.0
         version: 3.5.0(vite@5.0.8)
+      classnames:
+        specifier: ^2.5.1
+        version: 2.5.1
       eslint:
         specifier: ^8.55.0
         version: 8.55.0
@@ -130,9 +133,12 @@ importers:
       react-router-dom:
         specifier: ^6.21.3
         version: 6.21.3(react-dom@18.2.0)(react@18.2.0)
+      rollup-plugin-banner2:
+        specifier: ^1.2.2
+        version: 1.2.2
       rollup-plugin-preserve-directives:
-        specifier: ^0.3.1
-        version: 0.3.1(rollup@4.9.1)
+        specifier: ^0.4.0
+        version: 0.4.0(rollup@4.9.1)
       sass:
         specifier: ^1.69.5
         version: 1.69.5
@@ -6022,6 +6028,10 @@ packages:
     resolution: {integrity: sha512-0TNiGstbQmCFwt4akjjBg5pLRTSyj/PkWQ1ZoO2zntmg9yLqSRxwEa4iCfQLGjqhiqBfOJa7W/E8wfGrTDmlZQ==}
     dev: true
 
+  /classnames@2.5.1:
+    resolution: {integrity: sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow==}
+    dev: true
+
   /clean-stack@2.2.0:
     resolution: {integrity: sha512-4diC9HaTE+KRAMWhDhrGOECgWZxoevMc5TlkObMqNSsVU62PYzXZ/SMTjzyGAFF1YusgxGcSWTEXBhp0CPwQ1A==}
     engines: {node: '>=6'}
@@ -9396,6 +9406,12 @@ packages:
     hasBin: true
     dev: true
 
+  /magic-string@0.25.9:
+    resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
+    dependencies:
+      sourcemap-codec: 1.4.8
+    dev: true
+
   /magic-string@0.27.0:
     resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
     engines: {node: '>=12'}
@@ -10806,11 +10822,19 @@ packages:
     dependencies:
       glob: 7.2.3
 
-  /rollup-plugin-preserve-directives@0.3.1(rollup@4.9.1):
-    resolution: {integrity: sha512-Jn1gWU7G55A1sU6eFpXmwknfBasF0XbBzRqsE6nqrb/gun+mGV7nx++CwOSGPJQpFzFqvKm5U4XNKo3LTLi4Hg==}
+  /rollup-plugin-banner2@1.2.2:
+    resolution: {integrity: sha512-ShlyRFlJfh7fxHT0rkmIxBv+lIWfdvaWcZmra7xAQFGAHHnd7f93zoa0wdDWHrguR9vR+BxWKToabR6DJQHC9g==}
+    engines: {node: '>=12.13.0'}
+    dependencies:
+      magic-string: 0.25.9
+    dev: true
+
+  /rollup-plugin-preserve-directives@0.4.0(rollup@4.9.1):
+    resolution: {integrity: sha512-gx4nBxYm5BysmEQS+e2tAMrtFxrGvk+Pe5ppafRibQi0zlW7VYAbEGk6IKDw9sJGPdFWgVTE0o4BU4cdG0Fylg==}
     peerDependencies:
       rollup: 2.x || 3.x || 4.x
     dependencies:
+      '@rollup/pluginutils': 5.1.0(rollup@4.9.1)
       magic-string: 0.30.5
       rollup: 4.9.1
     dev: true
@@ -11082,6 +11106,11 @@ packages:
   /source-map@0.6.1:
     resolution: {integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==}
     engines: {node: '>=0.10.0'}
+    dev: true
+
+  /sourcemap-codec@1.4.8:
+    resolution: {integrity: sha512-9NykojV5Uih4lgo5So5dtw+f0JgJX30KCNI8gwhz2J9A15wD0Ml6tjHKwf6fTSa6fAdVBdZeNOs9eJ71qCk8vA==}
+    deprecated: Please use @jridgewell/sourcemap-codec instead
     dev: true
 
   /space-separated-tokens@1.1.5:
