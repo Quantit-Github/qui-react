@@ -1,5 +1,4 @@
-'use client';
-
+import classNames from 'classnames';
 import {
   ChangeEvent,
   forwardRef,
@@ -8,8 +7,7 @@ import {
   useState,
 } from 'react';
 import { Icon, StateOverlay } from '..';
-import { combineClassNames } from '../../utils';
-import classnames from './Checkbox.module.scss';
+import styles from './Checkbox.module.scss';
 import {
   CheckboxContainerProps,
   CheckboxIconProps,
@@ -18,14 +16,14 @@ import {
 } from './type';
 
 function classNameWithDisabled(className: string, disabled?: boolean) {
-  return combineClassNames(className, disabled ? classnames.disabled : '');
+  return classNames(className, disabled ? styles.disabled : '');
 }
 
 function CheckboxContainer({ children, ...props }: CheckboxContainerProps) {
   return (
     <div
       data-testid="checkbox-container"
-      className={classnames.checkbox_container}
+      className={styles.checkbox_container}
       {...props}
     >
       {children}
@@ -34,10 +32,7 @@ function CheckboxContainer({ children, ...props }: CheckboxContainerProps) {
 }
 
 function CheckboxIcon({ checked, disabled, indeterminate }: CheckboxIconProps) {
-  const iconClassName = classNameWithDisabled(
-    classnames.checkbox_icon,
-    disabled
-  );
+  const iconClassName = classNameWithDisabled(styles.checkbox_icon, disabled);
   if (indeterminate) {
     return (
       <Icon.Indeterminate
@@ -53,7 +48,7 @@ function CheckboxIcon({ checked, disabled, indeterminate }: CheckboxIconProps) {
     <div
       data-testid="unchecked-icon"
       className={classNameWithDisabled(
-        classnames.checkbox_icon__unchecked,
+        styles.checkbox_icon__unchecked,
         disabled
       )}
     />
@@ -95,7 +90,7 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
     }, [checked]);
 
     return (
-      <label ref={labelRef} className={classnames.checkbox_input}>
+      <label ref={labelRef} className={styles.checkbox_input}>
         <CheckboxIcon
           checked={_checked}
           disabled={disabled}
@@ -106,7 +101,7 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
           type="checkbox"
           data-testid="checkbox"
           ref={inputRef}
-          className={classnames.checkbox_input__inner}
+          className={styles.checkbox_input__inner}
           checked={_checked}
           disabled={disabled}
           onChange={handleInputChange}
@@ -114,10 +109,7 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
         />
         {children || (
           <span
-            className={classNameWithDisabled(
-              classnames.checkbox_label,
-              disabled
-            )}
+            className={classNameWithDisabled(styles.checkbox_label, disabled)}
           >
             {label}
           </span>

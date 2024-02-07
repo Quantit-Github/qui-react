@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.7
+
+### Patch Changes
+
+- feat: set directive of React
+
 ## 0.2.6
 
 ### Patch Changes
