@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-import styles from './StateOverlay.module.scss';
 
 interface StateOverlayProps {
   /**
@@ -11,6 +10,6 @@ interface StateOverlayProps {
 
 export const StateOverlay = forwardRef<HTMLButtonElement, StateOverlayProps>(
   function StateOverlay({ ...props }, ref) {
-    return <button ref={ref} className={styles.state_overlay} {...props} />;
+    return <button ref={ref} className="state_overlay" {...props} />;
   }
 );

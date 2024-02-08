@@ -2,8 +2,8 @@ import { useState } from 'react';
 import {
   Button,
   Icon,
-  TextField,
   IconButton,
+  TextField,
   Typography,
 } from '../../dist/main';
 
@@ -19,7 +19,6 @@ export default function ETCPage() {
   return (
     <main style={{ padding: '8px' }}>
       <Button onClick={changeMode}>모드 변경</Button>
-
       <section>
         <Icon type="check" />
         <Icon.Smile />

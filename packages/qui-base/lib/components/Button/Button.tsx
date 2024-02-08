@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { Icon } from '../Icon';
 import { StateOverlay } from '../StateOverlay';
-import styles from './button.module.scss';
 import {
   ButtonContainerProps,
   ButtonLayoutProps,
@@ -21,10 +20,10 @@ function ButtonContainer({
   return (
     <button
       className={classNames(
-        styles.button_container,
-        styles[size],
-        !disabled ? styles[variant] : styles.disabled,
-        fitContentWidth ? styles.fit_content : '',
+        'button_container',
+        size,
+        disabled ? 'disabled' : variant,
+        fitContentWidth ? 'fit_content' : '',
         className
       )}
       disabled={disabled}
@@ -43,10 +42,7 @@ function ButtonLayout({
   ...props
 }: ButtonLayoutProps) {
   return (
-    <div
-      className={classNames(styles.button_contents, styles[type])}
-      {...props}
-    >
+    <div className={classNames('button_contents', type)} {...props}>
       {leading}
       {main}
       {trailing}
@@ -87,11 +83,7 @@ export function IconButton({
 }: IconButtonProps) {
   return (
     <Button
-      className={classNames(
-        styles.icon_button,
-        styles[`${size}__icon`],
-        className
-      )}
+      className={classNames('icon_button', `${size}__icon`, className)}
       size={size}
       variant={variant}
       {...props}

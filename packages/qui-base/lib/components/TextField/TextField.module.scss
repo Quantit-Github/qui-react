@@ -30,7 +30,7 @@
   }
 }
 
-.container {
+.textfield_container {
   @include _i.container-init-mixin;
   @include height-mixin;
   @include _f.font-family-mixin;
@@ -103,16 +103,19 @@
   flex: 1;
 
   gap: 8px;
-}
 
-.custom_layout_item {
-  display: flex;
-  align-items: center;
+  &_item {
+    display: flex;
+    align-items: center;
 
-  &__full {
-    flex: 1;
+    &__full {
+      flex: 1;
+    }
   }
 }
+
+// .custom_layout_item {
+// }
 
 .close_button {
   margin-left: var(--space-sm);

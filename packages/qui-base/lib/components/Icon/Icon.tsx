@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import iconJson from '../../assets/icons.json';
-import styles from './icon.module.scss';
 import { IconProps, PresetIconProps } from './type';
 
 export function Icon({
@@ -13,12 +12,7 @@ export function Icon({
   const { path, viewBox } = iconJson[type];
   return (
     <svg
-      className={classNames(
-        styles.svg,
-        styles[size],
-        styles[variant],
-        className
-      )}
+      className={classNames('svg', size, variant, className)}
       fillRule="evenodd"
       clipRule="evenodd"
       xmlns="http://www.w3.org/2000/svg"

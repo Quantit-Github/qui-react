@@ -1,7 +1,7 @@
 @use '../../styles/mixins/all.scss' as _all;
 @use '../../styles/mixins/font-mixin.scss' as _f;
 
-.container {
+.layout_container {
   @include _all.container-init-mixin;
   @include _all.media-all-mixin {
     width: 100%;

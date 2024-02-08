@@ -1,5 +1,4 @@
 import { CSSProperties, ElementType, createElement } from 'react';
-import styles from './LayoutContainer.module.scss';
 
 interface ContainerProps {
   as?: ElementType;
@@ -9,7 +8,7 @@ interface ContainerProps {
 
 export function LayoutContainer({ as = 'div', ...props }: ContainerProps) {
   return createElement(as, {
-    className: styles.container,
+    className: 'layout_container',
     ...props,
   });
 }

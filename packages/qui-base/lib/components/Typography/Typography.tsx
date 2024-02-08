@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import { createElement } from 'react';
-import styles from './Typography.module.scss';
 import { TypographyProps, TypographySize, TypographyVarint } from './type';
 
 export function Typography({
@@ -18,11 +17,11 @@ export function Typography({
 
   return createElement(as, {
     className: classNames(
-      styles.typography,
-      styles[variantKey],
-      styles[size],
-      bold ? styles[bold] : '',
-      decoration ? styles[decoration] : '',
+      'typography',
+      variantKey,
+      size,
+      bold || '',
+      decoration || '',
       className
     ),
     ...props,
