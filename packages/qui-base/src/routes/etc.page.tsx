@@ -2,10 +2,10 @@ import { useState } from 'react';
 import {
   Button,
   Icon,
-  IconButton,
   TextField,
+  IconButton,
   Typography,
-} from '../../lib/components';
+} from '../../dist/main';
 
 export default function ETCPage() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -19,6 +19,7 @@ export default function ETCPage() {
   return (
     <main style={{ padding: '8px' }}>
       <Button onClick={changeMode}>모드 변경</Button>
+
       <section>
         <Icon type="check" />
         <Icon.Smile />
