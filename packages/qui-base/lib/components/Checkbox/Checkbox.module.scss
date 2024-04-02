@@ -1,7 +1,9 @@
 @use '../../styles/mixins/all.scss' as _all;
+@use '../../styles/mixins/font-mixin.scss' as _f;
 
 .checkbox_container {
   @include _all.container-init-mixin;
+  @include _f.font-family-mixin;
 
   display: inline-flex;
   align-items: center;
@@ -13,6 +15,8 @@
 }
 
 .checkbox_input {
+  @include _f.font-family-mixin;
+
   border-radius: inherit;
   display: inline-flex;
   align-items: center;

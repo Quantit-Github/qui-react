@@ -1,11 +1,11 @@
-@use '../../styles/mixins/typography-mixin.scss' as _t;
-@import '../../styles/mixins/all.scss';
+@use '../../styles/mixins/all.scss' as _all;
 
 .button_container {
-  @include button-init-mixin;
-  @include container-init-mixin;
-  @include variant-mixin;
-  @include _t.typography-mixin(body, large, bold);
+  @include _all.button-init-mixin;
+  @include _all.container-init-mixin;
+  @include _all.variant-mixin;
+  @include _all.typography-mixin(body, large, bold);
+  @include _all.font-family-mixin;
 
   border-radius: var(--border-radius-xl);
   padding: var(--space-lg);
@@ -17,10 +17,10 @@
     padding: var(--space-sm);
   }
   &.md {
-    @include _t.typography-mixin(body, large, semibold);
+    @include _all.typography-mixin(body, large, semibold);
   }
   &.sm {
-    @include _t.typography-mixin(body, medium, regular);
+    @include _all.typography-mixin(body, medium, regular);
   }
   &.xs {
     font-size: 12px;
@@ -32,10 +32,12 @@
     width: fit-content;
   }
 
-  @include disabled-state-mixin;
+  @include _all.disabled-state-mixin;
 }
 
 .button_contents {
+  @include _all.font-family-mixin;
+
   display: flex;
   align-items: center;
   gap: 8px;

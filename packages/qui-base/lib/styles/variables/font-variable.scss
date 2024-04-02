@@ -1,0 +1,6 @@
+@use 'sass:meta';
+@use '../tokens/font-token.scss' as token;
+
+:root {
+  --font-family-pretendard: #{meta.inspect(token.$font-family-pretendard)};
+}

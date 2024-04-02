@@ -1,7 +1,9 @@
-@import '../../styles/mixins/init-mixin.scss';
+@use '../../styles/mixins/init-mixin.scss' as _i;
+@use '../../styles/mixins/font-mixin.scss' as _f;
 
 .state_overlay {
-  @include button-init-mixin;
+  @include _i.button-init-mixin;
+  @include _f.font-family-mixin;
 
   background-color: transparent;
   border-radius: inherit;

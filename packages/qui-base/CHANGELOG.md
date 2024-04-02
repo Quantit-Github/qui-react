@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.2.8
+
+### Patch Changes
+
+- style: set Font
+
 ## 0.2.7
 
 ### Patch Changes

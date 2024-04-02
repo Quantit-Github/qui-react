@@ -40,6 +40,9 @@ export default function CheckboxPage() {
           </Checkbox>
         </div>
       </div>
+      <div>
+        <Checkbox.Input>체크박스인풋</Checkbox.Input>
+      </div>
     </main>
   );
 }
