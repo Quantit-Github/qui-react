@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Button, Icon, IconButton, TextField } from '../../lib/components';
+import {
+  Button,
+  Icon,
+  IconButton,
+  TextField,
+  Typography,
+} from '../../lib/components';
 
 export default function ETCPage() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -61,6 +67,16 @@ export default function ETCPage() {
         </Button>
         <br />
         <Button size="md">Primary</Button>
+        <br />
+        <Button size="lg">
+          <Typography>Primary</Typography>
+        </Button>
+        <Button
+          size="lg"
+          layout={{
+            main: 'Layout Main Button',
+          }}
+        ></Button>
         <br />
         <Button
           onClick={(e) => {
@@ -158,6 +174,9 @@ export default function ETCPage() {
         >
           Disabled
         </Button>
+      </section>
+      <section>
+        <Typography>Primary</Typography>
       </section>
     </main>
   );

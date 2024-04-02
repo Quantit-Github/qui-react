@@ -1,6 +1,7 @@
 // @import '../../styles/mixins/init-mixin.scss';
 @use '../../styles/mixins/init-mixin.scss' as _i;
 @use '../../styles/mixins/typography-mixin.scss' as _t;
+@use '../../styles/mixins/font-mixin.scss' as _f;
 
 @mixin typo-mixin {
   @include _t.typography-mixin(body, large);
@@ -32,6 +33,7 @@
 .container {
   @include _i.container-init-mixin;
   @include height-mixin;
+  @include _f.font-family-mixin;
 
   border: 1px solid var(--semantic-border-80);
   border-radius: var(--border-radius-xl);
@@ -55,6 +57,7 @@
 
 .input {
   @include typo-mixin;
+  @include _f.font-family-mixin;
 
   background-color: transparent;
   border: none;
