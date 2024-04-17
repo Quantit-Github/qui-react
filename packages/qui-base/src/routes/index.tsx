@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import CheckboxPage from './checkbox.page';
 import ETCPage from './etc.page';
 import LayoutPage from './layout.page';
+import ReplacerPage from './replacer.page';
 
 export const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ export const router = createBrowserRouter([
       {
         element: <LayoutPage />,
         path: '/layouts',
+      },
+      {
+        element: <ReplacerPage />,
+        path: '/replacer',
       },
       {
         element: <ETCPage />,

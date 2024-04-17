@@ -7,10 +7,12 @@ import {
   ButtonProps,
   IconButtonProps,
 } from './type';
+import { replaceClassName } from '../../utils';
 
 function ButtonContainer({
   children,
   className,
+  classReplacer,
   disabled,
   fitContentWidth = false,
   size = 'xl',
@@ -19,12 +21,15 @@ function ButtonContainer({
 }: ButtonContainerProps) {
   return (
     <button
-      className={classNames(
-        'button_container',
-        size,
-        disabled ? 'disabled' : variant,
-        fitContentWidth ? 'fit_content' : '',
-        className
+      className={replaceClassName(
+        classNames(
+          'button_container',
+          size,
+          disabled ? 'disabled' : variant,
+          fitContentWidth ? 'fit_content' : '',
+          className
+        ),
+        classReplacer
       )}
       disabled={disabled}
       {...props}
@@ -35,6 +40,8 @@ function ButtonContainer({
 }
 
 function ButtonLayout({
+  className,
+  classReplacer,
   type = 'hug',
   leading,
   main,
@@ -42,7 +49,13 @@ function ButtonLayout({
   ...props
 }: ButtonLayoutProps) {
   return (
-    <div className={classNames('button_contents', type)} {...props}>
+    <div
+      className={replaceClassName(
+        classNames('button_contents', type, className),
+        classReplacer
+      )}
+      {...props}
+    >
       {leading}
       {main}
       {trailing}
@@ -76,6 +89,8 @@ export function Button({
 
 export function IconButton({
   className,
+  classReplacer,
+  iconClassName,
   size,
   variant = 'primary',
   type = 'check',
@@ -83,12 +98,16 @@ export function IconButton({
 }: IconButtonProps) {
   return (
     <Button
-      className={classNames('icon_button', `${size}__icon`, className)}
+      className={replaceClassName(
+        classNames('icon_button', `${size}__icon`, className),
+        classReplacer
+      )}
+      classReplacer={classReplacer}
       size={size}
       variant={variant}
       {...props}
     >
-      <Icon type={type} size={size} variant={variant} />
+      <Icon type={type} size={size} variant={variant} {...iconClassName} />
     </Button>
   );
 }

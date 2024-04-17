@@ -1,11 +1,13 @@
 import classNames from 'classnames';
 import { createElement } from 'react';
 import { TypographyProps, TypographySize, TypographyVarint } from './type';
+import { replaceClassName } from '../../utils';
 
 export function Typography({
   as = 'span',
   bold,
   className,
+  classReplacer,
   decoration,
   variant = 'body-large',
   ...props
@@ -16,13 +18,16 @@ export function Typography({
   ];
 
   return createElement(as, {
-    className: classNames(
-      'typography',
-      variantKey,
-      size,
-      bold || '',
-      decoration || '',
-      className
+    className: replaceClassName(
+      classNames(
+        'typography',
+        variantKey,
+        size,
+        bold || '',
+        decoration || '',
+        className
+      ),
+      classReplacer
     ),
     ...props,
   });

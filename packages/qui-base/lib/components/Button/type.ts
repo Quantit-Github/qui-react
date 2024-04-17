@@ -18,6 +18,10 @@ interface ButtonCommonProps {
    */
   className?: string;
   /**
+   * 각 클래스명을 변환할 때 사용할 객체
+   */
+  classReplacer?: Record<string, string>;
+  /**
    * 버튼 비활성화 여부
    */
   disabled?: boolean;
@@ -47,7 +51,8 @@ interface ButtonCommonProps {
 
 export interface ButtonContainerProps extends ButtonCommonProps {}
 
-export interface ButtonLayoutProps {
+export interface ButtonLayoutProps
+  extends Pick<ButtonCommonProps, 'className' | 'classReplacer'> {
   /**
    * The layout of the button.
    */
@@ -76,4 +81,8 @@ export interface ButtonProps extends ButtonCommonProps {
 export interface IconButtonProps
   extends Omit<ButtonCommonProps, 'fitContentWidth'> {
   type?: IconType;
+  iconClassName?: {
+    className?: string;
+    classReplacer?: Record<string, string>;
+  };
 }

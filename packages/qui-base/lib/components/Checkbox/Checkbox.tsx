@@ -13,16 +13,25 @@ import {
   CheckboxInputProps,
   CheckboxProps,
 } from './type';
+import { replaceClassName } from '../../utils';
 
 function classNameWithDisabled(className: string, disabled?: boolean) {
   return classNames(className, disabled ? 'disabled' : '');
 }
 
-function CheckboxContainer({ children, ...props }: CheckboxContainerProps) {
+function CheckboxContainer({
+  children,
+  className,
+  classReplacer,
+  ...props
+}: CheckboxContainerProps) {
   return (
     <div
       data-testid="checkbox-container"
-      className="checkbox_container"
+      className={replaceClassName(
+        classNames('checkbox_container', className),
+        classReplacer
+      )}
       {...props}
     >
       {children}
@@ -30,8 +39,21 @@ function CheckboxContainer({ children, ...props }: CheckboxContainerProps) {
   );
 }
 
-function CheckboxIcon({ checked, disabled, indeterminate }: CheckboxIconProps) {
-  const iconClassName = classNameWithDisabled('checkbox_icon', disabled);
+function CheckboxIcon({
+  checked,
+  className,
+  classReplacer,
+  disabled,
+  indeterminate,
+}: CheckboxIconProps) {
+  const createClassName = (staticClassName: string) =>
+    replaceClassName(
+      classNameWithDisabled(classNames(staticClassName, className), disabled),
+      classReplacer
+    );
+  const iconClassName = createClassName('checkbox_icon');
+  const uncheckedClassName = createClassName('checkbox_icon__unchecked');
+
   if (indeterminate) {
     return (
       <Icon.Indeterminate
@@ -43,18 +65,17 @@ function CheckboxIcon({ checked, disabled, indeterminate }: CheckboxIconProps) {
   if (checked) {
     return <Icon.Check data-testid="checked-icon" className={iconClassName} />;
   }
-  return (
-    <div
-      data-testid="unchecked-icon"
-      className={classNameWithDisabled('checkbox_icon__unchecked', disabled)}
-    />
-  );
+
+  return <div data-testid="unchecked-icon" className={uncheckedClassName} />;
 }
 
 const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
   function CheckboxInput(
     {
       children,
+      iconClassName,
+      className,
+      classReplacer,
       checked = false,
       disabled = false,
       indeterminate = false,
@@ -86,9 +107,17 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
     }, [checked]);
 
     return (
-      <label ref={labelRef} className="checkbox_input">
+      <label
+        ref={labelRef}
+        className={replaceClassName(
+          classNames('checkbox_input', className),
+          classReplacer
+        )}
+      >
         <CheckboxIcon
           checked={_checked}
+          className={iconClassName}
+          classReplacer={classReplacer}
           disabled={disabled}
           indeterminate={_indeterminate}
         />
@@ -97,14 +126,19 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
           type="checkbox"
           data-testid="checkbox"
           ref={inputRef}
-          className="checkbox_input__inner"
+          className={replaceClassName('checkbox_input__inner', classReplacer)}
           checked={_checked}
           disabled={disabled}
           onChange={handleInputChange}
           {...props}
         />
         {children || (
-          <span className={classNameWithDisabled('checkbox_label', disabled)}>
+          <span
+            className={replaceClassName(
+              classNameWithDisabled('checkbox_label', disabled),
+              classReplacer
+            )}
+          >
             {label}
           </span>
         )}
@@ -113,7 +147,13 @@ const CheckboxInput = forwardRef<HTMLLabelElement, CheckboxInputProps>(
   }
 );
 
-export function Checkbox({ disabled, ...props }: CheckboxProps) {
+export function Checkbox({
+  disabled,
+  containerClassName,
+  className,
+  classReplacer,
+  ...props
+}: CheckboxProps) {
   const checkboxRef = useRef<HTMLLabelElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -123,7 +163,11 @@ export function Checkbox({ disabled, ...props }: CheckboxProps) {
   };
 
   return (
-    <CheckboxContainer onClick={handleClick}>
+    <CheckboxContainer
+      className={containerClassName}
+      classReplacer={classReplacer}
+      onClick={handleClick}
+    >
       <CheckboxInput ref={checkboxRef} disabled={disabled} {...props} />
       {!disabled && <StateOverlay ref={buttonRef} />}
     </CheckboxContainer>
