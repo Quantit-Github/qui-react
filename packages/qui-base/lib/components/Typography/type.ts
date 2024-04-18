@@ -28,6 +28,7 @@ export interface TypographyProps {
   as?: ElementType;
   bold?: FontWeightType;
   className?: string;
+  classReplacer?: Record<string, string>;
   children?: React.ReactNode;
   decoration?: TextDecorationType;
   style?: CSSProperties;

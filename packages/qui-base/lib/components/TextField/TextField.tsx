@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
 import { IconButton, StateOverlay } from '..';
-import styles from './TextField.module.scss';
 import {
   InputProps,
   TextFieldContainerProps,
@@ -23,11 +22,11 @@ function TextFieldContainer({
     <div
       role="textbox"
       className={classNames(
-        styles.container,
-        styles[size],
-        disabled ? styles.disabled : '',
-        isActive ? styles.active : '',
-        isError ? styles.error : '',
+        'textfield_container',
+        size,
+        disabled ? 'disabled' : '',
+        isActive ? 'active' : '',
+        isError ? 'error' : '',
         className
       )}
       onClick={onClick}
@@ -44,23 +43,20 @@ function TextFieldLayout({
   trailing,
 }: TextFieldLayoutProps) {
   return (
-    <div className={styles.custom_layout}>
-      {leading && <div className={styles.custom_layout_item}>{leading}</div>}
+    <div className="custom_layout">
+      {leading && <div className="custom_layout_item">{leading}</div>}
       <div
-        className={classNames(
-          styles.custom_layout_item,
-          styles.custom_layout_item__full
-        )}
+        className={classNames('custom_layout_item', 'custom_layout_item__full')}
       >
         {children}
       </div>
-      {trailing && <div className={styles.custom_layout_item}>{trailing}</div>}
+      {trailing && <div className="custom_layout_item">{trailing}</div>}
     </div>
   );
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { disabled, value = '', size, onChange, onValueChange, ...props },
+  { disabled, value = '', size = 'xl', onChange, onValueChange, ...props },
   ref
 ) {
   const [_value, setValue] = useState(value);
@@ -87,7 +83,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       <input
         ref={ref}
         data-testid="input"
-        className={styles.input}
+        className="input"
         disabled
         value={_value}
         {...props}
@@ -100,18 +96,14 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
       <input
         ref={ref}
         data-testid="input"
-        className={classNames(
-          styles.input,
-          styles.masking,
-          size ? styles[size] : ''
-        )}
+        className={classNames('input', 'masking', size)}
         value={_value}
         onChange={handleChange}
         {...props}
       />
       {_value && (
         <IconButton
-          className={styles.close_button}
+          className="close_button"
           type="close"
           size="xs"
           variant="outline"

@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.0
+
+### Minor Changes
+
+- refactor: implement classname replacer
+
 ## 0.2.8
 
 ### Patch Changes

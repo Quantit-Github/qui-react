@@ -1,15 +1,38 @@
 import { CSSProperties, ElementType, createElement } from 'react';
-import styles from './LayoutContainer.module.scss';
+import { replaceClassName } from '../../utils';
+import classNames from 'classnames';
 
-interface ContainerProps {
+interface LayoutContainerProps {
   as?: ElementType;
+  /**
+   * React Children
+   */
   children?: React.ReactNode;
+  /**
+   * HTML classname
+   */
+  className?: string;
+  /**
+   * 각 클래스명을 변환할 때 사용할 객체
+   */
+  classReplacer?: Record<string, string>;
+  /**
+   * CSS style
+   */
   style?: CSSProperties;
 }
 
-export function LayoutContainer({ as = 'div', ...props }: ContainerProps) {
+export function LayoutContainer({
+  as = 'div',
+  className,
+  classReplacer,
+  ...props
+}: LayoutContainerProps) {
   return createElement(as, {
-    className: styles.container,
+    className: replaceClassName(
+      classNames('layout_container', className),
+      classReplacer
+    ),
     ...props,
   });
 }

@@ -10,6 +10,10 @@ export interface IconProps {
    */
   className?: string;
   /**
+   * 각 클래스명을 변환할 때 사용할 객체
+   */
+  classReplacer?: Record<string, string>;
+  /**
    * CSS style
    */
   style?: React.CSSProperties;
