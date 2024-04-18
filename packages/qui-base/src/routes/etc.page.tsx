@@ -5,7 +5,7 @@ import {
   IconButton,
   TextField,
   Typography,
-} from '../../dist/main';
+} from '../../lib/components';
 
 export default function ETCPage() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');

@@ -1,9 +1,5 @@
-import { Button } from '../../dist/components';
+import { Button } from '../../lib/components';
 
 export default function ReplacerPage() {
-  return (
-    <Button classReplacer={{ button_container: 'q_button_container' }}>
-      버튼
-    </Button>
-  );
+  return <Button>버튼</Button>;
 }
