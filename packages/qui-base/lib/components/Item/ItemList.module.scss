@@ -1,0 +1,21 @@
+.itemlist_container {
+  padding: 0;
+  margin: 0;
+  // width: 180px;
+  width: fit-content;
+  min-width: 180px;
+  max-height: 180px;
+  overflow-y: auto;
+
+  background-color: var(--grayscale-100);
+  border: 1px solid var(--semantic-border-80, rgba(16, 16, 20, 0.18));
+  border-radius: var(--space-xs, 4px);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.05),
+    0px 2px 8px 0px rgba(0, 0, 0, 0.08);
+
+  &.border {
+    li + li {
+      border-top: 1px solid black;
+    }
+  }
+}

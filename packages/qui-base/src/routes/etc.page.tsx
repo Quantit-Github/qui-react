@@ -3,6 +3,7 @@ import {
   Button,
   Icon,
   IconButton,
+  Item,
   TextField,
   Typography,
 } from '../../lib/components';
@@ -19,12 +20,89 @@ export default function ETCPage() {
   return (
     <main style={{ padding: '8px' }}>
       <Button onClick={changeMode}>모드 변경</Button>
+
       <section>
+        <h1>Item List</h1>
+
+        <Item.Cell>Item</Item.Cell>
+        <Item.Cell selected>Item2</Item.Cell>
+        <Item.Cell
+          layout={{
+            type: 'fill',
+            main: (
+              <div
+                style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+              >
+                <Icon type="smile" size="md" />
+                <Typography variant="body-medium">Item3</Typography>
+              </div>
+            ),
+            trailing: <Icon type="close" size="md" />,
+          }}
+        />
+        <Item.Cell
+          selected
+          disabled
+          layout={{
+            leading: <Icon type="smile" size="md" />,
+            main: <Typography variant="body-medium">Item4</Typography>,
+          }}
+        ></Item.Cell>
+        <Item.List
+          onClick={(id) => console.log('id: ', id)}
+          items={[
+            {
+              id: '1',
+              layout: {
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">Dashboard</Typography>,
+              },
+              disabled: true,
+            },
+            {
+              id: '2',
+              layout: {
+                leading: <Icon type="smile" size="md" />,
+                main: (
+                  <Typography variant="body-medium">Performance</Typography>
+                ),
+              },
+              selected: true,
+            },
+            {
+              id: '3',
+              layout: {
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">FAQ</Typography>,
+              },
+            },
+            {
+              id: '4',
+              layout: {
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">FAQ</Typography>,
+              },
+            },
+            {
+              id: '5',
+              layout: {
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">FAQ</Typography>,
+              },
+            },
+          ]}
+        />
+      </section>
+      <hr />
+      <section>
+        <h1>Icon</h1>
         <Icon type="check" />
         <Icon.Smile />
         <Icon.Indeterminate />
       </section>
+      <hr />
       <section>
+        <h1>Text Field</h1>
         <TextField type="password" placeholder="패스워드" />
         <br />
         <TextField
@@ -41,7 +119,9 @@ export default function ETCPage() {
         />
         <br />
       </section>
+      <hr />
       <section style={{ margin: '8px 0' }}>
+        <h1>Icon Button</h1>
         <IconButton size="xl" />
         <IconButton size="xl" type="close" />
         <IconButton size="lg" />
@@ -53,7 +133,10 @@ export default function ETCPage() {
         <IconButton size="xs" disabled />
         <Button.Icon size="xs" disabled />
       </section>
+      <hr />
       <section style={{ maxWidth: '500px' }}>
+        <h1>Button</h1>
+
         <Button
           onClick={(e) => {
             console.log('e: ', e);
@@ -175,7 +258,9 @@ export default function ETCPage() {
           Disabled
         </Button>
       </section>
+      <hr />
       <section>
+        <h1>Typography</h1>
         <Typography>Primary</Typography>
       </section>
     </main>
