@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {
   Button,
+  Dropdown,
   Icon,
   IconButton,
   ItemCell,
@@ -23,81 +24,109 @@ export default function ETCPage() {
       <Button onClick={changeMode}>모드 변경</Button>
 
       <section>
-        <h1>Item List</h1>
+        <h1>Dropdown</h1>
 
-        <ItemCell>Item</ItemCell>
-        <ItemCell selected>Item2</ItemCell>
-        <ItemCell
-          layout={{
-            type: 'fill',
-            main: (
-              <div
-                style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
-              >
-                <Icon type="smile" size="md" />
-                <Typography variant="body-medium">Item3</Typography>
-              </div>
-            ),
-            trailing: <Icon type="close" size="md" />,
-          }}
-        />
-        <ItemCell
-          selected
-          disabled
-          layout={{
-            leading: <Icon type="smile" size="md" />,
-            main: <Typography variant="body-medium">Item4</Typography>,
-          }}
-        ></ItemCell>
-        <ItemList
-          onClick={(id) => console.log('id: ', id)}
+        <Dropdown
+          width={200}
+          placeholder="Label"
           items={[
             {
-              id: '1',
-              layout: {
-                leading: <Icon type="smile" size="md" />,
-                main: <Typography variant="body-medium">Dashboard</Typography>,
-              },
-              disabled: true,
+              id: 'item-1',
+              children: <Typography variant="body-medium">Item 1</Typography>,
             },
             {
-              id: '2',
-              layout: {
-                leading: <Icon type="smile" size="md" />,
-                main: (
-                  <Typography variant="body-medium">Performance</Typography>
-                ),
-              },
-              selected: true,
-            },
-            {
-              id: '3',
-              layout: {
-                leading: <Icon type="smile" size="md" />,
-                main: <Typography variant="body-medium">FAQ</Typography>,
-              },
-            },
-            {
-              id: '4',
-              layout: {
-                leading: <Icon type="smile" size="md" />,
-                main: <Typography variant="body-medium">FAQ</Typography>,
-              },
-            },
-            {
-              id: '5',
-              layout: {
-                leading: <Icon type="smile" size="md" />,
-                main: <Typography variant="body-medium">FAQ</Typography>,
-              },
+              id: 'item-2',
+              children: <Typography variant="body-medium">Item 2</Typography>,
             },
           ]}
         />
+      </section>
+
+      <section>
+        <h1>Item List</h1>
+
+        <div style={{ width: 200 }}>
+          <ItemCell>Item</ItemCell>
+          <ItemCell selected>Item2</ItemCell>
+          <ItemCell
+            layout={{
+              type: 'fill',
+              main: (
+                <div
+                  style={{ display: 'flex', alignItems: 'center', gap: '4px' }}
+                >
+                  <Icon type="smile" size="md" />
+                  <Typography variant="body-medium">Item3</Typography>
+                </div>
+              ),
+              trailing: <Icon type="close" size="md" />,
+            }}
+          />
+          <ItemCell
+            selected
+            disabled
+            layout={{
+              leading: <Icon type="smile" size="md" />,
+              main: <Typography variant="body-medium">Item4</Typography>,
+            }}
+          />
+        </div>
+        <div style={{ width: 200 }}>
+          <ItemList
+            onClick={(id) => console.log('id: ', id)}
+            items={[
+              {
+                id: '1',
+                layout: {
+                  leading: <Icon type="smile" size="md" />,
+                  main: (
+                    <Typography variant="body-medium">Dashboard</Typography>
+                  ),
+                },
+                disabled: true,
+              },
+              {
+                id: '2',
+                layout: {
+                  leading: <Icon type="smile" size="md" />,
+                  main: (
+                    <Typography variant="body-medium">Performance</Typography>
+                  ),
+                },
+                selected: true,
+              },
+              {
+                id: '3',
+                layout: {
+                  leading: <Icon type="smile" size="md" />,
+                  main: <Typography variant="body-medium">FAQ</Typography>,
+                },
+              },
+              {
+                id: '4',
+                layout: {
+                  leading: <Icon type="smile" size="md" />,
+                  main: <Typography variant="body-medium">FAQ</Typography>,
+                },
+              },
+              {
+                id: '5',
+                layout: {
+                  leading: <Icon type="smile" size="md" />,
+                  main: <Typography variant="body-medium">FAQ</Typography>,
+                },
+              },
+            ]}
+          />
+        </div>
       </section>
       <hr />
       <section>
         <h1>Icon</h1>
         <Icon type="check" />
+        <Icon type="close" />
+        <Icon type="up" />
+        <Icon type="down" />
         <Icon.Smile />
         <Icon.Indeterminate />
       </section>

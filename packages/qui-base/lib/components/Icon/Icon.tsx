@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import iconJson from '../../assets/icons.json';
-import { IconProps, PresetIconProps } from './type';
 import { replaceClassName } from '../../utils';
+import { IconProps, PresetIconProps } from './type';
 
 export function Icon({
   className,
@@ -29,12 +29,21 @@ export function Icon({
   );
 }
 
-Icon.Check = function IconCheck({ ...props }: PresetIconProps) {
+Icon.Check = function CheckIcon({ ...props }: PresetIconProps) {
   return <Icon type="check" {...props} />;
 };
-Icon.Smile = function IconSmile({ ...props }: PresetIconProps) {
+Icon.Close = function CloseIcon({ ...props }: PresetIconProps) {
+  return <Icon type="close" {...props} />;
+};
+Icon.Up = function UpIcon({ ...props }: PresetIconProps) {
+  return <Icon type="up" {...props} />;
+};
+Icon.Down = function DownIcon({ ...props }: PresetIconProps) {
+  return <Icon type="down" {...props} />;
+};
+Icon.Smile = function SmileIcon({ ...props }: PresetIconProps) {
   return <Icon type="smile" {...props} />;
 };
-Icon.Indeterminate = function IconIndeterminate({ ...props }: PresetIconProps) {
+Icon.Indeterminate = function IndeterminateIcon({ ...props }: PresetIconProps) {
   return <Icon type="indeterminate" {...props} />;
 };
