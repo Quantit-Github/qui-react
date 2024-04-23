@@ -3,7 +3,8 @@ import {
   Button,
   Icon,
   IconButton,
-  Item,
+  ItemCell,
+  ItemList,
   TextField,
   Typography,
 } from '../../lib/components';
@@ -24,9 +25,9 @@ export default function ETCPage() {
       <section>
         <h1>Item List</h1>
 
-        <Item.Cell>Item</Item.Cell>
-        <Item.Cell selected>Item2</Item.Cell>
-        <Item.Cell
+        <ItemCell>Item</ItemCell>
+        <ItemCell selected>Item2</ItemCell>
+        <ItemCell
           layout={{
             type: 'fill',
             main: (
@@ -40,15 +41,15 @@ export default function ETCPage() {
             trailing: <Icon type="close" size="md" />,
           }}
         />
-        <Item.Cell
+        <ItemCell
           selected
           disabled
           layout={{
             leading: <Icon type="smile" size="md" />,
             main: <Typography variant="body-medium">Item4</Typography>,
           }}
-        ></Item.Cell>
-        <Item.List
+        ></ItemCell>
+        <ItemList
           onClick={(id) => console.log('id: ', id)}
           items={[
             {

@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.1
+
+### Patch Changes
+
+- feat: implement ItemCell, ItemList Component
+
 ## 0.3.0
 
 ### Minor Changes
