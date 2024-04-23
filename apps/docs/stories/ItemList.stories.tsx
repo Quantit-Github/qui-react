@@ -70,6 +70,10 @@ export const Default: Story = {
       );
     };
 
-    return <ItemList items={_items} onClick={handleClick} />;
+    return (
+      <div style={{ width: 200 }}>
+        <ItemList items={_items} onClick={handleClick} />
+      </div>
+    );
   },
 };

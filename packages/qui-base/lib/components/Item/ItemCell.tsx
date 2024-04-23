@@ -10,6 +10,7 @@ interface ItemCellContainerProps {
   disabled?: boolean;
   fitContent?: boolean;
   selected?: boolean;
+  style?: React.CSSProperties;
   onClick?: () => void;
 }
 
@@ -23,6 +24,7 @@ interface ItemCellLayoutProps {
 }
 
 export interface ItemCellProps {
+  // TODO: children이 아닌 render 함수 넘기는 형식으로 변경 (IOC)
   children?: React.ReactNode;
   className?: string;
   classReplacer?: Record<string, string>;
@@ -31,6 +33,7 @@ export interface ItemCellProps {
   id?: string;
   layout?: ItemCellLayoutProps;
   selected?: boolean;
+  style?: React.CSSProperties;
   onClick?: (id?: string) => void;
 }
 
@@ -43,6 +46,7 @@ function ItemCellContainer(props: ItemCellContainerProps) {
     fitContent,
     selected,
     onClick,
+    ...rest
   } = props;
   const handleClick = () => {
     onClick?.();
@@ -63,6 +67,7 @@ function ItemCellContainer(props: ItemCellContainerProps) {
       aria-disabled={disabled}
       role="button"
       onClick={handleClick}
+      {...rest}
     >
       {children}
     </li>
@@ -103,6 +108,7 @@ export function ItemCell({
   layout,
   selected,
   onClick,
+  ...rest
 }: ItemCellProps) {
   const handleClick = () => {
     if (!disabled) {
@@ -118,6 +124,7 @@ export function ItemCell({
       fitContent={fitContent}
       selected={selected}
       onClick={handleClick}
+      {...rest}
     >
       {children || <ItemCellLayout {...layout} />}
       {!disabled && <StateOverlay />}

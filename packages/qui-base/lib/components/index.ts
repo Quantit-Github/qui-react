@@ -1,5 +1,6 @@
 export * from './Button';
 export * from './Checkbox';
+export * from './Dropdown';
 export * from './Icon';
 export * from './Item';
 export * from './LayoutContainer';
