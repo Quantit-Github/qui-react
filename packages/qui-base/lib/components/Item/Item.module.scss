@@ -1,0 +1,38 @@
+@use '../../styles/mixins/state-mixin.scss' as _s;
+
+.item_cell_container {
+  list-style: none;
+  min-width: 120px;
+  padding: 10px 12px;
+  position: relative;
+
+  &.fit_content {
+    width: fit-content;
+  }
+
+  &.selected {
+    background-color: var(--primary-99);
+  }
+
+  &.disabled {
+    @include _s.disabled-state-mixin;
+    background-color: transparent !important;
+    svg {
+      fill: var(--black-alpha-70);
+    }
+  }
+}
+
+.item_cell_layout {
+  display: flex;
+  align-items: center;
+  line-height: 20px;
+  gap: 8px;
+
+  &.hug {
+    justify-content: center;
+  }
+  &.fill {
+    justify-content: space-between;
+  }
+}
