@@ -33,6 +33,11 @@ export interface ItemCellProps {
   id?: string;
   layout?: ItemCellLayoutProps;
   selected?: boolean;
+  /**
+   * 상태 오버레이를 표시할지 여부
+   * @default true
+   */
+  stateOverlay?: boolean;
   style?: React.CSSProperties;
   onClick?: (id?: string) => void;
 }
@@ -107,6 +112,7 @@ export function ItemCell({
   fitContent,
   layout,
   selected,
+  stateOverlay = true,
   onClick,
   ...rest
 }: ItemCellProps) {
@@ -127,7 +133,7 @@ export function ItemCell({
       {...rest}
     >
       {children || <ItemCellLayout {...layout} />}
-      {!disabled && <StateOverlay />}
+      {stateOverlay && !disabled && <StateOverlay />}
     </ItemCellContainer>
   );
 }

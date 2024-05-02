@@ -54,6 +54,7 @@ export const Default: Story = {
       },
       {
         id: '5',
+        stateOverlay: false,
         layout: {
           leading: <Icon type="smile" size="md" />,
           main: <Typography variant="body-medium">FAQ3</Typography>,

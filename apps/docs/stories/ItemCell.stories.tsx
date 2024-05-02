@@ -73,3 +73,13 @@ export const Disabled: Story = {
     },
   },
 };
+
+export const StateOverlay_Inactive: Story = {
+  args: {
+    stateOverlay: false,
+    layout: {
+      leading: <Icon type="smile" size="md" />,
+      main: <Typography variant="body-medium">Main</Typography>,
+    },
+  },
+};
