@@ -6,6 +6,7 @@ import {
   IconButton,
   ItemCell,
   ItemList,
+  MultiSelectionDropdown,
   TextField,
   Typography,
 } from '../../lib/components';
@@ -37,6 +38,45 @@ export default function ETCPage() {
             {
               id: 'item-2',
               children: <Typography variant="body-medium">Item 2</Typography>,
+            },
+          ]}
+        />
+
+        <MultiSelectionDropdown
+          width={200}
+          placeholder="Label"
+          items={[
+            {
+              id: 'item-1',
+              children: <Typography variant="body-medium">Item 1</Typography>,
+              selected: true,
+            },
+            {
+              id: 'item-2',
+              children: <Typography variant="body-medium">Item 2</Typography>,
+            },
+          ]}
+        />
+      </section>
+
+      <section>
+        <h1>Sorting Dropdown</h1>
+
+        <Dropdown
+          border={false}
+          fitContent
+          itemFitContent
+          placeholder="Label"
+          items={[
+            {
+              id: 'item-1',
+              children: <Typography variant="body-medium">이름순</Typography>,
+            },
+            {
+              id: 'item-2',
+              children: (
+                <Typography variant="body-medium">수익률 높은순</Typography>
+              ),
             },
           ]}
         />

@@ -1,15 +1,32 @@
 .dropdown_container {
   position: relative;
-  padding: var(--spacing-sm, 8px) var(--spacing-sm, 8px) var(--spacing-sm, 8px)
-    var(--spacing-sm, 16px);
-  border: 1px solid var(--semantic-border-80);
-  border-radius: var(--spacing-sm, 8px);
+
+  border-radius: var(--spacing-xs, 4px);
+  padding: 4px 8px;
+
+  &.border {
+    border: 1px solid var(--semantic-border-80);
+    border-radius: var(--spacing-sm, 8px);
+    padding: var(--spacing-sm, 8px) var(--spacing-sm, 8px)
+      var(--spacing-sm, 8px) var(--spacing-sm, 16px);
+  }
+
+  &.fit_content {
+    width: fit-content;
+  }
 }
 
 .dropdown_selection {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 4px;
+}
+
+.dropdown_selection_content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .dropdown_items {
@@ -22,4 +39,25 @@
   box-sizing: border-box;
   border: 1px solid var(--semantic-border-80);
   border-radius: var(--spacing-sm, 8px);
+
+  &.fit_content {
+    width: fit-content;
+  }
+}
+
+.dropdown_item_tag {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--black-alpha-95, rgba(16, 16, 20, 0.06));
+  border-radius: var(--spacing-xs, 4px);
+  padding: 4px 8px;
+  z-index: 1;
+}
+
+// TODO: 추후 Chip 컴포넌트 생성하면 대체 가능
+.dropdown_item_tag_chip {
+  width: 14px;
+  height: 14px;
+  margin-left: 4px;
 }
