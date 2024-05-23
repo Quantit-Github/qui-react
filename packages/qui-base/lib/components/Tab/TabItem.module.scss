@@ -1,0 +1,52 @@
+@use '../../styles/mixins/all.scss' as _all;
+
+:root {
+  --tab-container-b10: var(--black-alpha-10);
+  --tab-container-b100: var(--black-alpha-100);
+  --tab-elements-b10: var(--black-alpha-10);
+  --tab-elements-b60: var(--black-alpha-60);
+  --tab-elements-w0: var(--white-alpha-0);
+  --tab-line-null-b100: var(--black-alpha-100);
+  --tab-line-se-border20: var(--semantic-border-20);
+  --tab-line-se-border80: var(--semantic-border-80);
+  --tab-height: var(--space-40, 40px);
+  --tab-padding: var(--space-sm, 8px);
+
+  --tab-layout-gap: 2px;
+}
+
+.tab_item_container {
+  @include _all.container-init-mixin;
+  @include _all.button-init-mixin;
+  @include _all.typography-mixin(body, 'medium', regular);
+
+  display: flex;
+  align-items: center;
+
+  background: var(--tab-container-b10);
+  border-radius: var(--border-radius-round-corner);
+  color: var(--tab-elements-w0);
+
+  height: var(--tab-height);
+  padding: 0 var(--tab-padding);
+
+  svg {
+    fill: var(--tab-elements-w0) !important;
+  }
+
+  &.off {
+    background: var(--tab-container-b100, rgba(16, 16, 20, 0));
+    border: 1px solid var(--tab-line-se-border80, rgba(16, 16, 20, 0.18));
+    color: var(--tab-elements-b60);
+
+    svg {
+      fill: var(--tab-elements-b60) !important;
+    }
+  }
+}
+
+.tab_item_layout {
+  display: flex;
+  align-items: center;
+  gap: var(--tab-layout-gap);
+}
