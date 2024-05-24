@@ -1,0 +1,19 @@
+:root {
+  --tab-gap: var(--space-sm, '8px');
+}
+
+.child {
+  width: 100%;
+  display: flex;
+  scroll-snap-align: start;
+}
+
+.tab_container {
+  display: flex;
+  gap: var(--tab-gap);
+
+  padding: 2px;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}

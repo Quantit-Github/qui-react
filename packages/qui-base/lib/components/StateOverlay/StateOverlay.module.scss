@@ -24,4 +24,13 @@
     // only focus without active status
     outline: 2px solid var(--semantic-focused);
   }
+
+  &.light {
+    &:hover {
+      background-color: var(--white-alpha-99);
+    }
+    &:active {
+      background-color: var(--white-alpha-95);
+    }
+  }
 }
