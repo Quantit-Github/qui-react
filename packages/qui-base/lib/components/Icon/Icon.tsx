@@ -35,6 +35,12 @@ Icon.Check = function CheckIcon({ ...props }: PresetIconProps) {
 Icon.Close = function CloseIcon({ ...props }: PresetIconProps) {
   return <Icon type="close" {...props} />;
 };
+Icon.Delete = function DeleteIcon({ ...props }: PresetIconProps) {
+  return <Icon type="delete" {...props} />;
+};
+Icon.Document = function DocumentIcon({ ...props }: PresetIconProps) {
+  return <Icon type="document" {...props} />;
+};
 Icon.Up = function UpIcon({ ...props }: PresetIconProps) {
   return <Icon type="up" {...props} />;
 };
@@ -46,4 +52,7 @@ Icon.Smile = function SmileIcon({ ...props }: PresetIconProps) {
 };
 Icon.Indeterminate = function IndeterminateIcon({ ...props }: PresetIconProps) {
   return <Icon type="indeterminate" {...props} />;
+};
+Icon.ThumbsDown = function ThumbsDownIcon({ ...props }: PresetIconProps) {
+  return <Icon type="thumbsDown" {...props} />;
 };
