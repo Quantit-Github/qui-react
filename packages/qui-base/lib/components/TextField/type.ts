@@ -3,11 +3,14 @@ import { SizeType } from '../../types';
 
 export type TextFieldSizeType = Exclude<SizeType, 'xs'>;
 
+type KeyboardEvent = Pick<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onKeyDown' | 'onKeyUp'
+>;
+
 interface TextFieldCommonProps
-  extends Pick<
-    InputHTMLAttributes<HTMLInputElement>,
-    'className' | 'disabled'
-  > {
+  extends Pick<InputHTMLAttributes<HTMLInputElement>, 'className' | 'disabled'>,
+    KeyboardEvent {
   /**
    * 에러 여부.
    *
@@ -69,7 +72,8 @@ export interface TextFieldProps
     Pick<
       InputHTMLAttributes<HTMLInputElement>,
       'value' | 'type' | 'placeholder' | 'onChange'
-    > {
+    >,
+    KeyboardEvent {
   /**
    * 텍스트필드 InputElement의 앞뒤 영역 컨트롤러.
    *

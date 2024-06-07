@@ -180,6 +180,9 @@ export default function ETCPage() {
             leading: <Icon type="smile" size="md" />,
           }}
           placeholder="Placeholder"
+          onKeyDown={(e) => {
+            console.log('e: ', e);
+          }}
         />
         <TextField
           layout={{
