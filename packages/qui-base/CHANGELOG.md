@@ -1,5 +1,13 @@
 # @quantit/qui-react
 
+## 0.3.6
+
+### Patch Changes
+
+- feat: add Icons
+
+  - Delete, Document, ThumbsDown Icon
+
 ## 0.3.5
 
 ### Patch Changes
