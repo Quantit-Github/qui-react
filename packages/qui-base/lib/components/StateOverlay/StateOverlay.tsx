@@ -12,6 +12,10 @@ interface StateOverlayProps {
    */
   classReplacer?: Record<string, string>;
   /**
+   * 라이트모드
+   */
+  lightMode?: boolean;
+  /**
    * CSS style
    */
   style?: React.CSSProperties;
@@ -19,12 +23,15 @@ interface StateOverlayProps {
 }
 
 export const StateOverlay = forwardRef<HTMLButtonElement, StateOverlayProps>(
-  function StateOverlay({ className, classReplacer, ...props }, ref) {
+  function StateOverlay(
+    { className, classReplacer, lightMode = false, ...props },
+    ref
+  ) {
     return (
       <button
         ref={ref}
         className={replaceClassName(
-          classNames('state_overlay', className),
+          classNames('state_overlay', lightMode ? 'light' : '', className),
           classReplacer
         )}
         {...props}

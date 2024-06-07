@@ -5,5 +5,6 @@ export * from './Icon';
 export * from './Item';
 export * from './LayoutContainer';
 export * from './StateOverlay';
+export * from './Tab';
 export * from './TextField';
 export * from './Typography';

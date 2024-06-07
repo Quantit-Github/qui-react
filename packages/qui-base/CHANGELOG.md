@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.5
+
+### Patch Changes
+
+- feat: implement Tab Component
+
 ## 0.3.4
 
 ### Patch Changes

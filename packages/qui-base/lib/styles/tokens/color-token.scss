@@ -32,31 +32,61 @@ $grayscale-100: #fafafa;
 $black-alpha-0: rgba(16, 16, 20, 1);
 $black-alpha-10: rgba(16, 16, 20, 0.9);
 $black-alpha-20: rgba(16, 16, 20, 0.8);
-$black-alpha-30: rgba(16, 16, 20, 0.7);
-$black-alpha-40: rgba(16, 16, 20, 0.6);
-$black-alpha-50: rgba(16, 16, 20, 0.5);
-$black-alpha-60: rgba(16, 16, 20, 0.4);
-$black-alpha-70: rgba(16, 16, 20, 0.3);
-$black-alpha-80: rgba(16, 16, 20, 0.18);
-$black-alpha-90: rgba(16, 16, 20, 0.1);
-$black-alpha-95: rgba(16, 16, 20, 0.06);
-$black-alpha-99: rgba(16, 16, 20, 0.03);
+$black-alpha-30: rgba(16, 16, 22, 0.7);
+$black-alpha-40: rgba(16, 16, 23, 0.6);
+$black-alpha-50: rgba(16, 16, 24, 0.5);
+$black-alpha-60: rgba(16, 16, 26, 0.41);
+$black-alpha-70: rgba(16, 16, 30, 0.3);
+$black-alpha-80: rgba(16, 16, 30, 0.18);
+$black-alpha-90: rgba(16, 16, 90, 0.1);
+$black-alpha-95: rgba(16, 16, 92, 0.07);
+$black-alpha-99: rgba(16, 16, 150, 0.03);
 $black-alpha-100: rgba(16, 16, 20, 0);
 
+// black-alpha-dark
+$black-alpha-0-dark: rgba(247, 247, 247, 1);
+$black-alpha-10-dark: rgb(247, 247, 247, 0.97);
+$black-alpha-20-dark: rgba(247, 247, 247, 0.94);
+$black-alpha-30-dark: rgba(247, 247, 247, 0.9);
+$black-alpha-40-dark: rgba(247, 247, 247, 0.82);
+$black-alpha-50-dark: rgba(247, 247, 247, 0.7);
+$black-alpha-60-dark: rgba(247, 247, 247, 0.6);
+$black-alpha-70-dark: rgba(247, 247, 247, 0.5);
+$black-alpha-80-dark: rgba(247, 247, 247, 0.4);
+$black-alpha-90-dark: rgba(247, 247, 247, 0.3);
+$black-alpha-95-dark: rgba(247, 247, 247, 0.2);
+$black-alpha-99-dark: rgba(247, 247, 247, 0.1);
+$black-alpha-100-dark: rgba(247, 247, 247, 0);
+
 // white-alpha
-$white-alpha-0: rgba(249, 250, 253, 1);
-$white-alpha-10: rgba(249, 250, 253, 0.97);
-$white-alpha-20: rgba(249, 250, 253, 0.94);
-$white-alpha-30: rgba(249, 250, 253, 0.9);
-$white-alpha-40: rgba(249, 250, 253, 0.82);
-$white-alpha-50: rgba(249, 250, 253, 0.7);
-$white-alpha-60: rgba(249, 250, 253, 0.6);
-$white-alpha-70: rgba(249, 250, 253, 0.5);
-$white-alpha-80: rgba(249, 250, 253, 0.4);
-$white-alpha-90: rgba(249, 250, 253, 0.3);
-$white-alpha-95: rgba(249, 250, 253, 0.2);
-$white-alpha-99: rgba(249, 250, 253, 0.1);
-$white-alpha-100: rgba(249, 250, 253, 0);
+$white-alpha-0: rgba(255, 255, 255, 1);
+$white-alpha-10: rgba(255, 255, 255, 0.97);
+$white-alpha-20: rgba(255, 255, 255, 0.94);
+$white-alpha-30: rgba(255, 255, 255, 0.9);
+$white-alpha-40: rgba(255, 255, 255, 0.82);
+$white-alpha-50: rgba(255, 255, 255, 0.7);
+$white-alpha-60: rgba(255, 255, 255, 0.6);
+$white-alpha-70: rgba(255, 255, 255, 0.5);
+$white-alpha-80: rgba(255, 255, 255, 0.4);
+$white-alpha-90: rgba(255, 255, 255, 0.3);
+$white-alpha-95: rgba(255, 255, 255, 0.2);
+$white-alpha-99: rgba(255, 255, 255, 0.1);
+$white-alpha-100: rgba(255, 255, 255, 0);
+
+// white-alpha-dark
+$white-alpha-0-dark: rgba(16, 16, 20, 1);
+$white-alpha-10-dark: rgba(16, 16, 20, 0.9);
+$white-alpha-20-dark: rgba(16, 16, 20, 0.8);
+$white-alpha-30-dark: rgba(16, 16, 20, 0.7);
+$white-alpha-40-dark: rgba(16, 16, 20, 0.6);
+$white-alpha-50-dark: rgba(16, 16, 20, 0.5);
+$white-alpha-60-dark: rgba(16, 16, 20, 0.4);
+$white-alpha-70-dark: rgba(16, 16, 20, 0.3);
+$white-alpha-80-dark: rgba(16, 16, 20, 0.18);
+$white-alpha-90-dark: rgba(16, 16, 20, 0.1);
+$white-alpha-95-dark: rgba(16, 16, 20, 0.06);
+$white-alpha-99-dark: rgba(16, 16, 20, 0.03);
+$white-alpha-100-dark: rgba(16, 16, 20, 0);
 
 // semantic
 $semantic-grayscale-100: $white-alpha-0;
