@@ -1,18 +1,17 @@
-@use '../tokens/color-token.scss' as token;
-@import '../mixins/color-variable-mixin.scss';
+@use '../mixins/color-variable-mixin.scss' as _c;
 
 :root,
 :root[data-theme='light'] {
-  @include color-variable-mixin;
+  @include _c.color-variable-mixin;
 }
 
 :root[data-theme='dark'] {
-  @include color-variable-mixin(true);
+  @include _c.color-variable-mixin(true);
 }
 
 @media (prefers-color-scheme: dark) {
   // 시스템 테마가 다크모드인 경우
   :root {
-    @include color-variable-mixin(true);
+    @include _c.color-variable-mixin(true);
   }
 }

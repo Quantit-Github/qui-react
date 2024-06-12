@@ -1,6 +1,9 @@
 @use '../tokens/color-token.scss' as token;
+@use './chart-color-variable-mixin.scss' as _cc;
 
 @mixin color-variable-mixin($darkMode: false) {
+  @include _cc.chart-color-variable-mixin;
+
   --primary-0: #{token.$primary-0};
   --primary-10: #{token.$primary-10};
   --primary-20: #{token.$primary-20};
@@ -72,7 +75,65 @@
   --semantic-body-darken-lv-1: #{token.$semantic-body-darken-lv-1};
   --semantic-body-darken-lv-2: #{token.$semantic-body-darken-lv-2};
 
+  --error-0: #{token.$error-0};
+  --error-10: #{token.$error-10};
+  --error-20: #{token.$error-20};
+  --error-30: #{token.$error-30};
+  --error-40: #{token.$error-40};
+  --error-50: #{token.$error-50};
+  --error-60: #{token.$error-60};
+  --error-70: #{token.$error-70};
+  --error-80: #{token.$error-80};
+  --error-90: #{token.$error-90};
+  --error-95: #{token.$error-95};
+  --error-99: #{token.$error-99};
+  --error-100: #{token.$error-100};
+
+  --success-0: #{token.$success-0};
+  --success-10: #{token.$success-10};
+  --success-20: #{token.$success-20};
+  --success-30: #{token.$success-30};
+  --success-40: #{token.$success-40};
+  --success-50: #{token.$success-50};
+  --success-60: #{token.$success-60};
+  --success-70: #{token.$success-70};
+  --success-80: #{token.$success-80};
+  --success-90: #{token.$success-90};
+  --success-95: #{token.$success-95};
+  --success-99: #{token.$success-99};
+  --success-100: #{token.$success-100};
+
+  --revenue-down-0: #{token.$revenue-down-0};
+  --revenue-down-10: #{token.$revenue-down-10};
+  --revenue-down-20: #{token.$revenue-down-20};
+  --revenue-down-30: #{token.$revenue-down-30};
+  --revenue-down-40: #{token.$revenue-down-40};
+  --revenue-down-50: #{token.$revenue-down-50};
+  --revenue-down-60: #{token.$revenue-down-60};
+  --revenue-down-70: #{token.$revenue-down-70};
+  --revenue-down-80: #{token.$revenue-down-80};
+  --revenue-down-90: #{token.$revenue-down-90};
+  --revenue-down-95: #{token.$revenue-down-95};
+  --revenue-down-99: #{token.$revenue-down-99};
+  --revenue-down-100: #{token.$revenue-down-100};
+
+  --revenue-up-0: #{token.$revenue-up-0};
+  --revenue-up-10: #{token.$revenue-up-10};
+  --revenue-up-20: #{token.$revenue-up-20};
+  --revenue-up-30: #{token.$revenue-up-30};
+  --revenue-up-40: #{token.$revenue-up-40};
+  --revenue-up-50: #{token.$revenue-up-50};
+  --revenue-up-60: #{token.$revenue-up-60};
+  --revenue-up-70: #{token.$revenue-up-70};
+  --revenue-up-80: #{token.$revenue-up-80};
+  --revenue-up-90: #{token.$revenue-up-90};
+  --revenue-up-95: #{token.$revenue-up-95};
+  --revenue-up-99: #{token.$revenue-up-99};
+  --revenue-up-100: #{token.$revenue-up-100};
+
   @if $darkMode == true {
+    @include _cc.chart-color-variable-mixin(true);
+
     --primary-0: #{token.$primary-100};
     --primary-10: #{token.$primary-99};
     --primary-20: #{token.$primary-95};
@@ -143,5 +204,61 @@
     --semantic-on-surface: #{token.$semantic-on-surface-dark};
     --semantic-body-darken-lv-1: #{token.$semantic-body-darken-lv-1-dark};
     --semantic-body-darken-lv-2: #{token.$semantic-body-darken-lv-2-dark};
+
+    --error-0: #{token.$error-100};
+    --error-10: #{token.$error-99};
+    --error-20: #{token.$error-95};
+    --error-30: #{token.$error-90};
+    --error-40: #{token.$error-80};
+    --error-50: #{token.$error-70};
+    --error-60: #{token.$error-60};
+    --error-70: #{token.$error-50};
+    --error-80: #{token.$error-40};
+    --error-90: #{token.$error-30};
+    --error-95: #{token.$error-20};
+    --error-99: #{token.$error-10};
+    --error-100: #{token.$error-0};
+
+    --success-0: #{token.$success-100};
+    --success-10: #{token.$success-99};
+    --success-20: #{token.$success-95};
+    --success-30: #{token.$success-90};
+    --success-40: #{token.$success-80};
+    --success-50: #{token.$success-70};
+    --success-60: #{token.$success-60};
+    --success-70: #{token.$success-50};
+    --success-80: #{token.$success-40};
+    --success-90: #{token.$success-30};
+    --success-95: #{token.$success-20};
+    --success-99: #{token.$success-10};
+    --success-100: #{token.$success-0};
+
+    --revenue-down-0: #{token.$revenue-down-100};
+    --revenue-down-10: #{token.$revenue-down-99};
+    --revenue-down-20: #{token.$revenue-down-95};
+    --revenue-down-30: #{token.$revenue-down-90};
+    --revenue-down-40: #{token.$revenue-down-80};
+    --revenue-down-50: #{token.$revenue-down-70};
+    --revenue-down-60: #{token.$revenue-down-60};
+    --revenue-down-70: #{token.$revenue-down-50};
+    --revenue-down-80: #{token.$revenue-down-40};
+    --revenue-down-90: #{token.$revenue-down-30};
+    --revenue-down-95: #{token.$revenue-down-20};
+    --revenue-down-99: #{token.$revenue-down-10};
+    --revenue-down-100: #{token.$revenue-down-0};
+
+    --revenue-up-0: #{token.$revenue-up-100};
+    --revenue-up-10: #{token.$revenue-up-99};
+    --revenue-up-20: #{token.$revenue-up-95};
+    --revenue-up-30: #{token.$revenue-up-90};
+    --revenue-up-40: #{token.$revenue-up-80};
+    --revenue-up-50: #{token.$revenue-up-70};
+    --revenue-up-60: #{token.$revenue-up-60};
+    --revenue-up-70: #{token.$revenue-up-50};
+    --revenue-up-80: #{token.$revenue-up-40};
+    --revenue-up-90: #{token.$revenue-up-30};
+    --revenue-up-95: #{token.$revenue-up-20};
+    --revenue-up-99: #{token.$revenue-up-10};
+    --revenue-up-100: #{token.$revenue-up-0};
   }
 }
