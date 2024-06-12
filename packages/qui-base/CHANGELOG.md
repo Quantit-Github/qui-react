@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.7
+
+### Patch Changes
+
+- refactor: update token
+
 ## 0.3.6
 
 ### Patch Changes

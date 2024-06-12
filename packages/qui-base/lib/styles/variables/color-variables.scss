@@ -1,5 +1,5 @@
 @use '../tokens/color-token.scss' as token;
-@import '../mixins/variable-mixin.scss';
+@import '../mixins/color-variable-mixin.scss';
 
 :root,
 :root[data-theme='light'] {

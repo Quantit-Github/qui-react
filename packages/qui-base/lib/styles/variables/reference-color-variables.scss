@@ -1,0 +1,16 @@
+:root {
+  // Body Contents
+  --body-contents-body-b10: var(--black-alpha-10);
+  --body-contents-body-b40: var(--black-alpha-40);
+  --body-contents-body-b90: var(--black-alpha-90);
+  --body-contents-body-se-darken-lv-1: var(--semantic-body-darken-lv-1);
+  --body-contents-body-se-darken-lv-2: var(--semantic-body-darken-lv-2);
+  --body-contents-point-se-p60: var(--semantic-primary-60);
+
+  // Surface
+  --surface-base: var(--semantic-base);
+  --surface-base-darken: var(--semantic-base-darken);
+  --surface-level-1: var(--semantic-surface-lv-1);
+  --surface-level-2: var(--semantic-surface-lv-2);
+  --surface-on-surface: var(--semantic-on-surface);
+}
