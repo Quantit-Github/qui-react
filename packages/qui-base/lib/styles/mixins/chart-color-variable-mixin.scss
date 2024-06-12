@@ -1,0 +1,89 @@
+@use '../tokens/chart-color-token.scss' as token;
+
+@mixin chart-color-variable-mixin($darkMode: false) {
+  --chart-a-0: #{token.$chart-a-0};
+  --chart-a-10: #{token.$chart-a-10};
+  --chart-a-20: #{token.$chart-a-20};
+  --chart-a-30: #{token.$chart-a-30};
+  --chart-a-40: #{token.$chart-a-40};
+  --chart-a-50: #{token.$chart-a-50};
+  --chart-a-60: #{token.$chart-a-60};
+  --chart-a-70: #{token.$chart-a-70};
+  --chart-a-80: #{token.$chart-a-80};
+  --chart-a-90: #{token.$chart-a-90};
+  --chart-a-95: #{token.$chart-a-95};
+  --chart-a-99: #{token.$chart-a-99};
+  --chart-a-100: #{token.$chart-a-100};
+
+  --chart-b-0: #{token.$chart-b-0};
+  --chart-b-10: #{token.$chart-b-10};
+  --chart-b-20: #{token.$chart-b-20};
+  --chart-b-30: #{token.$chart-b-30};
+  --chart-b-40: #{token.$chart-b-40};
+  --chart-b-50: #{token.$chart-b-50};
+  --chart-b-60: #{token.$chart-b-60};
+  --chart-b-70: #{token.$chart-b-70};
+  --chart-b-80: #{token.$chart-b-80};
+  --chart-b-90: #{token.$chart-b-90};
+  --chart-b-95: #{token.$chart-b-95};
+  --chart-b-99: #{token.$chart-b-99};
+  --chart-b-100: #{token.$chart-b-100};
+
+  --chart-c-0: #{token.$chart-c-0};
+  --chart-c-10: #{token.$chart-c-10};
+  --chart-c-20: #{token.$chart-c-20};
+  --chart-c-30: #{token.$chart-c-30};
+  --chart-c-40: #{token.$chart-c-40};
+  --chart-c-50: #{token.$chart-c-50};
+  --chart-c-60: #{token.$chart-c-60};
+  --chart-c-70: #{token.$chart-c-70};
+  --chart-c-80: #{token.$chart-c-80};
+  --chart-c-90: #{token.$chart-c-90};
+  --chart-c-95: #{token.$chart-c-95};
+  --chart-c-99: #{token.$chart-c-99};
+  --chart-c-100: #{token.$chart-c-100};
+
+  @if $darkMode == true {
+    --chart-a-0: #{token.$chart-a-0-dark};
+    --chart-a-10: #{token.$chart-a-10-dark};
+    --chart-a-20: #{token.$chart-a-20-dark};
+    --chart-a-30: #{token.$chart-a-30-dark};
+    --chart-a-40: #{token.$chart-a-40-dark};
+    --chart-a-50: #{token.$chart-a-50-dark};
+    --chart-a-60: #{token.$chart-a-60-dark};
+    --chart-a-70: #{token.$chart-a-70-dark};
+    --chart-a-80: #{token.$chart-a-80-dark};
+    --chart-a-90: #{token.$chart-a-90-dark};
+    --chart-a-95: #{token.$chart-a-95-dark};
+    --chart-a-99: #{token.$chart-a-99-dark};
+    --chart-a-100: #{token.$chart-a-100-dark};
+
+    --chart-b-0: #{token.$chart-b-0-dark};
+    --chart-b-10: #{token.$chart-b-10-dark};
+    --chart-b-20: #{token.$chart-b-20-dark};
+    --chart-b-30: #{token.$chart-b-30-dark};
+    --chart-b-40: #{token.$chart-b-40-dark};
+    --chart-b-50: #{token.$chart-b-50-dark};
+    --chart-b-60: #{token.$chart-b-60-dark};
+    --chart-b-70: #{token.$chart-b-70-dark};
+    --chart-b-80: #{token.$chart-b-80-dark};
+    --chart-b-90: #{token.$chart-b-90-dark};
+    --chart-b-95: #{token.$chart-b-95-dark};
+    --chart-b-99: #{token.$chart-b-99-dark};
+    --chart-b-100: #{token.$chart-b-100-dark};
+
+    --chart-c-0: #{token.$chart-c-0-dark};
+    --chart-c-10: #{token.$chart-c-10-dark};
+    --chart-c-20: #{token.$chart-c-20-dark};
+    --chart-c-30: #{token.$chart-c-30-dark};
+    --chart-c-40: #{token.$chart-c-40-dark};
+    --chart-c-50: #{token.$chart-c-50-dark};
+    --chart-c-60: #{token.$chart-c-60-dark};
+    --chart-c-70: #{token.$chart-c-70-dark};
+    --chart-c-80: #{token.$chart-c-80-dark};
+    --chart-c-90: #{token.$chart-c-90-dark};
+    --chart-c-95: #{token.$chart-c-95-dark};
+    --chart-c-99: #{token.$chart-c-99-dark};
+    --chart-c-100: #{token.$chart-c-100-dark};
+  }
+}
