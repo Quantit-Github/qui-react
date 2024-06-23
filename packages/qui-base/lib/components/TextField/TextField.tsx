@@ -56,7 +56,15 @@ function TextFieldLayout({
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { disabled, value = '', size = 'xl', onChange, onValueChange, ...props },
+  {
+    disabled,
+    value = '',
+    size = 'xl',
+    onChange,
+    onClear,
+    onValueChange,
+    ...props
+  },
   ref
 ) {
   const [_value, setValue] = useState(value);
@@ -70,11 +78,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
 
   const handleClear = () => {
     setValue('');
+    onClear?.();
     onValueChange?.('');
   };
 
   useEffect(() => {
-    // 외부에서 value 변경시 input value도 변경
+    // 외부에서 value 변경 시 내부 value(_value) 동기화
     setValue(value);
   }, [value]);
 

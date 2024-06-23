@@ -1,5 +1,17 @@
 # @quantit/qui-react
 
+## 0.3.10
+
+### Patch Changes
+
+- feat: add Icons
+
+## 0.3.9
+
+### Patch Changes
+
+- feat: update TextField Props
+
 ## 0.3.8
 
 ### Patch Changes

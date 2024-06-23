@@ -120,3 +120,10 @@ export const Leading_And_Trailing_Layout: Story = {
     placeholder: 'typed text',
   },
 };
+
+export const MaxLength: Story = {
+  args: {
+    maxLength: 10,
+    placeholder: 'typed text',
+  },
+};

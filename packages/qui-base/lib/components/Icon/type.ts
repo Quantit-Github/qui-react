@@ -10,6 +10,21 @@ const ICON_TYPES = [
   'up',
   'down',
   'thumbsDown',
+
+  'alpha',
+  'balance',
+  'book',
+  'clipboard',
+  'data',
+  'dollar',
+  'externalLink',
+  'globe',
+  'helpCircle',
+  'portfolio',
+  'quick',
+  'shopping',
+  'terminal',
+  'trading',
 ] as const;
 
 export type IconType = typeof ICON_TYPES[number];

@@ -64,6 +64,7 @@ export interface InputProps
    * @default 'xl'
    */
   size?: TextFieldSizeType;
+  onClear?: () => void;
   onValueChange?: (value: string | number) => void;
 }
 
@@ -80,4 +81,6 @@ export interface TextFieldProps
    * leading, trailing 각각의 영역에는 ReactNode가 들어갈 수 있음.
    */
   layout?: Omit<TextFieldLayoutProps, 'children'>;
+  maxLength?: number;
+  onClear?: () => void;
 }

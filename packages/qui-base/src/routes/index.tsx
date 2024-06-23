@@ -3,6 +3,7 @@ import CheckboxPage from './checkbox.page';
 import ETCPage from './etc.page';
 import LayoutPage from './layout.page';
 import ReplacerPage from './replacer.page';
+import { TextfieldPage } from './textfield.page';
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         element: <ETCPage />,
         path: '/etc',
+      },
+      {
+        element: <TextfieldPage />,
+        path: '/textfields',
       },
     ],
   },
