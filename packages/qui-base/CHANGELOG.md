@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.11
+
+### Patch Changes
+
+- fix: update Icon type
+
 ## 0.3.10
 
 ### Patch Changes
