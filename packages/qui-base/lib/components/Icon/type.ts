@@ -22,6 +22,7 @@ const ICON_TYPES = [
   'robo',
   'shopping',
   'smile',
+  'star',
   'up',
   'terminal',
   'thumbsDown',

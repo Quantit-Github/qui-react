@@ -62,3 +62,11 @@ export const Outline: Story = {
     variant: 'outline',
   },
 };
+
+export const Colored: Story = {
+  args: {
+    type: 'star',
+    variant: 'outline',
+    style: { fill: 'yellow' },
+  },
+};

@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.15
+
+### Patch Changes
+
+- feat: add Star Icon
+
 ## 0.3.14
 
 ### Patch Changes
