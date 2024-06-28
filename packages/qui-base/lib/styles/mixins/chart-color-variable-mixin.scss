@@ -43,6 +43,20 @@
   --chart-c-99: #{token.$chart-c-99};
   --chart-c-100: #{token.$chart-c-100};
 
+  --chart-d-0: #{token.$chart-d-0};
+  --chart-d-10: #{token.$chart-d-10};
+  --chart-d-20: #{token.$chart-d-20};
+  --chart-d-30: #{token.$chart-d-30};
+  --chart-d-40: #{token.$chart-d-40};
+  --chart-d-50: #{token.$chart-d-50};
+  --chart-d-60: #{token.$chart-d-60};
+  --chart-d-70: #{token.$chart-d-70};
+  --chart-d-80: #{token.$chart-d-80};
+  --chart-d-90: #{token.$chart-d-90};
+  --chart-d-95: #{token.$chart-d-95};
+  --chart-d-99: #{token.$chart-d-99};
+  --chart-d-100: #{token.$chart-d-100};
+
   @if $darkMode == true {
     --chart-a-0: #{token.$chart-a-0-dark};
     --chart-a-10: #{token.$chart-a-10-dark};
@@ -85,5 +99,19 @@
     --chart-c-95: #{token.$chart-c-95-dark};
     --chart-c-99: #{token.$chart-c-99-dark};
     --chart-c-100: #{token.$chart-c-100-dark};
+
+    --chart-d-0: #{token.$chart-d-0-dark};
+    --chart-d-10: #{token.$chart-d-10-dark};
+    --chart-d-20: #{token.$chart-d-20-dark};
+    --chart-d-30: #{token.$chart-d-30-dark};
+    --chart-d-40: #{token.$chart-d-40-dark};
+    --chart-d-50: #{token.$chart-d-50-dark};
+    --chart-d-60: #{token.$chart-d-60-dark};
+    --chart-d-70: #{token.$chart-d-70-dark};
+    --chart-d-80: #{token.$chart-d-80-dark};
+    --chart-d-90: #{token.$chart-d-90-dark};
+    --chart-d-95: #{token.$chart-d-95-dark};
+    --chart-d-99: #{token.$chart-d-99-dark};
+    --chart-d-100: #{token.$chart-d-100-dark};
   }
 }

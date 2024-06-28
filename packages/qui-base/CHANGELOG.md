@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.16
+
+### Patch Changes
+
+- feat: add chart color token
+
 ## 0.3.15
 
 ### Patch Changes
