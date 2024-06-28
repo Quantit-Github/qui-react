@@ -61,19 +61,20 @@
   --white-alpha-100: #{token.$white-alpha-100};
 
   --semantic-grayscale-100: #{token.$semantic-grayscale-100};
-  --semantic-border-20: #{token.$semantic-border-20};
-  --semantic-border-80: #{token.$semantic-border-80};
-  --semantic-border-90: #{token.$semantic-border-90};
+  --semantic-border-20: var(--black-alpha-20);
+  --semantic-border-80: var(--black-alpha-80);
+  --semantic-border-90: var(--black-alpha-90);
+  --semantic-border-lighten: var(--white-alpha-95);
   --semantic-focused: #{token.$semantic-focused};
   --semantic-primary-60: #{token.$semantic-primary-60};
   --semantic-switch-on: #{token.$semantic-switch-on};
-  --semantic-base: #{token.$semantic-base};
-  --semantic-base-darken: #{token.$semantic-base-darken};
-  --semantic-surface-lv-1: #{token.$semantic-surface-lv-1};
-  --semantic-surface-lv-2: #{token.$semantic-surface-lv-2};
-  --semantic-on-surface: #{token.$semantic-on-surface};
-  --semantic-body-darken-lv-1: #{token.$semantic-body-darken-lv-1};
-  --semantic-body-darken-lv-2: #{token.$semantic-body-darken-lv-2};
+  --semantic-base: var(--white-alpha-0);
+  --semantic-base-darken: var(--grayscale-10);
+  --semantic-surface-lv-1: var(--graycale-99);
+  --semantic-surface-lv-2: var(--graycale-95);
+  --semantic-on-surface: var(--black-alpha-99);
+  --semantic-body-darken-lv-1: var(--black-alpha-10);
+  --semantic-body-darken-lv-2: var(--black-alpha-60);
 
   --error-0: #{token.$error-0};
   --error-10: #{token.$error-10};
@@ -190,20 +191,21 @@
     --white-alpha-99: #{token.$white-alpha-99-dark};
     --white-alpha-100: #{token.$white-alpha-100-dark};
 
-    --semantic-grayscale-100: #{token.$semantic-grayscale-100};
-    --semantic-border-20: #{token.$semantic-border-20-dark};
-    --semantic-border-80: #{token.$semantic-border-80-dark};
-    --semantic-border-90: #{token.$semantic-border-90-dark};
+    --semantic-grayscale-100: #{token.$semantic-grayscale-100-dark};
+    --semantic-border-20: var(--black-alpha-70);
+    --semantic-border-80: var(--black-alpha-95);
+    --semantic-border-90: var(--black-alpha-99);
+    --semantic-border-lighten: var(--black-alpha-95);
     --semantic-focused: #{token.$semantic-focused-dark};
     --semantic-primary-60: #{token.$semantic-primary-60-dark};
     --semantic-switch-on: #{token.$semantic-switch-on-dark};
-    --semantic-base: #{token.$semantic-base-dark};
-    --semantic-base-darken: #{token.$semantic-base-darken-dark};
-    --semantic-surface-lv-1: #{token.$semantic-surface-lv-1-dark};
-    --semantic-surface-lv-2: #{token.$semantic-surface-lv-2-dark};
-    --semantic-on-surface: #{token.$semantic-on-surface-dark};
-    --semantic-body-darken-lv-1: #{token.$semantic-body-darken-lv-1-dark};
-    --semantic-body-darken-lv-2: #{token.$semantic-body-darken-lv-2-dark};
+    --semantic-base: var(--grayscale-99);
+    --semantic-base-darken: var(--grayscale-99);
+    --semantic-surface-lv-1: var(--grayscale-100);
+    --semantic-surface-lv-2: var(--white-alpha-0);
+    --semantic-on-surface: var(--white-alpha-70);
+    --semantic-body-darken-lv-1: var(--black-alpha-10);
+    --semantic-body-darken-lv-2: var(--black-alpha-60);
 
     --error-0: #{token.$error-100};
     --error-10: #{token.$error-99};
