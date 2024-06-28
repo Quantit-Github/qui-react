@@ -67,6 +67,6 @@ export const Colored: Story = {
   args: {
     type: 'star',
     variant: 'outline',
-    style: { fill: 'yellow' },
+    style: { fill: 'var(--chart-d-80)' },
   },
 };
