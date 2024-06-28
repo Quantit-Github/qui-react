@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.17
+
+### Patch Changes
+
+- feat: add Chevron Icon
+
 ## 0.3.16
 
 ### Patch Changes
