@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.18
+
+### Patch Changes
+
+- fix: fix StateOverlay style of deleting focused style
+
 ## 0.3.17
 
 ### Patch Changes
