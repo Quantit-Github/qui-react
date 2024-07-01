@@ -21,6 +21,7 @@ const ICON_TYPES = [
   'globe',
   'helpCircle',
   'indeterminate',
+  'magic',
   'portfolio',
   'quick',
   'robo',

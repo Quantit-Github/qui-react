@@ -1,10 +1,16 @@
 # @quantit/qui-react
 
+## 0.3.20
+
+### Patch Changes
+
+- feat: add Magic Icon
+
 ## 0.3.19
 
 ### Patch Changes
 
-- feature: add StarLined Icon
+- feat: add StarLined Icon
 
 ## 0.3.18
 
