@@ -27,6 +27,7 @@ const ICON_TYPES = [
   'shopping',
   'smile',
   'star',
+  'starLined',
   'up',
   'terminal',
   'thumbsDown',

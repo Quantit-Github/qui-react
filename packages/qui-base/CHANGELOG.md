@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.19
+
+### Patch Changes
+
+- feature: add StarLined Icon
+
 ## 0.3.18
 
 ### Patch Changes
