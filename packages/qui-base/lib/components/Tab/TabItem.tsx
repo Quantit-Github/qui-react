@@ -4,8 +4,11 @@ import { StateOverlay } from '../StateOverlay';
 import { replaceClassName } from '../../utils';
 
 interface TabItemLayoutProps {
+  className?: string;
+  classReplacer?: Record<string, string>;
   leading?: React.ReactNode;
   main?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
 export interface TabItemProps {
@@ -18,10 +21,17 @@ export interface TabItemProps {
 }
 
 function TabItemLayout(props: TabItemLayoutProps) {
+  const { className, classReplacer, leading, main, style } = props;
   return (
-    <div className="tab_item_layout">
-      {props.leading}
-      {props.main}
+    <div
+      className={replaceClassName(
+        classNames('tab_item_layout', className),
+        classReplacer
+      )}
+      style={style}
+    >
+      {leading}
+      {main}
     </div>
   );
 }

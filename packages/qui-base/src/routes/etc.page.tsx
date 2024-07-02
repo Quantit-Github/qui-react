@@ -7,6 +7,7 @@ import {
   ItemCell,
   ItemList,
   MultiSelectionDropdown,
+  TabItem,
   TextField,
   Typography,
 } from '../../lib/components';
@@ -23,6 +24,16 @@ export default function ETCPage() {
   return (
     <main style={{ padding: '8px' }}>
       <Button onClick={changeMode}>모드 변경</Button>
+
+      <section>
+        <TabItem
+          layout={{
+            style: { display: 'flex', gap: '32px' },
+            leading: <Icon type="smile" size="md" />,
+            main: <Typography variant="body-medium">TabItem</Typography>,
+          }}
+        />
+      </section>
 
       <section>
         <h1>Dropdown</h1>

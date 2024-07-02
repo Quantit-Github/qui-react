@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.21
+
+### Patch Changes
+
+- feat: update TabItemLayout Props
+
 ## 0.3.20
 
 ### Patch Changes
