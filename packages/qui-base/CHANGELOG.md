@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.22
+
+### Patch Changes
+
+- fix: fix token color
+
 ## 0.3.21
 
 ### Patch Changes
