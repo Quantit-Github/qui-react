@@ -73,8 +73,8 @@
   --semantic-surface-lv-1: var(--grayscale-99);
   --semantic-surface-lv-2: var(--grayscale-95);
   --semantic-on-surface: var(--black-alpha-99);
-  --semantic-body-darken-lv-1: var(--black-alpha-10);
-  --semantic-body-darken-lv-2: var(--black-alpha-60);
+  --semantic-body-darken-lv-1: var(--white-alpha-10);
+  --semantic-body-darken-lv-2: var(--white-alpha-60);
 
   --error-0: #{token.$error-0};
   --error-10: #{token.$error-10};
