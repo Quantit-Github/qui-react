@@ -27,6 +27,7 @@ const ICON_TYPES = [
   'help',
   'helpCircle',
   'indeterminate',
+  'info',
   'magic',
   'minus',
   'moreHorizontal',

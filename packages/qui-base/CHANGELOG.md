@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.24
+
+### Patch Changes
+
+- feat: add Info Icon
+
 ## 0.3.23
 
 ### Patch Changes
