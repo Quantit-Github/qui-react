@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.25
+
+### Patch Changes
+
+- feat: update Textfield style
+
 ## 0.3.24
 
 ### Patch Changes

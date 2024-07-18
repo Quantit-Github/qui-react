@@ -38,12 +38,13 @@ function TextFieldContainer({
 }
 
 function TextFieldLayout({
+  disabled,
   leading,
   children,
   trailing,
 }: TextFieldLayoutProps) {
   return (
-    <div className="custom_layout">
+    <div className={classNames('custom_layout', disabled ? 'disabled' : '')}>
       {leading && <div className="custom_layout_item">{leading}</div>}
       <div
         className={classNames('custom_layout_item', 'custom_layout_item__full')}
@@ -155,7 +156,7 @@ export function TextField({
       size={size}
       onClick={handleContainerClick}
     >
-      <TextFieldLayout {...layout}>
+      <TextFieldLayout disabled={disabled} {...layout}>
         <Input
           ref={inputRef}
           disabled={disabled}
