@@ -43,6 +43,10 @@ export interface TextFieldContainerProps extends TextFieldCommonProps {
 
 export interface TextFieldLayoutProps {
   /**
+   * 비활성화 여부.
+   */
+  disabled?: boolean;
+  /**
    * React Children.
    */
   children: ReactElement;
