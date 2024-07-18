@@ -1,6 +1,7 @@
 import { SizeType, VariantType } from '../../types';
 
 const ICON_TYPES = [
+  'alertTriangle',
   'alpha',
   'balance',
   'book',
@@ -20,6 +21,9 @@ const ICON_TYPES = [
   'document',
   'dollar',
   'down',
+  'download',
+  'edit',
+  'executions',
   'experiment',
   'externalLink',
   'filter',
@@ -35,7 +39,9 @@ const ICON_TYPES = [
   'plus',
   'portfolio',
   'quick',
+  'rebalancing',
   'robo',
+  'rotate',
   'search',
   'shopping',
   'smile',
@@ -45,6 +51,7 @@ const ICON_TYPES = [
   'thumbsDown',
   'trading',
   'up',
+  'upload',
 ] as const;
 
 export type IconType = typeof ICON_TYPES[number];
