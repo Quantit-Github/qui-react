@@ -45,13 +45,15 @@ function ButtonLayout({
   type = 'hug',
   leading,
   main,
+  size,
   trailing,
   ...props
 }: ButtonLayoutProps) {
   return (
     <div
       className={replaceClassName(
-        classNames('button_contents', type, className),
+        classNames('button_contents', size, type, className),
+
         classReplacer
       )}
       {...props}

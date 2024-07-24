@@ -12,9 +12,14 @@
   width: 100%;
 
   /** Size */
-  &.md,
-  &.sm {
+  &.lg {
+    padding: var(--space-md);
+  }
+  &.md {
     padding: var(--space-sm);
+  }
+  &.sm {
+    padding: 6px var(--space-sm);
   }
   &.md {
     @include _all.typography-mixin(body, large, semibold);
@@ -48,6 +53,12 @@
   }
   &.fill {
     justify-content: space-between;
+  }
+
+  &.xs,
+  &.sm,
+  &.md {
+    gap: 4px;
   }
 }
 

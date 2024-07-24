@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.27
+
+### Patch Changes
+
+- feat: update Button style
+
 ## 0.3.26
 
 ### Patch Changes
