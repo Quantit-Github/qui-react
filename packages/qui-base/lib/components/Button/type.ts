@@ -52,7 +52,10 @@ interface ButtonCommonProps {
 export interface ButtonContainerProps extends ButtonCommonProps {}
 
 export interface ButtonLayoutProps
-  extends Pick<ButtonCommonProps, 'className' | 'classReplacer'> {
+  extends Pick<
+    ButtonCommonProps,
+    'className' | 'classReplacer' | 'size' | 'style'
+  > {
   /**
    * The layout of the button.
    */
