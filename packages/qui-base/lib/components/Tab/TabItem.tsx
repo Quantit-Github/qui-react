@@ -17,6 +17,7 @@ export interface TabItemProps {
   children?: React.ReactNode;
   on?: boolean;
   layout?: TabItemLayoutProps;
+  value?: string | number;
   onClick?: HTMLAttributes<HTMLDivElement>['onClick'];
 }
 

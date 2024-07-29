@@ -28,10 +28,11 @@ export default function ETCPage() {
       <section>
         <TabItem
           layout={{
-            style: { display: 'flex', gap: '32px' },
             leading: <Icon type="smile" size="md" />,
             main: <Typography variant="body-medium">TabItem</Typography>,
+            style: { display: 'flex', gap: '32px' },
           }}
+          value={1}
         />
       </section>
 
