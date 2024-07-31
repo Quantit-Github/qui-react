@@ -65,7 +65,10 @@ export const Hug_Layout: Story = {
 
 export const Disabled: Story = {
   args: {
-    children: 'Disabled',
+    layout: {
+      main: 'Disabled',
+      leading: <Icon.Smile size="md" variant="secondary" />,
+    },
     variant: 'secondary',
     disabled: true,
     onClick: jest.fn(),
