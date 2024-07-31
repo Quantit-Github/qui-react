@@ -1,5 +1,119 @@
 # @quantit/qui-react
 
+## 0.3.29
+
+### Patch Changes
+
+- feat: update chart color token
+
+## 0.3.28
+
+### Patch Changes
+
+- feat: update Tab props
+
+## 0.3.27
+
+### Patch Changes
+
+- feat: update Button style
+
+## 0.3.26
+
+### Patch Changes
+
+- feat: add icons
+
+## 0.3.25
+
+### Patch Changes
+
+- feat: update Textfield style
+
+## 0.3.24
+
+### Patch Changes
+
+- feat: add Info Icon
+
+## 0.3.23
+
+### Patch Changes
+
+- feat: add icons
+
+## 0.3.22
+
+### Patch Changes
+
+- fix: fix token color
+
+## 0.3.21
+
+### Patch Changes
+
+- feat: update TabItemLayout Props
+
+## 0.3.20
+
+### Patch Changes
+
+- feat: add Magic Icon
+
+## 0.3.19
+
+### Patch Changes
+
+- feat: add StarLined Icon
+
+## 0.3.18
+
+### Patch Changes
+
+- fix: fix StateOverlay style of deleting focused style
+
+## 0.3.17
+
+### Patch Changes
+
+- feat: add Chevron Icon
+
+## 0.3.16
+
+### Patch Changes
+
+- feat: add chart color token
+
+## 0.3.15
+
+### Patch Changes
+
+- feat: add Star Icon
+
+## 0.3.14
+
+### Patch Changes
+
+- fix: token variable name
+
+## 0.3.13
+
+### Patch Changes
+
+- feat: update token
+
+## 0.3.12
+
+### Patch Changes
+
+- feat: update token
+
+## 0.3.11
+
+### Patch Changes
+
+- fix: update Icon type
+
 ## 0.3.10
 
 ### Patch Changes

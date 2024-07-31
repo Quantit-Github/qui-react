@@ -94,6 +94,18 @@
     letter-spacing: 8px;
     font-size: 16px;
   }
+
+  /* Chrome, Safari, Edge, Opera */
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  &[type='number'] {
+    -moz-appearance: textfield;
+  }
 }
 
 .custom_layout {
@@ -112,10 +124,11 @@
       flex: 1;
     }
   }
-}
 
-// .custom_layout_item {
-// }
+  &.disabled * {
+    color: var(--black-alpha-80) !important;
+  }
+}
 
 .close_button {
   margin-left: var(--space-sm);
