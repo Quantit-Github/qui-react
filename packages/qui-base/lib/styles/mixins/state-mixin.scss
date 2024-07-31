@@ -2,6 +2,9 @@
   &.disabled {
     background-color: var(--black-alpha-95);
     color: var(--black-alpha-70);
+    svg {
+      fill: var(--black-alpha-70);
+    }
   }
 }
 
