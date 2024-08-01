@@ -111,7 +111,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         onChange={handleChange}
         {...props}
       />
-      {_value && (
+      {_value && onClear && (
         <IconButton
           className="close_button"
           type="close"

@@ -1,5 +1,13 @@
 # @quantit/qui-react
 
+## 0.3.31
+
+### Patch Changes
+
+- feat: update Textfield props
+
+  - change CloseButton to render when onClear is passed
+
 ## 0.3.30
 
 ### Patch Changes
