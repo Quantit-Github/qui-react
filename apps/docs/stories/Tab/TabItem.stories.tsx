@@ -48,3 +48,14 @@ export const Tab_Children: Story = {
     ),
   },
 };
+
+export const Tab_underline: Story = {
+  args: {
+    layout: {
+      leading: <Icon type="smile" size="md" variant="ghost" />,
+      main: <Typography variant="body-medium">TabItem</Typography>,
+    },
+    variant: 'underline',
+    on: true,
+  },
+};

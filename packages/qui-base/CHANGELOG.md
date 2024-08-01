@@ -1,5 +1,13 @@
 # @quantit/qui-react
 
+## 0.3.30
+
+### Patch Changes
+
+- feat: update Tab props
+
+  - add Underline Type
+
 ## 0.3.29
 
 ### Patch Changes

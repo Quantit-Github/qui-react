@@ -7,6 +7,7 @@ import {
   ItemCell,
   ItemList,
   MultiSelectionDropdown,
+  Tab,
   TabItem,
   TextField,
   Typography,
@@ -26,14 +27,96 @@ export default function ETCPage() {
       <Button onClick={changeMode}>모드 변경</Button>
 
       <section>
-        <TabItem
-          layout={{
-            leading: <Icon type="smile" size="md" />,
-            main: <Typography variant="body-medium">TabItem</Typography>,
-            style: { display: 'flex', gap: '32px' },
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <Tab
+            items={[
+              {
+                children: 'Tab1',
+                on: true,
+              },
+              {
+                children: 'Tab2',
+              },
+              {
+                children: 'Tab3',
+              },
+              {
+                children: 'Tab4',
+              },
+              {
+                children: 'Tab5',
+              },
+            ]}
+            variant="underline"
+            maxWidth={450}
+          />
+          <Tab
+            items={[
+              {
+                children: 'Tab1',
+                on: true,
+              },
+              {
+                children: 'Tab2',
+              },
+              {
+                children: 'Tab3',
+              },
+            ]}
+          />
+        </div>
+      </section>
+
+      <section>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 8,
+            maxWidth: 120,
           }}
-          value={1}
-        />
+        >
+          <div style={{ display: 'flex', gap: 8 }}>
+            <TabItem
+              layout={{
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">TabItem1</Typography>,
+                style: { display: 'flex', gap: '32px' },
+              }}
+              value={1}
+              variant="underline"
+              on
+            />
+            <TabItem
+              layout={{
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">TabItem2</Typography>,
+                style: { display: 'flex', gap: '32px' },
+              }}
+              value={2}
+              variant="underline"
+            />
+          </div>
+          <div style={{ display: 'flex', gap: 8 }}>
+            <TabItem
+              layout={{
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">TabItem1</Typography>,
+                style: { display: 'flex', gap: '32px' },
+              }}
+              value={1}
+              on
+            />
+            <TabItem
+              layout={{
+                leading: <Icon type="smile" size="md" />,
+                main: <Typography variant="body-medium">TabItem2</Typography>,
+                style: { display: 'flex', gap: '32px' },
+              }}
+              value={2}
+            />
+          </div>
+        </div>
       </section>
 
       <section>

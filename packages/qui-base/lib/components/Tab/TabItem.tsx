@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { HTMLAttributes } from 'react';
-import { StateOverlay } from '../StateOverlay';
 import { replaceClassName } from '../../utils';
+import { StateOverlay } from '../StateOverlay';
 
 interface TabItemLayoutProps {
   className?: string;
@@ -18,6 +18,7 @@ export interface TabItemProps {
   on?: boolean;
   layout?: TabItemLayoutProps;
   value?: string | number;
+  variant?: 'standard' | 'underline';
   onClick?: HTMLAttributes<HTMLDivElement>['onClick'];
 }
 
@@ -38,13 +39,27 @@ function TabItemLayout(props: TabItemLayoutProps) {
 }
 
 export function TabItem(props: TabItemProps) {
-  const { className, classReplacer, children, on, layout, onClick, ...rest } =
-    props;
+  const {
+    className,
+    classReplacer,
+    children,
+    on,
+    layout,
+    variant = 'standard',
+    onClick,
+    ...rest
+  } = props;
 
   return (
     <div
       className={replaceClassName(
-        classNames('tab_item_container', on ? '' : 'off', className),
+        classNames(
+          variant === 'underline'
+            ? 'tab_undeline_item_container'
+            : 'tab_item_container',
+          on ? '' : 'off',
+          className
+        ),
         classReplacer
       )}
       role="tab"

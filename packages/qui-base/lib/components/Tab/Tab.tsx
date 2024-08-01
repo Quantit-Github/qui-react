@@ -9,6 +9,7 @@ interface TabProps {
   items?: TabItemProps[];
   maxWidth?: number;
   scrollbarWidth?: React.CSSProperties['scrollbarWidth'];
+  variant?: 'standard' | 'underline';
   onClick?: (item: TabItemProps) => void;
 }
 
@@ -19,6 +20,7 @@ export function Tab(props: TabProps) {
     items = [],
     maxWidth,
     scrollbarWidth = 'none',
+    variant = 'standard',
     onClick,
   } = props;
 
@@ -45,6 +47,7 @@ export function Tab(props: TabProps) {
           <TabItem
             key={`tab_item_${index}`}
             on={selectedIndex === index}
+            variant={variant}
             onClick={() => handleTabItemClick(item, index)}
             {...rest}
           />
