@@ -127,3 +127,11 @@ export const MaxLength: Story = {
     placeholder: 'typed text',
   },
 };
+
+export const TypeNumber: Story = {
+  args: {
+    type: 'number',
+    value: 0,
+    maxLength: 10,
+  },
+};

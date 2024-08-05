@@ -39,7 +39,7 @@ export function Tab(props: TabProps) {
         classNames('tab_container', className),
         classReplacer
       )}
-      style={{ maxWidth, scrollbarWidth }}
+      style={{ maxWidth, scrollbarWidth, gap: variant === 'underline' ? 0 : 8 }}
     >
       {items.map((item, index) => {
         const { on, ...rest } = item;
