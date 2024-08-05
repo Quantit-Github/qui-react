@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.32
+
+### Patch Changes
+
+- style: update Tab style
+
 ## 0.3.31
 
 ### Patch Changes
