@@ -16,21 +16,25 @@
     padding: var(--space-md);
   }
   &.md {
+    border-radius: var(--border-radius-md);
     padding: var(--space-sm);
   }
   &.sm {
+    border-radius: var(--border-radius-md);
     padding: 6px var(--space-sm);
   }
+  &.xs {
+    border-radius: var(--border-radius-md);
+    font-size: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
   &.md {
     @include _all.typography-mixin(body, large, semibold);
   }
   &.sm {
     @include _all.typography-mixin(body, medium, regular);
-  }
-  &.xs {
-    font-size: 12px;
-    padding-top: 6px;
-    padding-bottom: 6px;
   }
 
   &.fit_content {
