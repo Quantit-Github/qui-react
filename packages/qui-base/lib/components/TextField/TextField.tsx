@@ -57,15 +57,7 @@ function TextFieldLayout({
 }
 
 const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
-  {
-    disabled,
-    value = '',
-    size = 'xl',
-    onChange,
-    onClear,
-    onValueChange,
-    ...props
-  },
+  { disabled, value = '', size = 'xl', onChange, onClear, ...props },
   ref
 ) {
   const [_value, setValue] = useState(value);
@@ -74,13 +66,11 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     const val = e.currentTarget.value;
     setValue?.(val);
     onChange?.(e);
-    onValueChange?.(val);
   };
 
   const handleClear = () => {
     setValue('');
     onClear?.();
-    onValueChange?.('');
   };
 
   useEffect(() => {
@@ -134,7 +124,7 @@ export function TextField({
   ...props
 }: TextFieldProps) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [isActive, setActive] = useState<boolean>(!!value);
+  const [isActive, setActive] = useState<boolean>(false);
 
   const handleContainerClick = () => {
     // StateOverlay에 인해 input focus 방해받지 않도록 처리
@@ -143,15 +133,19 @@ export function TextField({
     }
   };
 
-  const handleInputChange = (value: string | number) => {
-    setActive(!!value);
+  const handleFocus = () => {
+    setActive(true);
+  };
+
+  const handleBlur = () => {
+    setActive(false);
   };
 
   return (
     <TextFieldContainer
       className={className}
-      isActive={isActive}
       disabled={disabled}
+      isActive={isActive}
       isError={isError}
       size={size}
       onClick={handleContainerClick}
@@ -162,7 +156,8 @@ export function TextField({
           disabled={disabled}
           value={value}
           size={size}
-          onValueChange={handleInputChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           {...props}
         />
       </TextFieldLayout>

@@ -135,3 +135,11 @@ export const TypeNumber: Story = {
     maxLength: 10,
   },
 };
+
+export const Text: Story = {
+  args: {
+    type: 'text',
+    value: '1',
+    maxLength: 10,
+  },
+};
