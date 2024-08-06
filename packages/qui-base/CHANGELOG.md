@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.33
+
+### Patch Changes
+
+- feat: update Textfield event-handle
+
 ## 0.3.32
 
 ### Patch Changes
