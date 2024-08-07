@@ -3,6 +3,8 @@ import { SizeType, VariantType } from '../../types';
 const ICON_TYPES = [
   'alertTriangle',
   'alpha',
+  'alphaCombinator',
+  'arrowUpRightCircle',
   'balance',
   'book',
   'calendar',
@@ -38,6 +40,7 @@ const ICON_TYPES = [
   'moreVertical',
   'plus',
   'portfolio',
+  'pythonProject',
   'quick',
   'rebalancing',
   'robo',
