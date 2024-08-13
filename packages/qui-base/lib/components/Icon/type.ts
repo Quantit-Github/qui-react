@@ -34,6 +34,7 @@ const ICON_TYPES = [
   'helpCircle',
   'indeterminate',
   'info',
+  'logout',
   'magic',
   'minus',
   'moreHorizontal',
