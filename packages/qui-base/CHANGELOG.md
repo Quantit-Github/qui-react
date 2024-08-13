@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.36
+
+### Patch Changes
+
+- style: update Darkmode token
+
 ## 0.3.35
 
 ### Patch Changes
