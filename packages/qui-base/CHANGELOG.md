@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.35
+
+### Patch Changes
+
+- style: update Darkmode style
+
 ## 0.3.34
 
 ### Patch Changes
