@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.39
+
+### Patch Changes
+
+- feat: add TextField ref
+
 ## 0.3.38
 
 ### Patch Changes
