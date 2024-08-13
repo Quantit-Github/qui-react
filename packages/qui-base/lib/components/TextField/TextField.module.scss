@@ -42,7 +42,7 @@
   width: 100%;
 
   &.active {
-    border-color: black;
+    border-color: var(--semantic-border-20);
   }
 
   &.disabled {
@@ -61,6 +61,7 @@
 
   background-color: transparent;
   border: none;
+  color: var(--black-alpha-10);
   width: 100%;
   padding: 0;
   z-index: var(--z-index-on);
@@ -70,7 +71,7 @@
     color: var(--black-alpha-80);
 
     &::placeholder {
-      color: var(--semantic-border-80);
+      color: var(--black-alpha-50);
     }
   }
 

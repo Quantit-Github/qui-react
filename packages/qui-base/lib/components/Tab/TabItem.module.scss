@@ -48,7 +48,6 @@
 
 .tab_undeline_item_container {
   @include _all.container-init-mixin;
-  @include _all.button-init-mixin;
   @include _all.typography-mixin(body, 'large', bold);
 
   display: flex;
