@@ -41,6 +41,7 @@ const ICON_TYPES = [
   'moreVertical',
   'plus',
   'portfolio',
+  'profile',
   'pythonProject',
   'quick',
   'rebalancing',
