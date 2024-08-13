@@ -1,5 +1,12 @@
 import classNames from 'classnames';
-import { ChangeEvent, forwardRef, useEffect, useRef, useState } from 'react';
+import {
+  ChangeEvent,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import { IconButton, StateOverlay } from '..';
 import {
   InputProps,
@@ -8,7 +15,7 @@ import {
   TextFieldProps,
 } from './type';
 
-function TextFieldContainer({
+export function TextFieldContainer({
   className,
   children,
   disabled,
@@ -37,7 +44,7 @@ function TextFieldContainer({
   );
 }
 
-function TextFieldLayout({
+export function TextFieldLayout({
   disabled,
   leading,
   children,
@@ -56,7 +63,7 @@ function TextFieldLayout({
   );
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   { disabled, value = '', size = 'xl', onChange, onClear, ...props },
   ref
 ) {
@@ -114,15 +121,16 @@ const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   );
 });
 
-export function TextField({
-  className,
-  disabled,
-  isError = false,
-  layout,
-  size = 'xl',
-  value,
-  ...props
-}: TextFieldProps) {
+export const TextField = forwardRef((props: TextFieldProps, ref) => {
+  const {
+    className,
+    disabled,
+    isError = false,
+    layout,
+    size = 'xl',
+    value,
+    ...rest
+  } = props;
   const inputRef = useRef<HTMLInputElement>(null);
   const [isActive, setActive] = useState<boolean>(false);
 
@@ -141,6 +149,13 @@ export function TextField({
     setActive(false);
   };
 
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current?.focus();
+    },
+    // 다른 메서드 추가 가능
+  }));
+
   return (
     <TextFieldContainer
       className={className}
@@ -158,14 +173,10 @@ export function TextField({
           size={size}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          {...props}
+          {...rest}
         />
       </TextFieldLayout>
       {!disabled && <StateOverlay />}
     </TextFieldContainer>
   );
-}
-
-TextField.Container = TextFieldContainer;
-TextField.Layout = TextFieldLayout;
-TextField.Input = Input;
+});
