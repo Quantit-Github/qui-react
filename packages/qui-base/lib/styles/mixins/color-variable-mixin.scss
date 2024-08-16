@@ -200,12 +200,12 @@
     --semantic-primary-60: #{token.$semantic-primary-60-dark};
     --semantic-switch-on: #{token.$semantic-switch-on-dark};
     --semantic-base: var(--grayscale-99);
-    --semantic-base-darken: var(--grayscale-99);
+    --semantic-base-darken: var(--grayscale-100);
     --semantic-surface-lv-1: var(--grayscale-100);
     --semantic-surface-lv-2: var(--white-alpha-0);
     --semantic-on-surface: var(--white-alpha-70);
-    // --semantic-body-darken-lv-1: var(--white-alpha-10);
-    // --semantic-body-darken-lv-2: var(--white-alpha-60);
+    --semantic-body-darken-lv-1: var(--black-alpha-10);
+    --semantic-body-darken-lv-2: var(--black-alpha-60);
 
     --error-0: #{token.$error-100};
     --error-10: #{token.$error-99};
