@@ -66,12 +66,16 @@
   padding: 0;
   z-index: var(--z-index-on);
 
+  &::placeholder {
+    color: var(--black-alpha-50);
+  }
+
   &:disabled {
     background-color: transparent;
     color: var(--black-alpha-80);
 
     &::placeholder {
-      color: var(--black-alpha-50);
+      color: var(--black-alpha-80);
     }
   }
 

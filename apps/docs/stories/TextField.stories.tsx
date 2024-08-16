@@ -93,6 +93,13 @@ export const Disabled: Story = {
   },
 };
 
+export const Disabled_With_Placeholder: Story = {
+  args: {
+    disabled: true,
+    placeholder: 'Disabled Placeholder',
+  },
+};
+
 export const Masking: Story = {
   args: {
     type: 'password',
