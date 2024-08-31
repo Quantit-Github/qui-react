@@ -9,6 +9,7 @@ export default function DropdownPage() {
           placeholder="Select"
           border={false}
           fitContent
+          itemsCloseOnClickOutside={false}
           items={[
             {
               id: '1',
