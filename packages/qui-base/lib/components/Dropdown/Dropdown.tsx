@@ -16,10 +16,14 @@ interface DropdownContainerProps {
   onClick?: () => void;
 }
 
+type DropdownSize = 'md' | 'sm';
+
 interface DropdownSelectionProps {
   children?: React.ReactNode;
   iconColor?: string;
   open?: boolean;
+  selected?: boolean;
+  size?: DropdownSize;
 }
 
 interface DropdownItemsProps {
@@ -45,8 +49,12 @@ interface DropdownProps {
    */
   open?: boolean;
   placeholder?: React.ReactNode;
-  selectionRenderer?: (
-    selectedList: Item,
+  size?: DropdownSize;
+  selectedItemRenderer?: (
+    selectedItem: Item | null,
+    status: {
+      opened: boolean;
+    },
     onClick?: () => void
   ) => React.ReactNode;
   width?: number;
@@ -58,7 +66,12 @@ interface DropdownSelectionTagProps {
   onClick?: () => void;
 }
 
-interface MultiDropdownProps extends DropdownProps {
+interface MultiDropdownProps
+  extends Omit<DropdownProps, 'selectedItemRenderer'> {
+  selectionRenderer?: (
+    selectedItem: Item,
+    onClick?: () => void
+  ) => React.ReactNode;
   onRemove?: (id?: string) => void;
 }
 
@@ -104,7 +117,7 @@ function DropdownPlaceholder(props: { children: React.ReactNode }) {
   return (
     <Typography
       variant="body-medium"
-      style={{ color: 'rgba(16, 16, 20, 0.50)' }}
+      style={{ color: 'var(--black-alpha-50)' }}
     >
       {props.children}
     </Typography>
@@ -112,7 +125,13 @@ function DropdownPlaceholder(props: { children: React.ReactNode }) {
 }
 
 function DropdownSelection(props: DropdownSelectionProps) {
-  const { children, iconColor = 'rgba(16, 16, 20, 0.5)', open = false } = props;
+  const {
+    children,
+    iconColor,
+    open = false,
+    selected = false,
+    size = 'md',
+  } = props;
   let IconComponent = Icon.Down;
 
   if (open) {
@@ -120,9 +139,15 @@ function DropdownSelection(props: DropdownSelectionProps) {
   }
 
   return (
-    <div className={classNames('dropdown_selection')}>
-      <div className="dropdown_selection_content">{children}</div>
-      <IconComponent size="md" style={{ fill: iconColor }} />
+    <div
+      className={classNames(
+        'dropdown_selection',
+        selected ? 'selected' : '',
+        size || ''
+      )}
+    >
+      <div className={classNames('dropdown_selection_content')}>{children}</div>
+      <IconComponent size={size} style={{ fill: iconColor }} />
     </div>
   );
 }
@@ -138,7 +163,9 @@ export function Dropdown(props: DropdownProps) {
     itemWidth,
     open = false,
     placeholder,
+    size,
     width,
+    selectedItemRenderer,
     onClick,
     ...rest
   } = props;
@@ -164,9 +191,19 @@ export function Dropdown(props: DropdownProps) {
       onClick={handleOpen}
       {...rest}
     >
-      <DropdownSelection iconColor={iconColor} open={_open}>
-        {selected ? selected.children : placeholder}
-      </DropdownSelection>
+      {selectedItemRenderer ? (
+        selectedItemRenderer(selected, { opened: _open }, handleOpen)
+      ) : (
+        <DropdownSelection
+          iconColor={iconColor}
+          open={_open}
+          selected={!!selected}
+          size={size}
+        >
+          {selected ? selected.children : placeholder}
+        </DropdownSelection>
+      )}
+
       {_open && (
         <DropdownItems fitContent={itemFitContent} width={itemWidth}>
           <ItemList

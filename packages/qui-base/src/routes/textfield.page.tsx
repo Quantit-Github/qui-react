@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import { Button, TextField, Typography } from '../../lib/components';
 
-export function TextfieldPage() {
+export default function TextfieldPage() {
   const [_text, setText] = useState('');
   const ref = useRef<HTMLInputElement>(null);
 

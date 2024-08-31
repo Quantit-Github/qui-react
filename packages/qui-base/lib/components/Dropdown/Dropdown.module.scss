@@ -1,3 +1,5 @@
+@use '../../styles/mixins/all.scss' as _all;
+
 .dropdown_container {
   position: relative;
 
@@ -21,6 +23,23 @@
   align-items: center;
   justify-content: space-between;
   gap: 4px;
+
+  & * {
+    color: var(--black-alpha-50);
+    fill: var(--black-alpha-50);
+  }
+
+  &.selected * {
+    color: var(--black-alpha-10);
+    fill: var(--black-alpha-10);
+  }
+
+  &.md * {
+    @include _all.typography-mixin(body, large, regular);
+  }
+  &.sm * {
+    @include _all.typography-mixin(body, medium, regular);
+  }
 }
 
 .dropdown_selection_content {
