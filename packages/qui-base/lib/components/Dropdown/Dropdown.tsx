@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { Icon } from '../Icon';
 import { ItemList } from '../Item';
 import { Item } from '../Item/ItemList';
@@ -45,6 +45,11 @@ interface DropdownProps {
   itemFitContent?: boolean;
   itemWidth?: number;
   /**
+   * 드롭다운 아이템 클릭 시 드롭다운 닫기 여부
+   * @default true
+   */
+  itemsCloseOnClickOutside?: boolean;
+  /**
    * Open 초기값
    */
   open?: boolean;
@@ -75,31 +80,35 @@ interface MultiDropdownProps
   onRemove?: (id?: string) => void;
 }
 
-function DropdownContainer(props: DropdownContainerProps) {
-  const {
-    border = true,
-    children,
-    className,
-    fitContent,
-    style,
-    width,
-    ...rest
-  } = props;
-  return (
-    <div
-      className={classNames(
-        'dropdown_container',
-        border ? 'border' : '',
-        fitContent ? 'fit_content' : '',
-        className
-      )}
-      style={{ width, ...style }}
-      {...rest}
-    >
-      {children}
-    </div>
-  );
-}
+const DropdownContainer = forwardRef<HTMLDivElement, DropdownContainerProps>(
+  (props, ref) => {
+    const {
+      border = true,
+      children,
+      className,
+      fitContent,
+      style,
+      width,
+      ...rest
+    } = props;
+
+    return (
+      <div
+        ref={ref}
+        className={classNames(
+          'dropdown_container',
+          border ? 'border' : '',
+          fitContent ? 'fit_content' : '',
+          className
+        )}
+        style={{ width, ...style }}
+        {...rest}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
 function DropdownItems(props: DropdownItemsProps) {
   const { children, fitContent, width } = props;
@@ -161,6 +170,7 @@ export function Dropdown(props: DropdownProps) {
     items = [],
     itemFitContent,
     itemWidth,
+    itemsCloseOnClickOutside = true,
     open = false,
     placeholder,
     size,
@@ -170,6 +180,7 @@ export function Dropdown(props: DropdownProps) {
     ...rest
   } = props;
   const [_open, setOpen] = useState<boolean>(open);
+  const ref = useRef<HTMLDivElement>(null);
   const [selected, setSelected] = useState<Item | null>(
     items.find((item) => item.selected) || null
   );
@@ -183,8 +194,24 @@ export function Dropdown(props: DropdownProps) {
     onClick?.(id);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        if (itemsCloseOnClickOutside) {
+          setOpen(false);
+        }
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   return (
     <DropdownContainer
+      ref={ref}
       border={border}
       fitContent={fitContent}
       width={width}

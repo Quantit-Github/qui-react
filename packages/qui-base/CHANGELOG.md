@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.45
+
+### Patch Changes
+
+- feat: update Dropdown Clickoutside
+
 ## 0.3.44
 
 ### Patch Changes
