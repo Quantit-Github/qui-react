@@ -1,13 +1,36 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
+import { createBrowserRouter, Outlet } from 'react-router-dom';
+import { Button } from '../../lib/components';
 import CheckboxPage from './checkbox.page';
+import DropdownPage from './dropdown.page';
 import ETCPage from './etc.page';
 import LayoutPage from './layout.page';
 import ReplacerPage from './replacer.page';
-import { TextfieldPage } from './textfield.page';
+import TextfieldPage from './textfield.page';
+
+function Root() {
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const changeMode = () => {
+    const toggle = mode === 'dark' ? 'light' : 'dark';
+    document.documentElement.style.setProperty('color-scheme', toggle);
+    document.documentElement.setAttribute('data-theme', toggle);
+    setMode(toggle);
+  };
+
+  return (
+    <div>
+      <header>
+        <Button onClick={changeMode}>모드 변경</Button>
+      </header>
+      <Outlet />
+    </div>
+  );
+}
 
 export const router = createBrowserRouter([
   {
     path: '/',
+    element: <Root />,
     children: [
       {
         element: <CheckboxPage />,
@@ -28,6 +51,10 @@ export const router = createBrowserRouter([
       {
         element: <TextfieldPage />,
         path: '/textfields',
+      },
+      {
+        element: <DropdownPage />,
+        path: '/dropdowns',
       },
     ],
   },

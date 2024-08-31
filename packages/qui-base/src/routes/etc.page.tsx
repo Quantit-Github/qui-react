@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
   Button,
   Dropdown,
@@ -14,18 +13,8 @@ import {
 } from '../../lib/components';
 
 export default function ETCPage() {
-  const [mode, setMode] = useState<'light' | 'dark'>('light');
-  const changeMode = () => {
-    const toggle = mode === 'dark' ? 'light' : 'dark';
-    document.documentElement.style.setProperty('color-scheme', toggle);
-    document.documentElement.setAttribute('data-theme', toggle);
-    setMode(toggle);
-  };
-
   return (
     <main style={{ padding: '8px' }}>
-      <Button onClick={changeMode}>모드 변경</Button>
-
       <section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <Tab
