@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.43
+
+### Patch Changes
+
+- feat: update Dropdown
+
 ## 0.3.42
 
 ### Patch Changes
