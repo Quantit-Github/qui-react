@@ -13,6 +13,7 @@ export default function DropdownPage() {
             {
               id: '1',
               children: <Typography variant="body-medium">Item 1</Typography>,
+              disabled: true,
             },
             {
               id: '2',

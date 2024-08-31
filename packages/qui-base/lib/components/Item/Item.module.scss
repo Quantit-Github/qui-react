@@ -1,10 +1,17 @@
 @use '../../styles/mixins/state-mixin.scss' as _s;
 
 .item_cell_container {
+  @include _s.disabled-state-mixin;
+
   list-style: none;
   min-width: 120px;
   padding: 10px 12px;
   position: relative;
+
+  & * {
+    color: var(--black-alpha-0);
+    fill: var(--black-alpha-0);
+  }
 
   &.fit_content {
     width: fit-content;
@@ -12,14 +19,6 @@
 
   &.selected {
     background-color: var(--primary-99);
-  }
-
-  &.disabled {
-    @include _s.disabled-state-mixin;
-    background-color: transparent !important;
-    svg {
-      fill: var(--black-alpha-70);
-    }
   }
 }
 
