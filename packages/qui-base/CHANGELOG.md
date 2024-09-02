@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.46
+
+### Patch Changes
+
+- style: add Dropdown ScrollbarWidth Option
+
 ## 0.3.45
 
 ### Patch Changes

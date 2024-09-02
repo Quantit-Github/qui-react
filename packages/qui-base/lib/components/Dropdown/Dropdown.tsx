@@ -28,8 +28,10 @@ interface DropdownSelectionProps {
 
 interface DropdownItemsProps {
   children?: React.ReactNode;
+  className?: string;
   fitContent?: boolean;
   width?: number;
+  style?: React.CSSProperties;
 }
 
 interface DropdownProps {
@@ -42,8 +44,11 @@ interface DropdownProps {
   fitContent?: boolean;
   iconColor?: string;
   items: Item[];
-  itemFitContent?: boolean;
-  itemWidth?: number;
+  itemsClassName?: string;
+  itemsFitContent?: boolean;
+  itemsWidth?: number;
+  itemsStyle?: React.CSSProperties;
+  itemsScrollbarWidth?: 'auto' | 'thin' | 'none';
   /**
    * 드롭다운 아이템 클릭 시 드롭다운 닫기 여부
    * @default true
@@ -111,11 +116,15 @@ const DropdownContainer = forwardRef<HTMLDivElement, DropdownContainerProps>(
 );
 
 function DropdownItems(props: DropdownItemsProps) {
-  const { children, fitContent, width } = props;
+  const { children, className, fitContent, width, style } = props;
   return (
     <div
-      className={classNames('dropdown_items', fitContent ? 'fit_content' : '')}
-      style={{ width }}
+      className={classNames(
+        'dropdown_items',
+        fitContent ? 'fit_content' : '',
+        className
+      )}
+      style={{ ...style, width }}
     >
       {children}
     </div>
@@ -168,8 +177,11 @@ export function Dropdown(props: DropdownProps) {
     fitContent,
     iconColor,
     items = [],
-    itemFitContent,
-    itemWidth,
+    itemsClassName,
+    itemsFitContent,
+    itemsWidth,
+    itemsStyle,
+    itemsScrollbarWidth = 'none',
     itemsCloseOnClickOutside = true,
     open = false,
     placeholder,
@@ -232,10 +244,19 @@ export function Dropdown(props: DropdownProps) {
       )}
 
       {_open && (
-        <DropdownItems fitContent={itemFitContent} width={itemWidth}>
+        <DropdownItems
+          className={itemsClassName}
+          fitContent={itemsFitContent}
+          width={itemsWidth}
+          style={itemsStyle}
+        >
           <ItemList
             items={items}
-            style={{ border: 'none', borderRadius: 8 }}
+            style={{
+              border: 'none',
+              borderRadius: 8,
+              scrollbarWidth: itemsScrollbarWidth,
+            }}
             onClick={handleItem}
           />
         </DropdownItems>
@@ -270,8 +291,11 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
     border = true,
     disabled,
     items = [],
-    itemFitContent,
-    itemWidth,
+    itemsClassName,
+    itemsFitContent,
+    itemsWidth,
+    itemsStyle,
+    itemsScrollbarWidth = 'none',
     open = false,
     placeholder,
     width,
@@ -340,10 +364,19 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
           : placeholder}
       </DropdownSelection>
       {_open && (
-        <DropdownItems fitContent={itemFitContent} width={itemWidth}>
+        <DropdownItems
+          className={itemsClassName}
+          fitContent={itemsFitContent}
+          width={itemsWidth}
+          style={itemsStyle}
+        >
           <ItemList
             items={_items}
-            style={{ border: 'none', borderRadius: 8 }}
+            style={{
+              border: 'none',
+              borderRadius: 8,
+              scrollbarWidth: itemsScrollbarWidth,
+            }}
             onClick={handleItem}
           />
         </DropdownItems>
