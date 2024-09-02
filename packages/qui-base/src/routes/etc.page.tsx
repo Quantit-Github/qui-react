@@ -149,7 +149,7 @@ export default function ETCPage() {
         <Dropdown
           border={false}
           fitContent
-          itemFitContent
+          itemsFitContent
           placeholder="Label"
           items={[
             {
