@@ -10,6 +10,8 @@ export default function DropdownPage() {
           border={false}
           fitContent
           itemsCloseOnClickOutside={false}
+          itemsFitContent
+          itemsScrollbarWidth="none"
           items={[
             {
               id: '1',
@@ -23,6 +25,14 @@ export default function DropdownPage() {
             {
               id: '3',
               children: <Typography variant="body-medium">Item 3</Typography>,
+            },
+            {
+              id: '4',
+              children: <Typography variant="body-medium">Item 4</Typography>,
+            },
+            {
+              id: '5',
+              children: <Typography variant="body-medium">Item 5</Typography>,
             },
           ]}
           size="sm"
