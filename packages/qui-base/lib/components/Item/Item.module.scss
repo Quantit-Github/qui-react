@@ -3,6 +3,7 @@
 .item_cell_container {
   @include _s.disabled-state-mixin;
 
+  border-radius: var(--space-sm, 8px);
   list-style: none;
   min-width: 120px;
   padding: 10px 12px;

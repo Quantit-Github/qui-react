@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.47
+
+### Patch Changes
+
+- style: update Item, ItemList style
+
 ## 0.3.46
 
 ### Patch Changes
