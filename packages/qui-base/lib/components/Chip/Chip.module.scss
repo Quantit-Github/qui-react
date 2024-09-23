@@ -21,6 +21,7 @@
 
   & * {
     color: var(--chips-off-elements-b100);
+    fill: var(--chips-off-elements-b100);
 
     text-overflow: ellipsis;
     overflow: hidden;
@@ -32,6 +33,7 @@
 
     & * {
       color: var(--chips-on-elements-g100);
+      fill: var(--chips-on-elements-g100);
     }
   }
 }

@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.51
+
+### Patch Changes
+
+- feat: update Chip props
+
 ## 0.3.50
 
 ### Patch Changes
