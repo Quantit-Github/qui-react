@@ -11,10 +11,28 @@ import {
   TextField,
   Typography,
 } from '../../lib/components';
+import { Chip } from '../../lib/components/Chip';
 
 export default function ETCPage() {
   return (
     <main style={{ padding: '8px' }}>
+      <section>
+        <Chip
+          layout={{
+            leading: <Icon type="smile" size="sm" />,
+            content: <Typography variant="body-medium">Chip</Typography>,
+            trailing: <Icon type="close" size="sm" />,
+          }}
+        />
+        <Chip on>
+          <Typography variant="body-medium">Chip</Typography>
+        </Chip>
+        <Chip on maxWidth={150}>
+          <Typography variant="body-medium" style={{ padding: '0 8px' }}>
+            ChipChipChipChipChipChipChipChipChipChipChipChipChip
+          </Typography>
+        </Chip>
+      </section>
       <section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <Tab
