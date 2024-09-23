@@ -22,6 +22,12 @@ export default function ETCPage() {
             leading: <Icon type="smile" size="sm" />,
             content: <Typography variant="body-medium">Chip</Typography>,
             trailing: <Icon type="close" size="sm" />,
+            style: {
+              gap: 32,
+            },
+          }}
+          onClick={() => {
+            console.log('Chip Clicked');
           }}
         />
         <Chip on>
