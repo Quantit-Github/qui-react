@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.50
+
+### Patch Changes
+
+- feat: add Chip Base Component
+
 ## 0.3.49
 
 ### Patch Changes
