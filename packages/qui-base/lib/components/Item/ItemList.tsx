@@ -2,12 +2,11 @@ import classNames from 'classnames';
 import { replaceClassName } from '../../utils';
 import { ItemCell, ItemCellProps } from './ItemCell';
 
-export interface Item extends ItemCellProps {}
-
-interface ItemListProps {
+interface ItemListProps<T extends ItemCellProps> {
   className?: string;
   classReplacer?: Record<string, string>;
-  items: Item[];
+  items: T[];
+  itemRenderer?: (item: T, index: number) => React.ReactNode;
   style?: React.CSSProperties;
   onClick?: (id?: string) => void;
 }
@@ -35,14 +34,17 @@ function ItemListContainer(props: ItemListContainerProps) {
   );
 }
 
-export function ItemList(props: ItemListProps) {
-  const { items, onClick, ...rest } = props;
+export function ItemList<T extends ItemCellProps>(props: ItemListProps<T>) {
+  const { items, itemRenderer, onClick, ...rest } = props;
 
   return (
     <ItemListContainer {...rest}>
-      {items.map((item) => (
-        <ItemCell key={item.id} onClick={onClick} {...item} />
-      ))}
+      {items.map((item, index) => {
+        if (itemRenderer) {
+          return itemRenderer(item, index);
+        }
+        return <ItemCell key={item.id} onClick={onClick} {...item} />;
+      })}
     </ItemListContainer>
   );
 }

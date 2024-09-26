@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { Icon } from '../Icon';
-import { ItemList } from '../Item';
-import { Item } from '../Item/ItemList';
+import { Item, ItemList } from '../Item';
 import { StateOverlay } from '../StateOverlay';
 import { Typography } from '../Typography';
 

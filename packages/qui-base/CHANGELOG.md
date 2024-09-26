@@ -1,5 +1,14 @@
 # @quantit/qui-react
 
+## 0.3.53
+
+### Patch Changes
+
+- feat: update ItemList
+
+  - add itemRenderer props
+  - change items type
+
 ## 0.3.52
 
 ### Patch Changes
