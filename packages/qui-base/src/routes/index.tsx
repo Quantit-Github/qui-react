@@ -4,6 +4,7 @@ import { Button } from '../../lib/components';
 import CheckboxPage from './checkbox.page';
 import DropdownPage from './dropdown.page';
 import ETCPage from './etc.page';
+import ItemPage from './item.page';
 import LayoutPage from './layout.page';
 import ReplacerPage from './replacer.page';
 import TextfieldPage from './textfield.page';
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         element: <DropdownPage />,
         path: '/dropdowns',
+      },
+      {
+        element: <ItemPage />,
+        path: '/items',
       },
     ],
   },
