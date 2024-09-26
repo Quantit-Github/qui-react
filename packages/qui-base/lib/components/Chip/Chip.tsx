@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { CSSProperties, ReactNode } from 'react';
+import { CSSProperties, forwardRef, ReactNode, Ref } from 'react';
 import { StateOverlay } from '../StateOverlay';
 
 interface ChipContainerProps {
@@ -9,17 +9,20 @@ interface ChipContainerProps {
   onClick?: () => void;
 }
 
-function ChipContainer(props: ChipContainerProps) {
-  return (
-    <div
-      role="button"
-      className={classNames('chip_container', props.on ? 'on' : '')}
-      {...props}
-    >
-      {props.children}
-    </div>
-  );
-}
+const ChipContainer = forwardRef(
+  (props: ChipContainerProps, ref: Ref<HTMLDivElement>) => {
+    return (
+      <div
+        ref={ref}
+        role="button"
+        className={classNames('chip_container', props.on ? 'on' : '')}
+        {...props}
+      >
+        {props.children}
+      </div>
+    );
+  }
+);
 
 interface ChipLayoutProps {
   leading?: ReactNode;
@@ -49,7 +52,7 @@ interface ChipProps {
   onClick?: () => void;
 }
 
-export function Chip(props: ChipProps) {
+export const Chip = forwardRef((props: ChipProps, ref: Ref<HTMLDivElement>) => {
   const {
     children,
     layout,
@@ -63,6 +66,7 @@ export function Chip(props: ChipProps) {
 
   return (
     <ChipContainer
+      ref={ref}
       on={on}
       onClick={onClick}
       style={{ ...style, borderRadius, maxWidth }}
@@ -73,4 +77,4 @@ export function Chip(props: ChipProps) {
       <StateOverlay />
     </ChipContainer>
   );
-}
+});
