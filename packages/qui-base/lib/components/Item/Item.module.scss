@@ -1,8 +1,6 @@
 @use '../../styles/mixins/state-mixin.scss' as _s;
 
 .item_cell_container {
-  @include _s.disabled-state-mixin;
-
   border-radius: var(--space-sm, 8px);
   list-style: none;
   min-width: 120px;
@@ -20,6 +18,15 @@
 
   &.selected {
     background-color: var(--primary-99);
+  }
+
+  &.disabled {
+    background-color: var(--grayscale-100);
+
+    & * {
+      color: var(--black-alpha-70);
+      fill: var(--black-alpha-70);
+    }
   }
 }
 

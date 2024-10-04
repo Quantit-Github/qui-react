@@ -1,11 +1,28 @@
 import { useRef, useState } from 'react';
-import { ItemList, Typography } from '../../lib/components';
+import { ItemCell, ItemList, Typography } from '../../lib/components';
 
 export default function ItemPage() {
+  const ref = useRef<HTMLUListElement>(null);
+
+  const handleClickOutside = () => {
+    console.log('click outside: ', ref.current);
+    ref.current?.classList.add('xx');
+  };
+
   return (
     <div>
       <section>
+        <div>
+          <ItemCell fitContent disabled>
+            <Typography variant="body-medium">Disabled</Typography>
+          </ItemCell>
+          <ItemCell fitContent>Typo</ItemCell>
+        </div>
+      </section>
+      <section>
         <ItemList
+          ref={ref}
+          onClickOutside={handleClickOutside}
           items={[
             { id: 'id', code: 'code' },
             { id: 'id2', code: 'code2' },
