@@ -1,5 +1,13 @@
 # @quantit/qui-react
 
+## 0.3.55
+
+### Patch Changes
+
+- feat: update Tab props
+
+  - add itemRenderer props
+
 ## 0.3.54
 
 ### Patch Changes
