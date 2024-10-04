@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
 import { replaceClassName } from '../../utils';
 import { ItemCell, ItemCellProps } from './ItemCell';
 
@@ -6,9 +7,10 @@ interface ItemListProps<T extends ItemCellProps> {
   className?: string;
   classReplacer?: Record<string, string>;
   items: T[];
-  itemRenderer?: (item: T, index: number) => React.ReactNode;
   style?: React.CSSProperties;
+  itemRenderer?: (item: T, index: number) => React.ReactNode;
   onClick?: (id?: string) => void;
+  onClickOutside?: () => void;
 }
 
 interface ItemListContainerProps {
@@ -18,11 +20,15 @@ interface ItemListContainerProps {
   style?: React.CSSProperties;
 }
 
-function ItemListContainer(props: ItemListContainerProps) {
+export const ItemListContainer = forwardRef<
+  HTMLUListElement,
+  ItemListContainerProps
+>((props: ItemListContainerProps, ref) => {
   const { children, className, classReplacer, ...rest } = props;
 
   return (
     <ul
+      ref={ref}
       className={replaceClassName(
         classNames('itemlist_container', className),
         classReplacer
@@ -32,13 +38,36 @@ function ItemListContainer(props: ItemListContainerProps) {
       {children}
     </ul>
   );
-}
+});
 
-export function ItemList<T extends ItemCellProps>(props: ItemListProps<T>) {
-  const { items, itemRenderer, onClick, ...rest } = props;
+const ItemListComponent = <T extends ItemCellProps>(
+  props: ItemListProps<T>,
+  ref: React.Ref<HTMLUListElement>
+) => {
+  const { items, itemRenderer, onClick, onClickOutside, ...rest } = props;
+
+  const itemListRef = useRef<HTMLUListElement>(null);
+
+  useImperativeHandle(ref, () => itemListRef.current as HTMLUListElement);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        itemListRef.current &&
+        !itemListRef.current.contains(event.target as Node)
+      ) {
+        onClickOutside?.();
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <ItemListContainer {...rest}>
+    <ItemListContainer ref={itemListRef} {...rest}>
       {items.map((item, index) => {
         if (itemRenderer) {
           return itemRenderer(item, index);
@@ -47,6 +76,14 @@ export function ItemList<T extends ItemCellProps>(props: ItemListProps<T>) {
       })}
     </ItemListContainer>
   );
-}
+};
 
-ItemList.Container = ItemListContainer;
+const ForwardedItemList = forwardRef(ItemListComponent) as <
+  T extends ItemCellProps
+>(
+  props: ItemListProps<T> & { ref?: React.Ref<HTMLUListElement> }
+) => React.ReactElement;
+
+(ForwardedItemList as any).Container = ItemListContainer;
+
+export const ItemList = ForwardedItemList;

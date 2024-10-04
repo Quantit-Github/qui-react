@@ -1,5 +1,14 @@
 # @quantit/qui-react
 
+## 0.3.54
+
+### Patch Changes
+
+- feat: update ItemList
+
+  - add ref
+  - add onClickOutside props
+
 ## 0.3.53
 
 ### Patch Changes
