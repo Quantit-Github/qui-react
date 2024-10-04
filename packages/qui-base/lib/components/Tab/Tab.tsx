@@ -3,17 +3,18 @@ import { useState } from 'react';
 import { replaceClassName } from '../../utils';
 import { TabItem, TabItemProps } from './TabItem';
 
-interface TabProps {
+interface TabProps<T extends TabItemProps> {
   className?: string;
   classReplacer?: Record<string, string>;
-  items?: TabItemProps[];
+  items?: T[];
   maxWidth?: number;
   scrollbarWidth?: React.CSSProperties['scrollbarWidth'];
   variant?: 'standard' | 'underline';
+  itemRenderer?: (item: T, index: number) => React.ReactNode;
   onClick?: (item: TabItemProps) => void;
 }
 
-export function Tab(props: TabProps) {
+export function Tab<T extends TabItemProps>(props: TabProps<T>) {
   const {
     className,
     classReplacer,
@@ -21,6 +22,7 @@ export function Tab(props: TabProps) {
     maxWidth,
     scrollbarWidth = 'none',
     variant = 'standard',
+    itemRenderer,
     onClick,
   } = props;
 
@@ -42,14 +44,16 @@ export function Tab(props: TabProps) {
       style={{ maxWidth, scrollbarWidth, gap: variant === 'underline' ? 0 : 8 }}
     >
       {items.map((item, index) => {
-        const { on, ...rest } = item;
+        if (itemRenderer) {
+          return itemRenderer(item, index);
+        }
         return (
           <TabItem
+            {...item}
             key={`tab_item_${index}`}
             on={selectedIndex === index}
             variant={variant}
             onClick={() => handleTabItemClick(item, index)}
-            {...rest}
           />
         );
       })}

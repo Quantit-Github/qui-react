@@ -42,6 +42,11 @@ export default function ETCPage() {
       <section>
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
           <Tab
+            itemRenderer={(item) => {
+              return (
+                <Typography variant="body-medium">{item.children}12</Typography>
+              );
+            }}
             items={[
               {
                 children: 'Tab1',
