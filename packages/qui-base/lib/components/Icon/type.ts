@@ -4,6 +4,8 @@ const ICON_TYPES = [
   'alertTriangle',
   'alpha',
   'alphaCombinator',
+  'arrowLeftCircle',
+  'arrowRightCircle',
   'arrowUpRightCircle',
   'balance',
   'book',
