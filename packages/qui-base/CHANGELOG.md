@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.58
+
+### Patch Changes
+
+- style: update Dropdown ItemList
+
 ## 0.3.57
 
 ### Patch Changes
