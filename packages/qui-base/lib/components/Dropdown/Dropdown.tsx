@@ -46,7 +46,8 @@ interface DropdownProps {
   itemsClassName?: string;
   itemsFitContent?: boolean;
   itemsWidth?: number;
-  itemsStyle?: React.CSSProperties;
+  itemListContainerStyle?: React.CSSProperties;
+  itemListStyle?: React.CSSProperties;
   itemsScrollbarWidth?: 'auto' | 'thin' | 'none';
   /**
    * 드롭다운 아이템 클릭 시 드롭다운 닫기 여부
@@ -179,9 +180,10 @@ export function Dropdown(props: DropdownProps) {
     itemsClassName,
     itemsFitContent,
     itemsWidth,
-    itemsStyle,
     itemsScrollbarWidth = 'none',
     itemsCloseOnClickOutside = true,
+    itemListContainerStyle,
+    itemListStyle,
     open = false,
     placeholder,
     size,
@@ -247,7 +249,7 @@ export function Dropdown(props: DropdownProps) {
           className={itemsClassName}
           fitContent={itemsFitContent}
           width={itemsWidth}
-          style={itemsStyle}
+          style={itemListContainerStyle}
         >
           <ItemList
             items={items}
@@ -255,6 +257,8 @@ export function Dropdown(props: DropdownProps) {
               border: 'none',
               borderRadius: 8,
               scrollbarWidth: itemsScrollbarWidth,
+              padding: 4,
+              ...itemListStyle,
             }}
             onClick={handleItem}
           />
@@ -293,8 +297,9 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
     itemsClassName,
     itemsFitContent,
     itemsWidth,
-    itemsStyle,
     itemsScrollbarWidth = 'none',
+    itemListContainerStyle,
+    itemListStyle,
     open = false,
     placeholder,
     width,
@@ -367,7 +372,7 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
           className={itemsClassName}
           fitContent={itemsFitContent}
           width={itemsWidth}
-          style={itemsStyle}
+          style={itemListContainerStyle}
         >
           <ItemList
             items={_items}
@@ -376,6 +381,7 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
               borderRadius: 8,
               scrollbarWidth: itemsScrollbarWidth,
               padding: 4,
+              ...itemListStyle,
             }}
             onClick={handleItem}
           />
