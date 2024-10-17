@@ -375,6 +375,7 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
               border: 'none',
               borderRadius: 8,
               scrollbarWidth: itemsScrollbarWidth,
+              padding: 4,
             }}
             onClick={handleItem}
           />
