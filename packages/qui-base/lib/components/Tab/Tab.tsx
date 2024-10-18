@@ -38,10 +38,17 @@ export function Tab<T extends TabItemProps>(props: TabProps<T>) {
   return (
     <div
       className={replaceClassName(
-        classNames('tab_container', className),
+        classNames(
+          'tab_container',
+          variant === 'underline' ? 'underline' : '',
+          className
+        ),
         classReplacer
       )}
-      style={{ maxWidth, scrollbarWidth, gap: variant === 'underline' ? 0 : 8 }}
+      style={{
+        maxWidth,
+        scrollbarWidth,
+      }}
     >
       {items.map((item, index) => {
         if (itemRenderer) {

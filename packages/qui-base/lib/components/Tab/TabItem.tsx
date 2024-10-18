@@ -19,6 +19,11 @@ export interface TabItemProps {
   layout?: TabItemLayoutProps;
   value?: string | number;
   variant?: 'standard' | 'underline';
+  /**
+   * @default false
+   * variant가 underline일 때 Gap 컴포넌트를 표시할지 여부
+   */
+  hasGap?: boolean;
   onClick?: HTMLAttributes<HTMLDivElement>['onClick'];
 }
 
@@ -46,20 +51,43 @@ export function TabItem(props: TabItemProps) {
     on,
     layout,
     variant = 'standard',
+    hasGap = false,
     onClick,
     ...rest
   } = props;
 
+  if (variant === 'underline') {
+    return (
+      <>
+        {hasGap && (
+          <div
+            className={classNames('tab_undeline_item_container', 'gap')}
+          ></div>
+        )}
+        <div
+          className={replaceClassName(
+            classNames(
+              'tab_undeline_item_container',
+              on ? '' : 'off',
+              className
+            ),
+            classReplacer
+          )}
+          role="tab"
+          onClick={onClick}
+          {...rest}
+        >
+          {children || <TabItemLayout {...layout} />}
+          <StateOverlay lightMode={on} />
+        </div>
+      </>
+    );
+  }
+
   return (
     <div
       className={replaceClassName(
-        classNames(
-          variant === 'underline'
-            ? 'tab_undeline_item_container'
-            : 'tab_item_container',
-          on ? '' : 'off',
-          className
-        ),
+        classNames('tab_item_container', on ? '' : 'off', className),
         classReplacer
       )}
       role="tab"

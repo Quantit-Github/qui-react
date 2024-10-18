@@ -8,6 +8,7 @@ import ItemPage from './item.page';
 import LayoutPage from './layout.page';
 import ReplacerPage from './replacer.page';
 import TextfieldPage from './textfield.page';
+import TabPage from './tab.page';
 
 function Root() {
   const [mode, setMode] = useState<'light' | 'dark'>('light');
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         element: <ItemPage />,
         path: '/items',
+      },
+      {
+        element: <TabPage />,
+        path: '/tabs',
       },
     ],
   },
