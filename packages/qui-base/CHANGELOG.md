@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.59
+
+### Patch Changes
+
+- feat: update Tab of underline
+
 ## 0.3.58
 
 ### Patch Changes

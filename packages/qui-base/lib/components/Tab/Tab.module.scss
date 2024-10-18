@@ -16,4 +16,8 @@
 
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+
+  &.underline {
+    gap: 0;
+  }
 }
