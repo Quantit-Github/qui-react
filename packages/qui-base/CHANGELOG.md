@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.60
+
+### Patch Changes
+
+- feat: add Dropdown position prop
+
 ## 0.3.59
 
 ### Patch Changes

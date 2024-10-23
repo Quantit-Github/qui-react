@@ -52,7 +52,6 @@
   position: absolute;
   top: calc(100% + var(--spacing-xs, 4px));
   left: 0;
-  right: 0;
   z-index: 1;
 
   box-sizing: border-box;
@@ -62,6 +61,11 @@
 
   &.fit_content {
     width: fit-content;
+  }
+
+  &.right {
+    right: 0;
+    left: auto;
   }
 }
 
