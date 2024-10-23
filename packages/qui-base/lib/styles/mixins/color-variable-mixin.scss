@@ -77,6 +77,7 @@
   --semantic-body-darken-lv-2: var(--white-alpha-60);
   --semantic-body-lighten-lv-1: var(--black-alpha-10);
   --semantic-body-lighten-lv-2: var(--black-alpha-40);
+  --semantic-body-shadow-lv-1: var(--black-alpha-95);
 
   --error-0: #{token.$error-0};
   --error-10: #{token.$error-10};
@@ -210,6 +211,7 @@
     --semantic-body-darken-lv-2: var(--black-alpha-60);
     --semantic-body-lighten-lv-1: var(--white-alpha-10);
     --semantic-body-lighten-lv-2: var(--white-alpha-40);
+    --semantic-body-shadow-lv-1: var(--white-alpha-20);
 
     --error-0: #{token.$error-100};
     --error-10: #{token.$error-99};
