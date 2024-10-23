@@ -29,6 +29,11 @@ interface DropdownItemsProps {
   children?: React.ReactNode;
   className?: string;
   fitContent?: boolean;
+  /**
+   * 드롭다운 아이템 위치
+   * @default 'left'
+   */
+  position?: 'left' | 'right';
   width?: number;
   style?: React.CSSProperties;
 }
@@ -59,6 +64,11 @@ interface DropdownProps {
    */
   open?: boolean;
   placeholder?: React.ReactNode;
+  /**
+   * 드롭다운 아이템 위치
+   * @default 'left'
+   */
+  position?: 'left' | 'right';
   size?: DropdownSize;
   selectedItemRenderer?: (
     selectedItem: Item | null,
@@ -116,12 +126,20 @@ const DropdownContainer = forwardRef<HTMLDivElement, DropdownContainerProps>(
 );
 
 function DropdownItems(props: DropdownItemsProps) {
-  const { children, className, fitContent, width, style } = props;
+  const {
+    children,
+    className,
+    fitContent,
+    position = 'left',
+    width,
+    style,
+  } = props;
   return (
     <div
       className={classNames(
         'dropdown_items',
         fitContent ? 'fit_content' : '',
+        position,
         className
       )}
       style={{ ...style, width }}
@@ -186,6 +204,7 @@ export function Dropdown(props: DropdownProps) {
     itemListStyle,
     open = false,
     placeholder,
+    position = 'left',
     size,
     width,
     selectedItemRenderer,
@@ -248,6 +267,7 @@ export function Dropdown(props: DropdownProps) {
         <DropdownItems
           className={itemsClassName}
           fitContent={itemsFitContent}
+          position={position}
           width={itemsWidth}
           style={itemListContainerStyle}
         >
@@ -302,6 +322,7 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
     itemListStyle,
     open = false,
     placeholder,
+    position = 'left',
     width,
     selectionRenderer,
     onClick,
@@ -371,6 +392,7 @@ export function MultiSelectionDropdown(props: MultiDropdownProps) {
         <DropdownItems
           className={itemsClassName}
           fitContent={itemsFitContent}
+          position={position}
           width={itemsWidth}
           style={itemListContainerStyle}
         >
