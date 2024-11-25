@@ -3,6 +3,12 @@ import iconJson from '../../assets/icons.json';
 import { replaceClassName } from '../../utils';
 import { IconProps, PresetIconProps } from './type';
 
+interface IconJson {
+  path: string;
+  additionalPaths?: string[];
+  viewBox: string;
+}
+
 export function Icon({
   className,
   classReplacer,
@@ -11,7 +17,7 @@ export function Icon({
   variant = 'ghost',
   ...props
 }: IconProps) {
-  const { path, viewBox } = iconJson[type];
+  const { path, additionalPaths, viewBox } = iconJson[type] as IconJson;
   return (
     <svg
       className={replaceClassName(
@@ -25,6 +31,9 @@ export function Icon({
       {...props}
     >
       <path d={path} />
+      {additionalPaths?.map((path: string) => (
+        <path d={path} />
+      ))}
     </svg>
   );
 }

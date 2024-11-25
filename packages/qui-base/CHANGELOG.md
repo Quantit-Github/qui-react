@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.63
+
+### Patch Changes
+
+- fix: update pan icon paths
+
 ## 0.3.62
 
 ### Patch Changes
