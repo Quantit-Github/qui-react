@@ -1,5 +1,11 @@
 # @quantit/qui-react
 
+## 0.3.64
+
+### Patch Changes
+
+- feat: update token
+
 ## 0.3.63
 
 ### Patch Changes
