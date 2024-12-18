@@ -20,6 +20,7 @@ const ICON_TYPES = [
   'clipboard',
   'close',
   'closeCircle',
+  'copy',
   'data',
   'delete',
   'document',
