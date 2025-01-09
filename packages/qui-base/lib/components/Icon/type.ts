@@ -29,6 +29,7 @@ const ICON_TYPES = [
   'download',
   'dragZoom',
   'edit',
+  'editorRobo',
   'executions',
   'experiment',
   'externalLink',
