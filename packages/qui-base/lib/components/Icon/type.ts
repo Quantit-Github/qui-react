@@ -51,6 +51,7 @@ const ICON_TYPES = [
   'plus',
   'portfolio',
   'profile',
+  'pulse',
   'pythonProject',
   'quick',
   'rebalancing',
